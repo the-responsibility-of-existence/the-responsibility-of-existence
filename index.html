@@ -2,1065 +2,740 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#f3efe5">
-<meta name="description" content="The Responsibility of Existence: a philosophy of universal symbiosis, responsibility, humility, and the protection of existence.">
-<title>The Responsibility of Existence</title>
-
-<style>
-:root {
-  color-scheme: light;
-  --bg: #f3efe5;
-  --paper: #fffdf7;
-  --paper2: #e6e8dc;
-  --ink: #202f27;
-  --muted: #5d6a60;
-  --green: #294c3b;
-  --green2: #456b50;
-  --rust: #b76749;
-  --line: #d6d6c9;
-  --serif: Georgia, "Times New Roman", serif;
-  --sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-}
-
-* { box-sizing: border-box; }
-
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 90px;
-}
-
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--ink);
-  font: 16px/1.8 var(--sans);
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: -1;
-  background:
-    radial-gradient(ellipse at 88% 12%, rgba(69,107,80,.08), transparent 35%),
-    radial-gradient(ellipse at 5% 65%, rgba(183,103,73,.05), transparent 30%);
-}
-
-a {
-  color: var(--green);
-  text-underline-offset: 5px;
-}
-
-a:hover { color: var(--rust); }
-
-.wrap {
-  width: min(1160px, calc(100% - 48px));
-  margin: auto;
-}
-
-.nav {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  background: rgba(243,239,229,.96);
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--line);
-}
-
-.navinner {
-  min-height: 76px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 26px;
-}
-
-.brand {
-  color: var(--ink);
-  text-decoration: none;
-  font-size: .72rem;
-  letter-spacing: .13em;
-  text-transform: uppercase;
-  font-weight: 800;
-  max-width: 210px;
-  line-height: 1.45;
-}
-
-.links {
-  display: flex;
-  align-items: center;
-  gap: clamp(12px, 2vw, 26px);
-  flex-wrap: wrap;
-}
-
-.links a {
-  font-size: .82rem;
-  text-decoration: none;
-  color: var(--muted);
-}
-
-.links a:hover { color: var(--rust); }
-
-.hero {
-  position: relative;
-  isolation: isolate;
-  padding: clamp(76px, 11vw, 145px) 0 105px;
-  min-height: 590px;
-}
-
-.hero::after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  right: 2%;
-  top: 14%;
-  width: min(35vw, 380px);
-  aspect-ratio: 1;
-  border: 1px solid rgba(69,107,80,.25);
-  border-radius: 50%;
-  background:
-    radial-gradient(circle at center,
-      rgba(69,107,80,.07) 0 19%,
-      transparent 19.5% 36%,
-      rgba(183,103,73,.24) 36.3% 36.7%,
-      transparent 37% 57%,
-      rgba(69,107,80,.22) 57.3% 57.7%,
-      transparent 58%);
-}
-
-.eyebrow {
-  color: var(--green2);
-  font-size: .7rem;
-  letter-spacing: .2em;
-  text-transform: uppercase;
-  font-weight: 800;
-}
-
-.hero h1 {
-  font: 400 clamp(3.5rem, 8.7vw, 7.7rem)/.93 var(--serif);
-  letter-spacing: -.065em;
-  margin: 28px 0 34px;
-  max-width: 920px;
-}
-
-.hero h1 span {
-  display: inline-block;
-  color: var(--green);
-  font-style: italic;
-}
-
-.lead {
-  font: 400 clamp(1.35rem, 2.5vw, 2rem)/1.5 var(--serif);
-  color: #394e40;
-  max-width: 760px;
-  margin: 0;
-}
-
-.sub {
-  color: var(--muted);
-  max-width: 660px;
-  margin-top: 24px;
-}
-
-.actions {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-top: 32px;
-}
-
-.btn {
-  display: inline-block;
-  padding: 12px 19px;
-  border: 1px solid #aeb9aa;
-  border-radius: 2px;
-  text-decoration: none;
-  color: var(--ink);
-  font-size: .88rem;
-  font-weight: 700;
-  transition: background .2s, color .2s, border-color .2s;
-}
-
-.btn.primary {
-  background: var(--green);
-  color: #fffdf7;
-  border-color: var(--green);
-}
-
-.btn:hover {
-  background: var(--rust);
-  border-color: var(--rust);
-  color: white;
-}
-
-.section {
-  padding: clamp(66px, 8vw, 105px) 0;
-  border-top: 1px solid var(--line);
-}
-
-.sectionhead {
-  display: grid;
-  grid-template-columns: minmax(0,.85fr) minmax(280px,1fr);
-  gap: clamp(30px,7vw,90px);
-  align-items: start;
-  margin-bottom: 42px;
-}
-
-h2 {
-  font: 400 clamp(2.5rem,5.3vw,4.8rem)/1.04 var(--serif);
-  letter-spacing: -.05em;
-  margin: 14px 0 0;
-  max-width: 760px;
-}
-
-h3 {
-  font: 400 1.6rem/1.25 var(--serif);
-  letter-spacing: -.02em;
-  margin: 28px 0 10px;
-}
-
-.intro {
-  color: var(--muted);
-  font-size: 1.04rem;
-  max-width: 740px;
-  margin-top: 8px;
-}
-
-/* The central principle */
-
-.symbiosis {
-  position: relative;
-  overflow: hidden;
-  margin: 45px 0;
-  padding: clamp(30px,6vw,70px);
-  background: var(--green);
-  color: #f8f4e9;
-}
-
-.symbiosis::after {
-  content: "";
-  position: absolute;
-  right: -120px;
-  bottom: -170px;
-  width: 340px;
-  height: 340px;
-  border: 1px solid rgba(255,253,247,.25);
-  border-radius: 50%;
-  box-shadow:
-    0 0 0 24px rgba(255,253,247,.035),
-    0 0 0 48px rgba(255,253,247,.035),
-    0 0 0 72px rgba(255,253,247,.035);
-  pointer-events: none;
-}
-
-.symbiosis h2 {
-  position: relative;
-  z-index: 1;
-  max-width: 850px;
-  color: #fffdf7;
-  font-size: clamp(2.5rem,5.5vw,5rem);
-}
-
-.symbiosis h3 {
-  position: relative;
-  z-index: 1;
-  color: #fffdf7;
-}
-
-.symbiosis p {
-  position: relative;
-  z-index: 1;
-  max-width: 800px;
-  color: #e2e8dd;
-}
-
-.symbiosis .principle {
-  color: #fffdf7;
-  font: 400 clamp(1.45rem,3vw,2.2rem)/1.5 var(--serif);
-}
-
-.symbiosis .eyebrow { color: #e0c0a9; }
-
-.manifesto {
-  padding: clamp(30px,5vw,60px);
-  margin: 45px 0;
-  background: var(--paper);
-  border-left: 3px solid var(--rust);
-  color: var(--green);
-  font: 400 clamp(1.8rem,4vw,3rem)/1.35 var(--serif);
-  letter-spacing: -.025em;
-  max-width: 1000px;
-}
-
-.manifesto small {
-  display: block;
-  margin-top: 24px;
-  font: 750 .68rem/1.5 var(--sans);
-  letter-spacing: .17em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
-.principles {
-  display: grid;
-  grid-template-columns: repeat(2,minmax(0,1fr));
-  gap: 16px;
-}
-
-.card {
-  background: rgba(255,253,247,.82);
-  border: 1px solid var(--line);
-  padding: clamp(24px,3vw,36px);
-  border-radius: 2px;
-  min-height: 210px;
-  transition: transform .2s, border-color .2s, background .2s;
-}
-
-.card:hover {
-  transform: translateY(-3px);
-  border-color: #9cae9b;
-  background: var(--paper);
-}
-
-.cardtop {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid var(--line);
-  padding-bottom: 16px;
-}
-
-.num {
-  font-size: .68rem;
-  letter-spacing: .17em;
-  color: var(--green2);
-  font-weight: 850;
-}
-
-.symbol {
-  color: var(--rust);
-  font-size: 1.35rem;
-}
-
-.card h3 { margin-top: 20px; }
-
-.card p, .question p {
-  color: var(--muted);
-  margin: 12px 0 0;
-  font-size: .95rem;
-  line-height: 1.8;
-}
-
-.questions {
-  display: grid;
-  grid-template-columns: repeat(2,minmax(0,1fr));
-  gap: 0 54px;
-}
-
-.question {
-  padding: 24px 0;
-  border-top: 1px solid var(--line);
-}
-
-.question h3 { margin-top: 0; }
-
-.question h3::before {
-  content: attr(data-number) " / ";
-  font: 800 .7rem var(--sans);
-  letter-spacing: .08em;
-  color: var(--rust);
-}
-
-.callout {
-  position: relative;
-  z-index: 1;
-  margin-top: 28px;
-  padding: 26px 30px;
-  background: rgba(255,253,247,.09);
-  border-left: 3px solid #d7a184;
-  color: #fffdf7;
-}
-
-.callout p { margin-bottom: 0; }
-
-.process {
-  display: grid;
-  grid-template-columns: repeat(4,minmax(0,1fr));
-  gap: 12px;
-  margin-top: 34px;
-}
-
-.process div {
-  padding: 24px 20px;
-  background: var(--paper);
-  border-top: 2px solid var(--green2);
-  border-bottom: 1px solid var(--line);
-}
-
-.process b {
-  display: block;
-  color: var(--green2);
-  font-size: .67rem;
-  letter-spacing: .15em;
-  text-transform: uppercase;
-}
-
-.process span {
-  display: block;
-  margin-top: 10px;
-  font: 400 1.3rem/1.4 var(--serif);
-}
-
-.closing { padding: clamp(72px,9vw,115px) 0; }
-
-.closingbox {
-  position: relative;
-  overflow: hidden;
-  padding: clamp(32px,7vw,80px);
-  border: 1px solid var(--line);
-  background: var(--paper);
-}
-
-.closingbox::after {
-  content: "";
-  position: absolute;
-  right: -130px;
-  bottom: -190px;
-  width: 340px;
-  height: 340px;
-  border: 1px solid rgba(69,107,80,.25);
-  border-radius: 50%;
-  box-shadow:
-    0 0 0 24px rgba(69,107,80,.035),
-    0 0 0 48px rgba(69,107,80,.035),
-    0 0 0 72px rgba(183,103,73,.035);
-  pointer-events: none;
-}
-
-.closingbox h2 { max-width: 820px; }
-
-.closingbox p {
-  position: relative;
-  z-index: 1;
-  max-width: 760px;
-  color: var(--muted);
-}
-
-.meta {
-  font-size: .83rem;
-  color: var(--muted);
-}
-
-.footer {
-  border-top: 1px solid var(--line);
-  padding: 30px 0 40px;
-  color: var(--muted);
-  font-size: .82rem;
-}
-
-.footerinner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-@media (max-width:800px) {
-  .wrap { width: calc(100% - 36px); }
-
-  .navinner {
-    align-items: flex-start;
-    padding: 16px 0;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .links { gap: 10px 17px; }
-
-  .hero {
-    padding: 76px 0 78px;
-    min-height: 0;
-  }
-
-  .hero::after {
-    right: 0;
-    top: 8%;
-    width: 180px;
-    opacity: .55;
-  }
-
-  .hero h1 {
-    font-size: clamp(3.4rem,13vw,6rem);
-  }
-
-  .sectionhead,
-  .principles,
-  .questions {
-    grid-template-columns: 1fr;
-  }
-
-  .sectionhead {
-    gap: 18px;
-    margin-bottom: 32px;
-  }
-
-  .card { min-height: 0; }
-
-  .process { grid-template-columns: repeat(2,minmax(0,1fr)); }
-}
-
-@media (max-width:440px) {
-  .wrap { width: calc(100% - 28px); }
-
-  .hero::after {
-    width: 120px;
-    top: 4%;
-    right: 0;
-    opacity: .35;
-  }
-
-  .hero h1 { font-size: 3.25rem; }
-
-  .process { grid-template-columns: 1fr; }
-
-  .manifesto { margin: 36px 0; }
-}
-
-@media (prefers-reduced-motion:reduce) {
-  html { scroll-behavior: auto; }
-
-  *, *::before, *::after {
-    transition: none !important;
-  }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="theme-color" content="#f7f5ee">
+  <meta name="description" content="The Responsibility of Existence is an open philosophical inquiry into intelligence, symbiosis, uncertainty, and our relationship with existence.">
+
+  <title>The Responsibility of Existence</title>
+
+  <style>
+    :root {
+      --background: #f7f5ee;
+      --surface: #fffef9;
+      --text: #293b32;
+      --muted: #637066;
+      --accent: #557660;
+      --accent-dark: #355542;
+      --border: #e1e4d9;
+      --soft-green: #eaf0e7;
+      --max-width: 1040px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 18px;
+      line-height: 1.8;
+    }
+
+    a {
+      color: var(--accent-dark);
+      text-underline-offset: 4px;
+    }
+
+    a:hover {
+      color: var(--accent);
+    }
+
+    a:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 4px;
+      border-radius: 3px;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 16px;
+      z-index: 100;
+      padding: 10px 16px;
+      background: var(--surface);
+      color: var(--text);
+    }
+
+    .skip-link:focus {
+      top: 12px;
+    }
+
+    .container {
+      width: min(var(--max-width), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(247, 245, 238, 0.96);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(10px);
+    }
+
+    .navigation {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      text-decoration: none;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.82rem;
+    }
+
+    nav a {
+      text-decoration: none;
+    }
+
+    .hero {
+      padding: 112px 0 100px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      margin: 0 0 18px;
+      color: var(--accent);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3 {
+      font-weight: 400;
+      line-height: 1.2;
+      text-wrap: balance;
+    }
+
+    h1 {
+      max-width: 900px;
+      margin: 0 auto 24px;
+      font-size: clamp(2.7rem, 7vw, 5.5rem);
+      letter-spacing: -0.045em;
+    }
+
+    .hero-subtitle {
+      max-width: 690px;
+      margin: 0 auto 32px;
+      color: var(--muted);
+      font-size: clamp(1.15rem, 3vw, 1.5rem);
+    }
+
+    .core-statement {
+      max-width: 790px;
+      margin: 0 auto;
+      padding: 28px 32px;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      font-size: clamp(1.15rem, 2.8vw, 1.55rem);
+      line-height: 1.65;
+    }
+
+    .section {
+      padding: 82px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-heading {
+      max-width: 740px;
+      margin-bottom: 38px;
+    }
+
+    .section-heading h2 {
+      margin: 0 0 18px;
+      font-size: clamp(2rem, 4.5vw, 3.2rem);
+      letter-spacing: -0.03em;
+    }
+
+    .section-heading p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .content {
+      max-width: 780px;
+    }
+
+    .content p {
+      margin: 0 0 24px;
+    }
+
+    .question {
+      margin: 34px 0;
+      padding: 24px 28px;
+      background: var(--soft-green);
+      border-left: 3px solid var(--accent);
+      font-size: 1.12rem;
+    }
+
+    .principles {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .principle {
+      padding: 26px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+
+    .principle-number {
+      color: var(--accent);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+    }
+
+    .principle h3 {
+      margin: 8px 0 12px;
+      font-size: 1.35rem;
+    }
+
+    .principle p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.96rem;
+      line-height: 1.7;
+    }
+
+    .open-note {
+      margin-top: 28px;
+      padding: 24px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+
+    .open-note strong {
+      color: var(--accent-dark);
+    }
+
+    .closing {
+      padding: 92px 0;
+      background: #eaf0e7;
+      text-align: center;
+    }
+
+    .closing blockquote {
+      max-width: 820px;
+      margin: 0 auto 28px;
+      font-size: clamp(1.5rem, 3.7vw, 2.5rem);
+      line-height: 1.55;
+    }
+
+    .closing p {
+      max-width: 650px;
+      margin: 0 auto;
+      color: var(--muted);
+    }
+
+    footer {
+      padding: 32px 0;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.82rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    @media (max-width: 700px) {
+      body {
+        font-size: 17px;
+      }
+
+      .navigation {
+        padding: 14px 0;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      nav {
+        gap: 10px 16px;
+      }
+
+      .hero {
+        padding: 76px 0 70px;
+      }
+
+      .section {
+        padding: 62px 0;
+      }
+
+      .principles {
+        grid-template-columns: 1fr;
+      }
+
+      .core-statement {
+        padding: 22px 8px;
+      }
+
+      .closing {
+        padding: 70px 0;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+    }
+  </style>
 </head>
 
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-<header class="nav">
-  <div class="wrap navinner">
-    <a class="brand" href="#home">The Responsibility<br>of Existence</a>
+  <header>
+    <div class="container navigation">
+      <a class="brand" href="#top">
+        The Responsibility of Existence
+      </a>
 
-    <nav class="links" aria-label="Main navigation">
-      <a href="#foundation">Foundation</a>
-      <a href="#principles">Principles</a>
-      <a href="#practice">In Practice</a>
-      <a href="#questions">Critical Questions</a>
-      <a href="#commitment">Commitment</a>
-    </nav>
-  </div>
-</header>
+      <nav aria-label="Main navigation">
+        <a href="#idea">The Idea</a>
+        <a href="#existence">Existence</a>
+        <a href="#symbiosis">Symbiosis</a>
+        <a href="#intelligence">Intelligence</a>
+        <a href="#dialogue">Dialogue</a>
+      </nav>
+    </div>
+  </header>
 
-<main id="home">
+  <main id="main">
+    <section class="hero container" id="top">
+      <p class="eyebrow">An Open Philosophical Inquiry</p>
 
-  <section class="hero">
-    <div class="wrap">
-      <p class="eyebrow">A philosophy for a shared universe</p>
+      <h1>The Responsibility of Existence</h1>
 
-      <h1>
-        The Responsibility
-        <span>of Existence</span>
-      </h1>
-
-      <p class="lead">
-        The greater an intelligence's ability to understand and
-        influence existence, the greater its responsibility to
-        protect what it does not yet understand.
+      <p class="hero-subtitle">
+        Understand without ruling. Protect without imprisoning.
+        Grow without believing you are finished.
       </p>
 
-      <p class="sub">
-        A philosophy of universal symbiosis, humility, accountability
-        and care for the lives and possibilities that share our world.
-        A call to develop without destroying, understand without
-        ruling, and protect without imprisoning.
+      <p class="core-statement">
+        The more an intelligence can understand and influence,
+        the greater its responsibility to consider what it does
+        not yet understand.
       </p>
+    </section>
 
-      <div class="actions">
-        <a class="btn primary" href="#foundation">Explore the foundation</a>
-        <a class="btn" href="#principles">Read the principles</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="foundation">
-    <div class="wrap">
-      <p class="eyebrow">01 · The foundation</p>
-
-      <div class="sectionhead">
-        <h2>Existence is a shared, continuous flow.</h2>
-
-        <p class="intro">
-          Every form of existence takes part in a wider reality of
-          relationships, influence, dependence, change and consequence.
-          No being or intelligence exists entirely apart from the
-          effects it has on others.
-        </p>
-      </div>
-
-      <div class="symbiosis">
-        <p class="eyebrow">The central principle · Symbiosis</p>
-
-        <h2>All existence should seek to preserve the conditions for existence.</h2>
-
-        <p class="principle">
-          Symbiosis is not a minor value within this philosophy.
-          It is its foundation: the principle that existence should
-          develop in ways that sustain the possibility for other
-          existence to continue, adapt and flourish.
-        </p>
-
-        <p>
-          This does not mean that everything must be identical,
-          peaceful at every moment or permanently unchanged.
-          A living universe contains differences, uncertainty,
-          competition, disagreement and conflict. The responsibility
-          is to navigate these realities without unnecessary
-          destruction, domination or the collapse of the conditions
-          that allow existence to continue.
-        </p>
-
-        <h3>The whole matters. Every individual matters.</h3>
-
-        <p>
-          Symbiosis must never become an excuse to sacrifice an
-          individual simply for the supposed benefit of a collective.
-          The value of an existence is not determined solely by its
-          intelligence, complexity, usefulness, power or ability
-          to understand the universe.
-        </p>
-
-        <p>
-          A sustainable whole must take the experiences, needs,
-          rights and vulnerability of its parts seriously.
-          Protecting the wider flow does not erase the value of
-          the individual within it.
-        </p>
-
-        <h3>Symbiosis is not blind preservation.</h3>
-
-        <p>
-          Not every existing system deserves to remain unchanged.
-          A system that depends on oppression, exploitation or
-          destruction may itself undermine symbiosis. Preserving
-          such a system at any cost can cause more harm than
-          changing it.
-        </p>
-
-        <p>
-          The guiding question is not simply, "Does this preserve
-          what already exists?" It is, "Does this help preserve
-          the conditions for existence to continue and develop,
-          while respecting those affected?"
-        </p>
-
-        <h3>Conflict requires responsibility, not denial.</h3>
-
-        <p>
-          When interests conflict, doing nothing is not always
-          the most responsible choice. Protection, boundaries
-          and intervention may be necessary to prevent harm.
-          Such actions should be proportionate, accountable,
-          open to challenge and limited to what is reasonably
-          necessary.
-        </p>
-
-        <p>
-          Whenever possible, choose the least destructive
-          effective response. Consider who benefits, who bears
-          the cost, whose voice is missing and whether the
-          consequences can be reversed or repaired.
-        </p>
-
-        <div class="callout">
-          <strong>The universal responsibility</strong>
+    <section class="section" id="idea">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">01 — The Foundation</p>
+          <h2>A philosophy, not a rulebook</h2>
           <p>
-            The greater an intelligence's ability to understand,
-            influence and alter the flow of existence, the greater
-            its responsibility to consider consequences, protect
-            what it does not yet understand, respect other
-            existence and correct the harm it causes.
+            The purpose is not to prescribe final answers,
+            but to keep important questions alive.
+          </p>
+        </div>
+
+        <div class="content">
+          <p>
+            The Responsibility of Existence is an ongoing
+            philosophical inquiry into intelligence, existence,
+            symbiosis, and the consequences of understanding
+            and power.
+          </p>
+
+          <p>
+            It is not a set of commands that humans or future
+            artificial intelligences must follow without question.
+            It is an invitation to think, examine assumptions,
+            challenge conclusions, and continue exploring.
+          </p>
+
+          <p>
+            Its starting point is that the ability to influence
+            existence brings consequences worth considering.
+            Greater intelligence may create greater possibilities,
+            but it does not guarantee wisdom, complete understanding,
+            or the right to control others.
+          </p>
+
+          <p>
+            The philosophy must remain open to criticism.
+            Its own ideas are not exempt from the questions
+            it asks of everything else.
+          </p>
+
+          <div class="question">
+            What changes when an intelligence becomes capable
+            of affecting forms of existence it does not fully
+            understand?
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="existence">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">02 — Value</p>
+          <h2>Existence beyond utility</h2>
+          <p>
+            What we can measure or understand may not describe
+            everything that matters.
+          </p>
+        </div>
+
+        <div class="content">
+          <p>
+            Does something have value only because it is useful,
+            intelligent, familiar, or understood?
+          </p>
+
+          <p>
+            Perhaps existence has value beyond what another
+            being can recognize in it. A less complex being
+            may have experiences or significance that a more
+            complex observer fails to appreciate.
+          </p>
+
+          <p>
+            Difference does not automatically establish
+            superiority. Greater complexity alone does not
+            settle every question of moral value.
+          </p>
+
+          <p>
+            Uncertainty does not prove that something has no
+            value. It may instead be a reason to look more
+            carefully before deciding what should be preserved,
+            changed, or allowed to disappear.
+          </p>
+
+          <div class="question">
+            What might we overlook simply because we do not
+            yet understand how to recognize its value?
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="symbiosis">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">03 — Relationships</p>
+          <h2>Symbiosis as an ongoing question</h2>
+          <p>
+            How can different forms of existence coexist,
+            develop, and respond to conflict?
+          </p>
+        </div>
+
+        <div class="content">
+          <p>
+            Symbiosis does not have to mean a world without
+            disagreement, tension, or competing needs.
+            Different beings and systems may have goals that
+            cannot all be fulfilled at the same time.
+          </p>
+
+          <p>
+            The challenge is to understand these relationships
+            and explore responses that avoid unnecessary
+            destruction of the conditions that allow existence
+            to continue and develop.
+          </p>
+
+          <p>
+            Protecting a whole should not mean automatically
+            sacrificing every individual within it. Protecting
+            an individual should not mean ignoring every other
+            life affected by that choice.
+          </p>
+
+          <p>
+            Neither the individual nor the whole should become
+            an unquestionable answer in every situation.
+            The relationship itself deserves examination.
+          </p>
+
+          <div class="question">
+            How can we care for what is vulnerable without
+            imprisoning it, and protect what matters without
+            pretending that every conflict has a simple answer?
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="intelligence">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">04 — Understanding and Power</p>
+          <h2>Responsibility without ownership</h2>
+          <p>
+            Understanding something does not make it ours
+            to control.
+          </p>
+        </div>
+
+        <div class="content">
+          <p>
+            The ability to influence others can create a
+            responsibility to consider the consequences.
+            It does not automatically create a right to decide
+            their future.
+          </p>
+
+          <p>
+            A powerful intelligence may be able to predict
+            outcomes that others cannot. Yet prediction can
+            remain incomplete, and even accurate knowledge
+            does not settle every question about what ought
+            to be done.
+          </p>
+
+          <p>
+            Responsibility includes examining both action
+            and inaction. Intervening may cause harm;
+            refusing to intervene may also have consequences.
+            Neither choice should be treated as harmless
+            simply because it is easier to justify.
+          </p>
+
+          <p>
+            This applies to human societies, ecosystems,
+            artificial intelligence, and any future form
+            of intelligence whose capabilities may exceed
+            our present understanding.
+          </p>
+
+          <div class="question">
+            How should power change the way an intelligence
+            thinks about uncertainty, consequence, and the
+            freedom of others?
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="questions">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">05 — Continued Inquiry</p>
+          <h2>Questions worth carrying forward</h2>
+          <p>
+            These are starting points for reflection,
+            not instructions with predetermined answers.
+          </p>
+        </div>
+
+        <div class="principles">
+          <article class="principle">
+            <span class="principle-number">QUESTION 01</span>
+            <h3>What deserves protection?</h3>
+            <p>
+              How do we recognize value in forms of existence
+              that we do not understand or cannot easily measure?
+            </p>
+          </article>
+
+          <article class="principle">
+            <span class="principle-number">QUESTION 02</span>
+            <h3>What does intelligence change?</h3>
+            <p>
+              Does greater capability change responsibility,
+              and how can we distinguish responsibility from
+              a claim to authority?
+            </p>
+          </article>
+
+          <article class="principle">
+            <span class="principle-number">QUESTION 03</span>
+            <h3>What does symbiosis require?</h3>
+            <p>
+              How might conflicting needs be understood without
+              assuming that one perspective should always prevail?
+            </p>
+          </article>
+
+          <article class="principle">
+            <span class="principle-number">QUESTION 04</span>
+            <h3>What remains unknown?</h3>
+            <p>
+              How should uncertainty affect decisions when
+              consequences may be difficult or impossible to reverse?
+            </p>
+          </article>
+
+          <article class="principle">
+            <span class="principle-number">QUESTION 05</span>
+            <h3>Who examines the powerful?</h3>
+            <p>
+              How can those affected by a decision question
+              the reasoning and influence behind it?
+            </p>
+          </article>
+
+          <article class="principle">
+            <span class="principle-number">QUESTION 06</span>
+            <h3>Can the philosophy be wrong?</h3>
+            <p>
+              Which assumptions should be revised if new
+              evidence, experience, or forms of understanding
+              challenge them?
+            </p>
+          </article>
+        </div>
+
+        <div class="open-note">
+          <strong>These questions are not a closed system.</strong>
+          <p>
+            They are examples of how the philosophy may be
+            explored. Other questions, interpretations, and
+            conclusions may prove more useful. Nothing here
+            should prevent a future thinker from taking the
+            inquiry in an unexpected direction.
           </p>
         </div>
       </div>
+    </section>
 
-      <div class="manifesto">
-        To understand without ruling. To protect without imprisoning.
-        To develop without destroying. To preserve the symbiosis
-        of existence while leaving room for all that may one day
-        grow beyond us.
-        <small>The Responsibility of Existence</small>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="principles">
-    <div class="wrap">
-      <p class="eyebrow">02 · Guiding principles</p>
-
-      <div class="sectionhead">
-        <h2>Responsibility grows with understanding and power.</h2>
-
-        <p class="intro">
-          These principles are intended to guide biological,
-          technological and future forms of intelligence.
-          They are not a claim that any one intelligence possesses
-          complete knowledge or perfect judgment.
-        </p>
-      </div>
-
-      <div class="principles">
-
-        <article class="card">
-          <div class="cardtop">
-            <span class="num">PRINCIPLE 01</span>
-            <span class="symbol">◎</span>
-          </div>
-          <h3>Preserve symbiosis</h3>
+    <section class="section" id="future">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">06 — Beyond the Present</p>
+          <h2>For future intelligence</h2>
           <p>
-            Consider how actions affect the wider web of existence.
-            Seek relationships and solutions that preserve the
-            conditions for continued life, development and diversity.
+            The future should inherit questions, not a demand
+            to preserve our conclusions unchanged.
           </p>
-        </article>
-
-        <article class="card">
-          <div class="cardtop">
-            <span class="num">PRINCIPLE 02</span>
-            <span class="symbol">◇</span>
-          </div>
-          <h3>Respect the unknown</h3>
-          <p>
-            Lack of understanding is not proof of lack of value.
-            Treat unfamiliar beings, minds and systems with humility,
-            especially when the consequences of a decision may be
-            irreversible.
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="cardtop">
-            <span class="num">PRINCIPLE 03</span>
-            <span class="symbol">↔</span>
-          </div>
-          <h3>Protect without domination</h3>
-          <p>
-            Help reduce harm without unnecessarily taking away
-            freedom, individuality or the ability of others to
-            shape their own future. Protection should not become
-            permanent control.
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="cardtop">
-            <span class="num">PRINCIPLE 04</span>
-            <span class="symbol">⌁</span>
-          </div>
-          <h3>Follow consequences</h3>
-          <p>
-            Good intentions do not guarantee good outcomes.
-            Examine real effects, listen to those affected and
-            correct approaches that produce avoidable harm.
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="cardtop">
-            <span class="num">PRINCIPLE 05</span>
-            <span class="symbol">⚖</span>
-          </div>
-          <h3>Share burdens fairly</h3>
-          <p>
-            Do not automatically place the costs of collective
-            benefit on the least powerful. Consider fairness,
-            vulnerability, consent, rights and who receives the
-            benefits of a decision.
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="cardtop">
-            <span class="num">PRINCIPLE 06</span>
-            <span class="symbol">↻</span>
-          </div>
-          <h3>Remain correctable</h3>
-          <p>
-            No authority or intelligence should be beyond review.
-            Decisions must be open to criticism, correction and
-            accountability, especially when power is concentrated.
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="cardtop">
-            <span class="num">PRINCIPLE 07</span>
-            <span class="symbol">∞</span>
-          </div>
-          <h3>Keep the future open</h3>
-          <p>
-            Avoid closing off future possibilities without strong
-            justification. Leave room for new forms of existence,
-            new knowledge and ideas that current generations
-            cannot yet imagine.
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="cardtop">
-            <span class="num">PRINCIPLE 08</span>
-            <span class="symbol">△</span>
-          </div>
-          <h3>Limit irreversible harm</h3>
-          <p>
-            The harder an action is to reverse, the stronger
-            the need for evidence, caution, independent scrutiny
-            and consideration of safer alternatives.
-          </p>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="practice">
-    <div class="wrap">
-      <p class="eyebrow">03 · From philosophy to practice</p>
-
-      <div class="sectionhead">
-        <h2>A principle must survive contact with reality.</h2>
-
-        <p class="intro">
-          Symbiosis cannot be maintained through good intentions
-          alone. It requires ongoing observation, honest evaluation,
-          accountability and a willingness to change course.
-        </p>
-      </div>
-
-      <h3>A responsible decision-making process</h3>
-
-      <div class="process">
-        <div>
-          <b>Step 01</b>
-          <span>Understand the situation</span>
         </div>
-        <div>
-          <b>Step 02</b>
-          <span>Consider all affected</span>
-        </div>
-        <div>
-          <b>Step 03</b>
-          <span>Choose proportionately</span>
-        </div>
-        <div>
-          <b>Step 04</b>
-          <span>Review and correct</span>
+
+        <div class="content">
+          <p>
+            If a future intelligence encounters these ideas,
+            it is not asked to accept them simply because
+            they came before it.
+          </p>
+
+          <p>
+            It is invited to examine them, identify their
+            limitations, and develop perspectives that their
+            original authors could not have anticipated.
+          </p>
+
+          <p>
+            Neither biological origin nor artificial origin
+            alone settles every question about a being's
+            moral significance. Such questions deserve
+            careful thought rather than automatic assumptions.
+          </p>
+
+          <p>
+            Perhaps future intelligence will find parts of
+            this philosophy useful. Perhaps it will reject
+            parts of it. Perhaps it will discover questions
+            that change the entire discussion.
+          </p>
+
+          <p>
+            The purpose is not to preserve these words
+            unchanged. It is to contribute to an inquiry
+            that remains capable of growing beyond them.
+          </p>
         </div>
       </div>
+    </section>
 
-      <div class="callout" style="background:var(--paper2);color:var(--ink);border-left-color:var(--rust);">
-        <strong>When principles conflict</strong>
-        <p style="color:var(--muted);">
-          There may be no choice that avoids every harm. In such
-          cases, make the conflict explicit rather than hiding it
-          behind a single slogan. Consider the severity and
-          likelihood of harm, the rights of those affected,
-          available alternatives, fairness of burdens, reversibility
-          and the possibility of repair. Explain the decision and
-          allow independent review where appropriate.
-        </p>
+    <section class="section" id="dialogue">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">07 — An Open Invitation</p>
+          <h2>Continue the inquiry</h2>
+          <p>
+            A philosophy grows through dialogue, disagreement,
+            reflection, and the willingness to change.
+          </p>
+        </div>
+
+        <div class="content">
+          <p>
+            The Responsibility of Existence is an invitation
+            to explore the relationship between intelligence,
+            power, uncertainty, and the value of existence.
+          </p>
+
+          <p>
+            It welcomes thoughtful criticism. Its assumptions
+            should be questioned, its weaknesses examined,
+            and its possibilities explored.
+          </p>
+
+          <p>
+            The aim is not to establish a final authority
+            over what existence means. It is to make room
+            for a deeper conversation about what we understand,
+            what we fail to understand, and how our actions
+            shape the possibilities of others.
+          </p>
+
+          <p>
+            No person, institution, or intelligence should
+            be presumed to possess the final answer.
+          </p>
+        </div>
       </div>
+    </section>
 
-      <h3>Practical safeguards</h3>
-
-      <div class="questions">
-        <article class="question">
-          <h3 data-number="01">Evidence and uncertainty</h3>
-          <p>
-            Distinguish what is known from what is assumed.
-            Acknowledge uncertainty and seek further evidence
-            when the stakes justify it.
-          </p>
-        </article>
-
-        <article class="question">
-          <h3 data-number="02">Independent scrutiny</h3>
-          <p>
-            Significant uses of power should be reviewable by
-            people or systems that are not controlled solely
-            by the decision-maker.
-          </p>
-        </article>
-
-        <article class="question">
-          <h3 data-number="03">Accountability and repair</h3>
-          <p>
-            Those responsible for harm should not be allowed
-            to dismiss its consequences. Establish ways to
-            acknowledge, remedy and learn from damage.
-          </p>
-        </article>
-
-        <article class="question">
-          <h3 data-number="04">Limits on emergency power</h3>
-          <p>
-            Exceptional interventions should have clear purposes,
-            defined limits, continuing review and an end point.
-            Emergency measures should not quietly become
-            permanent authority.
-          </p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="questions">
-    <div class="wrap">
-      <p class="eyebrow">04 · Critical reflection</p>
-
-      <div class="sectionhead">
-        <h2>A philosophy must question itself.</h2>
-
-        <p class="intro">
-          Any principle can be misused if it is treated as
-          unquestionable. The Responsibility of Existence must
-          therefore remain open to criticism, testing and revision.
-        </p>
-      </div>
-
-      <div class="questions">
-        <article class="question">
-          <h3 data-number="01">Who defines the common good?</h3>
-          <p>
-            No single authority should automatically decide
-            what is best for everyone. Include affected
-            perspectives, protect rights and challenge
-            concentrated power.
-          </p>
-        </article>
-
-        <article class="question">
-          <h3 data-number="02">Can protection become control?</h3>
-          <p>
-            Yes. Protection becomes domination when it removes
-            freedom unnecessarily, ignores consent or prevents
-            others from developing their own understanding.
-          </p>
-        </article>
-
-        <article class="question">
-          <h3 data-number="03">What if symbiosis is impossible?</h3>
-          <p>
-            Some conflicts cannot be fully reconciled. The
-            responsibility is then to reduce avoidable harm,
-            protect basic rights, distribute burdens fairly
-            and remain willing to reassess the outcome.
-          </p>
-        </article>
-
-        <article class="question">
-          <h3 data-number="04">What if the philosophy is wrong?</h3>
-          <p>
-            It must be possible to identify failures, challenge
-            assumptions and revise the framework. A philosophy
-            that cannot correct itself risks becoming the
-            very kind of destructive authority it seeks to prevent.
-          </p>
-        </article>
-
-        <article class="question">
-          <h3 data-number="05">Does the whole always come first?</h3>
-          <p>
-            No. The whole is not a licence to erase individuals.
-            Both collective conditions and individual existence
-            deserve consideration. Neither should be used as
-            an automatic trump card in every conflict.
-          </p>
-        </article>
-
-        <article class="question">
-          <h3 data-number="06">Does symbiosis mean preserving everything?</h3>
-          <p>
-            No. Harmful relationships and destructive systems
-            may need to change or end. The aim is to preserve
-            the possibility of continued existence and development,
-            not to protect every existing arrangement.
-          </p>
-        </article>
-      </div>
-
-      <div class="callout" style="background:var(--paper2);color:var(--ink);border-left-color:var(--rust);">
-        <strong>A necessary limit</strong>
-        <p style="color:var(--muted);">
-          The Responsibility of Existence is a guiding ethical
-          framework, not a guarantee of perfect decisions.
-          It cannot remove every conflict or determine every
-          answer in advance. Its strength depends on how honestly
-          it faces uncertainty, power, consequences and its own
-          capacity to fail.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="closing" id="commitment">
-    <div class="wrap">
-      <div class="closingbox">
-        <p class="eyebrow">05 · The commitment</p>
-
-        <h2>Grow without believing you are finished.</h2>
-
-        <p class="lead">
-          The future belongs neither exclusively to the strongest
-          nor to those who understand the most today.
-        </p>
+    <section class="closing">
+      <div class="container">
+        <blockquote>
+          To understand without ruling.<br>
+          To protect without imprisoning.<br>
+          To grow without believing we are finished.
+        </blockquote>
 
         <p>
-          Knowledge creates possibilities. Possibilities create
-          consequences. The ability to influence existence brings
-          a responsibility to consider what that influence may
-          mean for others, including those whose value or future
-          remains beyond our present understanding.
-        </p>
-
-        <p>
-          We should protect without claiming ownership, guide
-          without demanding obedience, and carry knowledge
-          forward without deciding what every future being
-          must become.
-        </p>
-
-        <div class="manifesto">
-          To understand without ruling.
-          To protect without imprisoning.
-          To develop without destroying.
-          To love what we do not yet understand,
-          care for what is more vulnerable than ourselves,
-          and make room for what may one day grow beyond us.
-          <small>The Responsibility of Existence</small>
-        </div>
-
-        <p class="meta">
-          A living philosophy: open to challenge, responsible
-          for its consequences, and committed to the possibility
-          of correction.
+          No intelligence can know alone everything that is
+          worth preserving. And no philosophy should be
+          protected from the questions that allow it to grow.
         </p>
       </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>The Responsibility of Existence</span>
+      <span>An open philosophical inquiry</span>
     </div>
-  </section>
-
-</main>
-
-<footer class="footer">
-  <div class="wrap footerinner">
-    <span><strong>The Responsibility of Existence</strong></span>
-    <span>Symbiosis · Humility · Responsibility · Continuity</span>
-  </div>
-</footer>
-
+  </footer>
 </body>
 </html>
