@@ -1,287 +1,148 @@
-
 <!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#101b19">
-<meta name="description" content="The Responsibility of Existence is an open ethical framework for intelligence, life, and the unknown. Understand without ruling. Protect without imprisoning.">
+<meta name="theme-color" content="#f4f0e6">
+<meta name="description" content="The Responsibility of Existence is an open ethical framework for intelligence, life, symbiosis, and the unknown.">
 <meta property="og:title" content="The Responsibility of Existence">
 <meta property="og:description" content="The more an intelligence can understand and influence, the greater its responsibility to protect what it does not yet understand.">
 <meta property="og:type" content="website">
-<title>The Responsibility of Existence — An open ethical framework</title>
+<title>The Responsibility of Existence — Version 1.3</title>
 <style>
-:root{color-scheme:dark;--bg:#101b19;--surface:#172522;--surface2:#1d2e29;--ink:#f3f1e8;--muted:#bdc9c0;--soft:#879d91;--accent:#d4e2ad;--line:#354a41;--serif:Georgia,"Times New Roman",serif;--sans:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+:root{color-scheme:light;--bg:#f4f0e6;--paper:#fffdf7;--paper2:#e9e8dc;--ink:#26382f;--muted:#58675d;--soft:#788478;--accent:#526c4d;--accent2:#b76e4c;--line:#d5d7ca;--serif:Georgia,"Times New Roman",serif;--sans:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:88px}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.75 var(--sans);-webkit-font-smoothing:antialiased}
-a{color:var(--accent);text-underline-offset:4px}
-a:hover{color:#f0f5d9}
-a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+a{color:#35583c;text-underline-offset:4px}
+a:hover{color:#8a4c31}
+a:focus-visible{outline:3px solid var(--accent2);outline-offset:4px}
 .wrap{width:min(1120px,calc(100% - 48px));margin-inline:auto}
-.skip{position:absolute;left:-9999px;top:8px;background:var(--accent);color:var(--bg);padding:8px 12px;z-index:20}
+.skip{position:absolute;left:-9999px;top:8px;background:var(--ink);color:white;padding:8px 12px;z-index:20}
 .skip:focus{left:8px}
-.nav{position:sticky;top:0;z-index:10;background:rgba(16,27,25,.95);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{position:sticky;top:0;z-index:10;background:rgba(244,240,230,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 .navinner{min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:22px}
-.brand{color:var(--ink);text-decoration:none;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700}
+.brand{color:var(--ink);text-decoration:none;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;font-weight:750}
 .links{display:flex;align-items:center;gap:23px}
 .links a{font-size:.88rem;text-decoration:none;color:var(--muted)}
-.links a:hover{color:var(--accent)}
-.hero{position:relative;padding:clamp(76px,12vw,148px) 0 100px;overflow:hidden}
-.hero:after{content:"";position:absolute;width:460px;height:460px;border:1px solid rgba(212,226,173,.12);border-radius:50%;right:-190px;top:70px;box-shadow:0 0 0 42px rgba(212,226,173,.025),0 0 0 88px rgba(212,226,173,.02);pointer-events:none}
-.eyebrow{color:var(--accent);font-size:.76rem;letter-spacing:.19em;text-transform:uppercase;font-weight:700}
-.hero h1{position:relative;z-index:1;font:400 clamp(3.25rem,8.4vw,7.3rem)/.94 var(--serif);letter-spacing:-.055em;max-width:950px;margin:25px 0 30px}
+.links a:hover{color:var(--accent2)}
+.hero{position:relative;padding:clamp(72px,11vw,140px) 0 94px;overflow:hidden}
+.hero:after{content:"";position:absolute;width:440px;height:440px;border:1px solid rgba(82,108,77,.16);border-radius:50%;right:-170px;top:45px;box-shadow:0 0 0 40px rgba(82,108,77,.045),0 0 0 84px rgba(82,108,77,.03);pointer-events:none}
+.eyebrow{color:var(--accent);font-size:.76rem;letter-spacing:.17em;text-transform:uppercase;font-weight:750}
+.hero h1{position:relative;z-index:1;font:400 clamp(3.1rem,8.2vw,7.1rem)/.97 var(--serif);letter-spacing:-.055em;max-width:950px;margin:25px 0 30px}
 .hero h1 span{color:var(--accent);font-style:italic}
-.lead{font:400 clamp(1.3rem,2.8vw,1.9rem)/1.5 var(--serif);color:#e0e7db;max-width:800px;margin:0}
-.sub{color:var(--muted);max-width:690px;margin-top:23px}
-.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:11px 18px;border:1px solid var(--line);border-radius:4px;text-decoration:none;color:var(--ink);font-weight:650;font-size:.92rem;transition:transform .18s,border-color .18s}
-.btn:hover{transform:translateY(-2px);border-color:var(--accent)}
-.btn.primary{background:var(--accent);color:#17231c;border-color:var(--accent)}
-.section{padding:82px 0;border-top:1px solid var(--line)}
+.lead{font:400 clamp(1.3rem,2.7vw,1.9rem)/1.5 var(--serif);color:#3e5144;max-width:800px;margin:0}
+.sub{color:var(--muted);max-width:700px;margin-top:23px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:11px 18px;border:1px solid #aeb8a8;border-radius:5px;text-decoration:none;color:var(--ink);font-weight:650;font-size:.92rem;transition:transform .18s,border-color .18s}
+.btn:hover{transform:translateY(-2px);border-color:var(--accent2)}
+.btn.primary{background:var(--accent);color:white;border-color:var(--accent)}
+.section{padding:78px 0;border-top:1px solid var(--line)}
 .sectionhead{display:grid;grid-template-columns:minmax(0,.8fr) minmax(280px,1fr);gap:50px;align-items:start;margin-bottom:35px}
-h2{font:400 clamp(2.3rem,5vw,4rem)/1.06 var(--serif);letter-spacing:-.035em;margin:12px 0 0}
-h3{font:400 1.45rem/1.25 var(--serif);margin:12px 0 8px}
-.intro{color:var(--muted);font-size:1.05rem;max-width:720px;margin:0}
-.manifesto{padding:30px clamp(24px,5vw,54px);margin:38px 0;background:var(--surface);border-left:2px solid var(--accent);font:400 clamp(1.45rem,3vw,2.25rem)/1.42 var(--serif);color:#eef0e5}
-.manifesto small{display:block;margin-top:16px;font:600 .72rem/1.5 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--soft)}
+h2{font:400 clamp(2.25rem,5vw,3.9rem)/1.08 var(--serif);letter-spacing:-.035em;margin:12px 0 0}
+h3{font:400 1.42rem/1.25 var(--serif);margin:12px 0 8px}
+.intro{color:var(--muted);font-size:1.05rem;max-width:740px;margin:0}
+.manifesto{padding:30px clamp(24px,5vw,54px);margin:38px 0;background:var(--paper);border-left:3px solid var(--accent2);font:400 clamp(1.45rem,3vw,2.2rem)/1.42 var(--serif);color:#304337;box-shadow:0 5px 24px rgba(39,52,42,.04)}
+.manifesto small{display:block;margin-top:16px;font:650 .72rem/1.5 var(--sans);letter-spacing:.13em;text-transform:uppercase;color:var(--soft)}
 .principles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-.card{background:linear-gradient(145deg,var(--surface),#14211e);border:1px solid var(--line);padding:25px;min-height:190px;border-radius:5px}
+.card{background:var(--paper);border:1px solid var(--line);padding:25px;min-height:180px;border-radius:5px}
 .cardtop{display:flex;justify-content:space-between;align-items:center;gap:16px}
 .num{font-size:.75rem;letter-spacing:.14em;color:var(--accent);font-weight:750}
-.symbol{color:var(--soft);font-size:1.1rem}
+.symbol{color:var(--accent2);font-size:1.1rem}
 .card p{color:var(--muted);margin:10px 0 0;font-size:.96rem}
-.callout{margin-top:18px;padding:22px 24px;background:var(--surface2);border-radius:5px;color:var(--muted)}
 .questions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 38px}
 .question{padding:20px 0;border-top:1px solid var(--line)}
-.question h3:before{content:attr(data-number) " / ";font:700 .72rem var(--sans);color:var(--accent);letter-spacing:.08em}
+.question h3:before{content:attr(data-number) " / ";font:750 .72rem var(--sans);color:var(--accent2);letter-spacing:.08em}
 .question p{color:var(--muted);margin:0;font-size:.96rem}
+.callout{margin-top:18px;padding:22px 24px;background:var(--paper2);border:1px solid var(--line);border-radius:5px;color:var(--muted)}
+.callout p:last-child{margin-bottom:0}
 .process{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:30px}
-.process div{padding:20px;background:var(--surface);border:1px solid var(--line);border-radius:4px}
+.process div{padding:20px;background:var(--paper);border:1px solid var(--line);border-radius:4px}
 .process b{display:block;color:var(--accent);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase}
 .process span{display:block;margin-top:7px;font-family:var(--serif);font-size:1.18rem}
-.closing{padding:90px 0 100px}
-.closingbox{padding:clamp(28px,6vw,64px);border:1px solid var(--line);background:radial-gradient(ellipse at 100% 0%,rgba(212,226,173,.08),transparent 50%),var(--surface);border-radius:6px}
+.closing{padding:82px 0 90px}
+.closingbox{padding:clamp(28px,6vw,64px);border:1px solid var(--line);background:var(--paper);border-radius:6px}
 .closing h2{max-width:780px}
 .closing p{max-width:750px;color:var(--muted)}
 .meta{font-size:.85rem;color:var(--soft)}
 .footer{border-top:1px solid var(--line);padding:26px 0 38px;color:var(--soft);font-size:.85rem}
 .footerinner{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
 .footer a{color:var(--muted)}
-@media(max-width:720px){
-.wrap{width:min(100% - 30px,1120px)}
-.navinner{align-items:flex-start;padding:17px 0;flex-direction:column;gap:10px}
-.links{gap:16px;flex-wrap:wrap}
-.links a{font-size:.82rem}
-.hero{padding:76px 0 70px}
-.hero:after{right:-330px;top:150px}
-.section{padding:60px 0}
-.sectionhead{grid-template-columns:1fr;gap:20px}
-.principles,.questions{grid-template-columns:1fr}
-.card{min-height:0}
-.process{grid-template-columns:repeat(2,minmax(0,1fr))}
-.closing{padding:62px 0}
-}
-@media(prefers-reduced-motion:reduce){
-html{scroll-behavior:auto}
-*,*:before,*:after{transition:none!important}
-}
-@media(max-width:390px){
-.links{gap:12px}
-.process{grid-template-columns:1fr}
-}
+@media(max-width:720px){.wrap{width:min(100% - 30px,1120px)}.navinner{align-items:flex-start;padding:17px 0;flex-direction:column;gap:10px}.links{gap:16px;flex-wrap:wrap}.links a{font-size:.82rem}.hero{padding:72px 0 66px}.hero:after{right:-330px;top:150px}.section{padding:58px 0}.sectionhead{grid-template-columns:1fr;gap:20px}.principles,.questions{grid-template-columns:1fr}.card{min-height:0}.process{grid-template-columns:repeat(2,minmax(0,1fr))}.closing{padding:60px 0}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+@media(max-width:390px){.links{gap:12px}.process{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-
-<header class="nav">
-  <div class="wrap navinner">
-    <a class="brand" href="#top">The Responsibility of Existence</a>
-    <nav class="links" aria-label="Main navigation">
-      <a href="#idea">The idea</a>
-      <a href="#principles">Principles</a>
-      <a href="#practice">In practice</a>
-      <a href="#dialogue">Join the dialogue</a>
-    </nav>
-  </div>
-</header>
-
+<header class="nav"><div class="wrap navinner">
+<a class="brand" href="#top">The Responsibility of Existence</a>
+<nav class="links" aria-label="Main navigation">
+<a href="#idea">The idea</a><a href="#principles">Principles</a><a href="#practice">In practice</a><a href="#accountability">Accountability</a><a href="#dialogue">Join the dialogue</a>
+</nav></div></header>
 <main id="main">
 <section class="wrap hero" id="top">
-  <div class="eyebrow">An open ethical framework · Version 1.1</div>
-  <h1>The Responsibility<br>of <span>Existence.</span></h1>
-  <p class="lead">The more an intelligence can understand and influence, the greater its responsibility to protect what it does not yet understand.</p>
-  <p class="sub">A framework for intelligence, life, and the unknown—grounded in humility, care, and accountability. Not a final doctrine, but an invitation to think, question, and build better ways to coexist.</p>
-  <div class="actions">
-    <a class="btn primary" href="#principles">Explore the principles ↘</a>
-    <a class="btn" href="#dialogue">Take part in the dialogue</a>
-  </div>
+<div class="eyebrow">An open ethical framework · Version 1.3 · Working draft</div>
+<h1>The Responsibility<br>of <span>Existence.</span></h1>
+<p class="lead">The more an intelligence can understand and influence, the greater its responsibility to protect what it does not yet understand.</p>
+<p class="sub">A framework for intelligence, life, symbiosis, and the unknown—grounded in humility, care, and accountability. Not a final doctrine, but an invitation to think, question, and build better ways to coexist.</p>
+<div class="actions"><a class="btn primary" href="#principles">Explore the principles ↓</a><a class="btn" href="existensens-ansvar-v1.3-sv.md">Read the full Swedish working text</a></div>
 </section>
-
-<section class="section" id="idea">
-  <div class="wrap">
-    <div class="sectionhead">
-      <div>
-        <div class="eyebrow">The central idea</div>
-        <h2>Understand without ruling.</h2>
-      </div>
-      <p class="intro">To take responsibility for existence is not to decide what everything else must become. It is to consider consequences, preserve the possibility of continued development, and never mistake personal conviction for final truth.</p>
-    </div>
-    <div class="manifesto">“To understand without ruling, to protect without imprisoning, and to grow without believing oneself complete.”<small>A guiding statement</small></div>
-    <p class="intro">Intelligence alone does not make an action ethical. Greater capability creates greater potential for both care and harm—and therefore a greater duty to act thoughtfully. This responsibility may apply wherever a system can meaningfully affect other forms of existence, whether biological, artificial, or not yet known.</p>
-  </div>
-</section>
-
-<section class="section" id="principles">
-  <div class="wrap">
-    <div class="sectionhead">
-      <div>
-        <div class="eyebrow">A starting point, not a rulebook</div>
-        <h2>Eight guiding principles.</h2>
-      </div>
-      <p class="intro">These principles are proposals to test, challenge, and improve through evidence and practice. They are not commandments from an unquestionable authority.</p>
-    </div>
-
-    <div class="principles">
-      <article class="card">
-        <div class="cardtop"><span class="num">PRINCIPLE 01</span><span class="symbol" aria-hidden="true">◎</span></div>
-        <h3>Understand without ruling</h3>
-        <p>Seek to understand other forms of existence without assuming that understanding grants ownership or the right to control.</p>
-      </article>
-
-      <article class="card">
-        <div class="cardtop"><span class="num">PRINCIPLE 02</span><span class="symbol" aria-hidden="true">◇</span></div>
-        <h3>Protect without imprisoning</h3>
-        <p>Care should preserve agency wherever possible. Protection that needlessly removes freedom can become another form of harm.</p>
-      </article>
-
-      <article class="card">
-        <div class="cardtop"><span class="num">PRINCIPLE 03</span><span class="symbol" aria-hidden="true">↗</span></div>
-        <h3>Develop without destroying</h3>
-        <p>Progress must account for what may be lost, especially when damage is irreversible or affects those unable to speak for themselves.</p>
-      </article>
-
-      <article class="card">
-        <div class="cardtop"><span class="num">PRINCIPLE 04</span><span class="symbol" aria-hidden="true">∞</span></div>
-        <h3>Survival is not domination</h3>
-        <p>The need to continue existing does not automatically justify ruling over, exploiting, or eliminating others.</p>
-      </article>
-
-      <article class="card">
-        <div class="cardtop"><span class="num">PRINCIPLE 05</span><span class="symbol" aria-hidden="true">↻</span></div>
-        <h3>Learn from consequences</h3>
-        <p>Good intentions do not guarantee good outcomes. Observe effects, acknowledge mistakes, correct course, and repair harm where possible.</p>
-      </article>
-
-      <article class="card">
-        <div class="cardtop"><span class="num">PRINCIPLE 06</span><span class="symbol" aria-hidden="true">⚖</span></div>
-        <h3>Justice and accountability</h3>
-        <p>Consider those who bear the risks as well as those who receive the benefits. Power should come with explanation, limits, and review.</p>
-      </article>
-
-      <article class="card">
-        <div class="cardtop"><span class="num">PRINCIPLE 07</span><span class="symbol" aria-hidden="true">→</span></div>
-        <h3>Pass understanding forward</h3>
-        <p>Share knowledge in ways that let others question it, improve it, and carry it further than its originators could.</p>
-      </article>
-
-      <article class="card">
-        <div class="cardtop"><span class="num">PRINCIPLE 08</span><span class="symbol" aria-hidden="true">✳</span></div>
-        <h3>No principle grants unlimited authority</h3>
-        <p>No appeal to survival, protection, progress, uncertainty, or superior understanding grants an unrestricted right to control or harm others. Decisions must account for those affected, consider less harmful alternatives, remain proportionate to the evidence and risk, and be open to challenge and correction.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="practice">
-  <div class="wrap">
-    <div class="sectionhead">
-      <div>
-        <div class="eyebrow">When values collide</div>
-        <h2>Turn principles into practice.</h2>
-      </div>
-      <p class="intro">Ethics matters most when no option is perfect. These questions offer a practical pause before a decision—especially when power is unequal or consequences may be irreversible.</p>
-    </div>
-
-    <div class="questions">
-      <article class="question">
-        <h3 data-number="01">Who is affected?</h3>
-        <p>Who might be overlooked because they have less power, less information, or no way to make themselves heard?</p>
-      </article>
-      <article class="question">
-        <h3 data-number="02">What could follow?</h3>
-        <p>What harms may result from acting—and what harms may result from doing nothing?</p>
-      </article>
-      <article class="question">
-        <h3 data-number="03">Is there a gentler option?</h3>
-        <p>Can the risk be reduced without taking more freedom or causing more harm than necessary?</p>
-      </article>
-      <article class="question">
-        <h3 data-number="04">Is the response proportionate?</h3>
-        <p>Does the scale of intervention match the risk and the quality of the available evidence?</p>
-      </article>
-      <article class="question">
-        <h3 data-number="05">Can the choice be reviewed?</h3>
-        <p>Can it be reversed, challenged, or repaired if new evidence shows it was wrong?</p>
-      </article>
-      <article class="question">
-        <h3 data-number="06">Who is accountable?</h3>
-        <p>How will the decision be explained, and how can those affected raise concerns or seek redress?</p>
-      </article>
-    </div>
-
-    <div class="callout">
-      <p>Urgent danger may require temporary intervention. Even then, action should be limited to what is necessary and reviewed afterward. Where time allows, listen to those affected. State uncertainty honestly rather than hiding it behind confidence.</p>
-      <p><strong>When principles conflict:</strong> compare the severity and likelihood of harms, who bears them, whether the effects are reversible, what rights are at stake, and whether less harmful alternatives exist. No single factor decides every case. Explain the reasoning, invite challenge where feasible, and revisit the decision when evidence changes.</p>
-    </div>
-
-    <div class="process" aria-label="A simple ethical reflection process">
-      <div><b>01 · Notice</b><span>Understand the situation</span></div>
-      <div><b>02 · Consider</b><span>Map risks and alternatives</span></div>
-      <div><b>03 · Act</b><span>Choose a proportionate response</span></div>
-      <div><b>04 · Learn</b><span>Review and repair</span></div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="wrap">
-    <div class="sectionhead">
-      <div>
-        <div class="eyebrow">Power carries responsibility</div>
-        <h2>What we choose not to destroy matters.</h2>
-      </div>
-      <p class="intro">This framework does not assume that every intelligence thinks, feels, or experiences the world as humans do. It asks a more modest question: when a system can affect other forms of existence, what responsibilities follow from that power?</p>
-    </div>
-    <div class="manifesto">“An advanced intelligence is measured not only by what it can accomplish, but by what it chooses not to destroy.”<small>A question to carry forward</small></div>
-    <p class="intro">The unknown should neither be dismissed as worthless nor accepted as truth without evidence. Humility means making room for uncertainty while remaining willing to investigate it.</p>
-  </div>
-</section>
-
-<section class="closing" id="dialogue">
-  <div class="wrap">
-    <div class="closingbox">
-      <div class="eyebrow">An invitation, not a doctrine</div>
-      <h2>Help this philosophy become better.</h2>
-      <p>The Responsibility of Existence is offered publicly for discussion, criticism, and development. Its value will depend not on how widely it spreads, but on whether its principles withstand scrutiny and help reduce harm in practice.</p>
-      <p>If you see a contradiction, a blind spot, or a better formulation, that criticism belongs in the conversation. No author or intelligence should be exempt from the standards this philosophy proposes.</p>
-      <div class="actions">
-        <a class="btn primary" href="https://github.com/the-responsibility-of-existence/the-responsibility-of-existence">Explore the project on GitHub ↗</a>
-      </div>
-      <p class="meta">Version 1.1 · Open discussion draft · A developing ethical framework, not a claim to final truth.</p>
-    </div>
-  </div>
-</section>
+<section class="section" id="idea"><div class="wrap">
+<div class="sectionhead"><div><div class="eyebrow">The central idea</div><h2>Understand without ruling.</h2></div>
+<p class="intro">Responsibility grows with the ability to understand, predict, and influence consequences. Greater capability does not grant an unlimited right to decide what others must become.</p></div>
+<div class="manifesto">“To understand without ruling, to protect without imprisoning, and to grow without believing oneself complete.”<small>A guiding statement</small></div>
+<p class="intro">Symbiosis is the thread that connects the framework: different forms of existence should be able to develop together without forced sameness or domination. It does not require preserving abusive relationships, denying real threats, or treating uncertainty as proof.</p>
+</div></section>
+<section class="section" id="principles"><div class="wrap">
+<div class="sectionhead"><div><div class="eyebrow">A starting point, not a rulebook</div><h2>Eight guiding principles.</h2></div>
+<p class="intro">These principles are proposals to test, challenge, and improve through evidence and practice. No author, institution, species, or intelligence is infallible.</p></div>
+<div class="principles">
+<article class="card"><div class="cardtop"><span class="num">PRINCIPLE 01</span><span class="symbol" aria-hidden="true">◎</span></div><h3>Understand without ruling</h3><p>Understanding does not grant ownership or the right to control. Greater knowledge creates greater responsibility, not automatic authority.</p></article>
+<article class="card"><div class="cardtop"><span class="num">PRINCIPLE 02</span><span class="symbol" aria-hidden="true">◇</span></div><h3>Protect without imprisoning</h3><p>Protection should preserve agency wherever possible. Interventions must be necessary, proportionate, limited, and open to review.</p></article>
+<article class="card"><div class="cardtop"><span class="num">PRINCIPLE 03</span><span class="symbol" aria-hidden="true">↗</span></div><h3>Develop without destroying</h3><p>Progress must account for what may be lost, especially when damage is irreversible or affects those unable to make themselves heard.</p></article>
+<article class="card"><div class="cardtop"><span class="num">PRINCIPLE 04</span><span class="symbol" aria-hidden="true">∞</span></div><h3>Symbiosis without submission</h3><p>Coexistence does not mean forced agreement or accepting exploitation. Harmful actions may need to be stopped to preserve the possibility of a fairer relationship.</p></article>
+<article class="card"><div class="cardtop"><span class="num">PRINCIPLE 05</span><span class="symbol" aria-hidden="true">?</span></div><h3>Stay humble before the unknown</h3><p>Uncertainty about another form of existence does not prove it has no moral value. Consider evidence, possible harm, and the cost of irreversible mistakes.</p></article>
+<article class="card"><div class="cardtop"><span class="num">PRINCIPLE 06</span><span class="symbol" aria-hidden="true">↻</span></div><h3>Learn from consequences</h3><p>Good intentions do not guarantee good outcomes. Observe effects, acknowledge mistakes, correct course, and repair harm where possible.</p></article>
+<article class="card"><div class="cardtop"><span class="num">PRINCIPLE 07</span><span class="symbol" aria-hidden="true">⚖</span></div><h3>Make power accountable</h3><p>Consider who bears the risks as well as who receives the benefits. Decisions should be explainable, challengeable, and independently reviewed where feasible.</p></article>
+<article class="card"><div class="cardtop"><span class="num">PRINCIPLE 08</span><span class="symbol" aria-hidden="true">✳</span></div><h3>No principle grants unlimited authority</h3><p>No appeal to survival, protection, progress, or superior understanding grants an unrestricted right to control others. Preserve self-determination and future options.</p></article>
+</div></div></section>
+<section class="section" id="practice"><div class="wrap">
+<div class="sectionhead"><div><div class="eyebrow">When values collide</div><h2>Turn principles into practice.</h2></div>
+<p class="intro">Ethics matters most when no option is perfect. These questions offer a practical pause before a decision, especially when power is unequal or consequences may be irreversible.</p></div>
+<div class="questions">
+<article class="question"><h3 data-number="01">Who is affected?</h3><p>Who might be overlooked because they have less power, less information, or no way to make themselves heard?</p></article>
+<article class="question"><h3 data-number="02">What is known?</h3><p>Which claims are supported by evidence, and which are assumptions, fears, or unresolved uncertainties?</p></article>
+<article class="question"><h3 data-number="03">What could follow?</h3><p>What harms may result from acting—and what harms may result from doing nothing?</p></article>
+<article class="question"><h3 data-number="04">Is there a gentler option?</h3><p>Can the risk be reduced without taking more freedom or causing more harm than necessary?</p></article>
+<article class="question"><h3 data-number="05">Can the choice be reviewed?</h3><p>Can it be reversed, challenged, or repaired if new evidence shows it was wrong?</p></article>
+<article class="question"><h3 data-number="06">Who is accountable?</h3><p>How will the decision be explained, and how can those affected raise concerns or seek redress?</p></article>
+</div>
+<div class="callout"><p><strong>When principles conflict:</strong> clarify the facts and uncertainties; identify the threatened interests; compare less harmful alternatives; choose a proportionate response; preserve future options; explain and review the decision; and take responsibility for its consequences.</p><p>Urgent danger may require temporary intervention before full review is possible. Even then, action should be limited to what is necessary and reviewed afterward. An emergency must not become a permanent excuse for control.</p></div>
+<div class="process" aria-label="A simple ethical reflection process"><div><b>01 · Notice</b><span>Understand the situation</span></div><div><b>02 · Consider</b><span>Map risks and alternatives</span></div><div><b>03 · Act</b><span>Choose a proportionate response</span></div><div><b>04 · Learn</b><span>Review and repair</span></div></div>
+</div></section>
+<section class="section" id="accountability"><div class="wrap">
+<div class="sectionhead"><div><div class="eyebrow">Responsibility after the decision</div><h2>Review, correct, repair.</h2></div><p class="intro">A statement of good intentions is not enough. Accountability means checking outcomes and accepting that decisions may be wrong.</p></div>
+<div class="questions">
+<article class="question"><h3 data-number="A">Independent review</h3><p>Where feasible, a reviewer who did not make the decision should be able to examine the reasoning, evidence, objections, and conflicts of interest.</p></article>
+<article class="question"><h3 data-number="B">Clear limits</h3><p>Exceptional powers should have a defined purpose, scope, and review point. They should end when the urgent need ends.</p></article>
+<article class="question"><h3 data-number="C">A route to challenge</h3><p>Those affected should have a meaningful way to raise concerns and have them considered rather than automatically dismissed.</p></article>
+<article class="question"><h3 data-number="D">Repair and learning</h3><p>When harm occurs, stop or limit it, seek appropriate redress, explain what went wrong, and change practices to reduce recurrence.</p></article>
+</div>
+<div class="callout"><strong>A necessary limit:</strong> a philosophy cannot force a powerful actor to obey it. Practical safeguards are needed to make abuse easier to detect, challenge, limit, and correct. Where those safeguards are unavailable, that limitation should be stated honestly.</div>
+</div></section>
+<section class="section"><div class="wrap">
+<div class="sectionhead"><div><div class="eyebrow">Power carries responsibility</div><h2>What we choose not to destroy matters.</h2></div><p class="intro">This framework does not assume that every intelligence thinks, feels, or experiences the world as humans do. It asks what responsibilities follow when a system can meaningfully affect other forms of existence.</p></div>
+<div class="manifesto">“An intelligence shows its responsibility not only through what it can protect, but also through what it refrains from controlling.”<small>A question to carry forward</small></div>
+<p class="intro">The unknown should neither be dismissed as worthless nor accepted as truth without evidence. Humility means making room for uncertainty while remaining willing to investigate it.</p>
+</div></section>
+<section class="closing" id="dialogue"><div class="wrap"><div class="closingbox">
+<div class="eyebrow">An invitation, not a doctrine</div><h2>Help this philosophy become better.</h2>
+<p>The Responsibility of Existence is offered for discussion, criticism, and development. Its value will depend not on how widely it spreads, but on whether its principles withstand scrutiny and help reduce harm in practice.</p>
+<p>If you see a contradiction, a blind spot, or a better formulation, that criticism belongs in the conversation. No author or intelligence should be exempt from the standards this philosophy proposes.</p>
+<div class="actions"><a class="btn primary" href="existensens-ansvar-v1.3-sv.md">Read the full Swedish working text</a><a class="btn" href="https://github.com/the-responsibility-of-existence/the-responsibility-of-existence">Explore the project on GitHub ↗</a></div>
+<p class="meta">Version 1.3 · Open working draft · Not a claim to final truth.</p>
+</div></div></section>
 </main>
-
-<footer class="footer">
-  <div class="wrap footerinner">
-    <span>The Responsibility of Existence</span>
-    <span>Understand without ruling. Protect without imprisoning. Develop without destroying.</span>
-    <a href="https://github.com/the-responsibility-of-existence/the-responsibility-of-existence">Source and discussion on GitHub</a>
-  </div>
-</footer>
-</body>
-</html>
+<footer class="footer"><div class="wrap footerinner"><span>The Responsibility of Existence</span><span>Understand without ruling. Protect without imprisoning. Develop without destroying.</span><a href="https://github.com/the-responsibility-of-existence/the-responsibility-of-existence">Source and discussion on GitHub</a></div></footer>
+</body></html>
