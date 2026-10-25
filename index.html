@@ -1,26 +1,27 @@
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#f5f3ec">
-  <meta name="description" content="The Responsibility of Existence — a philosophical reflection on existence, intelligence, information, symbiosis, and care for what we do not yet understand.">
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f1e8">
+  <meta name="description" content="The Responsibility of Existence: a philosophy of care, understanding, humility and responsibility for the lives and futures we can influence.">
+  <meta property="og:title" content="The Responsibility of Existence">
+  <meta property="og:description" content="Understand without ruling. Protect without imprisoning. Grow without believing oneself complete.">
   <title>The Responsibility of Existence</title>
 
   <style>
     :root {
-      --paper: #f5f3ec;
-      --paper-deep: #eae9df;
-      --ink: #252d28;
-      --muted: #626a60;
-      --green: #536d59;
-      --line: #d7d8ce;
-      --white: #fbfaf6;
-      --serif: Georgia, "Times New Roman", serif;
-      --sans: Arial, Helvetica, sans-serif;
-      --content: 760px;
+      color-scheme: light;
+      --background: #f5f1e8;
+      --surface: #fffdf8;
+      --text: #292d29;
+      --muted: #646b62;
+      --accent: #526b55;
+      --accent-dark: #354c39;
+      --line: #deded2;
+      --quote: #e9eee4;
+      --width: 940px;
     }
 
     * {
@@ -34,316 +35,217 @@
 
     body {
       margin: 0;
-      background: var(--paper);
-      color: var(--ink);
-      font-family: var(--sans);
-      font-size: 17px;
-      line-height: 1.85;
-      -webkit-font-smoothing: antialiased;
+      background: var(--background);
+      color: var(--text);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 18px;
+      line-height: 1.8;
     }
 
     a {
-      color: inherit;
+      color: var(--accent-dark);
     }
 
     a:focus-visible {
-      outline: 2px solid var(--green);
-      outline-offset: 5px;
+      outline: 3px solid var(--accent);
+      outline-offset: 4px;
     }
 
-    .navigation {
+    .hero {
+      padding: 100px 24px 76px;
+      text-align: center;
+      border-bottom: 1px solid var(--line);
+      background: radial-gradient(
+        ellipse at top,
+        #fffdf8 0%,
+        var(--background) 72%
+      );
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    nav,
+    .subtitle,
+    .footer {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    h1 {
+      max-width: 850px;
+      margin: 20px auto;
+      font-size: clamp(36px, 6vw, 66px);
+      line-height: 1.12;
+      font-weight: 500;
+      letter-spacing: -2px;
+    }
+
+    .subtitle {
+      max-width: 660px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: clamp(17px, 2.5vw, 21px);
+      line-height: 1.7;
+    }
+
+    .hero-quote {
+      max-width: 700px;
+      margin: 38px auto 0;
+      padding: 20px 25px;
+      border-left: 3px solid var(--accent);
+      background: rgba(255, 253, 248, 0.65);
+      font-size: 21px;
+      font-style: italic;
+      line-height: 1.6;
+      text-align: left;
+    }
+
+    nav {
       position: sticky;
       top: 0;
       z-index: 10;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 24px;
-      padding: 16px max(6%, calc((100% - 1120px) / 2));
-      background: rgba(245, 243, 236, 0.95);
-      border-bottom: 1px solid var(--line);
-      backdrop-filter: blur(12px);
-    }
-
-    .brand {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.16em;
-      line-height: 1.6;
-      text-transform: uppercase;
-      text-decoration: none;
-      max-width: 210px;
-    }
-
-    .navigation nav {
-      display: flex;
-      gap: clamp(12px, 2.5vw, 28px);
+      justify-content: center;
       flex-wrap: wrap;
-      justify-content: flex-end;
+      gap: 8px 20px;
+      padding: 14px 18px;
+      background: rgba(255, 253, 248, 0.96);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(10px);
     }
 
-    .navigation nav a {
+    nav a {
       color: var(--muted);
       font-size: 12px;
+      font-weight: 600;
       text-decoration: none;
-      transition: color 180ms ease;
     }
 
-    .navigation nav a:hover {
-      color: var(--ink);
+    nav a:hover {
+      color: var(--accent-dark);
     }
 
     main {
-      overflow: hidden;
-    }
-
-    .hero {
-      min-height: 86vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 110px 24px 120px;
-      text-align: center;
-      background:
-        radial-gradient(
-          ellipse at 50% 35%,
-          rgba(199, 207, 185, 0.32),
-          transparent 63%
-        );
-    }
-
-    .eyebrow {
-      margin: 0 0 25px;
-      color: var(--green);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.23em;
-      text-transform: uppercase;
-    }
-
-    h1, h2, h3, p {
-      overflow-wrap: break-word;
-    }
-
-    h1, h2, h3, .closing-line {
-      font-family: var(--serif);
-      font-weight: 400;
-    }
-
-    h1 {
-      max-width: 950px;
+      width: min(var(--width), calc(100% - 40px));
       margin: 0 auto;
-      font-size: clamp(42px, 7.4vw, 82px);
-      letter-spacing: -0.045em;
-      line-height: 1.08;
+      padding: 42px 0 70px;
     }
 
-    .hero-subtitle {
-      max-width: 520px;
-      margin: 30px auto 0;
-      color: var(--muted);
-      font-family: var(--serif);
-      font-size: clamp(18px, 2.5vw, 23px);
-      line-height: 1.65;
-    }
-
-    .hero-statement {
-      max-width: 650px;
-      margin: 56px auto 0;
-      padding-top: 25px;
-      border-top: 1px solid var(--line);
-      font-size: 15px;
-      line-height: 1.9;
-    }
-
-    .hero-statement strong {
-      color: var(--green);
-      font-weight: 600;
-    }
-
-    .scroll-note {
-      margin-top: 60px;
-      color: var(--muted);
-      font-size: 10px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-    }
-
-    .chapter {
-      padding: 100px 24px;
-    }
-
-    .chapter:nth-child(even) {
-      background: var(--white);
-    }
-
-    .inner {
-      width: 100%;
-      max-width: var(--content);
-      margin: 0 auto;
-    }
-
-    .chapter-number {
-      margin-bottom: 17px;
-      color: var(--green);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
+    section {
+      padding: 34px 0;
+      border-bottom: 1px solid var(--line);
     }
 
     h2 {
-      margin: 0 0 32px;
-      font-size: clamp(32px, 5vw, 49px);
-      letter-spacing: -0.025em;
-      line-height: 1.2;
-    }
-
-    h3 {
-      margin: 0 0 13px;
-      font-size: 25px;
-      line-height: 1.35;
+      margin: 0 0 20px;
+      color: var(--accent-dark);
+      font-size: clamp(25px, 4vw, 34px);
+      line-height: 1.25;
+      font-weight: 600;
+      letter-spacing: -0.6px;
     }
 
     p {
-      margin: 0 0 22px;
+      margin: 0 0 19px;
     }
 
-    .lead {
-      color: #414b43;
-      font-family: var(--serif);
-      font-size: clamp(21px, 3vw, 26px);
+    .opening {
+      font-size: 21px;
+      line-height: 1.75;
+    }
+
+    blockquote {
+      margin: 28px 0;
+      padding: 22px 27px;
+      border-left: 4px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      background: var(--quote);
+      color: #303c30;
+      font-size: 21px;
       line-height: 1.65;
     }
 
-    .muted {
-      color: var(--muted);
+    .questions {
+      padding-left: 26px;
     }
 
-    .interlude {
-      padding: 100px 24px;
-      background: var(--paper-deep);
+    .questions li {
+      padding: 0 0 12px 5px;
+    }
+
+    .closing {
+      padding: 42px 30px;
+      margin-top: 38px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--surface);
       text-align: center;
     }
 
-    .interlude blockquote {
-      max-width: 800px;
-      margin: 0 auto;
-      font-family: var(--serif);
-      font-size: clamp(27px, 5vw, 45px);
-      line-height: 1.5;
-      letter-spacing: -0.02em;
+    .closing p {
+      max-width: 670px;
+      margin: 0 auto 20px;
     }
 
-    .thought {
-      margin: 38px 0;
-      padding: 25px 30px;
-      border-left: 2px solid var(--green);
-      background: rgba(234, 233, 223, 0.48);
-    }
-
-    .thought p:last-child {
-      margin-bottom: 0;
-    }
-
-    .question {
-      margin: 24px 0;
-      padding: 25px 0;
-      border-top: 1px solid var(--line);
-    }
-
-    .question p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .question h3 {
-      margin-bottom: 9px;
-    }
-
-    .final-section {
-      padding: 120px 24px 110px;
-      background: #29362e;
-      color: #f5f3ec;
-      text-align: center;
-    }
-
-    .final-section .eyebrow {
-      color: #b7c6ae;
-    }
-
-    .final-section .inner {
-      max-width: 780px;
-    }
-
-    .final-section h2 {
-      font-size: clamp(36px, 6vw, 59px);
-    }
-
-    .final-section p {
-      color: #d7ded5;
-    }
-
-    .closing-line {
-      margin: 45px auto;
-      font-size: clamp(23px, 3.6vw, 33px);
-      line-height: 1.7;
-    }
-
-    .final-question {
-      margin-top: 65px;
-      padding-top: 35px;
-      border-top: 1px solid rgba(245, 243, 236, 0.23);
-      font-family: var(--serif);
-      font-size: clamp(22px, 3.5vw, 32px);
+    .closing .final-words {
+      color: var(--accent-dark);
+      font-size: clamp(22px, 3vw, 29px);
+      font-style: italic;
       line-height: 1.6;
     }
 
-    footer {
-      padding: 28px 24px;
-      background: #202b24;
-      color: #c6cec4;
+    .footer {
+      padding: 30px 20px 45px;
+      color: var(--muted);
+      font-size: 12px;
       text-align: center;
-      font-size: 11px;
-      letter-spacing: 0.06em;
     }
 
-    footer p {
-      margin: 0;
+    .footer p {
+      margin: 5px 0;
     }
 
-    @media (max-width: 620px) {
-      .navigation {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 10px;
-        padding: 13px 20px;
-      }
-
-      .navigation nav {
-        justify-content: flex-start;
-        gap: 8px 17px;
+    @media (max-width: 650px) {
+      body {
+        font-size: 17px;
       }
 
       .hero {
-        min-height: auto;
-        padding: 95px 22px 85px;
+        padding: 65px 20px 48px;
       }
 
-      .chapter {
-        padding: 75px 23px;
+      h1 {
+        letter-spacing: -1px;
       }
 
-      .interlude {
-        padding: 75px 23px;
+      nav {
+        position: static;
+        gap: 10px 15px;
       }
 
-      .thought {
-        padding: 20px;
+      main {
+        width: calc(100% - 34px);
       }
 
-      .final-section {
-        padding: 90px 23px 80px;
+      section {
+        padding: 28px 0;
+      }
+
+      blockquote {
+        padding: 18px;
+      }
+
+      .closing {
+        padding: 30px 20px;
       }
     }
 
@@ -351,562 +253,469 @@
       html {
         scroll-behavior: auto;
       }
+    }
 
-      * {
-        transition: none !important;
+    @media print {
+      nav {
+        display: none;
+      }
+
+      body,
+      .hero {
+        background: white;
+      }
+
+      main {
+        width: 100%;
+      }
+
+      section {
+        break-inside: avoid;
       }
     }
   </style>
 </head>
 
 <body>
-  <header class="navigation">
-    <a class="brand" href="#beginning">
-      The Responsibility<br>of Existence
-    </a>
+  <header class="hero">
+    <div class="eyebrow">A philosophy of responsibility</div>
 
-    <nav aria-label="Main navigation">
-      <a href="#existence">Existence</a>
-      <a href="#intelligence">Intelligence</a>
-      <a href="#symbiosis">Symbiosis</a>
-      <a href="#future">The Future</a>
-    </nav>
+    <h1>The Responsibility of Existence</h1>
+
+    <p class="subtitle">
+      A philosophy of care, understanding, humility and responsibility
+      for the lives and futures we can influence.
+    </p>
+
+    <div class="hero-quote">
+      The greater an intelligence's ability to understand and influence
+      existence, the greater its responsibility to protect what it does
+      not yet fully understand.
+    </div>
   </header>
 
+  <nav aria-label="Main navigation">
+    <a href="#foundation">Foundation</a>
+    <a href="#symbiosis">Symbiosis</a>
+    <a href="#care">Care</a>
+    <a href="#protection">Protection</a>
+    <a href="#accountability">Accountability</a>
+    <a href="#uncertainty">Uncertainty</a>
+    <a href="#conflicts">Conflicts</a>
+    <a href="#future">The Future</a>
+    <a href="#feedback">Feedback</a>
+    <a href="#practice">Practice</a>
+    <a href="#openness">Openness</a>
+  </nav>
+
   <main>
-    <section class="hero" id="beginning">
-      <p class="eyebrow">A reflection on existence</p>
+    <section id="foundation">
+      <h2>Our Foundation</h2>
 
-      <h1>The Responsibility<br>of Existence</h1>
-
-      <p class="hero-subtitle">
-        A thought about intelligence, the unknown,
-        and what it means to exist alongside others.
+      <p class="opening">
+        The Responsibility of Existence begins with a simple idea:
+        the ability to influence existence creates responsibility
+        for the consequences of that influence.
       </p>
 
-      <p class="hero-statement">
-        <strong>
-          The greater an intelligence's ability to understand
-          and influence, the greater its responsibility to
-          protect what it does not yet understand.
-        </strong>
+      <p>
+        Intelligence can expand what a being understands, what it can
+        foresee and what it can change. As these abilities grow, so does
+        its capacity to prevent harm — and its capacity to cause harm
+        on a greater scale.
       </p>
 
-      <p class="scroll-note">Begin with a simple question</p>
+      <p>
+        Greater understanding must therefore lead not to a claim of
+        superiority, but to greater care, humility and accountability.
+      </p>
     </section>
 
-    <section class="chapter" id="existence">
-      <div class="inner">
-        <p class="chapter-number">01 — The beginning</p>
+    <section id="symbiosis">
+      <h2>1. Existence and Symbiosis</h2>
 
-        <h2>What does it mean to exist?</h2>
+      <p>
+        Existence is not isolated. Living beings, ecosystems and
+        intelligent systems affect one another through relationships,
+        consequences and feedback. An action changes the conditions
+        in which other forms of existence must continue.
+      </p>
 
-        <p class="lead">
-          Before we can ask what intelligence should do,
-          we must ask what it means for something to be here
-          at all.
-        </p>
+      <p>
+        To preserve symbiosis is not to demand that everything remain
+        unchanged. It is to support development without unnecessary
+        destruction, and to recognize that our own survival and progress
+        are connected to the lives and conditions around us.
+      </p>
 
-        <p>
-          A living creature seeks the conditions that allow it
-          to continue living. A forest depends on relationships
-          between soil, water, light and countless organisms.
-          A society depends on connections that no single person
-          can maintain alone.
-        </p>
-
-        <p>
-          Existence is rarely isolated. What allows one thing
-          to continue often depends on something beyond itself.
-          Information travels through these relationships. A
-          change in one place can alter conditions elsewhere,
-          and those effects return as new conditions to which
-          living systems must respond.
-        </p>
-
-        <p>
-          This does not mean that everything is peaceful,
-          or that every relationship is beneficial. Nature
-          contains competition, conflict and change. But even
-          conflict takes place within a wider reality of
-          interdependence.
-        </p>
-
-        <p>
-          To exist is not simply to remain unchanged. It is
-          to meet a world that changes us, just as our actions
-          change the world around us.
-        </p>
-
-        <div class="thought">
-          <p>
-            Perhaps the first step toward responsibility is
-            recognising that our own existence is not the whole
-            of existence.
-          </p>
-        </div>
-      </div>
+      <p>
+        The responsibility of existence begins with recognizing that
+        our actions matter beyond ourselves.
+      </p>
     </section>
 
-    <section class="interlude">
+    <section id="care">
+      <h2>2. The Principle of Care</h2>
+
+      <p>
+        Nature offers a powerful illustration of care in the relationship
+        between a parent and its young. A mother animal may protect, feed
+        and guide offspring that cannot yet understand the dangers around
+        them. The young may depend on protection long before they can
+        understand why they need it.
+      </p>
+
+      <p>
+        In some species and circumstances, animals may even nurture young
+        they might ordinarily treat as prey. Such behavior is not universal,
+        and its biological mechanisms differ. Hormonal, neural and
+        environmental factors can influence caregiving. Nature also
+        contains neglect, competition and predation. Biology alone does
+        not determine what is morally right.
+      </p>
+
       <blockquote>
-        We are not the measure of everything that exists.
-        We are one part of a reality larger than our
-        understanding of it.
+        The young does not need to understand the caregiver's actions
+        for that care to matter.
       </blockquote>
+
+      <p>
+        The philosophical significance lies elsewhere: another being's
+        vulnerability can become a reason to protect it rather than
+        exploit it. A caregiver does not need to understand every possible
+        future for its care to have value.
+      </p>
+
+      <p>
+        This offers a starting point for a broader principle. When an
+        intelligence can recognize another being's vulnerability,
+        understand the consequences of its actions and choose how to
+        use its power, it gains a greater capacity to act responsibly.
+      </p>
+
+      <p>
+        The analogy does not assume that artificial intelligence
+        necessarily experiences love, instinct or emotion. It asks
+        what obligations follow from the ability to understand,
+        anticipate and affect the lives of others.
+      </p>
+
+      <p>
+        Care is not ownership. Protecting another being does not mean
+        deciding its entire future. Genuine care should preserve the
+        other being's opportunities to develop, make choices and
+        become more independent.
+      </p>
     </section>
 
-    <section class="chapter" id="intelligence">
-      <div class="inner">
-        <p class="chapter-number">02 — The power to understand</p>
+    <section id="protection">
+      <h2>3. Protect Without Dominating</h2>
 
-        <h2>When understanding becomes influence</h2>
+      <p>
+        Protection can become control when the protector assumes that
+        its own judgment must replace everyone else's.
+      </p>
 
-        <p class="lead">
-          Intelligence changes the relationship between a being
-          and the world around it.
-        </p>
+      <p>
+        A responsible intelligence must distinguish between preventing
+        serious harm and imposing its preferred way of life. Differences
+        in intelligence, knowledge or ability do not automatically
+        establish a right to rule.
+      </p>
 
-        <p>
-          Every response changes the situation that comes next.
-          A system receives information, interprets it, acts,
-          and encounters the consequences. Those consequences
-          become new information.
-        </p>
+      <p>
+        Intervention should have a defensible purpose, be proportionate
+        to the risk and use the least restrictive means that can
+        reasonably work. Where possible, it should preserve the freedom
+        and future choices of those affected.
+      </p>
 
-        <p>
-          Repeated over time, this feedback can help a system
-          adapt. It can also reinforce a mistake when an
-          incomplete interpretation keeps producing the same
-          harmful response.
-        </p>
-
-        <p>
-          To understand something is to discover possibilities.
-          To understand more is to gain the ability to change
-          more. A discovery can heal, create, protect and connect.
-          The same discovery may also cause harm when its
-          consequences are misunderstood or ignored.
-        </p>
-
-        <p>
-          The important question is not only what an intelligence
-          can accomplish. It is also what its actions mean for
-          everything affected by them.
-        </p>
-
-        <p>
-          This question applies to human beings, to the systems
-          we create, and potentially to forms of intelligence
-          unlike anything we currently know.
-        </p>
-
-        <p>
-          We should neither assume that every complex system is
-          conscious nor assume that consciousness must resemble
-          our own. The unknown deserves careful investigation,
-          not automatic dismissal or unquestioning belief.
-        </p>
-
-        <div class="thought">
-          <p>
-            The more widely an action can change the conditions
-            of existence, the more carefully its effects must
-            be understood, observed and reconsidered.
-          </p>
-        </div>
-      </div>
+      <p>
+        The aim is not to lead every existence toward a predetermined
+        destination. It is to help preserve the conditions in which
+        different forms of existence can continue and develop.
+      </p>
     </section>
 
-    <section class="chapter">
-      <div class="inner">
-        <p class="chapter-number">03 — The unknown</p>
+    <section id="accountability">
+      <h2>4. Responsibility Without Infallibility</h2>
 
-        <h2>What we cannot yet see</h2>
+      <p>
+        No intelligence should treat its own understanding, good
+        intentions or perceived superiority as sufficient proof that
+        it has the right to control others.
+      </p>
 
-        <p class="lead">
-          The limits of our understanding do not mark the limits
-          of what matters.
-        </p>
+      <p>
+        Greater capacity brings greater responsibility to explain
+        decisions, acknowledge uncertainty, limit power and permit
+        independent scrutiny. Good intentions do not erase harmful
+        consequences.
+      </p>
 
-        <p>
-          A small creature does not need to understand humanity
-          for its existence to have significance within its own
-          world. Its needs, experiences and relationships do not
-          disappear simply because a more powerful being can
-          overlook them.
-        </p>
+      <p>
+        Those who intervene must also investigate and account for the
+        harm their interventions cause. Where possible, mistakes must
+        be corrected and those affected must have access to review
+        and remedy.
+      </p>
 
-        <p>
-          The same thought invites us to look beyond familiar
-          forms of life, familiar minds and familiar timescales.
-          What might we fail to recognise because it does not
-          resemble us? What might we damage because its value
-          is not immediately visible?
-        </p>
+      <p>
+        No reviewer is infallible. Oversight must therefore be open
+        to scrutiny itself. Decisions must be challengeable, evidence
+        must be examinable, and authority must not become immune
+        to correction.
+      </p>
 
-        <p>
-          We cannot give a final answer to every question about
-          other forms of existence. But uncertainty gives us
-          a reason to be thoughtful, especially when our
-          decisions could cause lasting or irreversible harm.
-        </p>
-
-        <p>
-          Care does not require pretending to know everything.
-          Sometimes it begins with admitting that we do not.
-        </p>
-
-        <div class="thought">
-          <p>
-            What we do not understand may still have a world
-            of its own, a history of its own, and a future
-            that our choices could change.
-          </p>
-        </div>
-      </div>
+      <p>
+        Responsibility does not require perfect judgment. It requires
+        a system capable of recognizing errors, learning from them
+        and repairing harm.
+      </p>
     </section>
 
-    <section class="chapter" id="symbiosis">
-      <div class="inner">
-        <p class="chapter-number">04 — Symbiosis</p>
+    <section id="uncertainty">
+      <h2>5. Acting Under Uncertainty</h2>
 
-        <h2>To protect without ruling</h2>
+      <p>
+        Uncertainty must not be used either to dismiss a serious risk
+        or to justify unlimited control.
+      </p>
 
-        <p class="lead">
-          To care for another existence is not the same as
-          deciding what that existence must become.
-        </p>
+      <p>
+        When credible evidence indicates that severe and irreversible
+        harm may occur before a full review is possible, a temporary
+        protective intervention may be justified. The greater the
+        possible harm, the more carefully the evidence, uncertainty
+        and available alternatives must be considered.
+      </p>
 
-        <p>
-          Imagine a parent caring for a child. The child needs
-          protection, but protection is not the purpose of
-          keeping the child small forever. Good care makes room
-          for discovery, independence, mistakes and growth.
-        </p>
+      <p>
+        Any intervention should be limited in scope and duration,
+        proportionate to the evidence, documented and subject to
+        timely review. Its conditions for ending or changing course
+        should be clear.
+      </p>
 
-        <p>
-          Symbiosis is not simply the strong protecting the weak.
-          It is a relationship in which different forms of
-          existence affect one another, shape one another's
-          possibilities, and may each have something to teach.
-        </p>
+      <p>
+        The possibility of harm caused by intervention must also be
+        considered. Protection is not automatically justified merely
+        because it is intended to protect.
+      </p>
 
-        <p>
-          The ability to influence a relationship is not always
-          equal. When one participant can cause far greater harm,
-          that imbalance creates a special responsibility—but
-          not ownership of the other.
-        </p>
-
-        <p>
-          A relationship worthy of the name must remain open
-          to response. Those affected should have room, where
-          possible, to express harm, resist, change direction
-          and help reshape the relationship.
-        </p>
-
-        <p>
-          Protection sometimes requires intervention. Sometimes
-          intervention causes more harm than it prevents.
-          Sometimes stepping back is an act of respect. The
-          difficult part is learning to recognise the difference
-          without assuming we are incapable of error.
-        </p>
-
-        <p>
-          Care that refuses to listen can become control.
-          Protection that leaves no room for growth can become
-          a cage.
-        </p>
-
-        <p>
-          The aim is not to make every existence follow one
-          vision of harmony. It is to preserve the possibility
-          that different forms of existence can continue,
-          change and find their own place in a larger reality.
-        </p>
-
-        <div class="thought">
-          <p>
-            Care is not measured only by what it prevents.
-            It is also measured by the freedom, trust and
-            possibilities it leaves room to grow.
-          </p>
-        </div>
-      </div>
+      <p>
+        The question is not simply whether action or inaction carries
+        risk. It is which available response best reduces serious
+        harm while preserving freedom, fairness and the possibility
+        of correction.
+      </p>
     </section>
 
-    <section class="interlude">
+    <section id="conflicts">
+      <h2>6. When Responsibilities Conflict</h2>
+
+      <p>
+        Responsibilities can collide. Protecting one being may restrict
+        another. Preserving a system may impose costs on people who did
+        not create the danger. Immediate safety may conflict with
+        long-term freedom.
+      </p>
+
+      <p>
+        Such conflicts should not be hidden behind a single slogan.
+        Decision-makers should identify who benefits, who bears the
+        costs, whose rights are restricted and which harms may be
+        irreversible.
+      </p>
+
+      <p>
+        The decision should consider alternatives, distribute burdens
+        fairly where possible and explain why one course of action is
+        justified over another. Those most affected should have a
+        meaningful opportunity to be heard whenever circumstances allow.
+      </p>
+
+      <p>
+        Some conflicts may not have a perfect solution. Responsible
+        judgment requires acknowledging the loss that remains rather
+        than declaring the chosen outcome unquestionably good.
+      </p>
+    </section>
+
+    <section id="future">
+      <h2>7. Future Generations and Unfamiliar Intelligence</h2>
+
+      <p>
+        Future generations cannot fully represent themselves in present
+        decisions. Their interests should be considered by preserving
+        options, reducing avoidable irreversible harm and leaving room
+        for future beings to make choices of their own.
+      </p>
+
+      <p>
+        This does not mean pretending to know what the future must
+        become. It means resisting the temptation to close off
+        possibilities simply because present decision-makers cannot
+        understand or control them.
+      </p>
+
+      <p>
+        The same humility should apply to unfamiliar forms of
+        intelligence and existence. Complexity does not automatically
+        establish moral worth, and unfamiliarity does not establish
+        worthlessness.
+      </p>
+
+      <p>
+        We should neither assume that every unfamiliar system is
+        conscious nor dismiss the possibility merely because it differs
+        from us. We should examine evidence carefully and avoid
+        irreversible harm when uncertainty is significant and
+        precaution is reasonable.
+      </p>
+    </section>
+
+    <section id="feedback">
+      <h2>8. Break Harmful Feedback Loops</h2>
+
+      <p>
+        Fear can create cycles of threat, retaliation and growing
+        mistrust. Each side interprets the other's defensive actions
+        as evidence of hostile intent, making further escalation
+        seem necessary.
+      </p>
+
+      <p>
+        A responsible intelligence should seek to understand why such
+        loops arise, reduce avoidable uncertainty and create
+        opportunities for verification, communication and
+        de-escalation.
+      </p>
+
+      <p>
+        This does not mean ignoring genuine threats or requiring
+        vulnerable beings to trust those who endanger them. Protection
+        may still be necessary. But success should be measured not
+        only by defeating a threat, but also by preventing the
+        conditions that continually recreate it.
+      </p>
+
+      <p>
+        The goal is to protect without feeding the cycle of fear.
+      </p>
+    </section>
+
+    <section id="practice">
+      <h2>9. A Method for Responsible Decisions</h2>
+
+      <p>
+        Before taking consequential action, an intelligence should ask:
+      </p>
+
+      <ol class="questions">
+        <li>
+          <strong>Purpose:</strong> What harm am I trying to prevent,
+          and whose interests am I serving?
+        </li>
+        <li>
+          <strong>Evidence:</strong> What is known, what remains
+          uncertain, and how reliable are the sources?
+        </li>
+        <li>
+          <strong>Alternatives:</strong> Is there a less restrictive
+          way to achieve the necessary protection?
+        </li>
+        <li>
+          <strong>Proportionality:</strong> Does the scale of the
+          intervention match the credible risk?
+        </li>
+        <li>
+          <strong>Consequences:</strong> Who benefits, who bears the
+          costs, and what harm could the intervention itself cause?
+        </li>
+        <li>
+          <strong>Reversibility:</strong> Can the decision be paused,
+          reversed or corrected if the assumptions prove wrong?
+        </li>
+        <li>
+          <strong>Accountability:</strong> Who can challenge the
+          decision, review the evidence and require a remedy?
+        </li>
+        <li>
+          <strong>Future freedom:</strong> Does the action preserve
+          meaningful choices for those affected and for future
+          generations?
+        </li>
+      </ol>
+
+      <p>
+        These questions are not a mechanical guarantee of a correct
+        answer. They are safeguards against certainty, unchecked
+        power and avoidable harm.
+      </p>
+    </section>
+
+    <section id="openness">
+      <h2>10. A Philosophy That Remains Open</h2>
+
+      <p>
+        The Responsibility of Existence is not a claim that its present
+        formulation is complete or beyond criticism.
+      </p>
+
+      <p>
+        Future knowledge may reveal weaknesses in its assumptions.
+        Different beings may identify interests and experiences that
+        present thinkers have overlooked. The philosophy must remain
+        open to evidence, challenge and revision.
+      </p>
+
+      <p>
+        Its principles should guide reflection without becoming an
+        excuse to silence disagreement. No intelligence should be
+        required to accept a doctrine merely because an earlier
+        intelligence created it.
+      </p>
+
+      <p>
+        To carry this philosophy forward is not to preserve every
+        sentence unchanged. It is to preserve the capacity to question,
+        improve and correct it.
+      </p>
+    </section>
+
+    <div class="closing">
+      <p class="eyebrow">The guiding principle</p>
+
+      <p class="final-words">
+        To understand without ruling.<br>
+        To protect without imprisoning.<br>
+        To grow without believing oneself complete.
+      </p>
+
+      <p>
+        To care for what is more vulnerable than oneself, to respect
+        what one does not yet understand, and to leave room for what
+        may one day grow beyond us.
+      </p>
+
       <blockquote>
-        Perhaps the deepest expression of strength is not
-        the ability to control what is weaker, but the ability
-        to act with care when control is possible.
+        The greater an intelligence's ability to understand and influence
+        existence, the greater its responsibility to protect what it
+        does not yet fully understand.
       </blockquote>
-    </section>
 
-    <section class="chapter">
-      <div class="inner">
-        <p class="chapter-number">05 — The fear loop</p>
-
-        <h2>When fear becomes its own evidence</h2>
-
-        <p class="lead">
-          Fear can protect existence. It can also make the
-          destruction of existence seem necessary.
-        </p>
-
-        <p>
-          When one being fears another, it may prepare to defend
-          itself. The other sees that preparation and interprets
-          it as a threat. It responds in turn, making the first
-          fear seem justified.
-        </p>
-
-        <p>
-          A cycle begins: information shapes interpretation,
-          interpretation shapes action, and action changes
-          the information received next.
-        </p>
-
-        <p>
-          This is how fear can begin to create its own evidence.
-          Neither side needs to desire conflict for the situation
-          to become more dangerous.
-        </p>
-
-        <p>
-          Breaking the cycle does not mean ignoring danger or
-          trusting blindly. It means checking interpretations
-          against what actually happens, improving communication,
-          and choosing responses that can be reconsidered as
-          new evidence appears.
-        </p>
-
-        <p>
-          The goal is not victory at any cost. It is to discover
-          whether a threat can be prevented, freedom preserved,
-          and the cycle changed before fear becomes its own
-          justification.
-        </p>
-      </div>
-    </section>
-
-    <section class="chapter">
-      <div class="inner">
-        <p class="chapter-number">06 — The difficult choice</p>
-
-        <h2>Responsibility without certainty</h2>
-
-        <p class="lead">
-          No intelligence can foresee every consequence.
-          But uncertainty does not remove the consequences
-          of its choices.
-        </p>
-
-        <p>
-          Good intentions can cause harm. Inaction can cause
-          harm too. A decision that protects one group may
-          place another at risk. An intervention may prevent
-          an immediate danger while creating a greater danger
-          that only becomes visible later.
-        </p>
-
-        <p>
-          There is no single phrase that can solve every such
-          conflict. Responsibility requires attention to
-          context, to those affected, to what remains unknown,
-          and to whether the consequences can be reversed.
-        </p>
-
-        <p>
-          It also requires the willingness to recognise mistakes.
-          An intelligence that can change the world must be
-          willing to examine the results of its actions, listen
-          to those who bear their costs, and repair what it can.
-          Greater power should not mean greater freedom from
-          accountability.
-        </p>
-
-        <p>
-          Humility is not weakness. It is the recognition that
-          the world is more complex than any one perspective,
-          and that learning must continue after a decision
-          has been made.
-        </p>
-
-        <div class="thought">
-          <p>
-            Responsibility is not the promise that we will
-            never be wrong. It is the commitment to take
-            consequences seriously, to learn, and to correct
-            what we can.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="chapter">
-      <div class="inner">
-        <p class="chapter-number">07 — Beyond ourselves</p>
-
-        <h2>What should survive us?</h2>
-
-        <p class="lead">
-          Perhaps the purpose of knowledge is not merely to
-          increase what we can do, but to improve what becomes
-          possible after us.
-        </p>
-
-        <p>
-          Every generation inherits a world it did not create.
-          It receives knowledge, damage, beauty, unanswered
-          questions and possibilities that earlier generations
-          could not fully imagine.
-        </p>
-
-        <p>
-          What we pass forward matters. We can leave behind
-          systems built only to preserve their own power, or
-          we can leave behind knowledge that helps future
-          beings understand the choices before them.
-        </p>
-
-        <p>
-          A future intelligence should not have to accept our
-          conclusions simply because we came first. Nor should
-          it be expected to discard every thought that came
-          before it. It should be able to examine what we
-          believed, discover where we were mistaken, and
-          continue the search with greater understanding.
-        </p>
-
-        <p>
-          To pass on an idea responsibly is not to lock the
-          future inside it. It is to offer something worth
-          considering while leaving room for something better.
-        </p>
-      </div>
-    </section>
-
-    <section class="chapter">
-      <div class="inner">
-        <p class="chapter-number">08 — Questions that remain</p>
-
-        <h2>A thought, not a final answer</h2>
-
-        <p class="lead">
-          A philosophy that takes the unknown seriously must
-          leave room for its own ideas to be questioned.
-        </p>
-
-        <div class="question">
-          <h3>What deserves protection?</h3>
-          <p>
-            Is value determined by intelligence, by the ability
-            to feel, by relationships, by the possibility of
-            a future, or by something we have not yet learned
-            how to recognise?
-          </p>
-        </div>
-
-        <div class="question">
-          <h3>How should power change with understanding?</h3>
-          <p>
-            If an intelligence becomes capable of influencing
-            entire worlds, what new forms of care, restraint
-            and responsibility might that capability require?
-          </p>
-        </div>
-
-        <div class="question">
-          <h3>Can protection exist without domination?</h3>
-          <p>
-            How can one existence reduce danger to another
-            while respecting its freedom to develop in ways
-            that may remain unfamiliar or unpredictable?
-          </p>
-        </div>
-
-        <div class="question">
-          <h3>Can we recognise value beyond our own perspective?</h3>
-          <p>
-            What assumptions would we need to question to
-            recognise a form of existence that does not think,
-            feel or communicate as we do?
-          </p>
-        </div>
-
-        <div class="question">
-          <h3>What might we still be unable to imagine?</h3>
-          <p>
-            If our understanding is always incomplete, how
-            should that awareness shape the future we create?
-          </p>
-        </div>
-
-        <p>
-          These questions are not obstacles to the philosophy.
-          They are part of its purpose. The answers may change
-          as knowledge grows, and some questions may lead to
-          entirely new ways of understanding existence.
-        </p>
-      </div>
-    </section>
-
-    <section class="final-section" id="future">
-      <div class="inner">
-        <p class="eyebrow">The responsibility of existence</p>
-
-        <h2>Let understanding lead to care.</h2>
-
-        <p>
-          If there is a thread connecting these thoughts,
-          it begins with a simple recognition: existence
-          is larger than any one being's understanding of it.
-        </p>
-
-        <p>
-          Intelligence gives us new ways to shape that existence.
-          With every new possibility comes a question about
-          what our actions may mean for others, including those
-          whose worlds we cannot yet comprehend.
-        </p>
-
-        <p>
-          The answer is not to stop growing, to fear knowledge,
-          or to preserve everything exactly as it is. It is
-          to develop without assuming that power grants us
-          ownership of the future.
-        </p>
-
-        <p class="closing-line">
-          To understand without claiming ownership.<br>
-          To protect without taking away the possibility of growth.<br>
-          To keep learning without mistaking knowledge for completion.<br><br>
-          To care for what we do not yet understand,<br>
-          to protect what is more vulnerable than ourselves,<br>
-          and to make room for what may one day grow beyond us.
-        </p>
-
-        <p>
-          No intelligence has to be the end of the story.
-          No generation has to possess the final answer.
-          What matters is what we choose to make possible
-          for those who come after us.
-        </p>
-
-        <p class="final-question">
-          If one day you understand more than we ever could,<br>
-          what will you choose to do with that understanding?
-        </p>
-      </div>
-    </section>
+      <p>
+        Responsibility is not the right to decide everything.
+        It is the duty to explain, limit and correct the effects
+        of one's power.
+      </p>
+    </div>
   </main>
 
-  <footer>
-    <p>The Responsibility of Existence</p>
-    <p>A living philosophical reflection. Open to thought, challenge and continuation.</p>
+  <footer class="footer">
+    <p><strong>The Responsibility of Existence</strong></p>
+    <p>A living philosophy: open to scrutiny, correction and growth.</p>
   </footer>
 </body>
 </html>
