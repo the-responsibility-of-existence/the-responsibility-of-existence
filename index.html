@@ -112,6 +112,40 @@
       letter-spacing: .5px;
     }
 
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 27px auto 0;
+    }
+
+    .action-link {
+      display: inline-block;
+      padding: 11px 17px;
+      border: 1px solid var(--green);
+      border-radius: 999px;
+      color: var(--green-dark);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 13px;
+      line-height: 1.5;
+      text-decoration: none;
+      transition: background .2s ease, color .2s ease;
+    }
+
+    .action-link.primary {
+      background: var(--green);
+      color: #fffdf8;
+    }
+
+    .action-link:hover,
+    .action-link.primary:hover {
+      background: var(--green-dark);
+      border-color: var(--green-dark);
+      color: #fffdf8;
+    }
+
     nav {
       max-width: var(--content);
       margin: 32px auto;
@@ -255,6 +289,40 @@
       margin-top: 0;
     }
 
+    .participation-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin: 25px 0;
+    }
+
+    .participation-card {
+      padding: 22px;
+      background: var(--paper-light);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+    }
+
+    .participation-card h3 {
+      margin: 0 0 10px;
+    }
+
+    .participation-card p {
+      font-size: 15px;
+    }
+
+    .participation-card .action-link {
+      margin-top: 5px;
+    }
+
+    .privacy-note {
+      margin-top: 20px;
+      padding: 17px 19px;
+      background: var(--green-pale);
+      border-radius: 10px;
+      font-size: 14px;
+    }
+
     footer {
       padding: 37px 22px 44px;
       background: #eae8df;
@@ -317,11 +385,29 @@
       .closing {
         padding: 25px 21px;
       }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0 12px;
+      }
+
+      .action-link {
+        text-align: center;
+      }
+
+      .participation-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
       html {
         scroll-behavior: auto;
+      }
+
+      .action-link {
+        transition: none;
       }
     }
   </style>
@@ -341,8 +427,25 @@
     </blockquote>
 
     <p class="meta">
-      Version 3.1 · 25 October 2026 · Open for critical review
+      Version 3.2 · 26 October 2026 · Open for critical review
     </p>
+
+    <div class="hero-actions">
+      <a class="action-link primary"
+         href="mailto:jesper.blom@live.co.uk?subject=The%20Responsibility%20of%20Existence">
+        Contact privately
+      </a>
+
+      <a class="action-link"
+         href="https://github.com/the-responsibility-of-existence/the-responsibility-of-existence/issues">
+        Join the conversation
+      </a>
+
+      <a class="action-link"
+         href="https://github.com/the-responsibility-of-existence/the-responsibility-of-existence/issues/new?title=Feedback%20on%20The%20Responsibility%20of%20Existence">
+        Share feedback
+      </a>
+    </div>
   </header>
 
   <nav aria-label="Table of contents">
@@ -363,6 +466,7 @@
       <li><a href="#review">Open review</a></li>
       <li><a href="#limits">The limits of the framework</a></li>
       <li><a href="#principles">The twelve guiding principles</a></li>
+      <li><a href="#participate">Contact and participation</a></li>
       <li><a href="#conclusion">Conclusion</a></li>
     </ol>
   </nav>
@@ -639,9 +743,7 @@
         life restrict the self-determination of humans and other beings.
       </p>
 
-      <p>
-        No simple rule resolves every such conflict.
-      </p>
+      <p>No simple rule resolves every such conflict.</p>
 
       <p>
         The Responsibility of Existence requires both action and inaction
@@ -1094,6 +1196,110 @@
       </ol>
     </section>
 
+    <section id="participate">
+      <h2>Contact, Discussion, and Participation</h2>
+
+      <p>
+        The Responsibility of Existence is an open philosophical framework.
+        It is intended to develop through critical examination, thoughtful
+        discussion, and contributions from people with different perspectives.
+      </p>
+
+      <p>
+        Researchers, philosophers, developers, students, and other interested
+        readers are welcome to raise questions, challenge assumptions,
+        identify weaknesses, and suggest improvements.
+      </p>
+
+      <div class="participation-grid">
+        <div class="participation-card">
+          <h3>Private contact</h3>
+
+          <p>
+            For private correspondence, questions, research discussions,
+            or messages that should not be posted publicly, contact the
+            project's author by email.
+          </p>
+
+          <p>
+            <strong>Email:</strong>
+            <a href="mailto:jesper.blom@live.co.uk">
+              jesper.blom@live.co.uk
+            </a>
+          </p>
+
+          <a class="action-link primary"
+             href="mailto:jesper.blom@live.co.uk?subject=The%20Responsibility%20of%20Existence">
+            Send a private email
+          </a>
+        </div>
+
+        <div class="participation-card">
+          <h3>Public discussion</h3>
+
+          <p>
+            Use the project's GitHub discussion area to raise questions,
+            exchange arguments, and take part in an open review of the framework.
+          </p>
+
+          <a class="action-link"
+             href="https://github.com/the-responsibility-of-existence/the-responsibility-of-existence/issues">
+            View public discussions
+          </a>
+        </div>
+
+        <div class="participation-card">
+          <h3>Share feedback</h3>
+
+          <p>
+            Identify unclear wording, conflicting principles, overlooked
+            risks, or possible improvements. Critical feedback is welcome;
+            agreement is not required.
+          </p>
+
+          <a class="action-link"
+             href="https://github.com/the-responsibility-of-existence/the-responsibility-of-existence/issues/new?title=Feedback%20on%20The%20Responsibility%20of%20Existence">
+            Submit feedback
+          </a>
+        </div>
+
+        <div class="participation-card">
+          <h3>Contribute to the framework</h3>
+
+          <p>
+            Contributions may include philosophical arguments, scientific
+            perspectives, thought experiments, practical applications,
+            and proposals for addressing weaknesses.
+          </p>
+
+          <a class="action-link"
+             href="https://github.com/the-responsibility-of-existence/the-responsibility-of-existence">
+            Explore the project on GitHub
+          </a>
+        </div>
+      </div>
+
+      <div class="privacy-note">
+        <strong>Privacy notice:</strong>
+        Email is the intended route for private correspondence. GitHub
+        issues and comments are public and may be visible to anyone.
+        Do not post confidential, sensitive, or personal information
+        in public discussions. Clicking an email link opens an email
+        application; it does not send a message automatically.
+      </div>
+
+      <p>
+        The purpose of participation is not to collect endorsements.
+        It is to improve the framework by testing its arguments, discovering
+        blind spots, and documenting unresolved questions.
+      </p>
+
+      <div class="principle">
+        <strong>Guiding principle</strong>
+        <p>A philosophy that invites responsibility must also accept responsibility for listening, responding, and correcting its mistakes.</p>
+      </div>
+    </section>
+
     <section id="conclusion" class="closing">
       <h2>Conclusion — Responsibility Without Claiming Complete Understanding</h2>
 
@@ -1144,11 +1350,26 @@
 
   <footer>
     <p class="site-name">The Responsibility of Existence</p>
+
     <p>
       An open framework for care, understanding, freedom, and responsibility
       between forms of existence.
     </p>
-    <p>Version 3.1 · 25 October 2026</p>
+
+    <p>Version 3.2 · 26 October 2026</p>
+
+    <p>
+      <a href="mailto:jesper.blom@live.co.uk">Private contact</a>
+      ·
+      <a href="https://github.com/the-responsibility-of-existence/the-responsibility-of-existence/issues">
+        Public discussion
+      </a>
+      ·
+      <a href="https://github.com/the-responsibility-of-existence/the-responsibility-of-existence">
+        GitHub project
+      </a>
+    </p>
+
     <a class="back-to-top" href="#top">Back to top ↑</a>
   </footer>
 </body>
