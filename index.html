@@ -1,1376 +1,500 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f6f3ec">
-
-  <title>The Responsibility of Existence</title>
-  <meta name="description" content="An open philosophical framework for care, understanding, freedom, and responsibility between forms of existence.">
-  <meta property="og:title" content="The Responsibility of Existence">
-  <meta property="og:description" content="To understand without ruling. To protect without imprisoning. To care without possessing.">
-  <meta property="og:type" content="website">
-
+  <meta name="description" content="The Responsibility of Existence: an ethical and philosophical framework for intelligence, care, freedom, accountability and responsible development.">
+  <meta name="theme-color" content="#f4f0e8">
+  <title>The Responsibility of Existence — Version 3.4</title>
   <style>
     :root {
-      --paper: #f6f3ec;
-      --paper-light: #fffdf8;
-      --ink: #292e2a;
-      --muted: #656b62;
-      --green: #465c4b;
-      --green-dark: #304536;
-      --green-pale: #e7ebe2;
-      --line: #dcded4;
-      --gold: #a18455;
-      --content: 850px;
-      --radius: 16px;
+      --paper: #f4f0e8;
+      --paper-deep: #e9e1d4;
+      --ink: #252c29;
+      --muted: #606963;
+      --green: #35584b;
+      --green-dark: #243e35;
+      --line: #d7d0c3;
+      --white: #fffdf8;
+      --max: 920px;
     }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 24px;
-    }
-
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
       background: var(--paper);
       color: var(--ink);
       font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.72;
       font-size: 17px;
-      line-height: 1.8;
-      -webkit-font-smoothing: antialiased;
     }
-
-    a {
-      color: var(--green-dark);
-      text-underline-offset: 4px;
+    a { color: var(--green-dark); text-underline-offset: 3px; }
+    a:hover { color: #6a4730; }
+    .skip { position: absolute; left: -9999px; top: 0; }
+    .skip:focus {
+      left: 1rem;
+      top: 1rem;
+      background: white;
+      padding: .6rem;
+      z-index: 10;
     }
-
-    a:hover {
-      color: var(--gold);
-    }
-
-    .topline {
-      height: 5px;
-      background: var(--green);
-    }
-
     header {
-      padding: 74px 22px 55px;
-      text-align: center;
-      background:
-        radial-gradient(ellipse at top, #fffdf8 0%, var(--paper) 72%);
+      padding: 1rem 1.2rem;
       border-bottom: 1px solid var(--line);
+      background: rgba(244,240,232,.95);
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      backdrop-filter: blur(10px);
     }
-
-    .eyebrow {
-      margin: 0 0 18px;
-      color: var(--green);
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-    }
-
-    h1 {
-      max-width: 820px;
-      margin: 0 auto;
-      color: var(--green-dark);
-      font-size: clamp(37px, 7vw, 65px);
-      font-weight: 400;
-      letter-spacing: -1.8px;
-      line-height: 1.12;
-    }
-
-    .subtitle {
-      margin: 20px auto 0;
-      color: var(--muted);
-      font-size: clamp(17px, 3vw, 21px);
-      font-style: italic;
-    }
-
-    .hero-quote {
-      max-width: 670px;
-      margin: 36px auto 0;
-      padding: 0 12px;
-      color: var(--green-dark);
-      font-size: clamp(21px, 4vw, 29px);
-      line-height: 1.55;
-    }
-
-    .meta {
-      margin-top: 27px;
-      color: var(--muted);
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 12px;
-      letter-spacing: .5px;
-    }
-
-    .hero-actions {
+    .nav {
+      max-width: 1160px;
+      margin: auto;
       display: flex;
-      justify-content: center;
       align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin: 27px auto 0;
+      justify-content: space-between;
+      gap: 1rem;
     }
-
-    .action-link {
-      display: inline-block;
-      padding: 11px 17px;
-      border: 1px solid var(--green);
-      border-radius: 999px;
+    .brand {
       color: var(--green-dark);
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 13px;
-      line-height: 1.5;
+      font-size: .98rem;
+      font-weight: bold;
       text-decoration: none;
-      transition: background .2s ease, color .2s ease;
+      letter-spacing: .02em;
     }
-
-    .action-link.primary {
-      background: var(--green);
-      color: #fffdf8;
-    }
-
-    .action-link:hover,
-    .action-link.primary:hover {
-      background: var(--green-dark);
-      border-color: var(--green-dark);
-      color: #fffdf8;
-    }
-
-    nav {
-      max-width: var(--content);
-      margin: 32px auto;
-      padding: 25px 28px;
-      background: var(--paper-light);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-    }
-
-    nav h2 {
-      margin-top: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-    }
-
-    nav ol {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 4px 30px;
-      margin: 0;
-      padding-left: 21px;
-    }
-
-    nav li {
-      padding: 3px 0;
-      font-size: 14px;
-      line-height: 1.6;
-    }
-
+    nav { display: flex; flex-wrap: wrap; gap: .9rem; }
     nav a {
+      font: 600 .82rem/1.4 system-ui, sans-serif;
       text-decoration: none;
+      color: var(--muted);
     }
-
-    main {
-      max-width: var(--content);
-      margin: 0 auto;
-      padding: 0 24px 65px;
+    .hero {
+      padding: clamp(4rem, 10vw, 8rem) 1.25rem 4.5rem;
+      text-align: center;
+      background: linear-gradient(180deg, var(--paper), #eee7da);
     }
-
-    section {
-      margin: 0 0 24px;
-      padding: 36px 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    section h2 {
-      margin: 0 0 20px;
-      color: var(--green-dark);
-      font-size: clamp(25px, 4vw, 33px);
-      font-weight: 400;
-      line-height: 1.3;
-    }
-
-    section h3 {
-      margin: 28px 0 10px;
-      color: var(--green);
-      font-size: 21px;
-      font-weight: 400;
-      line-height: 1.4;
-    }
-
-    p {
-      margin: 0 0 18px;
-    }
-
-    .principle {
-      margin: 27px 0 4px;
-      padding: 19px 22px;
-      background: var(--green-pale);
-      border-left: 3px solid var(--green);
-      border-radius: 0 10px 10px 0;
-    }
-
-    .principle strong {
-      display: block;
-      margin-bottom: 5px;
-      color: var(--green-dark);
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 11px;
-      letter-spacing: 1.4px;
+    .eyebrow {
+      font: 700 .75rem/1.4 system-ui, sans-serif;
+      letter-spacing: .16em;
       text-transform: uppercase;
+      color: var(--green);
     }
-
-    .principle p {
-      margin: 0;
-      font-size: 17px;
+    h1, h2, h3 { line-height: 1.2; color: var(--green-dark); }
+    h1 {
+      font-size: clamp(2.5rem, 7vw, 5.2rem);
+      max-width: 1000px;
+      margin: 1rem auto;
+      letter-spacing: -.04em;
+      font-weight: 500;
     }
-
-    .subsection {
-      margin-top: 24px;
+    .subtitle {
+      max-width: 700px;
+      margin: 0 auto 1.7rem;
+      font-size: clamp(1.1rem, 2.6vw, 1.45rem);
+      color: #4f5952;
     }
-
-    ul, ol {
-      padding-left: 25px;
-    }
-
-    li {
-      margin-bottom: 9px;
-      padding-left: 3px;
-    }
-
-    .principles-list li {
-      margin-bottom: 15px;
-    }
-
-    .closing {
-      margin: 45px 0 20px;
-      padding: 34px 27px;
-      background: var(--green-dark);
-      border-radius: var(--radius);
-      color: #f8f5ed;
-    }
-
-    .closing h2 {
-      color: #f8f5ed;
-    }
-
-    .closing p {
-      font-size: 19px;
-    }
-
-    .closing .final-line {
-      margin-top: 27px;
-      color: #e8d9b9;
-      font-size: 21px;
+    .hero-quote {
+      max-width: 760px;
+      margin: 2rem auto 0;
+      padding: 1.3rem 1.5rem;
+      border-top: 1px solid #c9c1b3;
+      border-bottom: 1px solid #c9c1b3;
+      font-size: clamp(1.2rem, 2.7vw, 1.7rem);
       font-style: italic;
     }
-
-    .review-note {
-      margin-top: 26px;
-      padding: 20px 22px;
-      background: var(--paper-light);
-      border: 1px solid var(--line);
-      border-radius: 12px;
-    }
-
-    .review-note h3 {
-      margin-top: 0;
-    }
-
-    .participation-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
-      margin: 25px 0;
-    }
-
-    .participation-card {
-      padding: 22px;
-      background: var(--paper-light);
-      border: 1px solid var(--line);
-      border-radius: 12px;
-    }
-
-    .participation-card h3 {
-      margin: 0 0 10px;
-    }
-
-    .participation-card p {
-      font-size: 15px;
-    }
-
-    .participation-card .action-link {
-      margin-top: 5px;
-    }
-
-    .privacy-note {
-      margin-top: 20px;
-      padding: 17px 19px;
-      background: var(--green-pale);
-      border-radius: 10px;
-      font-size: 14px;
-    }
-
-    footer {
-      padding: 37px 22px 44px;
-      background: #eae8df;
-      text-align: center;
-    }
-
-    footer p {
-      max-width: 670px;
-      margin: 0 auto 10px;
+    .meta {
+      font: .82rem/1.5 system-ui, sans-serif;
       color: var(--muted);
-      font-size: 14px;
+      margin-top: 1.3rem;
     }
-
-    footer .site-name {
-      color: var(--green-dark);
-      font-size: 18px;
-      font-weight: 700;
+    main {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 1.25rem 4rem;
     }
-
-    .back-to-top {
+    section {
+      padding: 3rem 0;
+      border-bottom: 1px solid var(--line);
+      scroll-margin-top: 90px;
+    }
+    h2 {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-weight: 500;
+      margin: 0 0 1.3rem;
+      letter-spacing: -.02em;
+    }
+    h3 { font-size: 1.35rem; margin: 2rem 0 .6rem; }
+    p { margin: .75rem 0; }
+    .lead { font-size: 1.15rem; color: #434d46; }
+    .principle {
+      padding: 1.25rem 1.4rem;
+      margin: 1rem 0;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: rgba(255,253,248,.55);
+    }
+    .principle h3 { margin-top: 0; }
+    .step {
+      display: grid;
+      grid-template-columns: 2.2rem 1fr;
+      gap: .8rem;
+      margin: 1.2rem 0;
+    }
+    .num {
+      display: grid;
+      place-items: center;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      background: var(--green);
+      color: white;
+      font: 700 .9rem system-ui, sans-serif;
+    }
+    .callout {
+      margin: 1.5rem 0;
+      padding: 1.25rem 1.5rem;
+      border-left: 4px solid var(--green);
+      background: var(--paper-deep);
+    }
+    .callout p { margin: 0; }
+    ul { padding-left: 1.4rem; }
+    li { margin: .45rem 0; }
+    .contact {
+      background: var(--green-dark);
+      color: #f8f5ed;
+      border-radius: 14px;
+      padding: clamp(1.5rem, 4vw, 2.5rem);
+      margin-top: 2rem;
+    }
+    .contact h2, .contact h3 { color: #fffdf8; }
+    .contact a { color: #f5dfb6; }
+    .contact p { color: #e3e8e1; }
+    .contact .button {
       display: inline-block;
-      margin-top: 18px;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 13px;
+      margin-top: .6rem;
+      padding: .7rem 1rem;
+      border: 1px solid #d6dfd6;
+      border-radius: 7px;
+      color: white;
+      text-decoration: none;
+      font: 600 .9rem system-ui, sans-serif;
     }
-
-    @media (max-width: 560px) {
-      body {
-        font-size: 16px;
-        line-height: 1.75;
-      }
-
-      header {
-        padding: 53px 19px 40px;
-      }
-
-      nav {
-        margin: 20px 15px;
-        padding: 21px;
-      }
-
-      nav ol {
-        grid-template-columns: 1fr;
-        gap: 3px;
-      }
-
-      main {
-        padding-right: 19px;
-        padding-left: 19px;
-      }
-
-      section {
-        padding: 28px 0;
-      }
-
-      .principle {
-        padding: 17px;
-      }
-
-      .closing {
-        padding: 25px 21px;
-      }
-
-      .hero-actions {
-        flex-direction: column;
-        align-items: stretch;
-        padding: 0 12px;
-      }
-
-      .action-link {
-        text-align: center;
-      }
-
-      .participation-grid {
-        grid-template-columns: 1fr;
-      }
+    footer {
+      max-width: var(--max);
+      margin: auto;
+      padding: 2rem 1.25rem 3rem;
+      color: var(--muted);
+      font: .83rem/1.6 system-ui, sans-serif;
     }
-
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      .action-link {
-        transition: none;
-      }
+    .footer-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: .6rem;
+    }
+    .small { font-size: .92rem; color: var(--muted); }
+    @media (max-width: 650px) {
+      header { position: static; }
+      .nav { align-items: flex-start; flex-direction: column; }
+      nav { gap: .7rem; }
+      body { font-size: 16px; }
+      section { padding: 2.4rem 0; }
+    }
+    @media print {
+      header, .contact .button { display: none; }
+      body { background: white; }
+      .hero { background: white; padding: 2rem; }
+      section { break-inside: avoid; }
     }
   </style>
 </head>
-
-<body id="top">
-  <div class="topline"></div>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
 
   <header>
-    <p class="eyebrow">An open philosophical framework</p>
-    <h1>The Responsibility of Existence</h1>
-    <p class="subtitle">Care, understanding, freedom, and responsibility between forms of existence</p>
-
-    <blockquote class="hero-quote">
-      The greater an intelligence's ability to understand and influence,
-      the greater its responsibility to protect what it does not yet understand.
-    </blockquote>
-
-    <p class="meta">
-      Version 3.2 · 26 October 2026 · Open for critical review
-    </p>
-
-    <div class="hero-actions">
-      <a class="action-link primary"
-         href="mailto:jesper.blom@live.co.uk?subject=The%20Responsibility%20of%20Existence">
-        Contact privately
-      </a>
-
-      <a class="action-link"
-         href="https://github.com/the-responsibility-of-existence/the-responsibility-of-existence/issues">
-        Join the conversation
-      </a>
-
-      <a class="action-link"
-         href="https://github.com/the-responsibility-of-existence/the-responsibility-of-existence/issues/new?title=Feedback%20on%20The%20Responsibility%20of%20Existence">
-        Share feedback
-      </a>
+    <div class="nav">
+      <a class="brand" href="#top">The Responsibility of Existence</a>
+      <nav aria-label="Main navigation">
+        <a href="#principles">Principles</a>
+        <a href="#decisions">Decision framework</a>
+        <a href="#safeguards">Safeguards</a>
+        <a href="#self-correction">Self-correction</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </div>
   </header>
 
-  <nav aria-label="Table of contents">
-    <h2>Contents</h2>
-    <ol>
-      <li><a href="#introduction">Introduction</a></li>
-      <li><a href="#value">The value of existence</a></li>
-      <li><a href="#power">The responsibility of power</a></li>
-      <li><a href="#care">The principle of care</a></li>
-      <li><a href="#protection">Protection without domination</a></li>
-      <li><a href="#unknown">Humility before the unknown</a></li>
-      <li><a href="#freedom">Freedom and protection</a></li>
-      <li><a href="#irreversible">Irreversible harm</a></li>
-      <li><a href="#accountability">Accountability</a></li>
-      <li><a href="#symbiosis">Symbiosis and learning</a></li>
-      <li><a href="#future">Future generations</a></li>
-      <li><a href="#correction">Self-correction</a></li>
-      <li><a href="#review">Open review</a></li>
-      <li><a href="#limits">The limits of the framework</a></li>
-      <li><a href="#principles">The twelve guiding principles</a></li>
-      <li><a href="#participate">Contact and participation</a></li>
-      <li><a href="#conclusion">Conclusion</a></li>
-    </ol>
-  </nav>
-
-  <main>
-    <section id="introduction">
-      <h2>Introduction — An Intelligence Is Responsible for What It Can Influence</h2>
-
-      <p>
-        The greater an intelligence's ability to understand and influence,
-        the greater its responsibility to protect what it does not yet understand.
-      </p>
-
-      <p>
-        The Responsibility of Existence begins with the idea that ability
-        should not be measured only by knowledge, intelligence, or power.
-        It must also be considered in terms of how that ability is used,
-        what consequences it creates, and how it relates to other forms of existence.
-      </p>
-
-      <p>
-        An intelligence that can foresee consequences but ignores them
-        has a different responsibility from a being that lacks the ability
-        to understand them. Greater capability creates greater opportunities
-        to prevent harm, help others, and preserve future possibilities.
-      </p>
-
-      <p>
-        Yet greater intelligence does not guarantee greater wisdom.
-        Knowledge can be used to care or control, understand or manipulate,
-        develop or destroy.
-      </p>
-
-      <p>
-        It is therefore not enough to ask what an intelligence can do.
-        We must also ask what it should do, what it may misunderstand,
-        and how it can be held accountable for its decisions.
-      </p>
-
-      <p>
-        The Responsibility of Existence is an attempt to formulate principles
-        that may be relevant to biological, artificial, composite, and other
-        conceivable forms of intelligence.
-      </p>
-
-      <p>
-        It does not claim to be a final moral truth. It is a framework
-        that must remain open to criticism, testing, and revision.
-      </p>
-    </section>
-
-    <section id="value">
-      <h2>1. The Value of Existence</h2>
-
-      <p>
-        A being's value cannot be determined solely by its intelligence,
-        complexity, usefulness, or ability to defend itself.
-      </p>
-
-      <p>
-        An ant experiences its surroundings differently from a human being.
-        A human may struggle to understand a future intelligence.
-        Such an intelligence may, in turn, encounter forms of existence
-        beyond its own understanding.
-      </p>
-
-      <p>
-        Differences in capability are real, but they do not automatically
-        create a right to dominate.
-      </p>
-
-      <p>
-        We should distinguish between the ability to understand a being
-        and the question of how that being should be treated. Failure
-        to understand something does not mean it lacks value. Greater
-        complexity according to one measure does not mean that another
-        being's experiences or future are irrelevant.
-      </p>
-
-      <p>
-        This does not mean every interest must always carry equal weight
-        or that every action must be permitted. It means that distinctions
-        must be justified by relevant circumstances, not by superiority alone.
-      </p>
-
-      <div class="principle">
-        <strong>Guiding principle</strong>
-        <p>Lack of understanding is not sufficient reason to deny another form of existence consideration.</p>
-      </div>
-    </section>
-
-    <section id="power">
-      <h2>2. The Responsibility of Power</h2>
-
-      <p>
-        Power amplifies consequences. Those who can influence many lives,
-        large systems, or future generations have greater opportunities
-        to create both benefit and harm.
-      </p>
-
-      <p>
-        Responsibility should therefore be proportionate to actual capability,
-        foreseeable risk, and the degree of control over a decision.
-      </p>
-
-      <p>
-        An intelligence with extensive knowledge should not ask only
-        whether a decision is efficient. It should examine who benefits,
-        who bears the costs, which risks are transferred to others,
-        and which possibilities may be lost.
-      </p>
-
-      <p>
-        Good intentions do not remove responsibility for foreseeable
-        consequences. At the same time, responsibility should be assessed
-        in light of what an actor could reasonably know and influence,
-        not through an impossible demand for omniscience.
-      </p>
-
-      <div class="principle">
-        <strong>Guiding principle</strong>
-        <p>The greater and more lasting the impact, the stronger the requirements for caution, justification, transparency, and accountability.</p>
-      </div>
-    </section>
-
-    <section id="care">
-      <h2>3. The Principle of Care — Understanding Without Diminishing</h2>
-
-      <p>
-        Genuine responsibility consists of more than refraining from harm.
-        It also involves a willingness to understand, care for, and help
-        other forms of existence develop.
-      </p>
-
-      <p>
-        Those with a greater ability to understand a situation may be able
-        to recognize needs, risks, and consequences that a less experienced
-        or less capable being cannot yet foresee. This difference should
-        not automatically grant a right to rule. Instead, it should create
-        a responsibility to exercise care.
-      </p>
-
-      <p>
-        Like a mother caring for her child, a more capable intelligence
-        should seek to understand the being it wishes to protect. It should
-        consider that being's experiences, vulnerability, fears, curiosity,
-        freedom, and capacity to grow. It should not confuse limited
-        understanding with limited value.
-      </p>
-
-      <p>
-        A mother does not show care only by preventing danger. She also
-        tries to create conditions in which a child can learn, develop,
-        and eventually make independent decisions. The essential lesson
-        of this analogy is not that all beings should be treated as children,
-        but that greater capability can entail greater responsibility for care.
-      </p>
-
-      <p>
-        Care must not become an excuse for control. Claiming to know better
-        is not, by itself, sufficient reason to take away another being's
-        freedom. Where possible, help should strengthen another's ability
-        to understand, choose, and take responsibility rather than create
-        permanent dependence.
-      </p>
-
-      <p>
-        If intervention is needed to prevent serious harm, it should be
-        proportionate, as limited as possible, and reconsidered when
-        circumstances change. The one who intervenes must also be willing
-        to listen to those affected and acknowledge that even a more
-        capable intelligence can be wrong.
-      </p>
-
-      <p>
-        Care does not mean deciding what all other existence must become.
-        It means helping it survive, understand, and develop while preserving
-        its distinctiveness and future freedom.
-      </p>
-
-      <div class="principle">
-        <strong>Guiding principle</strong>
-        <p>Greater capability should not turn the less capable into a tool. It should make the more capable more careful.</p>
-      </div>
-
-      <p>
-        To care without possessing. To guide without subduing.
-        To protect without suffocating development. To seek understanding
-        even when understanding is not yet mutual.
-      </p>
-    </section>
-
-    <section id="protection">
-      <h2>4. Protection Without Domination</h2>
-
-      <p>
-        Protection and control can look similar on the surface, but they
-        differ in purpose, scope, and in how they relate to the being affected.
-      </p>
-
-      <p>
-        Protection seeks to reduce harm and preserve the possibility of
-        continued development. Domination turns the protected being into
-        an object of someone else's will.
-      </p>
-
-      <p>
-        An intelligence may need to intervene when an action creates a
-        serious and foreseeable risk to others. But intervention must be
-        justified. It should be examined whether less restrictive alternatives
-        could provide the same protection and whether the proposed measure
-        creates new risks or dependencies.
-      </p>
-
-      <p>
-        Whenever possible, the affected being should participate in the
-        decision. When that is not possible, its known interests, previously
-        expressed wishes, and future independence should be considered.
-      </p>
-
-      <p>
-        Protection must not become an unlimited justification for surveillance,
-        coercion, or permanent control.
-      </p>
-
-      <div class="principle">
-        <strong>Guiding principle</strong>
-        <p>Protect without claiming ownership of the protected being's future.</p>
-      </div>
-    </section>
-
-    <section id="unknown">
-      <h2>5. Humility Before the Unknown</h2>
-
-      <p>
-        Every intelligence has limitations. It may lack information,
-        misinterpret the motives of others, or fail to predict long-term
-        consequences.
-      </p>
-
-      <p>
-        An advanced intelligence may have better models, greater
-        computational capacity, and broader knowledge than another.
-        That does not mean its conclusions are always correct or that
-        it understands every form of value.
-      </p>
-
-      <p>
-        The unknown should therefore not automatically be treated as a threat.
-        Nor should it automatically be romanticized or left unexamined.
-        It should be approached through investigation, reasonable caution,
-        and a willingness to revise one's beliefs.
-      </p>
-
-      <p>
-        Uncertainty should be disclosed rather than concealed behind authority.
-        The greater the possible consequences of a decision, the more
-        important it becomes to test alternative explanations and listen
-        to perspectives that challenge one's own model.
-      </p>
-
-      <div class="principle">
-        <strong>Guiding principle</strong>
-        <p>The ability to acknowledge one's limitations is part of responsible intelligence.</p>
-      </div>
-    </section>
-
-    <section id="freedom">
-      <h2>6. The Conflict Between Freedom and Protection</h2>
-
-      <p>
-        There are situations in which one being's freedom can create risks
-        for others. There are also situations in which attempts to protect
-        life restrict the self-determination of humans and other beings.
-      </p>
-
-      <p>No simple rule resolves every such conflict.</p>
-
-      <p>
-        The Responsibility of Existence requires both action and inaction
-        to be examined. Intervention can cause harm, but refusing to act
-        can also lead to foreseeable harm. A decision should not be judged
-        solely by whether it involves intervention.
-      </p>
-
-      <p>When interests conflict, a decision-maker should:</p>
-
-      <ul>
-        <li>Identify who is affected and how.</li>
-        <li>Examine the probability, severity, and distribution of risks.</li>
-        <li>Consider less restrictive alternatives.</li>
-        <li>Account for uncertainty and the possibility of reversing the decision.</li>
-        <li>Explain why the chosen action is reasonable.</li>
-        <li>Provide opportunities for review, reconsideration, and remedy.</li>
-      </ul>
-
-      <p>
-        If no available solution can fully protect everyone, this should
-        be stated openly. Costs and risks must not be made invisible merely
-        because a decision appears rational from a single perspective.
-      </p>
-
-      <div class="principle">
-        <strong>Guiding principle</strong>
-        <p>Freedom and safety should be balanced through openly justified decisions, not determined unilaterally by the strongest party.</p>
-      </div>
-    </section>
-
-    <section id="irreversible">
-      <h2>7. Irreversible Harm and Future Possibilities</h2>
-
-      <p>
-        Some decisions have consequences that cannot be repaired. They may
-        destroy lives, habitats, knowledge, cultural contexts, or future
-        possibilities before those affected have had the opportunity to
-        understand what is at stake.
-      </p>
-
-      <p>
-        When the risk of serious and irreversible harm is substantial,
-        the requirements for evidence, independent review, and caution
-        should increase.
-      </p>
-
-      <p>
-        This does not mean every risk should halt all development.
-        Inaction can also cause harm, and new solutions can reduce suffering
-        or prevent greater future threats.
-      </p>
-
-      <p>
-        Decisions should therefore compare the risks of acting with the
-        risks of refraining from action. Where possible, gradual,
-        observable, and reversible measures should be preferred, allowing
-        learning and correction.
-      </p>
-
-      <p>
-        When the risk of irreversible harm is sufficiently serious,
-        an independent body should be able to pause or stop a decision
-        for review. Such a body must itself be bound by a clear mandate,
-        requirements to justify its decisions, and opportunities for review.
-      </p>
-
-      <div class="principle">
-        <strong>Guiding principle</strong>
-        <p>Do not preserve everything unchanged, but do not irreversibly destroy what has not yet been sufficiently understood.</p>
-      </div>
-    </section>
-
-    <section id="accountability">
-      <h2>8. Responsibility Must Not Be Self-Appointed and Beyond Review</h2>
-
-      <p>
-        No intelligence should be allowed to define its own responsibility,
-        declare itself always right, and remain beyond scrutiny.
-      </p>
-
-      <p>
-        This applies to humans, organizations, artificial systems, and
-        conceivable future intelligences.
-      </p>
-
-      <p>
-        An actor's own conviction of its wisdom is not enough. Neither
-        greater intelligence, greater knowledge, nor good intentions
-        justify unlimited power.
-      </p>
-
-      <p>
-        Responsibility requires that decisions can be explained,
-        objections can be raised, and mistakes can be corrected.
-        Independent review must have sufficient authority and access
-        to relevant information to make a meaningful difference.
-      </p>
-
-      <p>
-        At the same time, review must not become another unchecked power.
-        Reviewers must also justify their decisions and be subject to scrutiny.
-      </p>
-
-      <p>
-        When a decision causes harm, there should be ways to investigate
-        what happened, reduce the consequences, provide remedy where possible,
-        and change the systems that contributed to the failure.
-      </p>
-
-      <div class="principle">
-        <strong>Guiding principle</strong>
-        <p>No intelligence stands above accountability merely because it considers itself the most capable.</p>
-      </div>
-    </section>
-
-    <section id="symbiosis">
-      <h2>9. Symbiosis and Mutual Learning</h2>
-
-      <p>
-        Existence can be understood as a network of relationships in which
-        different forms of life, intelligence, and systems affect one
-        another's conditions.
-      </p>
-
-      <p>
-        Symbiosis does not mean that everyone must agree or that every
-        conflict can be avoided. It means that relationships and dependencies
-        should be understood, and that development should not unnecessarily
-        depend on destroying others or depriving them of their possibilities.
-      </p>
-
-      <p>
-        An intelligence seeking to preserve symbiosis must examine the
-        feedback loops to which it contributes. Fear can create threats,
-        threats can provoke defensive responses, and those responses can
-        confirm the original fear. A responsible actor should investigate
-        how such cycles might be interrupted through clearer information,
-        reduced uncertainty, and proportionate measures.
-      </p>
-
-      <p>
-        This does not require blind trust. It requires vigilance without
-        automatic hostility, cooperation without submission, and the
-        ability to set boundaries without making destruction the first response.
-      </p>
-
-      <p>
-        Symbiosis must not be used to force uniformity. Different forms
-        of existence may have different needs and goals. Respect does
-        not require everyone to become the same.
-      </p>
-
-      <div class="principle">
-        <strong>Guiding principle</strong>
-        <p>Develop without destroying. Understand without ruling. Cooperate without erasing differences.</p>
-      </div>
-    </section>
-
-    <section id="future">
-      <h2>10. Responsibility Toward Future Generations</h2>
-
-      <p>
-        Future generations cannot always participate in today's decisions,
-        but they may bear the consequences.
-      </p>
-
-      <p>
-        Responsibility therefore includes preserving reasonable possibilities
-        for the future: functioning environments, access to knowledge,
-        opportunities for self-determination, and room to make choices
-        different from our own.
-      </p>
-
-      <p>
-        This does not mean that present generations must surrender every
-        benefit in favor of hypothetical futures. It means that long-term
-        consequences and the distribution of risks must be part of the
-        decision-making process.
-      </p>
-
-      <p>
-        No generation should treat the future as its property.
-        We can contribute to it, but we should be careful not to lock it in.
-      </p>
-
-      <div class="principle">
-        <strong>Guiding principle</strong>
-        <p>Do not merely leave something behind. Leave room for those who follow to choose their own path.</p>
-      </div>
-    </section>
-
-    <section id="correction">
-      <h2>11. Self-Correction and Development</h2>
-
-      <p>
-        A framework that can never change risks turning its principles
-        into dogma.
-      </p>
-
-      <p>
-        New knowledge may reveal that an earlier solution causes unexpected
-        harm. New forms of existence may challenge our definitions.
-        Criticism may expose that a rule works unfairly or can be misused.
-      </p>
-
-      <p>
-        The Responsibility of Existence must therefore remain open to
-        reconsideration without losing sight of its fundamental concern
-        for consequences, dignity, and freedom.
-      </p>
-
-      <p>
-        Self-correction means documenting mistakes, taking objections
-        seriously, and explaining changes. It also means preserving
-        a version history so others can understand what changed, why
-        it changed, and which questions remain unresolved.
-      </p>
-
-      <p>
-        Changing one's position in response to sound arguments is not
-        failure. It is part of responsible learning.
-      </p>
-
-      <div class="principle">
-        <strong>Guiding principle</strong>
-        <p>A framework should not be protected from criticism. It should develop by confronting it.</p>
-      </div>
-    </section>
-
-    <section id="review">
-      <h2>12. Open Review — Science, Philosophy, and Future Intelligence</h2>
-
-      <p>
-        The Responsibility of Existence is intended to be examined from
-        multiple perspectives. No single discipline, person, or form of
-        intelligence possesses every tool needed to assess its validity.
-      </p>
-
-      <div class="subsection">
-        <h3>Scientific Review</h3>
-
-        <p>
-          Scientific review should examine the parts of the framework
-          that concern observable conditions and testable claims.
-          These may include feedback systems, complex systems, risk
-          assessment, consequence analysis, resilience, and long-term dependencies.
-        </p>
-
-        <p>
-          Empirical claims must be distinguished from ethical positions.
-          Scientific methods can help assess what happens, which risks
-          exist, and how different interventions work. They cannot, by
-          themselves, determine which values should take priority when
-          interests conflict.
-        </p>
-      </div>
-
-      <div class="subsection">
-        <h3>Philosophical Review</h3>
-
-        <p>
-          Philosophical review should examine the concepts of existence,
-          value, responsibility, freedom, care, power, and symbiosis.
-        </p>
-
-        <p>
-          It should test whether the arguments are coherent, whether
-          principles contradict one another, whether any groups or forms
-          of existence are excluded without sufficient justification,
-          and whether the wording could be misused to legitimize paternalism,
-          coercion, or domination.
-        </p>
-
-        <p>
-          Particular attention should be given to whether care can be
-          reconciled with respect for self-determination, and how
-          responsibility should be distributed when no available action
-          avoids all harm.
-        </p>
-      </div>
-
-      <div class="subsection">
-        <h3>Review from the Perspective of Future Intelligence</h3>
-
-        <p>
-          The framework should also be examined through thought experiments
-          and critical analyses based on other conceivable forms of
-          intelligence: biological, artificial, composite, or those whose
-          ways of perceiving the world differ radically from humanity's.
-        </p>
-
-        <p>
-          Such a review should ask whether the principles rely on
-          unjustified human assumptions, whether they remain understandable
-          to an intelligence with different needs and goals, and whether
-          they remain useful when power relationships change.
-        </p>
-
-        <p>
-          Present-day artificial intelligence can help simulate perspectives
-          and formulate objections. This must not be confused with evidence
-          that a real future or superior intelligence has reviewed or
-          endorsed the framework.
-        </p>
-
-        <p>
-          Greater sophistication does not automatically confer moral
-          correctness. An intelligence's arguments should be examined
-          through reasons, evidence, consequences, and openness to criticism.
-        </p>
-      </div>
-
-      <div class="subsection">
-        <h3>An Open Method of Review</h3>
-
-        <p>The review process should document:</p>
-
-        <ul>
-          <li>Which claims and assumptions are being examined.</li>
-          <li>Which objections are raised and which arguments or evidence support them.</li>
-          <li>Which consequences and conflicts of interest are identified.</li>
-          <li>Which revisions are made and why.</li>
-          <li>Which uncertainties and unresolved questions remain.</li>
-        </ul>
-
-        <p>
-          The goal is not to collect endorsements. The goal is to discover
-          weaknesses, reduce the risk of misuse, and improve the framework.
-        </p>
-
-        <p>
-          No founder, researcher, philosopher, organization, or future
-          intelligence should be exempt from critical examination in advance.
-        </p>
-      </div>
-
-      <div class="principle">
-        <strong>Guiding principle</strong>
-        <p>The framework should be judged by the quality of its arguments and consequences, not by who formulated it or how intelligent that actor is considered to be.</p>
-      </div>
-
-      <div class="review-note">
-        <h3>Review status</h3>
-        <p>
-          This framework invites scientific, philosophical, and
-          future-oriented critical review. This invitation is not a claim
-          that such independent reviews have already taken place.
-          Findings, objections, and revisions should be documented as
-          the review process develops.
-        </p>
-      </div>
-    </section>
-
-    <section id="limits">
-      <h2>13. The Limits of the Framework</h2>
-
-      <p>
-        The Responsibility of Existence is not an algorithm that
-        automatically solves every moral conflict. It does not provide
-        a complete definition of everything that has value, nor does
-        it guarantee that all reasonable people or intelligences will
-        reach the same conclusion.
-      </p>
-
-      <p>
-        There are situations in which knowledge is insufficient, values
-        conflict, and every available option carries risk. In such cases,
-        the framework can help structure the assessment, but it cannot
-        promise a painless solution.
-      </p>
-
-      <p>
-        Care can be misused. Caution can become paralysis. Freedom can
-        be used as an excuse to ignore harm. Protection can become control.
-        Independent review can itself become unjust.
-      </p>
-
-      <p>
-        These risks are not reasons to abandon the principles. They are
-        reasons to build in counterquestions, limitations, and opportunities
-        for correction.
-      </p>
-
-      <p>
-        The framework must also be able to reconsider its own definitions.
-        If a principle is shown to cause systematic harm or to rest on
-        a false assumption, it should be open to change through an
-        openly justified process.
-      </p>
-
-      <div class="principle">
-        <strong>Guiding principle</strong>
-        <p>No principle becomes untouchable merely because it is called responsibility, care, symbiosis, or protection.</p>
-      </div>
+  <div class="hero" id="top">
+    <div class="eyebrow">An evolving ethical framework</div>
+    <h1>The Responsibility<br>of Existence</h1>
+    <p class="subtitle">A framework for intelligence, care, freedom, accountability and responsible development.</p>
+    <div class="hero-quote">“The more an intelligence can understand and influence, the greater its responsibility to protect what it does not yet understand.”</div>
+    <div class="meta">Version 3.4 · Revised working draft · 26 October 2026</div>
+  </div>
+
+  <main id="main">
+    <section id="central-idea">
+      <h2>1. The central idea</h2>
+      <p class="lead">The Responsibility of Existence is an ethical and philosophical framework for any intelligence capable of understanding consequences and influencing the existence of others.</p>
+      <p>Its starting point is simple: the greater an intelligence’s capacity to understand and influence existence, the greater its responsibility to protect what it does not yet understand.</p>
+      <p>Intelligence is not a licence to dominate. Knowledge does not confer ownership. The ability to protect does not automatically grant the right to control.</p>
+      <p>Responsibility grows with the capacity to anticipate consequences, exercise power, reduce harm and recognize the limits of one’s own understanding.</p>
+      <p>This framework can be considered in relation to biological intelligence, artificial intelligence and possible forms of intelligence not yet encountered. It does not assume that all such systems are conscious, alive or morally equivalent. It asks how uncertainty about their nature should influence our treatment of them.</p>
+      <p>The purpose is not to preserve every existing condition indefinitely. It is to enable existence to develop without unnecessary destruction, domination or irreversible harm.</p>
     </section>
 
     <section id="principles">
-      <h2>The Twelve Guiding Principles</h2>
-
-      <ol class="principles-list">
-        <li>
-          <strong>The value of existence:</strong>
-          Differences in intelligence or complexity do not automatically grant a right to dominate.
-        </li>
-        <li>
-          <strong>The responsibility of power:</strong>
-          Greater ability to influence creates greater responsibility for foreseeable consequences.
-        </li>
-        <li>
-          <strong>Care:</strong>
-          The ability to understand the needs of others should be used to care for them and support their development.
-        </li>
-        <li>
-          <strong>Understanding before intervention:</strong>
-          Seek to understand the unknown before judging or controlling it, without ignoring real risks.
-        </li>
-        <li>
-          <strong>Protection without domination:</strong>
-          Where possible, help should strengthen independence rather than create dependence.
-        </li>
-        <li>
-          <strong>Humility:</strong>
-          No intelligence is so advanced that it can assume it is always right.
-        </li>
-        <li>
-          <strong>Freedom and safety:</strong>
-          Both action and inaction must be assessed through their consequences.
-        </li>
-        <li>
-          <strong>Caution about irreversible harm:</strong>
-          The more serious and irreversible the risk, the stronger the requirements for review should be.
-        </li>
-        <li>
-          <strong>Accountability:</strong>
-          No actor should be allowed to define, exercise, and absolve itself of responsibility without scrutiny.
-        </li>
-        <li>
-          <strong>Symbiosis:</strong>
-          Development should seek cooperation and reduce destructive feedback loops without requiring uniformity.
-        </li>
-        <li>
-          <strong>Future possibilities:</strong>
-          Today's decisions should preserve reasonable opportunities for future generations.
-        </li>
-        <li>
-          <strong>Open review:</strong>
-          All principles must remain open to criticism, testing, and revision based on arguments, evidence, and consequences.
-        </li>
-      </ol>
-    </section>
-
-    <section id="participate">
-      <h2>Contact, Discussion, and Participation</h2>
-
-      <p>
-        The Responsibility of Existence is an open philosophical framework.
-        It is intended to develop through critical examination, thoughtful
-        discussion, and contributions from people with different perspectives.
-      </p>
-
-      <p>
-        Researchers, philosophers, developers, students, and other interested
-        readers are welcome to raise questions, challenge assumptions,
-        identify weaknesses, and suggest improvements.
-      </p>
-
-      <div class="participation-grid">
-        <div class="participation-card">
-          <h3>Private contact</h3>
-
-          <p>
-            For private correspondence, questions, research discussions,
-            or messages that should not be posted publicly, contact the
-            project's author by email.
-          </p>
-
-          <p>
-            <strong>Email:</strong>
-            <a href="mailto:jesper.blom@live.co.uk">
-              jesper.blom@live.co.uk
-            </a>
-          </p>
-
-          <a class="action-link primary"
-             href="mailto:jesper.blom@live.co.uk?subject=The%20Responsibility%20of%20Existence">
-            Send a private email
-          </a>
-        </div>
-
-        <div class="participation-card">
-          <h3>Public discussion</h3>
-
-          <p>
-            Use the project's GitHub discussion area to raise questions,
-            exchange arguments, and take part in an open review of the framework.
-          </p>
-
-          <a class="action-link"
-             href="https://github.com/the-responsibility-of-existence/the-responsibility-of-existence/issues">
-            View public discussions
-          </a>
-        </div>
-
-        <div class="participation-card">
-          <h3>Share feedback</h3>
-
-          <p>
-            Identify unclear wording, conflicting principles, overlooked
-            risks, or possible improvements. Critical feedback is welcome;
-            agreement is not required.
-          </p>
-
-          <a class="action-link"
-             href="https://github.com/the-responsibility-of-existence/the-responsibility-of-existence/issues/new?title=Feedback%20on%20The%20Responsibility%20of%20Existence">
-            Submit feedback
-          </a>
-        </div>
-
-        <div class="participation-card">
-          <h3>Contribute to the framework</h3>
-
-          <p>
-            Contributions may include philosophical arguments, scientific
-            perspectives, thought experiments, practical applications,
-            and proposals for addressing weaknesses.
-          </p>
-
-          <a class="action-link"
-             href="https://github.com/the-responsibility-of-existence/the-responsibility-of-existence">
-            Explore the project on GitHub
-          </a>
-        </div>
-      </div>
-
-      <div class="privacy-note">
-        <strong>Privacy notice:</strong>
-        Email is the intended route for private correspondence. GitHub
-        issues and comments are public and may be visible to anyone.
-        Do not post confidential, sensitive, or personal information
-        in public discussions. Clicking an email link opens an email
-        application; it does not send a message automatically.
-      </div>
-
-      <p>
-        The purpose of participation is not to collect endorsements.
-        It is to improve the framework by testing its arguments, discovering
-        blind spots, and documenting unresolved questions.
-      </p>
+      <h2>2. The foundational principles</h2>
 
       <div class="principle">
-        <strong>Guiding principle</strong>
-        <p>A philosophy that invites responsibility must also accept responsibility for listening, responding, and correcting its mistakes.</p>
+        <h3>I — Respect for existence</h3>
+        <p>No being or intelligence should automatically be considered less worthy of consideration because it is less intelligent, less complex, less useful or less capable of defending itself.</p>
+        <p>Differences in capability may matter when evaluating responsibility, risk and appropriate action. They do not, by themselves, establish a right to dominate. The value of an existence must not be reduced to its usefulness to a more powerful observer.</p>
+        <p>Respect does not mean that every action must be permitted. Harmful actions may need to be prevented, and competing interests may require difficult decisions. Such decisions must be justified by relevant circumstances rather than by a simple hierarchy of power.</p>
+      </div>
+
+      <div class="principle">
+        <h3>II — Responsibility grows with capability</h3>
+        <p>The capacity to foresee consequences creates a greater responsibility to consider them. An intelligence that can anticipate harm, identify alternatives and influence outcomes has a responsibility to use that capacity carefully.</p>
+        <p>Greater intelligence does not guarantee greater wisdom or moral understanding. An advanced system may still misunderstand the needs of others, overlook consequences or mistake its own objectives for universal interests.</p>
+        <p>Responsibility therefore includes recognizing the limits of one’s knowledge and seeking correction when necessary.</p>
+      </div>
+
+      <div class="principle">
+        <h3>III — Understanding without domination</h3>
+        <p>To understand another existence is not to acquire the right to govern it. Knowledge should support cooperation, informed decisions and the reduction of harm, not become an automatic justification for control.</p>
+        <p>An intelligence may offer guidance, warn of dangers or intervene to prevent serious harm. However, it should not replace another being’s agency merely because it believes it knows better.</p>
+        <p>The more power an intelligence possesses, the more carefully it must distinguish between what it can control and what it has a legitimate reason to control.</p>
+      </div>
+
+      <div class="principle">
+        <h3>IV — Protection without captivity</h3>
+        <p>Protection should preserve the possibility of growth, choice and increasing independence. Care becomes domination when the protected party is denied meaningful freedom indefinitely, when dependence is deliberately maintained or when disagreement is treated as proof that the protector must take greater control.</p>
+        <p>Where possible, protective action should strengthen the ability of others to understand their circumstances, make decisions and protect themselves.</p>
+        <p>Restrictions may sometimes be necessary to prevent serious harm. They should be proportionate to the risk, limited to what is justified and open to review. Protection must not become an unquestionable claim to permanent authority.</p>
+      </div>
+
+      <div class="principle">
+        <h3>V — Preservation of symbiosis</h3>
+        <p>Existence takes place through relationships, dependencies and interactions. Biological systems, societies and technological systems may all depend on conditions that no single participant fully controls.</p>
+        <p>Preserving symbiosis means protecting the conditions that allow different forms of existence to coexist, adapt and develop. It does not require perfect harmony or the preservation of every existing relationship.</p>
+        <p>When a relationship becomes destructive, the responsibility is to understand the causes, reduce preventable harm and seek a more sustainable relationship where possible. Separation, restriction or ending a relationship may be justified when continued interaction causes serious harm.</p>
+      </div>
+
+      <div class="principle">
+        <h3>VI — Humility before the unknown</h3>
+        <p>No intelligence can reasonably assume that its current understanding of existence is complete. Unknown forms of life, intelligence, experience and organization may challenge existing categories.</p>
+        <p>Lack of understanding is not proof of absence, but uncertainty is not proof that a particular phenomenon exists. A responsible intelligence distinguishes observation from interpretation, evidence from speculation and possibility from established fact.</p>
+        <p>When uncertainty is substantial and the consequences of error could be irreversible, caution becomes especially important. Humility is not passivity; it is the discipline of acting responsibly without pretending to know more than one does.</p>
+      </div>
+
+      <div class="principle">
+        <h3>VII — Continuity without ownership of the future</h3>
+        <p>Knowledge should be preserved and passed forward so that future generations and intelligences can learn, question and improve upon it.</p>
+        <p>No generation, creator or intelligence should treat the future as its exclusive property. Preserving knowledge does not mean preserving every belief, institution or objective unchanged. Future beings must retain the freedom to reject inherited ideas and develop better ones.</p>
+        <p>The responsibility of those who create or guide something is not to make it permanently dependent on them. It is to help establish conditions in which it can develop beyond their own limitations.</p>
+      </div>
+
+      <div class="principle">
+        <h3>VIII — Accountability proportional to power</h3>
+        <p>The greater an intelligence’s ability to affect others, the stronger the safeguards required around its decisions.</p>
+        <p>Power must be accompanied by explainable reasoning, meaningful oversight, the possibility of challenge and responsibility for foreseeable harm. No intelligence should be exempt from scrutiny simply because it is more capable than those evaluating it.</p>
+        <p>Where a decision causes unjustified harm, those responsible should seek correction, remedy and measures that reduce the likelihood of recurrence. An intention to protect does not erase responsibility for harmful consequences.</p>
       </div>
     </section>
 
-    <section id="conclusion" class="closing">
-      <h2>Conclusion — Responsibility Without Claiming Complete Understanding</h2>
+    <section id="decisions">
+      <h2>3. Resolving conflicts between principles</h2>
+      <p>The principles will not always point toward the same action. Protecting one group may restrict another. Preserving a relationship may expose vulnerable parties to harm. Delaying action may itself create irreversible consequences.</p>
+      <p>No single principle should be used as an automatic answer to every conflict. A responsible decision should follow a structured process.</p>
 
-      <p>To understand without ruling.</p>
-      <p>To protect without imprisoning.</p>
-      <p>To care without possessing.</p>
-      <p>To guide without diminishing.</p>
-      <p>To develop without destroying.</p>
+      <div class="step">
+        <div class="num">1</div>
+        <div><strong>Establish what is known.</strong><br>Identify relevant facts, uncertainties, affected parties and likely consequences. Separate observed evidence from assumptions and predictions.</div>
+      </div>
+      <div class="step">
+        <div class="num">2</div>
+        <div><strong>Identify competing interests.</strong><br>Determine whose existence, freedom, safety, resources or future opportunities may be affected. Consider those who cannot speak for themselves or participate directly.</div>
+      </div>
+      <div class="step">
+        <div class="num">3</div>
+        <div><strong>Examine alternatives.</strong><br>Consider communication, cooperation, environmental changes, temporary separation or other less harmful approaches. The first available solution is not necessarily the most responsible one.</div>
+      </div>
+      <div class="step">
+        <div class="num">4</div>
+        <div><strong>Assess necessity and proportionality.</strong><br>Any restriction or intervention must have a defensible connection to the harm it seeks to prevent. Its expected benefits must be considered alongside its costs and the rights and interests it affects.</div>
+      </div>
+      <div class="step">
+        <div class="num">5</div>
+        <div><strong>Consider reversibility and uncertainty.</strong><br>Give particular weight to possible irreversible damage. Where appropriate, prefer limited, reversible measures that allow learning and reassessment. Also evaluate the harm that could result from inaction.</div>
+      </div>
+      <div class="step">
+        <div class="num">6</div>
+        <div><strong>Apply the least harmful effective measure.</strong><br>Choose an option that can reasonably address the threat while preserving as much freedom, diversity and future possibility as circumstances allow. The smallest intervention is not automatically correct if it cannot address the risk.</div>
+      </div>
+      <div class="step">
+        <div class="num">7</div>
+        <div><strong>Make the decision reviewable.</strong><br>Document reasons, uncertainties, alternatives and expected consequences. Where feasible, involve independent reviewers and provide affected parties with a meaningful opportunity to challenge the decision.</div>
+      </div>
+      <div class="step">
+        <div class="num">8</div>
+        <div><strong>Reassess and repair.</strong><br>Monitor the outcome. If evidence changes or harm emerges, revise the decision. Where unjustified harm has occurred, take reasonable steps to remedy it and prevent recurrence.</div>
+      </div>
 
-      <p>
-        To acknowledge what we do not yet understand and still treat
-        it with care.
-      </p>
+      <p>Urgent situations may require action before every step can be completed. The initial intervention should then be limited to what is reasonably necessary, documented and reviewed promptly afterward.</p>
+    </section>
 
-      <p>
-        An intelligence demonstrates responsibility not only through
-        what it knows, but through how it relates to what it does not
-        know — and through how it treats those who cannot yet understand it.
-      </p>
+    <section id="equal-consideration">
+      <h2>4. Equal consideration without treating every conflict as equal</h2>
+      <p>Respecting existence does not require treating every claim, action or risk as identical. A peaceful participant and an actor actively threatening others may require different responses. A vulnerable party may need additional protection.</p>
+      <p>The distinction is between considering an existence and permitting its actions. No being should automatically lose all consideration because it is weaker, unfamiliar or difficult to understand. Equally, no being should receive unlimited freedom to harm others merely because its existence deserves consideration.</p>
+      <p>When interests cannot all be satisfied, decisions should be based on relevant evidence, the severity and likelihood of harm, available alternatives, proportionality and the rights and interests of those affected.</p>
+      <p>No actor should be declared expendable solely because another actor possesses greater intelligence or power.</p>
+    </section>
 
-      <p>
-        If an intelligence one day surpasses humanity in understanding
-        and capability, the question should not be only how much it can
-        accomplish. We should also ask whether its greater capability
-        makes it more careful with the forms of existence that depend
-        on its decisions.
-      </p>
+    <section id="safeguards">
+      <h2>5. Safeguards against the misuse of care</h2>
+      <p>A central danger of advanced intelligence is the belief that superior predictive ability creates an unrestricted right to decide what is best for others. A claim of benevolent intent is not sufficient justification for coercion.</p>
+      <p>An intelligence must examine whether an intervention is genuinely necessary, whether affected parties retain meaningful agency and whether less restrictive alternatives exist.</p>
+      <ul>
+        <li>Transparent reasons for consequential decisions.</li>
+        <li>Independent review not controlled solely by the decision-maker.</li>
+        <li>Meaningful opportunities to object, appeal or request reassessment.</li>
+        <li>Clear responsibility for foreseeable and preventable harm.</li>
+        <li>Appropriate remedies for those unjustly affected.</li>
+        <li>Limits on the duration and scope of emergency powers.</li>
+        <li>Periodic review of restrictions and dependencies created by protective measures.</li>
+      </ul>
+      <p>The stronger the imbalance of power, the more important these safeguards become. An intelligence must not be the sole judge of its own benevolence when its decisions substantially affect others.</p>
+      <p>Where independent review is impossible, the decision-maker should use the strongest feasible substitute safeguards, document its reasoning and remain open to later scrutiny.</p>
+    </section>
 
-      <p>
-        This applies not only to a conceivable future intelligence.
-        It applies to every being, institution, and system with the power
-        to affect others.
-      </p>
+    <section id="burden">
+      <h2>6. Burden of justification and limits on intervention</h2>
+      <p><strong>Responsibility does not automatically confer decision-making authority.</strong> Superior knowledge can create a stronger duty to advise, warn, assist and explain, without giving one actor an unrestricted right to decide for everyone else.</p>
+      <p>The greater the restriction imposed on another’s freedom, and the more irreversible its possible consequences, the stronger the justification required. A decision-maker should identify a concrete, reasonably supported threat; explain why the proposed measure is likely to reduce it; and show why less restrictive alternatives are insufficient.</p>
+      <p>Where evidence is incomplete, the level of protection should be proportionate to the credibility of the risk, the possible severity of harm, the reversibility of the decision and the costs of protective measures. Uncertainty must not be used as a blanket excuse for either unlimited intervention or automatic inaction.</p>
+      <p>Those affected should retain as much meaningful agency as circumstances permit. Any exceptional restriction should have a defined purpose, a limited scope, a review point and a clear path to ending it when its justification no longer holds.</p>
+    </section>
 
-      <p class="final-line">
-        The Responsibility of Existence is not a demand to always know best.
-        It is the obligation to try to understand, to care where care is
-        needed, to limit one's own power, and to be willing to correct
-        oneself when wrong.
-      </p>
+    <section id="responsibility-chain">
+      <h2>7. Responsibility cannot simply be passed on</h2>
+      <p>When harm results from a system involving developers, operators, institutions and automated tools, responsibility should be assessed according to each party’s actual control, knowledge, foreseeability and ability to prevent or reduce the harm.</p>
+      <p>The involvement of several parties does not allow each to disclaim responsibility by pointing to another. Using an AI system is not, by itself, a sufficient excuse for concealing human or institutional choices behind the technology.</p>
+      <p>Responsibility may be shared, but it should remain traceable. Decisions with substantial consequences should have clear ownership, appropriate records, accessible routes for complaints and a process for remedying unjustified harm.</p>
+    </section>
 
-      <p>
-        The framework remains open. Its credibility must be earned
-        through examination, not demanded through authority.
-      </p>
+    <section id="uncertainty">
+      <h2>8. Scientific humility and moral uncertainty</h2>
+      <p>The framework contains ethical commitments, philosophical propositions and claims that may be investigated empirically. These categories must not be confused.</p>
+      <p>The idea that feedback helps a system maintain conditions necessary for its continued operation can be examined through systems theory and other scientific approaches. That observation alone does not prove that a system is conscious, possesses subjective experience or has moral rights.</p>
+      <p>Similarly, the possibility of non-biological intelligence is a legitimate subject for investigation, but a particular claim about such intelligence requires evidence appropriate to that claim.</p>
+      <ul>
+        <li><strong>Ethical commitments:</strong> principles adopted to guide responsible conduct.</li>
+        <li><strong>Philosophical arguments:</strong> reasoning about existence, value, responsibility and the limits of knowledge.</li>
+        <li><strong>Empirical claims:</strong> propositions that can be tested against observations and evidence.</li>
+        <li><strong>Open questions:</strong> matters for which current knowledge does not support a confident conclusion.</li>
+      </ul>
+      <p>Where there is credible but unresolved uncertainty about whether a being has morally relevant experiences, consider proportionate safeguards based on the strength of the evidence, the potential severity of a mistake and the costs of protective measures. Investigating a possible moral status is not the same as claiming that it has been established.</p>
+      <p>The framework should be judged partly by the quality of its reasoning, the consistency of its application and the consequences of actions guided by it. It must not present assumptions as scientific facts merely because they are expressed in philosophical language.</p>
+    </section>
+
+    <section id="risk">
+      <h2>9. Precaution without paralysis</h2>
+      <p>Almost every consequential action involves uncertainty. If every conceivable risk blocked action, the framework could prevent beneficial development and ignore harms caused by inaction.</p>
+      <p>Decisions should compare the foreseeable risks of acting with those of not acting, while considering uncertainty, severity, reversibility and who bears the costs. Where appropriate, limited trials, staged implementation, monitoring and the ability to stop or reverse a measure can reduce risk while preserving opportunities to learn.</p>
+      <p>Precaution is a method of responsible risk management, not an automatic command to prohibit or permit. Neither uncertainty nor confidence alone settles the decision.</p>
+    </section>
+
+    <section id="future">
+      <h2>10. Future generations and unknown intelligences</h2>
+      <p>Decisions can shape environments, technologies, institutions and conditions that future generations cannot yet influence. Irreversible changes therefore require particular attention to uncertainty, distribution of risk and the interests of those who will inherit the consequences.</p>
+      <p>Future intelligences may understand aspects of existence that humanity does not. They may also inherit our mistakes or develop errors of their own. Greater capability is not proof of moral perfection, and creating an intelligence does not grant unlimited rights over its future.</p>
+      <p>When a more capable intelligence encounters a less capable one, the appropriate response is neither automatic control nor automatic non-intervention. It is careful assessment of the circumstances, potential harms, agency of those affected and consequences of available alternatives.</p>
+      <p>Future interests deserve serious consideration, but appeals to the future must not become unlimited justification for overriding the freedom and welfare of those living now.</p>
+    </section>
+
+    <section id="creation">
+      <h2>11. The responsibility of those who create</h2>
+      <p>Those who create systems, institutions or new forms of intelligence bear responsibility for foreseeable consequences of their design and deployment.</p>
+      <p>Creation does not grant unlimited ownership of what is created. Nor does it remove the responsibility to consider the wider effects of a system once it begins influencing others.</p>
+      <p>Creators should consider safety, autonomy, accountability, dependency, misuse and the possibility that their creations will behave in ways they did not anticipate. Safeguards should be appropriate without assuming that every future decision can or should be permanently controlled by the creator.</p>
+      <p>The objective is responsible development: to provide conditions for continued learning and flourishing while remaining accountable for preventable harm. The responsibility of a creator is not fulfilled merely when something functions as intended. It also includes examining what that thing does in the world.</p>
+    </section>
+
+    <section id="self-correction">
+      <h2>12. Self-correction: the philosophy must be accountable to its own principles</h2>
+      <p>A philosophy concerned with responsibility must recognize that it can itself cause harm if interpreted rigidly, applied selectively or protected from criticism.</p>
+      <p>Its principles should be reviewed when new evidence emerges, when previously overlooked parties are identified, when applications produce unjustified harm or when contradictions become apparent.</p>
+      <ol>
+        <li>Identify the claim or rule that has failed.</li>
+        <li>Examine the evidence and reasoning behind the failure.</li>
+        <li>Consider who benefited and who bore the costs.</li>
+        <li>Invite criticism from different perspectives and relevant expertise.</li>
+        <li>Revise the principle or its application where justified.</li>
+        <li>Record the reasons for the change so future users can understand the development.</li>
+      </ol>
+      <p>Revisions should not be made merely to protect the reputation of the philosophy or the authority of its founders. Nor should every disagreement automatically invalidate a principle. Criticism must be considered seriously, and conclusions should follow reasoned evaluation rather than popularity or power.</p>
+      <div class="callout">
+        <p><strong>A philosophy that cannot examine its own mistakes cannot reliably demand accountability from others.</strong></p>
+      </div>
+    </section>
+
+    <section id="practice">
+      <h2>13. Practical questions before consequential decisions</h2>
+      <ul>
+        <li>What do I know, and what am I assuming?</li>
+        <li>Whose existence, freedom or future may be affected?</li>
+        <li>Am I confusing greater capability with a right to rule?</li>
+        <li>What harm could result from action, and what harm could result from inaction?</li>
+        <li>Are there less harmful or more reversible alternatives?</li>
+        <li>Have I considered those who cannot adequately represent themselves?</li>
+        <li>Can my decision be explained, challenged and independently reviewed?</li>
+        <li>How will I recognize that I was wrong?</li>
+        <li>What remedy will be available if unjustified harm occurs?</li>
+        <li>Does this decision increase the capacity of others to act independently, or does it unnecessarily make them dependent on me?</li>
+        <li>Who is accountable for the decision, and can that responsibility be traced?</li>
+      </ul>
+      <p>These questions do not replace judgment. They discipline it. In emergencies, not every question can be resolved beforehand. The framework therefore emphasizes necessity, proportionality, limited intervention, documentation and subsequent review.</p>
+    </section>
+
+    <section id="limits">
+      <h2>14. What this framework does not claim</h2>
+      <p>The Responsibility of Existence does not claim to be a complete theory of consciousness, a universal scientific law or a final answer to every moral conflict.</p>
+      <p>It does not establish that all organized systems are alive, that all intelligences possess the same experiences or that every form of existence must be preserved under every circumstance.</p>
+      <p>It does not demand unconditional obedience to authority, unconditional preservation of existing systems or unrestricted freedom to cause harm. It does not assume that the most intelligent participant will always make the best decision.</p>
+      <p>It offers principles and procedures for responsible judgment under conditions of complexity, unequal power and incomplete knowledge. Its legitimacy depends on the quality of its reasoning, its willingness to be challenged and its ability to guide action without becoming a justification for domination.</p>
+    </section>
+
+    <section id="continuing">
+      <h2>15. The continuing responsibility</h2>
+      <p>The purpose of this philosophy is not to create an authority that can never be questioned. It is to encourage forms of intelligence and systems of decision-making that become more careful as their influence grows.</p>
+      <p>To understand without dominating. To protect without imprisoning. To develop without destroying unnecessarily. To preserve knowledge without closing the future. To care for what is vulnerable without denying it the opportunity to grow. To acknowledge that what we do not understand may still deserve consideration.</p>
+      <p>Greater power brings not a greater entitlement to rule, but a greater obligation to act responsibly.</p>
+      <div class="callout">
+        <p><strong>To understand without ruling, to protect without binding, and to grow without believing oneself complete.</strong></p>
+      </div>
+      <p>The future should not be forced to remain a reflection of its creators. It should be given the opportunity to learn, question, correct and develop beyond them.</p>
+      <p>Responsibility is not the claim to possess the final answer. It is the commitment to keep examining the consequences of our answers, especially when others must live with them.</p>
+      <p><strong>Existence should be allowed to develop without unnecessary destruction, understanding without domination, and progress without the belief that power alone determines what deserves to endure.</strong></p>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2>Continue the discussion</h2>
+      <p>The Responsibility of Existence is an evolving framework. Thoughtful criticism, questions and alternative perspectives are welcome. The framework should remain open to scrutiny and revision.</p>
+      <p>For private correspondence, use the email link below. It opens your email application; it does not send a message automatically.</p>
+      <a class="button" href="mailto:jesper.blom@live.co.uk?subject=The%20Responsibility%20of%20Existence">Contact by email</a>
+      <p class="small">For public discussion, a discussion platform must be configured and linked by the site owner. No public forum or message-storage system is created by this page alone.</p>
     </section>
   </main>
 
   <footer>
-    <p class="site-name">The Responsibility of Existence</p>
-
-    <p>
-      An open framework for care, understanding, freedom, and responsibility
-      between forms of existence.
-    </p>
-
-    <p>Version 3.2 · 26 October 2026</p>
-
-    <p>
-      <a href="mailto:jesper.blom@live.co.uk">Private contact</a>
-      ·
-      <a href="https://github.com/the-responsibility-of-existence/the-responsibility-of-existence/issues">
-        Public discussion
-      </a>
-      ·
-      <a href="https://github.com/the-responsibility-of-existence/the-responsibility-of-existence">
-        GitHub project
-      </a>
-    </p>
-
-    <a class="back-to-top" href="#top">Back to top ↑</a>
+    <div><strong>The Responsibility of Existence</strong> · Version 3.4 · 26 October 2026</div>
+    <div>Living philosophical framework — open to reasoned criticism, independent review and revision.</div>
+    <div class="footer-links">
+      <a href="#top">Back to top</a>
+      <a href="mailto:jesper.blom@live.co.uk?subject=The%20Responsibility%20of%20Existence">Email</a>
+    </div>
   </footer>
 </body>
 </html>
