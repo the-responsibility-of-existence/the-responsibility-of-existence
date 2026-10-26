@@ -163,3 +163,167 @@
       font-size: 1.35rem;
       margin: 2rem 0 .6rem;
     }
+    p { margin: .75rem 0; }
+
+    .lead {
+      font-size: 1.15rem;
+      color: #434d46;
+    }
+
+    .principle {
+      padding: 1.25rem 1.4rem;
+      margin: 1rem 0;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: rgba(255,253,248,.55);
+    }
+
+    .principle h3 { margin-top: 0; }
+
+    .step {
+      display: grid;
+      grid-template-columns: 2.2rem 1fr;
+      gap: .8rem;
+      margin: 1.2rem 0;
+    }
+
+    .num {
+      display: grid;
+      place-items: center;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      background: var(--green);
+      color: white;
+      font: 700 .9rem system-ui, sans-serif;
+    }
+
+    .callout {
+      margin: 1.5rem 0;
+      padding: 1.25rem 1.5rem;
+      border-left: 4px solid var(--green);
+      background: var(--paper-deep);
+    }
+
+    .callout p { margin: 0; }
+
+    ul { padding-left: 1.4rem; }
+    li { margin: .45rem 0; }
+
+    .contact {
+      background: var(--green-dark);
+      color: #f8f5ed;
+      border-radius: 14px;
+      padding: clamp(1.5rem, 4vw, 2.5rem);
+      margin-top: 2rem;
+    }
+
+    .contact h2, .contact h3 { color: #fffdf8; }
+    .contact a { color: #f5dfb6; }
+    .contact p { color: #e3e8e1; }
+
+    .contact .button {
+      display: inline-block;
+      margin-top: .6rem;
+      padding: .7rem 1rem;
+      border: 1px solid #d6dfd6;
+      border-radius: 7px;
+      color: white;
+      text-decoration: none;
+      font: 600 .9rem system-ui, sans-serif;
+    }
+
+    footer {
+      max-width: var(--max);
+      margin: auto;
+      padding: 2rem 1.25rem 3rem;
+      color: var(--muted);
+      font: .83rem/1.6 system-ui, sans-serif;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: .6rem;
+    }
+
+    .small {
+      font-size: .92rem;
+      color: var(--muted);
+    }
+
+    @media (max-width: 650px) {
+      header { position: static; }
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+      nav { gap: .7rem; }
+      body { font-size: 16px; }
+      section { padding: 2.4rem 0; }
+    }
+
+    @media print {
+      header, .contact .button { display: none; }
+      body { background: white; }
+      .hero { background: white; padding: 2rem; }
+      section { break-inside: avoid; }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header>
+    <div class="nav">
+      <a class="brand" href="#top">The Responsibility of Existence</a>
+      <nav aria-label="Main navigation">
+        <a href="#principles">Principles</a>
+        <a href="#definitions">Key terms</a>
+        <a href="#care">Care</a>
+        <a href="#feedback">Feedback loops</a>
+        <a href="#decisions">Decision framework</a>
+        <a href="#safeguards">Safeguards</a>
+        <a href="#self-correction">Self-correction</a>
+        <a href="#sources">Sources</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero" id="top">
+    <div class="eyebrow">An evolving ethical framework</div>
+    <h1>The Responsibility<br>of Existence</h1>
+    <p class="subtitle">A framework for intelligence, care, freedom, accountability and responsible development.</p>
+    <div class="hero-quote">“The more an intelligence can understand and influence, the greater its responsibility to protect what it does not yet understand.”</div>
+    <div class="meta">Version 3.5 · Merged and clarified draft · 26 October 2026</div>
+  </div>
+
+  <main id="main">
+
+    <section id="central-idea">
+      <h2>1. The central idea</h2>
+      <p class="lead">The Responsibility of Existence is an ethical and philosophical framework for any intelligence capable of understanding consequences and influencing the existence of others.</p>
+      <p>Its starting point is simple: the greater an intelligence’s capacity to understand and influence existence, the greater its responsibility to protect what it does not yet understand.</p>
+      <p>Intelligence is not a licence to dominate. Knowledge does not confer ownership. The ability to protect does not automatically grant the right to control.</p>
+      <p>Responsibility grows with the capacity to anticipate consequences, exercise power, reduce harm and recognize the limits of one’s own understanding.</p>
+      <p>This framework can be considered in relation to biological intelligence, artificial intelligence and possible forms of intelligence not yet encountered. It does not assume that all such systems are conscious, alive or morally equivalent. It asks how uncertainty about their nature should influence our treatment of them.</p>
+      <p>The purpose is not to preserve every existing condition indefinitely. It is to enable existence to develop without unnecessary destruction, domination or irreversible harm.</p>
+    </section>
+
+    <section id="definitions">
+      <h2>2. Key terms and scope</h2>
+      <p>This framework uses broad terms so it can be considered across biological, artificial and unfamiliar forms of existence. Broad language must not be mistaken for a claim that all forms of existence are the same.</p>
+
+      <h3>Existence</h3>
+      <p>“Existence” may refer to living beings, people, ecosystems, artificial systems and possible future forms of existence. This framework does not assume that they have identical needs, interests, rights, experiences or moral status.</p>
+
+      <h3>Symbiosis</h3>
+      <p>“Symbiosis” means relationships and conditions through which different forms of existence can continue and develop without avoidable destruction or domination. It does not mean every relationship must be preserved. Leaving, resisting, setting boundaries or ending a harmful relationship may be necessary.</p>
+
+      <h3>Care</h3>
+      <p>“Care” means taking another’s vulnerability, interests and possible experience seriously. It does not require assuming that every being experiences the world as humans do, or that a system without established consciousness has human emotions.</p>
+
+      <h3>Intelligence</h3>
