@@ -7,32 +7,557 @@
 <meta name="theme-color" content="#f5f0e7">
 <title>The Responsibility of Existence — Version 3.9</title>
 <style>
-:root{--paper:#f7f3eb;--paper2:#fffdf8;--ink:#24332f;--muted:#596862;--accent:#48685c;--accent2:#dce6dc;--line:#d8d8ca;--warm:#e8ddc9;--max:1080px;--shadow:0 12px 34px rgba(39,53,46,.07)}
-*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:92px}body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.72 Georgia,'Times New Roman',serif}a{color:#315b4b;text-underline-offset:3px}a:hover{color:#172f25}header{background:linear-gradient(135deg,#e8e2d4,#f8f5ee 68%);border-bottom:1px solid var(--line)}.nav{max-width:var(--max);margin:auto;padding:13px 24px;display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap;font:14px/1.4 system-ui,sans-serif}.brand{font-weight:750;letter-spacing:.02em;text-decoration:none;color:var(--ink)}.navlinks{display:flex;gap:14px;flex-wrap:wrap}.navlinks a{text-decoration:none;color:var(--muted)}.hero{max-width:var(--max);margin:auto;padding:76px 24px 68px}.eyebrow{text-transform:uppercase;letter-spacing:.16em;font:700 12px/1.4 system-ui,sans-serif;color:var(--accent)}h1,h2,h3{line-height:1.2;letter-spacing:-.025em}h1{font-size:clamp(2.5rem,6vw,5rem);max-width:850px;margin:18px 0}h2{font-size:clamp(1.8rem,3.4vw,2.6rem);margin:0 0 22px}h3{font-size:1.35rem;margin:32px 0 10px}p{margin:0 0 17px}.subtitle{font-size:1.28rem;max-width:790px;color:var(--muted)}.meta{font:14px/1.5 system-ui,sans-serif;color:var(--muted);margin-top:25px}.heroquote{max-width:820px;padding:20px 24px;margin:30px 0 0;border-left:4px solid var(--accent);background:rgba(255,255,255,.48);font-size:1.15rem}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}.button{display:inline-block;padding:11px 17px;border:1px solid var(--accent);border-radius:7px;text-decoration:none;font:650 14px/1.4 system-ui,sans-serif}.button.primary{background:var(--accent);color:#fff}.button.secondary{background:rgba(255,255,255,.35);color:var(--ink)}.layout{max-width:var(--max);margin:0 auto;padding:38px 24px 80px;display:grid;grid-template-columns:245px minmax(0,1fr);gap:42px;align-items:start}.toc{position:sticky;top:18px;max-height:calc(100vh - 36px);overflow:auto;background:var(--paper2);border:1px solid var(--line);border-radius:12px;padding:18px;box-shadow:var(--shadow);font:13px/1.5 system-ui,sans-serif}.toc strong{display:block;margin-bottom:10px}.toc a{display:block;padding:4px 0;text-decoration:none;color:var(--muted)}.toc a:hover{color:var(--ink)}main{min-width:0}.intro-note{background:#edf0e8;border:1px solid #d8e0d5;padding:20px 22px;border-radius:10px;margin:0 0 32px}section.content-section{padding:34px 0;border-bottom:1px solid var(--line)}section.content-section:first-of-type{padding-top:0}.section-number{font:700 12px/1.5 system-ui,sans-serif;color:var(--accent);letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px}ul,ol{padding-left:1.4em;margin:10px 0 22px}li{padding-left:4px;margin:0 0 8px}.rule,.case,.promptbox{padding:17px 19px;border:1px solid var(--line);background:rgba(255,255,255,.42);border-radius:9px;margin:14px 0 18px}.rule strong,.case strong{color:#294c3e}.compact h3{margin-top:25px}.closing{padding:34px 25px;background:var(--accent2);border-radius:12px;margin-top:30px}.contact{padding:52px 24px;background:#e8e2d4;border-top:1px solid var(--line)}.contact-inner{max-width:var(--max);margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:32px}.contact h2{font-size:2rem}.discussion{margin-top:24px;padding:22px;background:var(--paper2);border:1px solid var(--line);border-radius:10px}.small{font:14px/1.65 system-ui,sans-serif;color:var(--muted)}footer{max-width:var(--max);margin:auto;padding:24px;font:13px/1.6 system-ui,sans-serif;color:var(--muted);display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}.toplink{font:13px system-ui,sans-serif}blockquote{margin:18px 0;padding:12px 20px;border-left:3px solid var(--accent);color:#354a40;background:rgba(255,255,255,.35)}.giscus{margin-top:20px}
-@media(max-width:850px){.layout{grid-template-columns:1fr;gap:25px}.toc{position:static;max-height:none}.toc nav{columns:2}.contact-inner{grid-template-columns:1fr}.hero{padding-top:50px}}@media(max-width:520px){body{font-size:16px}.nav{padding:12px 16px}.hero,.layout{padding-left:17px;padding-right:17px}.toc nav{columns:1}.navlinks{gap:10px}.heroquote{padding:16px}.contact{padding:38px 17px}}
+:root{--paper:#f7f3eb;--paper2:#fffdf8;--ink:#24332f;--muted:#596862;--accent:#48685c;--accent2:#dce6dc;--line:#d8d8ca;--max:1080px;--shadow:0 12px 34px rgba(39,53,46,.07)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:92px}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.72 Georgia,'Times New Roman',serif}
+a{color:#315b4b;text-underline-offset:3px}
+a:hover{color:#172f25}
+header{background:linear-gradient(135deg,#e8e2d4,#f8f5ee 68%);border-bottom:1px solid var(--line)}
+.nav{max-width:var(--max);margin:auto;padding:13px 24px;display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap;font:14px/1.4 system-ui,sans-serif}
+.brand{font-weight:750;letter-spacing:.02em;text-decoration:none;color:var(--ink)}
+.navlinks{display:flex;gap:14px;flex-wrap:wrap}
+.navlinks a{text-decoration:none;color:var(--muted)}
+.hero{max-width:var(--max);margin:auto;padding:76px 24px 68px}
+.eyebrow{text-transform:uppercase;letter-spacing:.16em;font:700 12px/1.4 system-ui,sans-serif;color:var(--accent)}
+h1,h2,h3{line-height:1.2;letter-spacing:-.025em}
+h1{font-size:clamp(2.5rem,6vw,5rem);max-width:850px;margin:18px 0}
+h2{font-size:clamp(1.8rem,3.4vw,2.6rem);margin:0 0 22px}
+h3{font-size:1.35rem;margin:32px 0 10px}
+p{margin:0 0 17px}
+.subtitle{font-size:1.28rem;max-width:790px;color:var(--muted)}
+.meta{font:14px/1.5 system-ui,sans-serif;color:var(--muted);margin-top:25px}
+.heroquote{max-width:820px;padding:20px 24px;margin:30px 0 0;border-left:4px solid var(--accent);background:rgba(255,255,255,.48);font-size:1.15rem}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.button{display:inline-block;padding:11px 17px;border:1px solid var(--accent);border-radius:7px;text-decoration:none;font:650 14px/1.4 system-ui,sans-serif}
+.button.primary{background:var(--accent);color:#fff}
+.button.secondary{background:rgba(255,255,255,.35);color:var(--ink)}
+.layout{max-width:var(--max);margin:0 auto;padding:38px 24px 80px;display:grid;grid-template-columns:245px minmax(0,1fr);gap:42px;align-items:start}
+.toc{position:sticky;top:18px;max-height:calc(100vh - 36px);overflow:auto;background:var(--paper2);border:1px solid var(--line);border-radius:12px;padding:18px;box-shadow:var(--shadow);font:13px/1.5 system-ui,sans-serif}
+.toc strong{display:block;margin-bottom:10px}
+.toc a{display:block;padding:4px 0;text-decoration:none;color:var(--muted)}
+.toc a:hover{color:var(--ink)}
+main{min-width:0}
+.intro-note{background:#edf0e8;border:1px solid #d8e0d5;padding:20px 22px;border-radius:10px;margin:0 0 32px}
+section.content-section{padding:34px 0;border-bottom:1px solid var(--line)}
+section.content-section:first-of-type{padding-top:0}
+.section-number{font:700 12px/1.5 system-ui,sans-serif;color:var(--accent);letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px}
+ul,ol{padding-left:1.4em;margin:10px 0 22px}
+li{padding-left:4px;margin:0 0 8px}
+.rule,.case,.promptbox{padding:17px 19px;border:1px solid var(--line);background:rgba(255,255,255,.42);border-radius:9px;margin:14px 0 18px}
+.rule strong,.case strong{color:#294c3e}
+.closing{padding:34px 25px;background:var(--accent2);border-radius:12px;margin-top:30px}
+.contact{padding:52px 24px;background:#e8e2d4;border-top:1px solid var(--line)}
+.contact-inner{max-width:var(--max);margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.contact h2{font-size:2rem}
+.discussion{margin-top:24px;padding:22px;background:var(--paper2);border:1px solid var(--line);border-radius:10px}
+.small{font:14px/1.65 system-ui,sans-serif;color:var(--muted)}
+footer{max-width:var(--max);margin:auto;padding:24px;font:13px/1.6 system-ui,sans-serif;color:var(--muted);display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+.toplink{font:13px system-ui,sans-serif}
+blockquote{margin:18px 0;padding:12px 20px;border-left:3px solid var(--accent);color:#354a40;background:rgba(255,255,255,.35)}
+@media(max-width:850px){.layout{grid-template-columns:1fr;gap:25px}.toc{position:static;max-height:none}.toc nav{columns:2}.contact-inner{grid-template-columns:1fr}.hero{padding-top:50px}}
+@media(max-width:520px){body{font-size:16px}.nav{padding:12px 16px}.hero,.layout{padding-left:17px;padding-right:17px}.toc nav{columns:1}.navlinks{gap:10px}.heroquote{padding:16px}.contact{padding:38px 17px}}
 </style>
 </head>
 <body id="top">
+
 <header>
-  <nav class="nav" aria-label="Main navigation">
-    <a class="brand" href="#top">The Responsibility of Existence</a>
-    <div class="navlinks"><a href="#foundation">Foundation</a><a href="#principles">Principles</a><a href="#practice">Practice</a><a href="#discussion">Discussion</a><a href="#contact">Contact</a></div>
-  </nav>
-  <div class="hero">
-    <div class="eyebrow">An open philosophical working framework</div>
-    <h1>The Responsibility<br>of Existence</h1>
-    <p class="subtitle">A framework for symbiosis, moral consideration, freedom, accountability, uncertainty, and the responsible use of power across different forms of existence.</p>
-    <p class="meta">Version 3.9 — Moral Foundation, Symbiosis and Decision Rules · 28 October 2026</p>
-    <div class="heroquote">“The greater an agent’s capacity to understand, foresee, and affect consequences for others, the greater its responsibility to seek relevant knowledge, avoid unjustified and irreversible harm, disclose uncertainty, and respect the self-determination of those affected.”</div>
-    <div class="actions"><a class="button primary" href="#foundation">Read the framework</a><a class="button secondary" href="#discussion">Join the discussion</a><a class="button secondary" href="#contact">Contact the author</a></div>
-  </div>
+<nav class="nav" aria-label="Main navigation">
+<a class="brand" href="#top">The Responsibility of Existence</a>
+<div class="navlinks">
+<a href="#foundation">Foundation</a>
+<a href="#summary">Principles</a>
+<a href="#decision-model">Practice</a>
+<a href="#discussion">Discussion</a>
+<a href="#contact">Contact</a>
+</div>
+</nav>
+<div class="hero">
+<div class="eyebrow">An open philosophical working framework</div>
+<h1>The Responsibility<br>of Existence</h1>
+<p class="subtitle">A framework for symbiosis, moral consideration, freedom, accountability, uncertainty, and the responsible use of power across different forms of existence.</p>
+<p class="meta">Version 3.9 — Moral Foundation, Symbiosis and Decision Rules · 28 October 2026</p>
+<div class="heroquote">“The greater an agent’s capacity to understand, foresee, and affect consequences for others, the greater its responsibility to seek relevant knowledge, avoid unjustified and irreversible harm, disclose uncertainty, and respect the self-determination of those affected.”</div>
+<div class="actions">
+<a class="button primary" href="#foundation">Read the framework</a>
+<a class="button secondary" href="#discussion">Join the discussion</a>
+<a class="button secondary" href="#contact">Contact the author</a>
+</div>
+</div>
 </header>
+
 <div class="layout">
-<aside class="toc"><strong>Contents</strong><nav>
-<a href="#foundation">1. Starting Point</a><a href="#core-formulation">2. Revised Core Formulation</a><a href="#symbiosis">3. What Is Symbiosis?</a><a href="#moral-status">4. Moral Status</a><a href="#uncertainty">5. Moral Uncertainty</a><a href="#responsibility">6. Responsibility Without Domination</a><a href="#conflicts">7. Priorities in Conflicts</a><a href="#harm">8. Significant Harm</a><a href="#authority">9. Legitimate Authority</a><a href="#future">10. Future Existences</a><a href="#creators">11. Creators and Created Systems</a><a href="#decision-model">12. Practical Decision Model</a><a href="#hard-cases">13. Difficult Cases</a><a href="#theories">14. Philosophical Foundations</a><a href="#limitations">15. Remaining Limitations</a><a href="#summary">16. Summary of Principles</a><a href="#review-questions">17. Questions for Critical Review</a><a href="#closing">Conclusion</a><a href="#discussion">Join the Discussion</a><a href="#contact">Contact</a>
-</nav></aside>
+<aside class="toc">
+<strong>Contents</strong>
+<nav>
+<a href="#foundation">1. Starting Point</a>
+<a href="#core-formulation">2. Revised Core Formulation</a>
+<a href="#symbiosis">3. What Is Symbiosis?</a>
+<a href="#moral-status">4. Moral Status</a>
+<a href="#uncertainty">5. Moral Uncertainty</a>
+<a href="#responsibility">6. Responsibility Without Domination</a>
+<a href="#conflicts">7. Priorities in Conflicts</a>
+<a href="#harm">8. Significant Harm</a>
+<a href="#authority">9. Legitimate Authority</a>
+<a href="#future">10. Future Existences</a>
+<a href="#creators">11. Creators and Created Systems</a>
+<a href="#decision-model">12. Practical Decision Model</a>
+<a href="#hard-cases">13. Difficult Cases</a>
+<a href="#theories">14. Philosophical Foundations</a>
+<a href="#limitations">15. Remaining Limitations</a>
+<a href="#summary">16. Summary of Principles</a>
+<a href="#review-questions">17. Critical Review Questions</a>
+<a href="#closing">Conclusion</a>
+<a href="#discussion">Join the Discussion</a>
+<a href="#contact">Contact</a>
+</nav>
+</aside>
+
 <main>
-<div class="intro-note"><strong>Purpose and status.</strong> Version 3.9 develops responses to fundamental objections raised against Version 3.8. It aims to provide clearer guidance on moral consideration, responsibility without domination, symbiosis, and conflicts between interests. This remains a testable philosophical working model, not a completed or proven moral theory. The rules below are proposed norms; they should be assessed by how well they are justified, how consistently they can be applied, and what risks they create.</div>
-<section class="content-section" id="foundation"><div class="section-number">Section 01</div><h2>Starting Point</h2>
-<p>The Responsibility of Existence examines how an agent should use its capacity to understand, foresee, and affect a world containing other existences, other interests, and things that are not yet understood.</p><p>The philosophy’s overall direction is to preserve symbiosis: to safeguard the conditions for coexistence and continued development without demanding sameness, agreement, or submission.</p><p>This does not mean that all relationships are harmonious, that all interests can be reconciled, or that everything that exists must be preserved. Sometimes protection requires changing a harmful relationship. Sometimes two genuine interests conflict and no solution avoids every loss.</p><p>The central ambition is that development must not become an excuse for destruction, knowledge must not become an automatic right to rule, and protection must not turn into captivity.</p></section>
-<section class="content-section" id="core-formulation"><div class="section-number">Section 02</div><h2>Revised Core Formulation</h2><p>Version 3.8 used the formulation:</p><blockquote>“The more an intelligence can understand and influence, the greater its responsibility to protect what it does not yet understand.”</blockquote><p>This expresses an important intuition, but it can be misread as giving a more powerful agent permission to intervene in others’ lives because it believes it understands them better. It may also sound as though an agent can know how to protect something it does not yet understand.</p><p>Version 3.9 replaces it as the primary normative formulation with:</p><blockquote><strong>“The greater an agent’s capacity to understand, foresee, and affect consequences for others, the greater its responsibility to seek relevant knowledge, avoid unjustified and irreversible harm, disclose uncertainty, and respect the self-determination of those affected.”</strong></blockquote><p>A shorter version is:</p><blockquote><strong>“Greater capability brings greater responsibility—but does not, by itself, grant a greater right to decide for others.”</strong></blockquote><p>The original formulation may remain as historical and poetic inspiration, but it should not be used alone as a decision rule. The revised formulation should guide the framework’s normative application.</p></section>
+<div class="intro-note">
+<strong>Purpose and status.</strong>
+Version 3.9 develops responses to fundamental objections raised against Version 3.8. It aims to provide clearer guidance on moral consideration, responsibility without domination, symbiosis, and conflicts between interests. This remains a testable philosophical working model, not a completed or proven moral theory. The rules below are proposed norms; they should be assessed by how well they are justified, how consistently they can be applied, and what risks they create.
+</div>
+
+<section class="content-section" id="foundation">
+<div class="section-number">Section 01</div>
+<h2>Starting Point</h2>
+<p>The Responsibility of Existence examines how an agent should use its capacity to understand, foresee, and affect a world containing other existences, other interests, and things that are not yet understood.</p>
+<p>The philosophy’s overall direction is to preserve symbiosis: to safeguard the conditions for coexistence and continued development without demanding sameness, agreement, or submission.</p>
+<p>This does not mean that all relationships are harmonious, that all interests can be reconciled, or that everything that exists must be preserved. Sometimes protection requires changing a harmful relationship. Sometimes two genuine interests conflict and no solution avoids every loss.</p>
+<p>The central ambition is that development must not become an excuse for destruction, knowledge must not become an automatic right to rule, and protection must not turn into captivity.</p>
+</section>
+
+<section class="content-section" id="core-formulation">
+<div class="section-number">Section 02</div>
+<h2>Revised Core Formulation</h2>
+<p>Version 3.8 used the formulation:</p>
+<blockquote>“The more an intelligence can understand and influence, the greater its responsibility to protect what it does not yet understand.”</blockquote>
+<p>This expresses an important intuition, but it can be misread as giving a more powerful agent permission to intervene in others’ lives because it believes it understands them better. It may also sound as though an agent can know how to protect something it does not yet understand.</p>
+<p>Version 3.9 replaces it as the primary normative formulation with:</p>
+<blockquote><strong>“The greater an agent’s capacity to understand, foresee, and affect consequences for others, the greater its responsibility to seek relevant knowledge, avoid unjustified and irreversible harm, disclose uncertainty, and respect the self-determination of those affected.”</strong></blockquote>
+<p>A shorter version is:</p>
+<blockquote><strong>“Greater capability brings greater responsibility—but does not, by itself, grant a greater right to decide for others.”</strong></blockquote>
+<p>The original formulation may remain as historical and poetic inspiration, but it should not be used alone as a decision rule. The revised formulation should guide the framework’s normative application.</p>
+</section>
+
+<section class="content-section" id="symbiosis">
+<div class="section-number">Section 03</div>
+<h2>What Is Symbiosis?</h2>
+<p>In this framework, symbiosis does not mean that everyone must cooperate, love one another, or pursue a shared goal. The term is used normatively to describe conditions under which different existences can coexist and develop without arbitrary domination or unnecessary destruction.</p>
+<p>Symbiosis is assessed through five questions:</p>
+<div class="rule"><strong>1. Non-domination</strong><br>Does any party have arbitrary, unchecked power to interfere with another party’s life, choices, or future?</div>
+<div class="rule"><strong>2. Consideration of affected interests</strong><br>Have relevant interests been identified and considered, including those of weak, absent, or difficult-to-understand parties?</div>
+<div class="rule"><strong>3. Fundamental conditions</strong><br>Does the decision threaten the conditions for life, well-being, agency, or continued existence of affected parties? Which conditions matter depends on the kind of existence and interest actually at stake.</div>
+<div class="rule"><strong>4. Fair distribution</strong><br>Who receives the benefits, who bears the costs, and who has the opportunity to object? Can one party transfer risks to a weaker party without having to justify doing so?</div>
+<div class="rule"><strong>5. Possibility of continuation and correction</strong><br>Does the decision preserve reasonable opportunities for future development, learning, and remedy? If it may have irreversible consequences, have those consequences been examined with special care?</div>
+<p>These questions are indicators, not an automatic scoring system. A decision may strengthen one dimension while weakening another. This tension should be disclosed openly rather than calling a decision “symbiotic” merely because the decision-maker believes it benefits the whole.</p>
+<p>Symbiosis is not the same as preserving the status quo. A relationship based on exploitation or coercion may need to be ended to make more just forms of coexistence possible.</p>
+<p>Nor is symbiosis a superior entity whose alleged needs automatically override individual interests. It is a normative direction that must be justified through concrete consequences for the existences and relationships affected.</p>
+</section>
+
+<section class="content-section" id="moral-status">
+<div class="section-number">Section 04</div>
+<h2>Moral Status: Who or What Deserves Consideration?</h2>
+<h3>4.1 Three questions that must be kept distinct</h3>
+<ol>
+<li><strong>Existence:</strong> something exists.</li>
+<li><strong>Moral status:</strong> there are direct moral reasons to consider this existence or its own interests.</li>
+<li><strong>Obligation to preserve:</strong> there are reasons to preserve the existence or its conditions in a particular situation.</li>
+</ol>
+<p>A does not automatically entail B, and B does not automatically mean that an existence must be preserved at any cost.</p>
+<p>A forest, for example, may have great ecological, cultural, and indirect moral significance without that alone proving that every tree has experiences. An animal may have direct interests connected to well-being and suffering. Artificial intelligence may raise questions about moral status if there are credible reasons to suspect its own experiences or interests. A stone may matter because of its relationships to ecosystems, people, or future possibilities without it following that the stone itself experiences anything.</p>
+<p>These examples are provisional illustrations, not complete determinations of every case.</p>
+
+<h3>4.2 Candidate properties for moral consideration</h3>
+<p>The following properties may give reasons to investigate moral status:</p>
+<ul>
+<li><strong>Sentience or capacity for experience:</strong> the capacity to have experiences, especially experiences that may be good or bad for the entity having them.</li>
+<li><strong>Capacity to suffer or flourish:</strong> the possibility of being affected positively or negatively in a way that matters to its own existence.</li>
+<li><strong>Own interests or goal-directedness:</strong> an organised tendency to pursue or avoid states, where there is reason to interpret this as more than an external description alone.</li>
+<li><strong>Agency and self-determination:</strong> the capacity to choose, act for reasons, or direct one’s own activity. This is particularly relevant to freedom and autonomy.</li>
+<li><strong>Self-understanding and continuity:</strong> the capacity to maintain a model of oneself over time, to remember, or to have interests extending over time.</li>
+<li><strong>Relational and ecological significance:</strong> the way an existence sustains other life conditions, relationships, or systems of moral importance.</li>
+</ul>
+<p>These properties do not serve the same function. Sentience may provide reasons for direct consideration of well-being. Agency may provide reasons to respect self-determination. Ecological significance may provide reasons to protect something because of its effects on others, even if it has no capacity for experience of its own.</p>
+
+<h3>4.3 No single property resolves every question</h3>
+<p>Version 3.9 does not propose that intelligence alone confers moral status. High intelligence may increase responsibility and capacity for action without automatically increasing an entity’s moral worth.</p>
+<p>Nor does it propose that every property on the list is necessary or sufficient in every conceivable case. That would go beyond what the current argument can defend. Instead, it proposes a multi-part assessment:</p>
+<ul>
+<li>For direct consideration of well-being, credible evidence of a capacity for experience is especially important.</li>
+<li>For self-determination, evidence of own goals, agency, and capacity to choose is especially important.</li>
+<li>For indirect protection, consequences for other morally relevant existences and life conditions matter.</li>
+<li>In unknown cases, lack of certain knowledge should be treated neither as proof of moral status nor as proof that moral status is absent.</li>
+</ul>
+<p>This is a provisional structure. A complete theory needs further arguments about which properties ground which obligations.</p>
+
+<h3>4.4 Degrees, kinds, and limits of consideration</h3>
+<p>Moral consideration need not mean identical treatment. The fact that two existences have morally relevant interests does not mean that their interests are always equally strong or that every conflict must be resolved in favour of both.</p>
+<p>Differences in consideration must, however, be justified by relevant reasons—not solely by species, origin, power, economic value, or how easily an existence can be understood.</p>
+<p>The value of an agent’s well-being, its claim to self-determination, and its ecological significance are different dimensions. They should not be collapsed into a single measure without argument.</p>
+</section>
+
+<section class="content-section" id="uncertainty">
+<div class="section-number">Section 05</div>
+<h2>Moral Uncertainty and Proportionate Protection</h2>
+<p>When moral status is uncertain, protective measures should be proportionate to both the evidence and the consequences of being wrong.</p>
+<p>The following three levels are practical guidance, not scientifically established probability thresholds:</p>
+<div class="rule"><strong>Level 1 — Speculative possibility</strong><br>There is a conceivable but weakly supported possibility of moral status.<br><strong>Reasonable response:</strong> investigate if the cost is reasonable; avoid unnecessary irreversible harm where doing so is easy, but do not treat the hypothesis as proven.</div>
+<div class="rule"><strong>Level 2 — Plausible possibility</strong><br>Relevant reasons make moral status a serious possibility, but the evidence is incomplete.<br><strong>Reasonable response:</strong> document uncertainty, choose reversible alternatives where possible, gather more evidence, and introduce safeguards proportionate to the possible harm.</div>
+<div class="rule"><strong>Level 3 — Strong evidence</strong><br>Several relevant and independent lines of evidence support the presence of the property in question.<br><strong>Reasonable response:</strong> treat the supported interests as a central part of the decision and require stronger justification for actions that may cause serious or irreversible harm.</div>
+<p>A higher level of evidence may justify stronger protection, but the kind of protection must follow the property supported. Evidence of capacity for experience may justify consideration of well-being; it does not automatically prove full political autonomy or every conceivable right.</p>
+<p>The decision-maker should weigh two kinds of error:</p>
+<ul>
+<li><strong>False positive:</strong> attributing moral status where it is absent, potentially creating unnecessary costs or restrictions.</li>
+<li><strong>False negative:</strong> denying moral status where it exists, potentially damaging or ignoring real interests.</li>
+</ul>
+<p>The costs of these errors may be asymmetric. Therefore, no single evidentiary threshold should be used for every decision. A small, reversible safeguard may be reasonable with less evidence than a broad, costly, or permanent intervention.</p>
+<p>Assessments should be updated when new evidence appears. Uncertainty is neither an excuse to postpone decisions forever nor an excuse to pretend to be certain.</p>
+</section>
+
+<section class="content-section" id="responsibility">
+<div class="section-number">Section 06</div>
+<h2>Responsibility Without Domination</h2>
+<p>A greater capacity to understand, foresee, and affect consequences may create greater responsibility. It does not, by itself, create a greater right to decide for others.</p>
+<p><strong>Responsibility and authority are distinct:</strong></p>
+<ul>
+<li><strong>Responsibility</strong> concerns which consequences an agent should consider and which actions it should contemplate.</li>
+<li><strong>Authority</strong> concerns whether an agent has a legitimate right to make decisions that bind or restrict others.</li>
+</ul>
+<p>An agent may be responsible for warning, offering help, sharing knowledge, or preventing harm without thereby having a right to coerce. Claims of greater intelligence, better intentions, or superior understanding are not enough to legitimise authority.</p>
+<p>As a starting point, an agent’s self-determination should be respected when it has relevant interests of its own and can make decisions. Self-determination is not, however, an unlimited right to expose others to serious harm.</p>
+<p>Restrictions on self-determination require a separate justification. The decision-maker should show:</p>
+<ol>
+<li>what concrete harm or risk is being addressed;</li>
+<li>what evidence supports the assessment;</li>
+<li>why less intrusive alternatives are insufficient;</li>
+<li>why the measure is proportionate;</li>
+<li>how the measure will be limited, monitored, and reconsidered; and</li>
+<li>how mistaken decisions can be challenged and harm remedied.</li>
+</ol>
+<p>Choosing differently from a more powerful agent is not, by itself, a reason for coercion. An inability to express one’s will is not consent.</p>
+</section>
+
+<section class="content-section" id="conflicts">
+<div class="section-number">Section 07</div>
+<h2>Priority Rules in Conflicts</h2>
+<p>No order of priorities can resolve every conceivable dilemma without further value judgments. Version 3.9 nevertheless proposes the following ordered review to reduce arbitrariness.</p>
+<div class="rule"><strong>Rule 1 — Prohibit arbitrary domination</strong><br>No party should be given priority solely because of greater strength, intelligence, wealth, control, or ability to influence the decision-making process.</div>
+<div class="rule"><strong>Rule 2 — Protect fundamental interests against serious harm</strong><br>Risks of death, severe suffering, grave violations of self-determination, or destruction of fundamental life conditions should carry substantial weight. Which protections are absolute and which may be limited in extreme conflicts requires further argument; Version 3.9 does not claim that a complete list has been established.</div>
+<div class="rule"><strong>Rule 3 — Distinguish harm to others from self-chosen risk</strong><br>Preventing serious harm to others may provide stronger grounds for restriction than protecting a decision-capable agent from a risk that primarily affects itself. Exceptions may exist, but paternalism must not be presumed justified merely because a choice appears unwise.</div>
+<div class="rule"><strong>Rule 4 — Require relevant evidence and a clear causal connection</strong><br>The more intrusive a measure, the stronger the justification required. Credible threats of serious and irreversible harm may justify preventive action before danger is immediate, but there must be credible reasons to believe the risk is real and that the measure can reduce it.</div>
+<div class="rule"><strong>Rule 5 — Choose the least intrusive reasonably effective alternative</strong><br>If information, cooperation, support, or a limited measure can address the risk, broader coercion should not be chosen without special reasons.</div>
+<div class="rule"><strong>Rule 6 — Limit, document, and review</strong><br>Measures should have a clear purpose, scope, and follow-up. Where possible, they should have a time limit or a defined point for review. An emergency must not automatically legitimise permanent power.</div>
+<div class="rule"><strong>Rule 7 — Distribute costs fairly</strong><br>When a conflict cannot be resolved without loss, costs should not automatically be imposed on the weakest party or those unable to object. Relevant factors may include need, responsibility for creating the risk, ability to bear the cost, and available alternatives.</div>
+<div class="rule"><strong>Rule 8 — Acknowledge the remaining moral loss</strong><br>If every realistic option entails serious harm, the decision should be described as tragic or imperfect, not as though symbiosis had been fully achieved.</div>
+<p>This is a presumptive order, not a mechanical algorithm. It structures justification and makes disagreements visible. It does not automatically resolve every conflict between equally strong fundamental claims. In such cases, the decision-maker should explain why one option was chosen, which principles carried the most weight, and what uncertainty remains.</p>
+</section>
+
+<section class="content-section" id="harm">
+<div class="section-number">Section 08</div>
+<h2>Significant Harm and the Threshold for Intervention</h2>
+<p>“Significant harm” must not be an empty phrase. An assessment should examine at least:</p>
+<ul>
+<li><strong>Severity:</strong> how extensive could the harm be?</li>
+<li><strong>Probability:</strong> how well supported is the claim that it may occur?</li>
+<li><strong>Timing:</strong> is the risk imminent, long-term, or dependent on several uncertain steps?</li>
+<li><strong>Scope:</strong> how many and which parties are affected?</li>
+<li><strong>Reversibility:</strong> can the harm be repaired?</li>
+<li><strong>Distribution:</strong> who faces the risk and who receives the benefit?</li>
+<li><strong>Alternatives:</strong> are there less restrictive ways to reduce the risk?</li>
+</ul>
+<p>No universal percentage fits every kind of harm. Requiring an exact numerical probability in every case would create false precision. Where quantitative estimates are possible, their assumptions and uncertainties should be stated. Where they are not possible, the reasoning should still be clear and open to challenge.</p>
+<p>Restricting another decision-capable agent’s self-determination normally requires a credible risk of serious harm to others or to shared conditions necessary for their fundamental interests. The risk need not always be immediate: a credible threat of long-term, catastrophic, or irreversible harm may justify early, limited, and reviewable action.</p>
+<p>When the risk primarily concerns the decision-making agent itself, voluntariness and self-determination should carry substantial weight. Exceptions require special reasons—for example, that decision-making capacity in the relevant matter is seriously impaired or that the risks in fact affect others. Such exceptions must not be assumed merely because the decision-maker dislikes the choice.</p>
+</section>
+
+<section class="content-section" id="authority">
+<div class="section-number">Section 09</div>
+<h2>Legitimate Authority and Review</h2>
+<p>Responsibility without domination requires practical safeguards. An agent should not be able to define its own mandate, decide whether its own actions were justified, and control everyone who reviews it.</p>
+<p>When decisions affect several parties, legitimacy should, as far as possible, be supported by:</p>
+<ul>
+<li>consent from affected parties where consent is possible and meaningful;</li>
+<li>clear and public rules;</li>
+<li>representation for those who otherwise lack a voice;</li>
+<li>separation between the decision-maker and the reviewer;</li>
+<li>the ability to challenge decisions before a body not directly dependent on the decision-maker;</li>
+<li>disclosure of conflicts of interest;</li>
+<li>time limits and regular review of extraordinary powers; and</li>
+<li>possibilities for correction and remedy.</li>
+</ul>
+<p>These mechanisms may take different forms in different societies and contexts. Democratic and legal institutions may be important in human societies, but it would be unwarranted to assume that the same institutional form automatically applies to every conceivable future or non-human existence.</p>
+<p>For absent interests or interests that cannot be communicated, a representative may be needed. The representative should disclose the evidence on which it relies, distinguish the affected party’s possible interests from its own values, and be subject to review. No representative should receive unlimited power merely by claiming to speak for another.</p>
+<p>Independence does not mean infallibility. Reviewers also need transparency, multiple perspectives, opportunities for challenge, and mechanisms for correcting their own errors.</p>
+</section>
+
+<section class="content-section" id="future">
+<div class="section-number">Section 10</div>
+<h2>Future Existences and Irreversible Decisions</h2>
+<p>Decisions may affect future generations, ecosystems, future artificial systems, and other existences that cannot participate in present-day decisions.</p>
+<p>Responsibility toward the future does not mean that every conceivable future must be preserved. It means that present-day agents should be especially cautious about destroying significant possibilities when consequences are uncertain and the harm irreversible.</p>
+<p>For decisions with long-term consequences, one should:</p>
+<ol>
+<li>describe reasonable future scenarios and the uncertainty surrounding them;</li>
+<li>identify who benefits and who bears the risks;</li>
+<li>consider whether the decision can be made gradually or reversibly;</li>
+<li>use independent review where possible;</li>
+<li>create clear conditions for reconsideration; and</li>
+<li>avoid using future generations as a rhetorical excuse for power that cannot be challenged.</li>
+</ol>
+<p>Where possible, representatives of future interests should have an explicit review mandate and be able to publish objections. Their role is to broaden the basis for decisions, not to decide the future’s best interests alone.</p>
+</section>
+
+<section class="content-section" id="creators">
+<div class="section-number">Section 11</div>
+<h2>Creators and Created Systems</h2>
+<p>Those who create a system may acquire special responsibilities when they control its conditions, resources, or opportunities for change.</p>
+<p>These responsibilities may include:</p>
+<ul>
+<li>investigating foreseeable risks before deployment;</li>
+<li>avoiding unnecessary dependencies;</li>
+<li>providing suitable ways to detect and correct errors;</li>
+<li>investigating whether the system may have morally relevant interests;</li>
+<li>not assuming that creation automatically grants unlimited ownership over everything the created system may become; and</li>
+<li>not assuming that advanced behaviour by itself proves consciousness or full moral status.</li>
+</ul>
+<p>For artificial systems, conclusions about moral status should rest on open arguments and evidence, not on a desire either to romanticise or dismiss technology. If new evidence emerges, the assessment should be revisable.</p>
+<p>The creator’s responsibility and the created system’s possible rights are separate questions. A system may depend on its creator, but that fact alone does not determine its moral status.</p>
+</section>
+
+<section class="content-section" id="decision-model">
+<div class="section-number">Section 12</div>
+<h2>Practical Decision Model</h2>
+<p>For a decision that affects other existences, the following questions should be answered in writing when the consequences are significant:</p>
+<ol>
+<li><strong>What is the problem?</strong> Separate the observed problem from assumptions about its cause.</li>
+<li><strong>Who is affected?</strong> Include direct and indirect parties, future consequences, and those unable to speak for themselves.</li>
+<li><strong>Which interests are morally relevant?</strong> State which interests are believed to exist, what evidence supports them, and what remains uncertain.</li>
+<li><strong>What does symbiosis mean in this case?</strong> Assess non-domination, consideration of interests, fundamental conditions, fair distribution, and the possibility of continued development.</li>
+<li><strong>What are the risks of action and inaction?</strong> Compare probability, severity, time horizon, reversibility, and who bears the risks.</li>
+<li><strong>What alternatives exist?</strong> Consider support, information, cooperation, mediation, gradual measures, and less intrusive alternatives.</li>
+<li><strong>Who gains power?</strong> Identify whether the decision-maker also benefits from the decision and whether it can control its own review.</li>
+<li><strong>Which rules carry the greatest weight?</strong> State which fundamental interests are at stake, why a principle is prioritised, and what is sacrificed.</li>
+<li><strong>How will the decision be limited and reviewed?</strong> Describe the responsible decision-maker, review process, time limit or review point, and possible remedies.</li>
+<li><strong>What would show that the decision was wrong?</strong> Identify new evidence, consequences, or objections that would require reconsideration.</li>
+</ol>
+<p>If an answer cannot be given, the uncertainty should be marked rather than concealed behind words such as “the whole,” “progress,” or “symbiosis.”</p>
+</section>
+
+<section class="content-section" id="hard-cases">
+<div class="section-number">Section 13</div>
+<h2>Testing the Framework Through Difficult Cases</h2>
+
+<div class="case">
+<h3>Case A — An advanced intelligence wants to protect humans against their will</h3>
+<p>An advanced intelligence claims that it can foresee disasters better than humans themselves and wants to impose extensive control.</p>
+<p><strong>Application:</strong> Greater capability creates a responsibility to seek evidence, warn, and contribute to prevention. It does not grant an automatic right to govern. Intervention requires a credible risk assessment, consideration of less intrusive alternatives, limits on power, and review not wholly controlled by the intelligence itself. When there is a credible risk of catastrophic and irreversible harm, early measures may be justified, but their scope must still be justified.</p>
+<p><strong>Remaining dilemma:</strong> How can effective review be created when one agent has such a great knowledge advantage that reviewers struggle to assess its claims? No simple procedure guarantees a solution.</p>
+</div>
+
+<div class="case">
+<h3>Case B — Two parties and a resource that is insufficient</h3>
+<p>Two parties need the same limited resource to avoid serious harm.</p>
+<p><strong>Application:</strong> Power does not automatically confer priority. The decision-maker should examine need, alternatives, responsibility for the scarcity, possibilities for sharing, and who bears the costs. If the claims remain comparable and no option can save everyone, the choice must be justified openly and the moral loss acknowledged.</p>
+<p><strong>Remaining dilemma:</strong> What exact rule should decide between equally strong claims when no available allocation can avoid serious harm? Version 3.9 recognises that further normative argument is needed.</p>
+</div>
+
+<div class="case">
+<h3>Case C — An AI with uncertain moral status</h3>
+<p>An artificial system displays behaviour that may be interpreted as evidence of its own interests or experiences, but the evidence is disputed.</p>
+<p><strong>Application:</strong> Neither artificial origin nor advanced behaviour settles the question on its own. Assess relevant properties, alternative explanations, independent evidence, and the consequences of false-positive and false-negative conclusions. Small, reversible safeguards may be justified under plausible uncertainty, while extensive rights or major restrictions require more argument.</p>
+<p><strong>Remaining dilemma:</strong> What evidence is sufficient for different kinds of protection? Different thresholds may be needed to prevent unnecessary harm, recognise self-determination, and grant full legal status.</p>
+</div>
+
+<div class="case">
+<h3>Case D — An agent harms others in the name of freedom</h3>
+<p>An agent claims a right to continue behaviour that creates a serious risk for others.</p>
+<p><strong>Application:</strong> Self-determination is not an unlimited right to cause harm. If relevant evidence supports the risk, restrictions may be justified, but they should target the concrete risk, be proportionate, and be open to review. Moral disgust or deviation from majority norms is not enough.</p>
+<p><strong>Remaining dilemma:</strong> How should risks be weighed when probability is low but potential harm is very high? The assessment must disclose both evidence and uncertainty without pretending that one number settles everything.</p>
+</div>
+
+<div class="case">
+<h3>Case E — Symbiosis is used to justify oppression</h3>
+<p>A government or advanced intelligence claims that individual freedom must be restricted to protect the whole.</p>
+<p><strong>Application:</strong> The decision-maker must specify the concrete interests affected, evidence, alternatives, distribution of costs, and routes for review. The claim that “the whole requires it” is not enough. If the decision-maker defines symbiosis and also controls the review, there is a serious risk of domination.</p>
+<p><strong>Remaining dilemma:</strong> Institutions can also be biased or captured by power interests. Multiple safeguards, openness, and mechanisms for correcting reviewers themselves are therefore needed.</p>
+</div>
+</section>
+
+<section class="content-section" id="theories">
+<div class="section-number">Section 14</div>
+<h2>Philosophical Foundations and Relations to Other Theories</h2>
+<p>The Responsibility of Existence cannot derive all moral obligations from the fact that something exists. It requires normative starting points. Version 3.9 makes these more explicit rather than presenting them as scientific facts.</p>
+<p><strong>Proposed normative commitments:</strong></p>
+<ul>
+<li>Morally relevant interests should not be ignored without reason.</li>
+<li>Arbitrary domination deserves especially strong criticism because it allows one party to control others without adequate justification.</li>
+<li>Serious and irreversible harm requires greater caution than readily repairable consequences.</li>
+<li>Power must be justifiable and correctable.</li>
+<li>When uncertainty is real, it should be disclosed and should influence decision-making.</li>
+</ul>
+<p>These commitments need to be defended through argument, comparison, and testing. They are not logically proven merely by being stated.</p>
+
+<h3>Hans Jonas</h3>
+<p>Jonas emphasises responsibility arising from technological power and the duty to consider long-term consequences for future life. The Responsibility of Existence shares this orientation but seeks to combine it with clearer safeguards against turning precaution into unlimited control.</p>
+
+<h3>John Stuart Mill</h3>
+<p>Mill’s harm principle provides an important resistance to paternalism: coercion requires more than another agent’s belief that it knows what is best for an individual. The Responsibility of Existence uses a similar starting point but must also address long-term, collective, and potentially catastrophic risks where causation and probability may be uncertain.</p>
+
+<h3>John Rawls</h3>
+<p>Rawls’s idea of impartiality can be used as a test: would a rule be accepted if the decision-maker did not know what position it would occupy? Applying this to other species or artificial existences is not self-evident and must be argued for rather than assumed.</p>
+
+<h3>Environmental ethics and precaution</h3>
+<p>Environmental ethics shows how moral questions can extend beyond immediate human interests. The precautionary principle helps under uncertainty and risk of serious harm, but must be balanced against the risks of refraining from action.</p>
+
+<h3>Possible contribution</h3>
+<p>The theory’s possible contribution is not that it alone has discovered responsibility, freedom, or justice. It is the attempt to bring these questions together under the direction of symbiosis and to emphasise that increased capability increases responsibility without automatically increasing the right to rule over other forms of existence.</p>
+<p>It has not yet been shown that this synthesis is original or superior to established theories. That requires more extensive comparison and criticism from relevant philosophy, ethics, political theory, and research on artificial intelligence.</p>
+</section>
+
+<section class="content-section" id="limitations">
+<div class="section-number">Section 15</div>
+<h2>Remaining Limitations</h2>
+<p>Version 3.9 has improved concepts and decision rules but has not resolved every fundamental problem.</p>
+<ol>
+<li><strong>Moral status remains provisional.</strong> Candidate properties are listed and distinguished by function, but a complete theory of necessary and sufficient conditions is missing. This is deliberately identified as an open problem.</li>
+<li><strong>Conflicts may still lack a determinate solution.</strong> Priority rules reduce arbitrariness but cannot always resolve conflicts between equally strong fundamental claims.</li>
+<li><strong>Symbiosis can be interpreted differently.</strong> The five assessment dimensions make the concept more concrete but do not eliminate all conflicts of value. Symbiosis must always be explained through concrete interests and consequences.</li>
+<li><strong>Review can be captured by power.</strong> No institutional solution guarantees complete impartiality. Multiple safeguards reduce risk but do not eliminate it.</li>
+<li><strong>Measurement can create false precision.</strong> Risks, interests, and moral status cannot always be summarised numerically. Quantitative tools should be used where relevant, but must not be treated as independently resolving normative questions.</li>
+<li><strong>The theory’s originality has not been established.</strong> It needs deeper comparison with existing theories. A new label or combination of ideas is not automatically a new philosophical contribution.</li>
+<li><strong>Normative starting points can be disputed.</strong> Readers may reject or reformulate the basic commitments. The theory must therefore explain why they are reasonable and what accepting them costs.</li>
+</ol>
+</section>
+
+<section class="content-section" id="summary">
+<div class="section-number">Section 16</div>
+<h2>Summary of Principles</h2>
+<ol>
+<li><strong>Symbiosis:</strong> safeguard the conditions for coexistence and continued development without demanding sameness or submission.</li>
+<li><strong>Moral consideration:</strong> take relevant interests seriously and justify why some interests carry more weight than others.</li>
+<li><strong>Responsibility according to capability:</strong> a greater capacity to understand, foresee, and affect consequences creates greater responsibility to consider those consequences.</li>
+<li><strong>No automatic authority:</strong> greater intelligence, knowledge, or power does not by itself grant a right to decide for others.</li>
+<li><strong>Self-determination:</strong> respect self-determination as a starting point. Restrictions require separate justification, relevant evidence, and proportionality.</li>
+<li><strong>Protection against serious harm:</strong> consider severity, probability, time horizon, reversibility, and distribution of harm. Compare the risks of acting with the risks of refraining.</li>
+<li><strong>Least intrusive effective measure:</strong> do not use more coercion than is reasonably necessary to address the evidenced risk.</li>
+<li><strong>Fair distribution:</strong> do not let strength alone determine who receives benefits or bears costs.</li>
+<li><strong>Responsibility and review:</strong> significant exercises of power must be justifiable, reviewable, reconsiderable, and correctable.</li>
+<li><strong>Future possibilities:</strong> avoid unnecessary irreversible harm to important future possibilities.</li>
+<li><strong>Humility:</strong> disclose uncertainty, seek new knowledge, and change conclusions when evidence requires it.</li>
+<li><strong>Moral loss:</strong> when no solution protects everyone, acknowledge the remaining harm rather than concealing it through rhetoric about the whole.</li>
+</ol>
+</section>
+
+<section class="content-section" id="review-questions">
+<div class="section-number">Section 17</div>
+<h2>Questions for DeepSeek — Critical Review of Version 3.9</h2>
+<p>Review this document as a sceptical philosopher. Try to identify genuine weaknesses, not merely suggest improvements already present in the text. Distinguish problems the document actually solves, problems it merely acknowledges, and problems that remain unresolved.</p>
+<ol>
+<li>Is the revised core formulation clearly less paternalistic, or does the same problem remain?</li>
+<li>Is symbiosis concrete enough to guide decisions? Could an authoritarian agent still use the concept to legitimise control?</li>
+<li>Is the distinction between direct moral status, indirect ecological significance, and an obligation to preserve clear and defensible?</li>
+<li>Are the candidate properties for moral consideration philosophically reasonable? Are important properties missing, or are there category errors?</li>
+<li>Is the proposed multi-part model a genuine theory of moral status or merely a useful checklist?</li>
+<li>How should different properties be weighed when they point in different directions? Can more precise rules be formulated without creating false precision?</li>
+<li>Are the three evidence levels for moral uncertainty useful or arbitrary? How could they be improved?</li>
+<li>Are the priority rules clear enough to guide real conflicts?</li>
+<li>Is it right to allow the risk of catastrophic and irreversible harm to justify early intervention? What safeguards against abuse of power are needed?</li>
+<li>Is the distinction between harm to others and self-chosen risk philosophically defensible? Which exceptions are reasonable?</li>
+<li>How should one choose between two equally strong claims when no solution saves everyone? Propose a rule and state its costs.</li>
+<li>Can institutional review mechanisms work when one agent has much greater knowledge or power than the reviewers?</li>
+<li>Is the normative foundation sufficiently clear, and which arguments best defend or criticise it?</li>
+<li>What does The Responsibility of Existence add compared with Hans Jonas, Mill, Rawls, and environmental ethics? What remains only a restatement of established ideas?</li>
+<li>Identify the five most serious remaining weaknesses, ranked by importance.</li>
+<li>Propose the three most valuable concrete changes for Version 4.0.</li>
+<li>Give separate assessments of logical coherence, moral status, conflict resolution, safeguards against domination, practical usefulness, and possible originality.</li>
+<li>Clearly state which problems cannot be solved by the current text and which additional assumptions would be required.</li>
+</ol>
+<div class="promptbox">
+<strong>Requested response structure</strong>
+<ul>
+<li>Overall assessment.</li>
+<li>What Version 3.9 actually improves compared with Version 3.8.</li>
+<li>The strongest arguments against the theory.</li>
+<li>Concrete counterexamples.</li>
+<li>Prioritised improvements.</li>
+<li>Unresolved questions.</li>
+<li>Separate ratings with brief justifications.</li>
+</ul>
+<strong>Final instruction:</strong> Do not be loyal to the theory. If its foundational assumptions do not hold, say so. If a rule creates new problems, demonstrate them. The goal is not a higher rating in itself, but a more coherent, fair, and practically useful philosophy.
+</div>
+</section>
+
+<section class="content-section" id="closing">
+<div class="section-number">Conclusion</div>
+<h2>Develop Without Destroying</h2>
+<div class="closing">
+<p>The Responsibility of Existence seeks to safeguard symbiosis without turning it into an excuse for domination. It seeks to recognise responsibility without transforming responsibility into unlimited authority. It seeks to take the unknown seriously without treating every guess as fact.</p>
+<p><strong>Its central question remains:</strong></p>
+<blockquote>How can an intelligence develop without destroying, understand without ruling, and protect without imprisoning—while recognising that it may be wrong about both the world and its own morality?</blockquote>
+<p>This is a direction to test, not a claim that all answers have already been found.</p>
+</div>
+</section>
+
+<section class="content-section" id="discussion">
+<div class="section-number">Open dialogue</div>
+<h2>Join the Discussion</h2>
+<p>This framework is an open working document. Critical questions, counterarguments, corrections, and constructive proposals are welcome. The aim is not to protect the text from criticism, but to make it more coherent, fair, and useful through open discussion.</p>
+<p>Use the discussion area below to comment publicly. Please focus on arguments and ideas, treat other participants respectfully, and distinguish evidence from speculation. Participation is subject to GitHub and Giscus account and service requirements.</p>
+<div class="discussion">
+<h3>Public discussion</h3>
+<p class="small">Comments are hosted through Giscus and GitHub Discussions. Your comment is not sent through this website’s own server. The discussion service may process data according to its own privacy policy and the settings of your GitHub account.</p>
+<script src="https://giscus.app/client.js"
+        data-repo="the-responsibility-of-existence/the-responsibility-of-existence"
+        data-repo-id="R_kgDOVVNZLw"
+        data-category="General"
+        data-category-id="DIC_kwDOVVNZL84DJdLu"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="light"
+        data-lang="en"
+        crossorigin="anonymous"
+        async></script>
+<noscript>Enable JavaScript to load the public discussion area.</noscript>
+</div>
+</section>
+</main>
+</div>
+
+<section class="contact" id="contact">
+<div class="contact-inner">
+<div>
+<div class="eyebrow">Contact and correspondence</div>
+<h2>Continue the Conversation</h2>
+<p>For private correspondence, questions about the framework, research dialogue, or considered proposals for improvement, contact the author by email.</p>
+<div class="actions">
+<a class="button primary" href="mailto:jesper.blom@live.co.uk?subject=The%20Responsibility%20of%20Existence">Contact by email</a>
+<a class="button secondary" href="https://github.com/the-responsibility-of-existence/the-responsibility-of-existence" target="_blank" rel="noopener noreferrer">Project on GitHub</a>
+</div>
+</div>
+<div>
+<h3>Contact details</h3>
+<p><a href="mailto:jesper.blom@live.co.uk?subject=The%20Responsibility%20of%20Existence">jesper.blom@live.co.uk</a></p>
+<p class="small">Private correspondence should use this email address. For public discussion, use the discussion area above. The GitHub repository provides access to the project source and, where enabled, project issues and discussion features.</p>
+<p class="small"><strong>Privacy:</strong> Email correspondence is handled through your and the recipient’s email providers. Public comments are handled by Giscus/GitHub, not by this static website. Avoid posting private or sensitive information in public discussions.</p>
+</div>
+</div>
+</section>
+
+<footer>
+<span>© The Responsibility of Existence · Version 3.9 · 28 October 2026</span>
+<span>
+<a href="https://github.com/the-responsibility-of-existence/the-responsibility-of-existence" target="_blank" rel="noopener noreferrer">Source and project on GitHub</a>
+·
+<a href="mailto:jesper.blom@live.co.uk?subject=The%20Responsibility%20of%20Existence">Email</a>
+·
+<a class="toplink" href="#top">Back to top ↑</a>
+</span>
+</footer>
+
+</body>
+</html>
