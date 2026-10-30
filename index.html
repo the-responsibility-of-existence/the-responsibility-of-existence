@@ -118,3 +118,123 @@
       line-height: 1.55;
       font-style: italic;
     }
+        .page-layout {
+      max-width: var(--wide);
+      margin: 0 auto;
+      padding: 30px 26px 90px;
+      display: grid;
+      grid-template-columns: 235px minmax(0, 790px);
+      gap: 64px;
+      align-items: start;
+    }
+    .toc {
+      position: sticky;
+      top: 91px;
+      max-height: calc(100vh - 115px);
+      overflow: auto;
+      padding: 20px 18px;
+      border: 1px solid var(--line);
+      border-radius: 5px;
+      background: rgba(255,255,255,.28);
+    }
+    .toc h2 {
+      margin: 0 0 13px;
+      color: var(--accent-dark);
+      font: bold 12px/1.4 Arial, sans-serif;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+    .toc ol { margin: 0; padding-left: 20px; }
+    .toc li { padding: 3px 0; color: var(--muted); font: 13px/1.45 Arial, sans-serif; }
+    .toc a { color: var(--muted); text-decoration: none; }
+    .toc a:hover { color: var(--accent-dark); text-decoration: underline; }
+    main { min-width: 0; }
+    section.article-section {
+      padding: 38px 0 40px;
+      border-bottom: 1px solid var(--line);
+    }
+    section.article-section:first-child { padding-top: 8px; }
+    h2.section-title {
+      margin: 0 0 22px;
+      color: var(--accent-dark);
+      font-size: 32px;
+      line-height: 1.2;
+      font-weight: normal;
+      letter-spacing: -.025em;
+    }
+    h3 {
+      margin: 30px 0 10px;
+      color: var(--ink);
+      font-size: 21px;
+      line-height: 1.35;
+      font-weight: normal;
+    }
+    p { margin: 0 0 18px; }
+    strong { color: #30372f; }
+    ul, ol { margin: 10px 0 22px; padding-left: 27px; }
+    li { margin: 6px 0; padding-left: 3px; }
+    blockquote {
+      margin: 27px 0;
+      padding: 7px 0 7px 23px;
+      border-left: 2px solid var(--accent);
+      color: var(--accent-dark);
+      font-size: 22px;
+      line-height: 1.55;
+      font-style: italic;
+    }
+    .principles { padding-left: 26px; }
+    .principles li { margin: 13px 0; padding-left: 6px; }
+    .closing {
+      padding: 62px 30px 70px;
+      margin: 52px 0 0;
+      text-align: center;
+      background: var(--paper-deep);
+      border: 1px solid var(--line);
+    }
+    .closing h2 { margin: 0 0 25px; font-size: 34px; font-weight: normal; }
+    .closing p { max-width: 650px; margin: 0 auto 17px; }
+    .closing .motto {
+      margin-top: 32px;
+      color: var(--accent-dark);
+      font-size: 22px;
+      font-style: italic;
+      line-height: 1.7;
+    }
+    .site-section {
+      max-width: 790px;
+      margin: 0 auto;
+      padding: 72px 26px;
+      border-top: 1px solid var(--line);
+    }
+    .site-section h2 {
+      margin: 0 0 18px;
+      color: var(--accent-dark);
+      font-size: 34px;
+      font-weight: normal;
+    }
+    .site-section p { color: var(--muted); }
+    .contact-card {
+      padding: 25px 27px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 5px;
+    }
+    .contact-card a { font-size: 19px; }
+    #discussion { min-height: 260px; }
+    #giscus-container { margin-top: 28px; }
+    .discussion-note { font-size: 15px; }
+    footer {
+      padding: 30px 24px 38px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      text-align: center;
+      font: 13px/1.6 Arial, sans-serif;
+    }
+    footer a { color: var(--muted); }
+    .back-top { display: inline-block; margin-top: 10px; }
+    @media (max-width: 900px) {
+      .page-layout { grid-template-columns: 1fr; gap: 20px; }
+      .toc { position: relative; top: auto; max-height: none; }
+      .toc ol { columns: 2; column-gap: 24px; }
+    }
+    @media (max-width: 620px) {
