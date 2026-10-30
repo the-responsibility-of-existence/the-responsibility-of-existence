@@ -43,6 +43,9 @@
   a{color:var(--link)}
   :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
   .btn:focus-visible{outline-offset:2px}
+  code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:.88em;background:var(--bg-alt);padding:.1em .35em;border-radius:4px;
+    border:1px solid var(--rule)}
 
   .skip{
     position:absolute;left:-9999px;top:1rem;z-index:200;
@@ -148,6 +151,24 @@
     font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
   .card p{margin:0;font-size:.93rem;color:var(--muted);line-height:1.55}
 
+  /* ---------- Contact & discussion ---------- */
+  .contact-grid{display:grid;gap:1rem;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin:1.6rem 0}
+  .contact-card{
+    display:block;padding:1.2rem 1.4rem;border:1px solid var(--rule);border-radius:12px;
+    background:var(--bg-alt);box-shadow:var(--shadow);text-decoration:none;color:inherit;
+    transition:border-color .15s, transform .15s;
+  }
+  .contact-card:hover{border-color:var(--accent)}
+  @media (prefers-reduced-motion: no-preference){
+    .contact-card:hover{transform:translateY(-2px)}
+  }
+  .contact-card h3{margin:0 0 .4rem;font-size:1.05rem;color:var(--accent);
+    font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+  .contact-card p{margin:0;font-size:.94rem;color:var(--muted);line-height:1.55}
+  .giscus-wrap{margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--rule)}
+  .giscus-wrap noscript p{color:var(--muted);font-size:.95rem}
+
   hr.sep{border:0;height:1px;background:var(--rule);margin:3rem 0}
 
   footer{border-top:1px solid var(--rule);padding:2.5rem 0 4rem;
@@ -177,7 +198,7 @@
 
   /* ---------- Print ---------- */
   @media print{
-    .toc,.tools,.progress,.totop,.skip{display:none !important}
+    .toc,.tools,.progress,.totop,.skip,.giscus-wrap{display:none !important}
     .layout{display:block}
     body{background:#fff;color:#000;font-size:11pt}
     a{color:#000;text-decoration:none}
@@ -210,7 +231,7 @@
       <span>·</span>
       <span>≈ 13 min read</span>
       <span>·</span>
-      <span>Version 2.1</span>
+      <span>Version 2.2</span>
     </div>
   </header>
 
@@ -234,6 +255,7 @@
         <li><a href="#limitations">9. Limitations and self-critique</a></li>
         <li><a href="#conclusion">10. Conclusion</a></li>
         <li><a href="#glossary">Glossary</a></li>
+        <li><a href="#discussion">Discussion and contact</a></li>
         <li><a href="#about">About this text</a></li>
       </ol>
     </nav>
@@ -402,6 +424,54 @@
         </dl>
       </section>
 
+      <hr class="sep">
+
+      <!-- DISCUSSION & CONTACT -->
+      <section id="discussion">
+        <h2>Discussion and contact</h2>
+        <p>This essay is offered as a framework to be argued with. Two channels are open for that purpose, and a third — the comment thread below — for anything that fits neither.</p>
+
+        <div class="contact-grid">
+          <a class="contact-card" href="https://github.com/OWNER/REPO/discussions" rel="noopener">
+            <h3>GitHub Discussions</h3>
+            <p>Public, threaded, and persistent. The right place for objections, extensions, and worked examples.</p>
+          </a>
+          <a class="contact-card" href="mailto:you@example.com">
+            <h3>Email</h3>
+            <p>For corrections, private comments, or anything you would rather not post publicly.</p>
+          </a>
+        </div>
+
+        <div class="note">
+          <strong>For the site owner.</strong> Replace <code>OWNER/REPO</code>, <code>REPO_ID</code>, <code>CATEGORY_ID</code> and the email address. Values for the Giscus embed are generated at <a href="https://giscus.app/" rel="noopener">giscus.app</a>. Discussions must be enabled in the repository settings (<em>Settings → General → Features → Discussions</em>). If you would rather not host comments, delete the <code>giscus-wrap</code> block — the two cards above will still work.
+        </div>
+
+        <h3>Leave a comment</h3>
+        <p>Comments are powered by GitHub Discussions via Giscus. Sign in with a GitHub account to post. No tracking, no third-party analytics, and no account beyond GitHub itself.</p>
+
+        <div class="giscus-wrap">
+          <script src="https://giscus.app/client.js"
+            data-repo="OWNER/REPO"
+            data-repo-id="REPO_ID"
+            data-category="General"
+            data-category-id="CATEGORY_ID"
+            data-mapping="pathname"
+            data-strict="0"
+            data-reactions-enabled="1"
+            data-emit-metadata="0"
+            data-input-position="top"
+            data-theme="preferred_color_scheme"
+            data-lang="en"
+            data-loading="lazy"
+            crossorigin="anonymous"
+            async>
+          </script>
+          <noscript>
+            <p>JavaScript is required to display the comment thread. You can also participate directly in <a href="https://github.com/OWNER/REPO/discussions">GitHub Discussions</a>.</p>
+          </noscript>
+        </div>
+      </section>
+
       <!-- ABOUT -->
       <section id="about">
         <h2>About this text</h2>
@@ -414,8 +484,8 @@
   </div>
 
   <footer>
-    <p><strong>The Responsibility of Existence</strong> — version 2.1</p>
-    <p>An independent philosophical essay. Published as a static page; no tracking, no external dependencies.</p>
+    <p><strong>The Responsibility of Existence</strong> — version 2.2</p>
+    <p>An independent philosophical essay. Published as a static page; no tracking, no external dependencies beyond the optional comment widget.</p>
   </footer>
 </div>
 
@@ -425,8 +495,26 @@
 (function () {
   "use strict";
 
-  /* ---------- Theme ---------- */
   var root = document.documentElement;
+
+  /* ---------- Giscus theme sync ---------- */
+  function updateGiscusTheme() {
+    var iframe = document.querySelector("iframe.giscus-frame");
+    if (!iframe || !iframe.contentWindow) return;
+    try {
+      iframe.contentWindow.postMessage(
+        { giscus: { setConfig: { theme: root.dataset.theme === "dark" ? "dark" : "light" } } },
+        "https://giscus.app"
+      );
+    } catch (e) {}
+  }
+
+  window.addEventListener("message", function (e) {
+    if (e.origin !== "https://giscus.app") return;
+    if (e.data && e.data.giscus) updateGiscusTheme();
+  });
+
+  /* ---------- Theme ---------- */
   var themeBtn = document.getElementById("themeToggle");
   var themeIcon = document.getElementById("themeIcon");
   var themeLabel = document.getElementById("themeLabel");
@@ -436,9 +524,9 @@
     themeIcon.textContent = theme === "dark" ? "☀" : "☾";
     themeLabel.textContent = theme === "dark" ? "Light" : "Dark";
     themeBtn.setAttribute("aria-pressed", theme === "dark" ? "true" : "false");
+    updateGiscusTheme();
   }
 
-  // Sync UI with whatever the head script decided
   applyTheme(root.dataset.theme === "dark" ? "dark" : "light");
 
   themeBtn.addEventListener("click", function () {
