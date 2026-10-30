@@ -6,8 +6,8 @@
 <title>The Responsibility of Existence — A Reach-Based Account of Answerability, Agency, and Symbiosis</title>
 <meta name="description" content="A relational account of responsibility grounded in reach: capability, answerability, and the fiduciary structure of power.">
 <meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#181614" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#fbfaf6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#171a18" media="(prefers-color-scheme: dark)">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&display=swap" rel="stylesheet">
@@ -22,30 +22,32 @@
 </script>
 <style>
   :root{
-    --bg:#fbfaf7; --bg-alt:#f2efe9; --bg-elev:#ffffff; --text:#1c1b19; --muted:#6b6760;
-    --rule:#e4dfd6; --rule-strong:#d6cfc3; --accent:#8a5a2b; --accent-soft:#f1e5d6;
-    --accent-ink:#6b4423; --link:#7a4a1f; --shadow:0 1px 2px rgba(0,0,0,.05);
-    --shadow-lg:0 12px 32px -12px rgba(80,52,20,.18);
+    --bg:#fbfaf6; --bg-alt:#f3f1ea; --bg-elev:#ffffff; --text:#1c1b19; --muted:#6b6760;
+    --rule:#e5e0d5; --rule-strong:#d6d0c1;
+    --accent:#3d5a3d; --accent-soft:#e8ede4;
+    --accent-ink:#2a422a; --link:#2d4a2d;
+    --shadow:0 1px 2px rgba(20,40,20,.04);
     --maxw:70ch;
   }
   [data-theme="dark"]{
-    --bg:#181614; --bg-alt:#221f1c; --bg-elev:#1f1c19; --text:#ede9e3; --muted:#a49e94;
-    --rule:#35302a; --rule-strong:#463f37; --accent:#e6b884; --accent-soft:#2d2620;
-    --accent-ink:#f0c99a; --link:#ecc290; --shadow:0 1px 2px rgba(0,0,0,.5);
-    --shadow-lg:0 12px 32px -12px rgba(0,0,0,.6);
+    --bg:#171a18; --bg-alt:#1f2220; --bg-elev:#1c1f1d; --text:#e8e9e5; --muted:#9a9e94;
+    --rule:#2e3230; --rule-strong:#3d423f;
+    --accent:#9bbf9b; --accent-soft:#1e2820;
+    --accent-ink:#b8d4b8; --link:#a8cba8;
+    --shadow:0 1px 2px rgba(0,0,0,.5);
   }
   *{box-sizing:border-box}
   @media (prefers-reduced-motion: no-preference){html{scroll-behavior:smooth}}
   body{
     margin:0; background:var(--bg); color:var(--text);
-    background-image:radial-gradient(ellipse at 50% 0%, rgba(138,90,43,.05), transparent 55%);
+    background-image:radial-gradient(ellipse at 50% 0%, rgba(61,90,61,.035), transparent 55%);
     background-attachment:fixed;
     font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
     font-size:1.06rem; line-height:1.72;
     -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
   }
   [data-theme="dark"] body{
-    background-image:radial-gradient(ellipse at 50% 0%, rgba(230,184,132,.045), transparent 55%);
+    background-image:radial-gradient(ellipse at 50% 0%, rgba(155,191,155,.035), transparent 55%);
   }
   a{color:var(--link)}
   :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
@@ -60,9 +62,9 @@
     font-size:.9rem;text-decoration:none}
   .skip:focus{left:1rem}
 
-  .progress{position:fixed;top:0;left:0;right:0;height:3px;background:transparent;z-index:100}
+  .progress{position:fixed;top:0;left:0;right:0;height:2px;background:transparent;z-index:100}
   .progress__bar{height:100%;width:100%;transform-origin:0 50%;transform:scaleX(0);
-    background:linear-gradient(90deg,var(--accent),var(--link));transition:transform .1s linear}
+    background:var(--accent);transition:transform .1s linear}
 
   .wrap{max-width:1140px;margin:0 auto;padding:0 1.5rem}
 
@@ -83,22 +85,16 @@
   }
   .hero-ornament{width:68px;height:1px;
     background:linear-gradient(90deg, transparent, var(--accent), transparent);
-    opacity:.7;margin:0 0 1.3rem;position:relative}
+    opacity:.55;margin:0 0 1.3rem;position:relative}
   .hero-ornament::after{content:"";position:absolute;left:50%;top:50%;
     transform:translate(-50%,-50%) rotate(45deg);width:5px;height:5px;
-    background:var(--accent);opacity:.9}
+    background:var(--accent);opacity:.8}
   .hero .kicker{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
     font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);
     margin:0 0 1.1rem;font-weight:600}
   .hero__meta{display:flex;flex-wrap:wrap;gap:.6rem 1.2rem;align-items:center;
     font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
     font-size:.85rem;color:var(--muted)}
-  .hero__meta .version{
-    display:inline-block;
-    background:linear-gradient(135deg, var(--accent) 0%, var(--link) 100%);
-    color:var(--bg);padding:.24rem .78rem;border-radius:999px;
-    font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;
-    box-shadow:0 1px 3px rgba(0,0,0,.15)}
   .hero__meta .sep{opacity:.5}
 
   .tools{position:absolute;top:1.2rem;right:0;display:flex;gap:.5rem}
@@ -141,19 +137,16 @@
     font-optical-sizing:auto;
     font-size:clamp(1.5rem,3vw,2rem);line-height:1.18;margin:0 0 1.1rem;
     letter-spacing:-.014em;font-weight:600;padding-top:.4rem;
-    display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap;
   }
   section > h2 .num{color:var(--accent);font-weight:400;
-    font-variant-numeric:tabular-nums;font-size:.72em;
-    border:1px solid var(--rule-strong);border-radius:999px;
-    padding:.15em .7em;line-height:1;flex-shrink:0}
+    margin-right:.55em;font-size:.8em;font-variant-numeric:tabular-nums}
   h3{font-size:1.12rem;margin:2rem 0 .7rem;font-weight:600;letter-spacing:-.005em}
   h4{font-size:1rem;margin:1.4rem 0 .5rem;font-weight:600}
   p{margin:0 0 1.15rem}
   strong{font-weight:600}
   em{font-style:italic}
   ol,ul{margin:0 0 1.15rem;padding-left:1.4rem}
-  li{margin:0 0 .35rem}
+  li{margin:0 0 .4rem}
 
   article p a, article li a, article dd a, article h3 a, article h4 a, article td a{
     color:var(--link);text-decoration:none;
@@ -163,146 +156,129 @@
   article h3 a:hover, article h4 a:hover, article td a:hover{
     border-bottom-color:var(--accent);color:var(--accent)}
 
-  /* ---------- Abstract panel ---------- */
+  /* ---------- Abstract ---------- */
   .abstract{
-    background:linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%);
-    border:1px solid var(--rule);border-radius:16px;
-    padding:2rem 2rem 1.6rem;margin:0 0 1.4rem;
-    box-shadow:var(--shadow);position:relative;overflow:hidden;
-  }
-  .abstract::before{
-    content:"";position:absolute;top:0;left:0;right:0;height:3px;
-    background:linear-gradient(90deg, var(--accent), var(--link), var(--accent));
-    opacity:.7;
+    border-top:2px solid var(--accent);
+    border-bottom:1px solid var(--rule);
+    padding:1.6rem 0 1.4rem;margin:0 0 1.4rem;
   }
   .abstract__title{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
-    font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;
-    color:var(--accent);margin:0 0 1rem;font-weight:700}
+    font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--accent);margin:0 0 .9rem;font-weight:700}
   .abstract p{font-size:.99rem;line-height:1.72;color:var(--text)}
-  .abstract p:last-child{margin-bottom:0}
   .abstract .contributions{
-    display:grid;gap:.6rem 1.4rem;
+    display:grid;gap:.5rem 1.4rem;
     grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    margin:1.2rem 0 0;padding:1.2rem 0 0;
-    border-top:1px dashed var(--rule-strong);
+    margin:1rem 0 0;padding:1rem 0 0;
+    border-top:1px solid var(--rule);
+    list-style:none;
   }
   .abstract .contributions li{
     margin:0;font-size:.94rem;color:var(--text);line-height:1.55;
-    padding-left:1.4rem;position:relative;
+    padding-left:1.2rem;position:relative;
   }
   .abstract .contributions li::before{
     content:"§";position:absolute;left:0;top:0;
     color:var(--accent);font-family:"Fraunces",serif;font-weight:600;
-    font-size:.95rem}
+    font-size:.9rem;opacity:.8}
 
   /* ---------- Key proposition callout ---------- */
   .key-prop{
-    background:linear-gradient(135deg, var(--accent-soft) 0%, var(--bg-alt) 100%);
-    border:1px solid var(--rule-strong);border-radius:14px;
-    padding:1.4rem 1.5rem;margin:1.8rem 0;
-    position:relative;box-shadow:var(--shadow);
+    border-left:3px solid var(--accent);
+    padding:1.2rem 1.4rem;
+    margin:2rem 0;
+    background:var(--accent-soft);
+    border-radius:0 10px 10px 0;
   }
   .key-prop::before{
     content:"Key proposition";display:block;
     font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
     font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;
-    color:var(--accent);font-weight:700;margin:0 0 .8rem;
+    color:var(--accent);font-weight:700;margin:0 0 .6rem;
   }
   .key-prop p{
     font-family:"Fraunces","Iowan Old Style",Georgia,serif;
     font-optical-sizing:auto;font-style:italic;
-    font-size:1.08rem;line-height:1.55;margin:0;
+    font-size:1.06rem;line-height:1.55;margin:0;
   }
   .key-prop p + p{margin-top:.6rem}
 
   /* ---------- Pull quotes ---------- */
   blockquote{
-    margin:2.2rem 0;
-    padding:1.5rem 1.6rem 1.4rem 3.2rem;
-    background:var(--accent-soft);
-    border-left:0;border-top:1px solid rgba(138,90,43,.15);
-    border-bottom:1px solid rgba(138,90,43,.15);
-    border-radius:12px;color:var(--text);
+    margin:2rem 0;
+    padding:.6rem 0 .6rem 1.4rem;
+    border-left:2px solid var(--accent);
+    color:var(--text);
     font-family:"Fraunces","Iowan Old Style",Georgia,serif;
     font-optical-sizing:auto;font-style:italic;
-    font-size:1.16rem;line-height:1.6;
-    position:relative;box-shadow:var(--shadow)}
-  [data-theme="dark"] blockquote{
-    border-top-color:rgba(230,184,132,.18);
-    border-bottom-color:rgba(230,184,132,.18)}
-  blockquote::before{
-    content:"\201C";position:absolute;left:.85rem;top:.15rem;
-    font-family:"Fraunces",Georgia,serif;font-size:3.6rem;line-height:1;
-    color:var(--accent);opacity:.55;font-style:normal;font-weight:600}
+    font-size:1.13rem;line-height:1.6;
+  }
   blockquote p{margin:0}
   blockquote p:last-child{margin-bottom:0}
-  @media (max-width:600px){
-    blockquote{padding:1.1rem 1.1rem 1.1rem 2.5rem;font-size:1.06rem;margin:1.8rem 0}
-    blockquote::before{font-size:2.6rem;left:.55rem;top:.15rem}
-  }
 
   /* ---------- Definition ---------- */
   .definition{
-    background:var(--bg-alt);border:1px solid var(--rule);border-left:3px solid var(--accent);
-    border-radius:0 12px 12px 0;padding:1.1rem 1.25rem;
-    margin:1.4rem 0;box-shadow:var(--shadow)}
+    background:transparent;
+    border:0;border-left:2px solid var(--rule-strong);
+    padding:.2rem 0 .2rem 1.1rem;
+    margin:1.1rem 0;
+  }
   .definition dt{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
-    font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;
-    color:var(--accent);font-weight:700;margin:0 0 .4rem}
+    font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--accent);font-weight:700;margin:0 0 .25rem}
   .definition dd{margin:0;font-size:.99rem;line-height:1.62}
-  .definition + .definition{margin-top:.8rem}
+  .definition + .definition{margin-top:.7rem}
 
   /* ---------- Note ---------- */
   .note{
-    border:0;border-left:3px solid var(--accent);
-    background:var(--bg-alt);border-radius:0 10px 10px 0;
-    padding:1rem 1.2rem;font-size:.95rem;color:var(--muted);margin:1.6rem 0}
+    border:0;border-left:2px solid var(--accent);
+    background:var(--bg-alt);
+    border-radius:0 8px 8px 0;
+    padding:.9rem 1.1rem;font-size:.94rem;color:var(--muted);margin:1.4rem 0}
   .note strong{color:var(--text)}
 
-  /* ---------- Cards ---------- */
-  .card-grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));margin:1.4rem 0}
-  .card{background:var(--bg-elev);border:1px solid var(--rule);border-radius:12px;
-    padding:1rem 1.15rem;box-shadow:var(--shadow);
-    transition:border-color .2s, transform .2s, box-shadow .2s}
+  /* ---------- Cards (only §6 dimensions and §7.6.2 rivals) ---------- */
+  .card-grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));margin:1.3rem 0}
+  .card{background:var(--bg-elev);border:1px solid var(--rule);border-radius:10px;
+    padding:1rem 1.15rem;
+    transition:border-color .2s}
   @media (prefers-reduced-motion: no-preference){
-    .card:hover{border-color:var(--accent);transform:translateY(-2px);
-      box-shadow:0 4px 12px rgba(0,0,0,.06)}
-    [data-theme="dark"] .card:hover{box-shadow:0 4px 14px rgba(0,0,0,.4)}
+    .card:hover{border-color:var(--accent)}
   }
-  .card h3,.card h4{margin:0 0 .45rem;font-size:.98rem;
+  .card h3,.card h4{margin:0 0 .4rem;font-size:.98rem;
     color:var(--accent);font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
     font-weight:700;letter-spacing:.01em}
-  .card p{margin:0;font-size:.93rem;color:var(--muted);line-height:1.55}
+  .card p{margin:0;font-size:.92rem;color:var(--muted);line-height:1.55}
   .card p + p{margin-top:.5rem}
-  .card--num{padding-left:1.15rem;position:relative}
   .card--num::before{
     content:attr(data-num);
-    display:inline-block;margin:0 0 .4rem;
-    font-family:"Fraunces",serif;font-weight:600;
-    color:var(--accent);font-size:.85rem;
-    letter-spacing:.1em;
+    display:block;margin:0 0 .35rem;
+    font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+    color:var(--accent);font-size:.7rem;
+    letter-spacing:.14em;text-transform:uppercase;
+    font-weight:700;
   }
 
   /* ---------- Table ---------- */
-  .table-wrap{overflow-x:auto;margin:1.4rem 0;border-radius:12px;
-    border:1px solid var(--rule);box-shadow:var(--shadow)}
+  .table-wrap{overflow-x:auto;margin:1.4rem 0;border-radius:8px;
+    border:1px solid var(--rule)}
   table{width:100%;border-collapse:collapse;font-size:.93rem;background:var(--bg-elev)}
   thead{background:var(--bg-alt)}
-  th,td{padding:.7rem 1rem;text-align:left;border-bottom:1px solid var(--rule)}
+  th,td{padding:.65rem 1rem;text-align:left;border-bottom:1px solid var(--rule)}
   thead th{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
-    font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;
+    font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;
     color:var(--accent);font-weight:700}
   tbody tr:last-child td{border-bottom:0}
-  tbody tr:hover{background:var(--bg-alt)}
-  td.num, th.num{font-variant-numeric:tabular-nums;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  td.num, th.num{font-variant-numeric:tabular-nums;
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
     text-align:right}
 
   /* ---------- Ornament divider ---------- */
-  hr.sep{border:0;height:auto;margin:3.8rem 0;text-align:center;
+  hr.sep{border:0;height:auto;margin:3.4rem 0;text-align:center;
     background:transparent;line-height:1;font-size:1.1rem}
   hr.sep::before{
     content:"· · ·";display:inline-block;
-    color:var(--accent);opacity:.65;letter-spacing:.35em;
+    color:var(--accent);opacity:.55;letter-spacing:.35em;
     font-family:"Fraunces","Iowan Old Style",Georgia,serif;font-size:1.35rem}
 
   /* ---------- Glossary two-column ---------- */
@@ -313,8 +289,7 @@
   #glossary dl .definition + .definition{margin-top:0}
 
   /* ---------- References ---------- */
-  .references{
-    font-size:.92rem;line-height:1.6;color:var(--muted)}
+  .references{font-size:.92rem;line-height:1.6;color:var(--muted)}
   .references ol{padding-left:1.4rem}
   .references li{margin:0 0 .55rem}
   .references em{color:var(--text)}
@@ -323,23 +298,15 @@
   .contact-grid{display:grid;gap:1rem;
     grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin:1.6rem 0}
   .contact-card{
-    display:block;padding:1.2rem 1.4rem;border:1px solid var(--rule);border-radius:12px;
-    background:var(--bg-alt);box-shadow:var(--shadow);text-decoration:none;color:inherit;
-    transition:border-color .2s, transform .2s, box-shadow .2s;
-    position:relative;overflow:hidden}
-  .contact-card::after{
-    content:"";position:absolute;left:0;top:0;bottom:0;width:3px;
-    background:var(--accent);transform:scaleY(0);transform-origin:top;
-    transition:transform .25s ease}
-  .contact-card:hover{border-color:var(--accent)}
-  @media (prefers-reduced-motion: no-preference){
-    .contact-card:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,.08)}
-    [data-theme="dark"] .contact-card:hover{box-shadow:0 6px 18px rgba(0,0,0,.45)}
-    .contact-card:hover::after{transform:scaleY(1)}
+    display:block;padding:1.1rem 1.3rem;
+    border:1px solid var(--rule);border-radius:10px;
+    background:var(--bg-alt);text-decoration:none;color:inherit;
+    transition:border-color .2s;
   }
-  .contact-card h3{margin:0 0 .4rem;font-size:1.05rem;color:var(--accent);
+  .contact-card:hover{border-color:var(--accent)}
+  .contact-card h3{margin:0 0 .35rem;font-size:1rem;color:var(--accent);
     font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
-  .contact-card p{margin:0;font-size:.94rem;color:var(--muted);line-height:1.55}
+  .contact-card p{margin:0;font-size:.92rem;color:var(--muted);line-height:1.55}
   .giscus-wrap{margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--rule)}
   .giscus-wrap noscript p{color:var(--muted);font-size:.95rem}
 
@@ -351,9 +318,9 @@
 
   .totop{
     position:fixed;right:1.4rem;bottom:1.4rem;z-index:90;
-    width:44px;height:44px;border-radius:50%;display:grid;place-items:center;
+    width:40px;height:40px;border-radius:50%;display:grid;place-items:center;
     background:var(--accent);color:var(--bg);border:0;cursor:pointer;
-    font-size:1.1rem;box-shadow:0 4px 14px rgba(0,0,0,.18);
+    font-size:1rem;
     opacity:0;pointer-events:none;transform:translateY(10px);
     transition:opacity .25s, transform .25s}
   .totop.is-visible{opacity:1;pointer-events:auto;transform:translateY(0)}
@@ -365,12 +332,12 @@
   @media (max-width:900px){
     .layout{grid-template-columns:1fr;gap:1.5rem;padding-top:1.5rem}
     .toc{position:static;max-height:none;display:none;
-      border:1px solid var(--rule);border-radius:12px;padding:1rem;background:var(--bg-alt)}
+      border:1px solid var(--rule);border-radius:10px;padding:1rem;background:var(--bg-alt)}
     .toc.is-open{display:block}
     .btn--toc{display:inline-flex}
     .hero{padding-top:4rem}
-    .abstract{padding:1.5rem 1.2rem 1.2rem}
-    .key-prop{padding:1.1rem 1.2rem}
+    .abstract{padding:1.3rem 0 1.1rem}
+    .key-prop{padding:1rem 1.1rem}
   }
 
   @media print{
@@ -380,12 +347,10 @@
     a{color:#000;text-decoration:none;border-bottom:none}
     section{page-break-inside:avoid}
     blockquote{background:none !important;border-left:2px solid #000;
-      border-top:0;border-bottom:0;padding:.4rem 0 .4rem 1rem;box-shadow:none;font-style:italic}
-    blockquote::before{display:none}
-    .hero__meta .version{background:#000;color:#fff}
+      padding:.4rem 0 .4rem 1rem;font-style:italic}
     .hero-ornament,.hero-ornament::after{background:#000}
     hr.sep::before{color:#000}
-    .abstract,.key-prop{background:none !important;border:1px solid #000;box-shadow:none}
+    .abstract,.key-prop{background:none !important;border-left:2px solid #000}
     #glossary dl{display:block}
     #glossary dl .definition + .definition{margin-top:.8rem}
   }
@@ -417,7 +382,7 @@
       <span class="sep">·</span>
       <span>≈ 55 min read</span>
       <span class="sep">·</span>
-      <span class="version">Version 16 · Final</span>
+      <span>Version 16 · Final Consolidated Edition</span>
     </div>
   </header>
 
@@ -461,22 +426,18 @@
           <p>Its central argument is that substantial, sustained, and consequential discretion over another party's conditions of agency generates distinctive obligations of justification, restraint, and accountability. The argument is defended through a normative interpretation of equal standing (§4.1–4.5), supported by a constitutive account of agency among agents (§4.6), and constrained by an explicit account of the conditions under which reach does <em>not</em> generate such obligations (§5).</p>
           <ul class="contributions">
             <li>A normative account connecting reach, dependence, equal standing, and answerability — deriving five fiduciary features from the requirements of answerability itself.</li>
-            <li>An argument that the fiduciary structure is the <em>minimal complete</em> specification of answerability — defended against six rivals (§7.6).</li>
+            <li>An argument that the fiduciary structure is the <em>minimal complete</em> specification of answerability, defended against six rivals (§7.6).</li>
             <li>A distinction between seven concepts routinely conflated: causal, control, responsibility, answerability, accountability, culpability, and reparative responsibility (§8).</li>
             <li>A partial formalization of reach and distributed responsibility, with a worked case (§11).</li>
             <li>A pluralistic account of moral consideration and an account of tragic conflict and catastrophic risk (§3, §12–13).</li>
           </ul>
-          <p style="margin-top:1.4rem;font-size:.94rem;color:var(--muted)">This framework is a mid-level normative proposal rather than a complete moral theory. It identifies six failure modes (§15.2), four conditions under which its application should be restricted (§15.3), and three major problems it does not solve (§15.6).</p>
-        </div>
-
-        <div class="key-prop">
-          <p>Capability extends reach. Reach shapes conditions. Where those conditions are systematically shaped by another, answerability arises — and it arises in a fiduciary form.</p>
+          <p style="margin-top:1.2rem;font-size:.93rem;color:var(--muted)">A mid-level normative proposal rather than a complete moral theory. It identifies six failure modes (§15.2), four conditions under which its application should be restricted (§15.3), and three major problems it does not solve (§15.6).</p>
         </div>
       </section>
 
       <!-- 1 -->
       <section id="introduction">
-        <h2><span class="num">1</span>Introduction</h2>
+        <h2><span class="num">1.</span>Introduction</h2>
 
         <h3>1.1 The problem</h3>
         <p>Contemporary normative ethics has been organized, to a considerable degree, around questions of rights: what is owed to whom, and on what grounds (Scanlon 1998; Pettit 1997). This approach has generated substantial progress. Yet it leaves an important question insufficiently developed: what follows when an agent has the capacity to shape the conditions under which others live and act?</p>
@@ -505,7 +466,7 @@
 
       <!-- 2 -->
       <section id="context">
-        <h2><span class="num">2</span>Philosophical context</h2>
+        <h2><span class="num">2.</span>Philosophical context</h2>
         <p>Seven traditions are sufficiently close to this framework that failing to distinguish it from them would undermine its claim to make a distinct contribution.</p>
 
         <h3>2.1 Jonas</h3>
@@ -540,38 +501,34 @@
 
       <!-- 3 -->
       <section id="existence">
-        <h2><span class="num">3</span>Existence, moral status, and the grounds of consideration</h2>
+        <h2><span class="num">3.</span>Existence, moral status, and the grounds of consideration</h2>
 
         <h3>3.1 Existence is not identical to moral status</h3>
         <p>The fact that something exists does not establish that every entity possesses identical moral standing. A conscious being capable of suffering presents a different moral case from an inanimate object. Rejecting identical moral status does not require treating entities without established moral status as morally irrelevant.</p>
 
         <h3>3.2 Four grounds of value</h3>
-        <div class="card-grid">
-          <div class="card">
-            <h4>Experiential value</h4>
-            <p>A being capable of suffering, well-being, fear, or other forms of experience has interests that can be affected from its own perspective.</p>
-          </div>
-          <div class="card">
-            <h4>Agency-based value</h4>
-            <p>Capacities for choice, self-direction, understanding, or the pursuit of one's own purposes. Where such capacities exist, preserving meaningful opportunities for their exercise becomes an important consideration.</p>
-          </div>
-          <div class="card">
-            <h4>Ecological value</h4>
-            <p>Organisms, species, habitats, and ecological systems may possess value through their contribution to continuity, diversity, resilience, and functioning of the living world.</p>
-          </div>
-          <div class="card">
-            <h4>Relational and historical value</h4>
-            <p>Significance acquired through relationships, history, role in a community, or contribution to the conditions under which other forms of life and agency become possible.</p>
-          </div>
+        <div class="definition">
+          <dt>Experiential value</dt>
+          <dd>A being capable of suffering, well-being, fear, or other forms of experience has interests that can be affected from its own perspective.</dd>
+        </div>
+        <div class="definition">
+          <dt>Agency-based value</dt>
+          <dd>Capacities for choice, self-direction, understanding, or the pursuit of one's own purposes. Where such capacities exist, preserving meaningful opportunities for their exercise becomes an important moral consideration.</dd>
+        </div>
+        <div class="definition">
+          <dt>Ecological value</dt>
+          <dd>Organisms, species, habitats, and ecological systems may possess value through their contribution to the continuity, diversity, resilience, and functioning of the living world.</dd>
+        </div>
+        <div class="definition">
+          <dt>Relational and historical value</dt>
+          <dd>Significance acquired through relationships, history, role in a community, or contribution to the conditions under which other forms of life and agency become possible.</dd>
         </div>
         <p>These grounds can overlap. A forest may support sentient life, sustain human communities, contribute to ecological resilience, and possess historical significance. The framework therefore resists reducing all moral consideration to a single measure.</p>
 
         <h3>3.3 Three mistaken inferences</h3>
-        <div class="card-grid">
-          <div class="card"><h4>Wrong inference 1</h4><p>"It exists, therefore it matters." Existence alone does not settle moral status.</p></div>
-          <div class="card"><h4>Wrong inference 2</h4><p>"It matters, therefore it may decide." Moral consideration does not automatically confer authority.</p></div>
-          <div class="card"><h4>Wrong inference 3</h4><p>"It can, therefore it should rule." Capability does not create entitlement to govern others.</p></div>
-        </div>
+        <p><strong>Wrong inference 1: "It exists, therefore it matters."</strong> Existence alone does not settle moral status.</p>
+        <p><strong>Wrong inference 2: "It matters, therefore it may decide."</strong> Moral consideration does not automatically confer authority.</p>
+        <p><strong>Wrong inference 3: "It can, therefore it should rule."</strong> Capability does not create entitlement to govern others.</p>
 
         <h3>3.4 Uncertain moral status</h3>
         <p>Some entities may possess forms of experience or agency that are difficult to recognize. The absence of established evidence for moral status is not equivalent to proof that no morally relevant capacities exist. A defensible approach is <strong>proportional caution</strong>. The more severe or irreversible the possible harm, the stronger the case for investigation and safeguards.</p>
@@ -582,7 +539,7 @@
 
       <!-- 4 -->
       <section id="bridge">
-        <h2><span class="num">4</span>The normative bridge: from reach to answerability</h2>
+        <h2><span class="num">4.</span>The normative bridge: from reach to answerability</h2>
 
         <h3>4.1 The structural argument</h3>
         <p><strong>(P1) Agency is exercised by acting on conditions.</strong> To act is to shape the space of possibilities in which one acts and in which others may act. Agency is not merely the production of effects; it can involve determining the conditions under which choices become available, meaningful, or possible.</p>
@@ -632,20 +589,25 @@
 
       <!-- 5 -->
       <section id="limits">
-        <h2><span class="num">5</span>The limits of reach</h2>
+        <h2><span class="num">5.</span>The limits of reach</h2>
         <p>Almost every action affects conditions beyond the agent's immediate intentions. If every such influence generated a special relationship of answerability, the concept would become excessively broad.</p>
 
-        <h3>5.1–5.6 Six limits</h3>
-        <div class="card-grid">
-          <div class="card"><h4>Incidental influence</h4><p>Where influence is incidental, limited, and not reasonably subject to the agent's control, the grounds for special answerability are correspondingly weak.</p></div>
-          <div class="card"><h4>Insufficient foreseeability</h4><p>An outcome may be connected to an agent's actions without having been reasonably foreseeable. But unforeseeability is not a permanent exemption.</p></div>
-          <div class="card"><h4>Lack of meaningful control</h4><p>Responsibility should be proportionate to the actual scope of available action. Lack of total control does not eliminate responsibility for the parts that remain within discretion.</p></div>
-          <div class="card"><h4>Diffuse interdependence</h4><p>Participation is not identical to governance. Stronger answerability arises where an agent has a substantial role in determining conditions.</p></div>
-          <div class="card"><h4>Beneficial influence</h4><p>Not all asymmetry is wrongful. But beneficial intentions do not remove the need for answerability.</p></div>
-          <div class="card"><h4>Legitimate authority</h4><p>Legitimate authority is not authority without accountability. It is authority whose exercise can be justified in light of the relationship and its purposes.</p></div>
-        </div>
+        <h3>5.1 Incidental influence</h3>
+        <p>Where influence is incidental, limited, and not reasonably subject to the agent's control, the grounds for special answerability are correspondingly weak. General moral obligations may still apply.</p>
 
-        <h3>5.7 A threshold for distinctive answerability</h3>
+        <h3>5.2 Insufficient foreseeability</h3>
+        <p>An outcome may be connected to an agent's actions without having been reasonably foreseeable. But unforeseeability is not a permanent exemption. As evidence accumulates and systems become better understood, the grounds for answerability may change.</p>
+
+        <h3>5.3 Lack of meaningful control</h3>
+        <p>Responsibility should be proportionate to the actual scope of available action. Lack of total control does not eliminate responsibility for the parts that remain within discretion.</p>
+
+        <h3>5.4 Diffuse interdependence</h3>
+        <p>Participation is not identical to governance. Stronger answerability arises where an agent has a substantial role in determining the conditions under which others must operate.</p>
+
+        <h3>5.5 Beneficial influence and legitimate authority</h3>
+        <p>Not all asymmetry is wrongful. But beneficial intentions do not remove the need for answerability. Legitimate authority is not authority without accountability. It is authority whose exercise can be justified in light of the relationship and its purposes.</p>
+
+        <h3>5.6 A threshold for distinctive answerability</h3>
         <p>Distinctive answerability is most strongly established where several conditions converge:</p>
         <ol>
           <li>The agent substantially shapes another party's conditions of agency.</li>
@@ -659,8 +621,8 @@
 
       <!-- 6 -->
       <section id="dimensions">
-        <h2><span class="num">6</span>Reach: the six dimensions</h2>
-        <p>The normative argument of §4 depends on the claim that A's reach over B's conditions is <em>systematic</em>. This requires more precise examination. The framework proposes six dimensions.</p>
+        <h2><span class="num">6.</span>Reach: the six dimensions</h2>
+        <p>The normative argument of §4 depends on the claim that A's reach over B's conditions is <em>systematic</em>. The framework proposes six dimensions.</p>
 
         <div class="card-grid">
           <div class="card card--num" data-num="Dimension 1">
@@ -689,12 +651,12 @@
           </div>
         </div>
 
-        <p>A single measure of reach would conceal important differences. An agent may have high magnitude but short duration, broad scope but limited practical control, high foreseeability but low asymmetry, or extensive control over a small number of people. The framework's claim is that responsibility must be assessed through the profile as a whole.</p>
+        <p>A single measure of reach would conceal important differences. The framework's claim is that responsibility must be assessed through the profile as a whole.</p>
       </section>
 
       <!-- 7 -->
       <section id="fiduciary">
-        <h2><span class="num">7</span>Why responsibility is fiduciary</h2>
+        <h2><span class="num">7.</span>Why responsibility is fiduciary</h2>
 
         <h3>7.1 The derivation</h3>
         <p><strong>(P1, from §4)</strong> A's systematic reach over B's conditions generates answerability to B.</p>
@@ -703,12 +665,25 @@
         <p><strong>(P4, the prohibition on self-serving substitution)</strong> If A were free to disregard B's interests and substitute A's own interests within the very domain in which A exercises reach, then answerability to B would become largely nominal.</p>
         <p><strong>(P5, the positive requirement)</strong> Answerability therefore requires more than the absence of deliberate self-interest. A must take B's interests and capacity for self-direction seriously when exercising the reach that shapes B's conditions.</p>
         <p><strong>(C, fiduciary structure)</strong> Under conditions of asymmetric reach, answerability takes on five characteristic features:</p>
-        <div class="card-grid">
-          <div class="card"><h4>Principal</h4><p>B, whose conditions and interests are affected.</p></div>
-          <div class="card"><h4>Fiduciary</h4><p>A, whose reach creates the relevant responsibility.</p></div>
-          <div class="card"><h4>Loyalty</h4><p>A must not use the relationship merely to advance A's own interests at B's expense.</p></div>
-          <div class="card"><h4>Discretion</h4><p>A may have to make decisions that B cannot specify fully in advance.</p></div>
-          <div class="card"><h4>Accountability</h4><p>A must be able to explain and justify the exercise of that discretion to B.</p></div>
+        <div class="definition">
+          <dt>Principal</dt>
+          <dd>B, whose conditions and interests are affected.</dd>
+        </div>
+        <div class="definition">
+          <dt>Fiduciary</dt>
+          <dd>A, whose reach creates the relevant responsibility.</dd>
+        </div>
+        <div class="definition">
+          <dt>Loyalty</dt>
+          <dd>A must not use the relationship merely to advance A's own interests at B's expense.</dd>
+        </div>
+        <div class="definition">
+          <dt>Discretion</dt>
+          <dd>A may have to make decisions that B cannot specify fully in advance.</dd>
+        </div>
+        <div class="definition">
+          <dt>Accountability</dt>
+          <dd>A must be able to explain and justify the exercise of that discretion to B.</dd>
         </div>
 
         <h3>7.4 The circularity objection</h3>
@@ -732,12 +707,30 @@
 
         <h4>7.6.2 Six rivals considered</h4>
         <div class="card-grid">
-          <div class="card"><h4>1 · Stewardship</h4><p>Locates accountability upward — to an owner, sovereign, community. Fails R4. A steward who is also accountable to the principal has become a fiduciary.</p></div>
-          <div class="card"><h4>2 · Duty of care</h4><p>Negative and episodic. Fails R5 (no positive orientation) and R3 (no ongoing discretion). When expanded to include positive orientation, becomes fiduciary.</p></div>
-          <div class="card"><h4>3 · Non-domination</h4><p>Specifies what must be avoided, not what must be done. Fails R5 and R2. Adding positive orientation and loyalty produces the fiduciary structure.</p></div>
-          <div class="card"><h4>4 · Care ethics</h4><p>Grounds in responsiveness and affect. Fails institutional application and R3. Supplemented structurally, becomes the fiduciary structure.</p></div>
-          <div class="card"><h4>5 · Kantian justification</h4><p>Justifies to an <em>idealized</em> rational agent, not the specific affected party. Fails R1 and R5. Specified to the actual party, becomes fiduciary.</p></div>
-          <div class="card"><h4>6 · Virtue ethics</h4><p>Specifies what a good agent is like, not relationships. Fails R1 and R4. Can complement but cannot replace the structural account.</p></div>
+          <div class="card card--num" data-num="Rival 1">
+            <h4>Stewardship</h4>
+            <p>Locates accountability upward — to an owner, sovereign, community. Fails R4. A steward who is also accountable to the principal has become a fiduciary.</p>
+          </div>
+          <div class="card card--num" data-num="Rival 2">
+            <h4>Duty of care</h4>
+            <p>Negative and episodic. Fails R5 (no positive orientation) and R3 (no ongoing discretion). When expanded to include positive orientation, becomes fiduciary.</p>
+          </div>
+          <div class="card card--num" data-num="Rival 3">
+            <h4>Non-domination</h4>
+            <p>Specifies what must be avoided, not what must be done. Fails R5 and R2. Adding positive orientation and loyalty produces the fiduciary structure.</p>
+          </div>
+          <div class="card card--num" data-num="Rival 4">
+            <h4>Care ethics</h4>
+            <p>Grounds in responsiveness and affect. Fails institutional application and R3. Supplemented structurally, becomes the fiduciary structure.</p>
+          </div>
+          <div class="card card--num" data-num="Rival 5">
+            <h4>Kantian justification</h4>
+            <p>Justifies to an <em>idealized</em> rational agent, not the specific affected party. Fails R1 and R5. Specified to the actual party, becomes fiduciary.</p>
+          </div>
+          <div class="card card--num" data-num="Rival 6">
+            <h4>Virtue ethics</h4>
+            <p>Specifies what a good agent is like, not relationships. Fails R1 and R4. Can complement but cannot replace the structural account.</p>
+          </div>
         </div>
 
         <h4>7.6.3 The pattern</h4>
@@ -756,21 +749,31 @@
 
       <!-- 8 -->
       <section id="concepts">
-        <h2><span class="num">8</span>Responsibility, answerability, accountability, and culpability</h2>
+        <h2><span class="num">8.</span>Responsibility, answerability, accountability, and culpability</h2>
 
         <h3>8.1 Why distinctions matter</h3>
         <p>The language of responsibility often combines several different ideas. An agent may cause an outcome without being blameworthy. It may owe an explanation without having acted wrongly. It may possess a duty to repair without having been the sole cause of the harm.</p>
 
-        <h3>8.2–8.8 Seven concepts</h3>
-        <div class="card-grid">
-          <div class="card"><h4>Causal responsibility</h4><p>Whether an agent contributed to producing an outcome. Relevant but not sufficient for blame or repair.</p></div>
-          <div class="card"><h4>Control responsibility</h4><p>The agent's practical capacity to initiate, modify, prevent, or reverse relevant conditions. May be partial or distributed.</p></div>
-          <div class="card"><h4>Responsibility</h4><p>Obligations attached to an agent's position, actions, capacities, and relationships. May be prospective or retrospective.</p></div>
-          <div class="card"><h4>Answerability</h4><p>The obligation to provide reasons, justify decisions, and remain open to examination and revision.</p></div>
-          <div class="card"><h4>Accountability</h4><p>Institutional or social arrangements through which answerability can be examined and enforced.</p></div>
-          <div class="card"><h4>Culpability</h4><p>Blameworthiness in light of knowledge, intentions, alternatives, and reasonable opportunities.</p></div>
-          <div class="card"><h4>Reparative responsibility</h4><p>Obligations to prevent, correct, or remedy adverse outcomes. Do not always correspond to degrees of blame.</p></div>
-        </div>
+        <h3>8.2 Causal responsibility</h3>
+        <p>Whether an agent contributed to producing an outcome. Relevant but not sufficient for blame or repair.</p>
+
+        <h3>8.3 Control responsibility</h3>
+        <p>The agent's practical capacity to initiate, modify, prevent, or reverse relevant conditions. May be partial or distributed.</p>
+
+        <h3>8.4 Responsibility</h3>
+        <p>Obligations attached to an agent's position, actions, capacities, and relationships. May be prospective or retrospective.</p>
+
+        <h3>8.5 Answerability</h3>
+        <p>The obligation to provide reasons, justify decisions, and remain open to examination and revision.</p>
+
+        <h3>8.6 Accountability</h3>
+        <p>Institutional or social arrangements through which answerability can be examined and enforced.</p>
+
+        <h3>8.7 Culpability</h3>
+        <p>Blameworthiness in light of knowledge, intentions, alternatives, and reasonable opportunities.</p>
+
+        <h3>8.8 Reparative responsibility</h3>
+        <p>Obligations to prevent, correct, or remedy adverse outcomes. Do not always correspond to degrees of blame.</p>
 
         <h3>8.10 Answerability as relation and as practice</h3>
         <p><strong>Relation:</strong> A is answerable to B. <strong>Practice:</strong> something exercised through institutions, procedures, explanations, hearings, review, and opportunities for contestation.</p>
@@ -782,18 +785,18 @@
 
       <!-- 9 -->
       <section id="protection">
-        <h2><span class="num">9</span>Protection, freedom, and non-domination</h2>
+        <h2><span class="num">9.</span>Protection, freedom, and non-domination</h2>
         <p>Protection is not automatically benevolent. An agent may claim to act for another's benefit while unnecessarily restricting that being's ability to make choices. A protective relationship can become one of domination when the protected party is permanently denied meaningful self-direction.</p>
 
         <h3>9.5 Protection without captivity</h3>
         <p>The framework proposes five constraints on legitimate protective action:</p>
-        <div class="card-grid">
-          <div class="card"><h4>Proportionality</h4><p>The intervention must be proportionate to the seriousness of the risk.</p></div>
-          <div class="card"><h4>Minimality</h4><p>It must be limited to what is necessary.</p></div>
-          <div class="card"><h4>Scrutiny</h4><p>It must be open to independent review.</p></div>
-          <div class="card"><h4>Revisability</h4><p>It must be reconsidered when circumstances change.</p></div>
-          <div class="card"><h4>Orientation</h4><p>It must seek to preserve or restore self-direction wherever possible.</p></div>
-        </div>
+        <ol>
+          <li><strong>Proportionality.</strong> The intervention must be proportionate to the seriousness of the risk.</li>
+          <li><strong>Minimality.</strong> It must be limited to what is necessary.</li>
+          <li><strong>Scrutiny.</strong> It must be open to independent review.</li>
+          <li><strong>Revisability.</strong> It must be reconsidered when circumstances change.</li>
+          <li><strong>Orientation.</strong> It must seek to preserve or restore self-direction wherever possible.</li>
+        </ol>
         <p>Protection that persistently fails these constraints risks becoming domination, regardless of how benevolent its stated purpose may be.</p>
 
         <h3>9.6 The right to develop</h3>
@@ -802,7 +805,7 @@
 
       <!-- 10 -->
       <section id="symbiosis">
-        <h2><span class="num">10</span>Cosmic symbiosis: a regulative ideal of coexistence</h2>
+        <h2><span class="num">10.</span>Cosmic symbiosis: a regulative ideal of coexistence</h2>
 
         <h3>10.2 Symbiosis as a regulative ideal</h3>
         <p>Cosmic symbiosis is not presented as an established scientific description of universal harmony. It expresses the aspiration to preserve the conditions under which different forms of existence can continue, develop, and coexist without unnecessary domination or destruction. It performs three functions:</p>
@@ -824,7 +827,7 @@
 
       <!-- 11 -->
       <section id="distributed">
-        <h2><span class="num">11</span>Distributed responsibility</h2>
+        <h2><span class="num">11.</span>Distributed responsibility</h2>
 
         <h3>11.1 The constraint</h3>
         <p>Where an outcome is produced by multiple agents, a distribution of answerability is justifiable only if each agent's share is sensitive to that agent's reach profile across the six dimensions (§6).</p>
@@ -870,7 +873,7 @@
 
       <!-- 12 -->
       <section id="tragic">
-        <h2><span class="num">12</span>Tragic conflict, irreversibility, and existential risk</h2>
+        <h2><span class="num">12.</span>Tragic conflict, irreversibility, and existential risk</h2>
 
         <h3>12.1 The limits of moral resolution</h3>
         <p>Not every conflict admits of a solution in which all legitimate interests are preserved. Some decisions involve tragic loss: a situation in which every available option carries morally significant costs.</p>
@@ -887,17 +890,17 @@
 
       <!-- 13 -->
       <section id="conflicting">
-        <h2><span class="num">13</span>Conflicting claims: priority, proportionality, and legitimate intervention</h2>
+        <h2><span class="num">13.</span>Conflicting claims: priority, proportionality, and legitimate intervention</h2>
 
         <h3>13.3 A structured order of consideration</h3>
         <p>When legitimate claims conflict, deliberation should proceed through the following considerations.</p>
-        <div class="card-grid">
-          <div class="card card--num" data-num="Step 1"><h4>Serious threats</h4><p>Identify threats to life, fundamental interests, meaningful self-determination, and the conditions necessary for continued existence.</p></div>
-          <div class="card card--num" data-num="Step 2"><h4>Domination and irreversibility</h4><p>Particular caution is required where intervention may permanently remove an individual's capacity for independent action or destroy irreplaceable ecological systems.</p></div>
-          <div class="card card--num" data-num="Step 3"><h4>Maximum feasible coexistence</h4><p>Where several options can prevent serious harm, prefer the option that preserves the greatest meaningful freedom and broadest conditions for continued coexistence.</p></div>
-          <div class="card card--num" data-num="Step 4"><h4>Fair distribution of burdens</h4><p>Examine who bears the burdens, whether those parties are already disadvantaged, and whether the burdens can be reduced or shared more fairly.</p></div>
-          <div class="card card--num" data-num="Step 5"><h4>Review and revision</h4><p>Decisions should remain open to reassessment when evidence changes or assumptions prove mistaken.</p></div>
-        </div>
+        <ol>
+          <li><strong>Serious threats.</strong> Identify threats to life, fundamental interests, meaningful self-determination, and the conditions necessary for continued existence.</li>
+          <li><strong>Domination and irreversibility.</strong> Particular caution is required where intervention may permanently remove an individual's capacity for independent action or destroy irreplaceable ecological systems.</li>
+          <li><strong>Maximum feasible coexistence.</strong> Where several options can prevent serious harm, prefer the option that preserves the greatest meaningful freedom and broadest conditions for continued coexistence.</li>
+          <li><strong>Fair distribution of burdens.</strong> Examine who bears the burdens, whether those parties are already disadvantaged, and whether the burdens can be reduced or shared more fairly.</li>
+          <li><strong>Review and revision.</strong> Decisions should remain open to reassessment when evidence changes or assumptions prove mistaken.</li>
+        </ol>
 
         <h3>13.5 Catastrophic risk</h3>
         <p>A credible threat of catastrophic harm may require exceptional intervention. However, the language of catastrophe is vulnerable to abuse. Exceptional intervention should require exceptionally severe threatened harm, credible supporting evidence, sufficient urgency to make ordinary procedures inadequate, examination of less restrictive alternatives, proportionality, limits on duration and scope wherever possible, and independent review as soon as circumstances permit.</p>
@@ -908,7 +911,7 @@
 
       <!-- 14 -->
       <section id="applications">
-        <h2><span class="num">14</span>Applications</h2>
+        <h2><span class="num">14.</span>Applications</h2>
 
         <h3>14.1 Environmental responsibility</h3>
         <p>Environmental systems demonstrate how reach can extend across generations and beyond immediate human relationships. Where credible evidence indicates a risk of severe and irreversible ecological damage, the burden of justification should fall heavily on those proposing the potentially destructive action.</p>
@@ -927,20 +930,20 @@
 
       <!-- 15 -->
       <section id="objections">
-        <h2><span class="num">15</span>Objections, limitations, and unresolved questions</h2>
+        <h2><span class="num">15.</span>Objections, limitations, and unresolved questions</h2>
 
         <h3>15.1 The epistemic justice objection</h3>
         <p>If judgments about capability are made by those already in positions of power, the framework risks reproducing the power structures it seeks to examine. Judgments about capability and reach must remain contestable. This does not eliminate the risk of circularity or domination. Where the requirement of contestability cannot be met, the framework's application may need to be suspended or restricted.</p>
 
         <h3>15.2 Six failure modes</h3>
-        <div class="card-grid">
-          <div class="card card--num" data-num="Failure 1"><h4>Holism abused</h4><p>Talk of symbiosis and interdependence can justify control in the name of a larger whole.</p></div>
-          <div class="card card--num" data-num="Failure 2"><h4>Capability hard to assess</h4><p>Judgments about understanding, control, and foreseeability are uncertain and may reflect the interests of those making them.</p></div>
-          <div class="card card--num" data-num="Failure 3"><h4>Not fully operationalized</h4><p>The partial formalization makes choices explicit and demonstrates them on a test case, but it has not been validated across a broad range of cases.</p></div>
-          <div class="card card--num" data-num="Failure 4"><h4>Licensing control as care</h4><p>Historically, paternalistic power has often justified itself through claims of superior knowledge or capability. The framework's response is the constraints on protection (§9.5).</p></div>
-          <div class="card card--num" data-num="Failure 5"><h4>Privileging cognition</h4><p>By emphasizing understanding and foreseeability, the framework may undervalue forms of influence that operate through ecological, collective, or distributed processes.</p></div>
-          <div class="card card--num" data-num="Failure 6"><h4>Emergent systems</h4><p>Where an outcome is produced by a sociotechnical system whose behavior cannot be traced to identifiable agents, the framework lacks a complete account.</p></div>
-        </div>
+        <ol>
+          <li><strong>Holism abused.</strong> Talk of symbiosis and interdependence can justify control in the name of a larger whole.</li>
+          <li><strong>Capability hard to assess.</strong> Judgments about understanding, control, and foreseeability are uncertain and may reflect the interests of those making them.</li>
+          <li><strong>Not fully operationalized.</strong> The partial formalization makes choices explicit and demonstrates them on a test case, but it has not been validated across a broad range of cases.</li>
+          <li><strong>Licensing control as care.</strong> Historically, paternalistic power has often justified itself through claims of superior knowledge or capability. The framework's response is the constraints on protection (§9.5).</li>
+          <li><strong>Privileging cognition.</strong> By emphasizing understanding and foreseeability, the framework may undervalue forms of influence that operate through ecological, collective, or distributed processes.</li>
+          <li><strong>Emergent systems.</strong> Where an outcome is produced by a sociotechnical system whose behavior cannot be traced to identifiable agents, the framework lacks a complete account.</li>
+        </ol>
 
         <h3>15.3 Four conditions for restriction</h3>
         <p><strong>First,</strong> where epistemic contestation is impossible. <strong>Second,</strong> where the interests of a silent principal are genuinely unknowable. <strong>Third,</strong> where reach analysis is used to displace legitimate political contestation. <strong>Fourth,</strong> where people are reduced to units in a distribution.</p>
@@ -967,7 +970,7 @@
 
       <!-- 16 -->
       <section id="conclusion">
-        <h2><span class="num">16</span>Conclusion</h2>
+        <h2><span class="num">16.</span>Conclusion</h2>
         <p>The framework can be stated in a sentence: <strong>capability extends reach, reach shapes conditions, and where those conditions are systematically shaped by another, answerability arises — in a fiduciary form.</strong></p>
         <p>Responsibility is not a measure of worth. It is a normative consequence of determining, to a significant degree, the conditions under which others exercise agency.</p>
         <p>The framework is not a complete solution to the many-hands problem. It offers a constraint, a partial formalization, and a gesture toward institutional answerability. It is not a complete theory of motivation. It is not a substitute for politics, law, or institutional legitimacy.</p>
@@ -1115,7 +1118,6 @@
 
   var root = document.documentElement;
 
-  /* ---------- Giscus theme sync ---------- */
   function updateGiscusTheme() {
     var iframe = document.querySelector("iframe.giscus-frame");
     if (!iframe || !iframe.contentWindow) return;
@@ -1132,7 +1134,6 @@
     if (e.data && e.data.giscus) updateGiscusTheme();
   });
 
-  /* ---------- Theme ---------- */
   var themeBtn = document.getElementById("themeToggle");
   var themeIcon = document.getElementById("themeIcon");
   var themeLabel = document.getElementById("themeLabel");
@@ -1153,7 +1154,6 @@
     try { localStorage.setItem("roe-theme", next); } catch (e) {}
   });
 
-  /* ---------- Mobile TOC ---------- */
   var toc = document.getElementById("toc");
   var tocToggle = document.getElementById("tocToggle");
 
@@ -1169,7 +1169,6 @@
     }
   });
 
-  /* ---------- Active TOC link ---------- */
   var links = Array.prototype.slice.call(document.querySelectorAll('.toc a[href^="#"]'));
   var targets = links.map(function (a) {
     return document.querySelector(a.getAttribute("href"));
@@ -1201,7 +1200,6 @@
     targets.forEach(function (t) { observer.observe(t); });
   }
 
-  /* ---------- Reading progress ---------- */
   var bar = document.getElementById("progressBar");
   var toTop = document.getElementById("toTop");
   var ticking = false;
@@ -1229,4 +1227,4 @@
 })();
 </script>
 </body>
-</html>
+  </html>
