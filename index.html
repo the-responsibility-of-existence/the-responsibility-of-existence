@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Responsibility of Existence</title>
-<meta name="description" content="A philosophical framework for capability, care, and coexistence.">
+<title>The Responsibility of Existence — A Reach-Based Account of Answerability, Agency, and Symbiosis</title>
+<meta name="description" content="A relational account of responsibility grounded in reach: capability, answerability, and the fiduciary structure of power.">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#181614" media="(prefers-color-scheme: dark)">
@@ -22,20 +22,20 @@
 </script>
 <style>
   :root{
-    --bg:#fbfaf7; --bg-alt:#f2efe9; --text:#1c1b19; --muted:#6b6760;
-    --rule:#e4dfd6; --accent:#8a5a2b; --accent-soft:#f1e5d6;
-    --link:#7a4a1f; --shadow:0 1px 2px rgba(0,0,0,.05);
+    --bg:#fbfaf7; --bg-alt:#f2efe9; --bg-elev:#ffffff; --text:#1c1b19; --muted:#6b6760;
+    --rule:#e4dfd6; --rule-strong:#d6cfc3; --accent:#8a5a2b; --accent-soft:#f1e5d6;
+    --accent-ink:#6b4423; --link:#7a4a1f; --shadow:0 1px 2px rgba(0,0,0,.05);
+    --shadow-lg:0 12px 32px -12px rgba(80,52,20,.18);
     --maxw:70ch;
   }
   [data-theme="dark"]{
-    --bg:#181614; --bg-alt:#221f1c; --text:#ede9e3; --muted:#a49e94;
-    --rule:#35302a; --accent:#e6b884; --accent-soft:#2d2620;
-    --link:#ecc290; --shadow:0 1px 2px rgba(0,0,0,.5);
+    --bg:#181614; --bg-alt:#221f1c; --bg-elev:#1f1c19; --text:#ede9e3; --muted:#a49e94;
+    --rule:#35302a; --rule-strong:#463f37; --accent:#e6b884; --accent-soft:#2d2620;
+    --accent-ink:#f0c99a; --link:#ecc290; --shadow:0 1px 2px rgba(0,0,0,.5);
+    --shadow-lg:0 12px 32px -12px rgba(0,0,0,.6);
   }
   *{box-sizing:border-box}
-  @media (prefers-reduced-motion: no-preference){
-    html{scroll-behavior:smooth}
-  }
+  @media (prefers-reduced-motion: no-preference){html{scroll-behavior:smooth}}
   body{
     margin:0; background:var(--bg); color:var(--text);
     background-image:radial-gradient(ellipse at 50% 0%, rgba(138,90,43,.05), transparent 55%);
@@ -54,13 +54,10 @@
     font-size:.88em;background:var(--bg-alt);padding:.1em .35em;border-radius:4px;
     border:1px solid var(--rule)}
 
-  .skip{
-    position:absolute;left:-9999px;top:1rem;z-index:200;
-    background:var(--accent);color:var(--bg);
-    padding:.6rem 1rem;border-radius:8px;
+  .skip{position:absolute;left:-9999px;top:1rem;z-index:200;
+    background:var(--accent);color:var(--bg);padding:.6rem 1rem;border-radius:8px;
     font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
-    font-size:.9rem;text-decoration:none;
-  }
+    font-size:.9rem;text-decoration:none}
   .skip:focus{left:1rem}
 
   .progress{position:fixed;top:0;left:0;right:0;height:3px;background:transparent;z-index:100}
@@ -74,45 +71,35 @@
   .hero h1{
     font-family:"Fraunces","Iowan Old Style",Georgia,serif;
     font-optical-sizing:auto;
-    font-size:clamp(2.1rem,5.2vw,3.4rem);line-height:1.08;margin:0 0 1rem;
+    font-size:clamp(2.1rem,5.2vw,3.4rem);line-height:1.08;margin:0 0 .5rem;
     letter-spacing:-.022em;font-weight:600;
   }
   .hero .subtitle{
     font-family:"Fraunces","Iowan Old Style",Georgia,serif;
     font-optical-sizing:auto;
-    font-size:clamp(1.08rem,2.2vw,1.35rem);color:var(--muted);
-    margin:0 0 1.4rem;max-width:52ch;font-style:italic;font-weight:400;
+    font-size:clamp(1.06rem,2.1vw,1.32rem);color:var(--muted);
+    margin:0 0 1.4rem;max-width:54ch;font-style:italic;font-weight:400;
     letter-spacing:-.005em;
   }
-  .hero-ornament{
-    width:68px;height:1px;
+  .hero-ornament{width:68px;height:1px;
     background:linear-gradient(90deg, transparent, var(--accent), transparent);
-    opacity:.7;
-    margin:0 0 1.3rem;
-    position:relative;
-  }
-  .hero-ornament::after{
-    content:"";
-    position:absolute;
-    left:50%;top:50%;
-    transform:translate(-50%,-50%) rotate(45deg);
-    width:5px;height:5px;
-    background:var(--accent);
-    opacity:.9;
-  }
+    opacity:.7;margin:0 0 1.3rem;position:relative}
+  .hero-ornament::after{content:"";position:absolute;left:50%;top:50%;
+    transform:translate(-50%,-50%) rotate(45deg);width:5px;height:5px;
+    background:var(--accent);opacity:.9}
   .hero .kicker{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
     font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);
     margin:0 0 1.1rem;font-weight:600}
   .hero__meta{display:flex;flex-wrap:wrap;gap:.6rem 1.2rem;align-items:center;
-    font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;font-size:.85rem;color:var(--muted)}
+    font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+    font-size:.85rem;color:var(--muted)}
   .hero__meta .version{
     display:inline-block;
     background:linear-gradient(135deg, var(--accent) 0%, var(--link) 100%);
-    color:var(--bg);
-    padding:.24rem .78rem;border-radius:999px;
+    color:var(--bg);padding:.24rem .78rem;border-radius:999px;
     font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;
-    box-shadow:0 1px 3px rgba(0,0,0,.15);
-  }
+    box-shadow:0 1px 3px rgba(0,0,0,.15)}
+  .hero__meta .sep{opacity:.5}
 
   .tools{position:absolute;top:1.2rem;right:0;display:flex;gap:.5rem}
   .btn{
@@ -120,8 +107,7 @@
     font-size:.82rem;line-height:1;padding:.55rem .8rem;border-radius:8px;
     border:1px solid var(--rule);background:var(--bg-alt);color:var(--text);
     cursor:pointer;display:inline-flex;align-items:center;gap:.4rem;box-shadow:var(--shadow);
-    transition:border-color .15s, color .15s, background .15s;
-  }
+    transition:border-color .15s, color .15s, background .15s}
   .btn:hover{border-color:var(--accent);color:var(--accent)}
   .btn--toc{display:none}
 
@@ -155,63 +141,99 @@
     font-optical-sizing:auto;
     font-size:clamp(1.5rem,3vw,2rem);line-height:1.18;margin:0 0 1.1rem;
     letter-spacing:-.014em;font-weight:600;padding-top:.4rem;
+    display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap;
   }
-  section > h2 .num{color:var(--accent);font-weight:400;margin-right:.6rem;
-    font-variant-numeric:tabular-nums}
+  section > h2 .num{color:var(--accent);font-weight:400;
+    font-variant-numeric:tabular-nums;font-size:.72em;
+    border:1px solid var(--rule-strong);border-radius:999px;
+    padding:.15em .7em;line-height:1;flex-shrink:0}
   h3{font-size:1.12rem;margin:2rem 0 .7rem;font-weight:600;letter-spacing:-.005em}
+  h4{font-size:1rem;margin:1.4rem 0 .5rem;font-weight:600}
   p{margin:0 0 1.15rem}
   strong{font-weight:600}
   em{font-style:italic}
+  ol,ul{margin:0 0 1.15rem;padding-left:1.4rem}
+  li{margin:0 0 .35rem}
 
-  /* Elegant inline links inside prose */
-  article p a, article li a, article dd a, article h3 a{
-    color:var(--link);
-    text-decoration:none;
+  article p a, article li a, article dd a, article h3 a, article h4 a, article td a{
+    color:var(--link);text-decoration:none;
     border-bottom:1px solid var(--rule);
-    transition:border-color .2s, color .2s;
-  }
-  article p a:hover, article li a:hover, article dd a:hover, article h3 a:hover{
-    border-bottom-color:var(--accent);
-    color:var(--accent);
-  }
+    transition:border-color .2s, color .2s}
+  article p a:hover, article li a:hover, article dd a:hover,
+  article h3 a:hover, article h4 a:hover, article td a:hover{
+    border-bottom-color:var(--accent);color:var(--accent)}
 
-  .lede{font-size:1.16rem;line-height:1.68;color:var(--text)}
-  .lede::first-letter{
-    font-family:"Fraunces","Iowan Old Style",Georgia,serif;
-    font-optical-sizing:auto;
-    font-size:3.6rem;line-height:.85;float:left;
-    padding:.08em .12em 0 0;color:var(--accent);font-weight:600;
+  /* ---------- Abstract panel ---------- */
+  .abstract{
+    background:linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%);
+    border:1px solid var(--rule);border-radius:16px;
+    padding:2rem 2rem 1.6rem;margin:0 0 1.4rem;
+    box-shadow:var(--shadow);position:relative;overflow:hidden;
   }
+  .abstract::before{
+    content:"";position:absolute;top:0;left:0;right:0;height:3px;
+    background:linear-gradient(90deg, var(--accent), var(--link), var(--accent));
+    opacity:.7;
+  }
+  .abstract__title{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+    font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--accent);margin:0 0 1rem;font-weight:700}
+  .abstract p{font-size:.99rem;line-height:1.72;color:var(--text)}
+  .abstract p:last-child{margin-bottom:0}
+  .abstract .contributions{
+    display:grid;gap:.6rem 1.4rem;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    margin:1.2rem 0 0;padding:1.2rem 0 0;
+    border-top:1px dashed var(--rule-strong);
+  }
+  .abstract .contributions li{
+    margin:0;font-size:.94rem;color:var(--text);line-height:1.55;
+    padding-left:1.4rem;position:relative;
+  }
+  .abstract .contributions li::before{
+    content:"§";position:absolute;left:0;top:0;
+    color:var(--accent);font-family:"Fraunces",serif;font-weight:600;
+    font-size:.95rem}
+
+  /* ---------- Key proposition callout ---------- */
+  .key-prop{
+    background:linear-gradient(135deg, var(--accent-soft) 0%, var(--bg-alt) 100%);
+    border:1px solid var(--rule-strong);border-radius:14px;
+    padding:1.4rem 1.5rem;margin:1.8rem 0;
+    position:relative;box-shadow:var(--shadow);
+  }
+  .key-prop::before{
+    content:"Key proposition";display:block;
+    font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+    font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--accent);font-weight:700;margin:0 0 .8rem;
+  }
+  .key-prop p{
+    font-family:"Fraunces","Iowan Old Style",Georgia,serif;
+    font-optical-sizing:auto;font-style:italic;
+    font-size:1.08rem;line-height:1.55;margin:0;
+  }
+  .key-prop p + p{margin-top:.6rem}
 
   /* ---------- Pull quotes ---------- */
   blockquote{
     margin:2.2rem 0;
     padding:1.5rem 1.6rem 1.4rem 3.2rem;
     background:var(--accent-soft);
-    border-left:0;
-    border-top:1px solid rgba(138,90,43,.15);
+    border-left:0;border-top:1px solid rgba(138,90,43,.15);
     border-bottom:1px solid rgba(138,90,43,.15);
-    border-radius:12px;
-    color:var(--text);
+    border-radius:12px;color:var(--text);
     font-family:"Fraunces","Iowan Old Style",Georgia,serif;
-    font-optical-sizing:auto;
-    font-style:italic;
+    font-optical-sizing:auto;font-style:italic;
     font-size:1.16rem;line-height:1.6;
-    position:relative;
-    box-shadow:var(--shadow);
-  }
+    position:relative;box-shadow:var(--shadow)}
   [data-theme="dark"] blockquote{
     border-top-color:rgba(230,184,132,.18);
-    border-bottom-color:rgba(230,184,132,.18);
-  }
+    border-bottom-color:rgba(230,184,132,.18)}
   blockquote::before{
-    content:"\201C";
-    position:absolute;left:.85rem;top:.15rem;
-    font-family:"Fraunces",Georgia,serif;
-    font-size:3.6rem;line-height:1;
-    color:var(--accent);opacity:.55;
-    font-style:normal;font-weight:600;
-  }
+    content:"\201C";position:absolute;left:.85rem;top:.15rem;
+    font-family:"Fraunces",Georgia,serif;font-size:3.6rem;line-height:1;
+    color:var(--accent);opacity:.55;font-style:normal;font-weight:600}
   blockquote p{margin:0}
   blockquote p:last-child{margin-bottom:0}
   @media (max-width:600px){
@@ -219,28 +241,27 @@
     blockquote::before{font-size:2.6rem;left:.55rem;top:.15rem}
   }
 
+  /* ---------- Definition ---------- */
   .definition{
     background:var(--bg-alt);border:1px solid var(--rule);border-left:3px solid var(--accent);
-    border-radius:0 12px 12px 0;
-    padding:1.1rem 1.25rem;margin:1.4rem 0;box-shadow:var(--shadow)
-  }
+    border-radius:0 12px 12px 0;padding:1.1rem 1.25rem;
+    margin:1.4rem 0;box-shadow:var(--shadow)}
   .definition dt{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
-    font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);
-    font-weight:700;margin:0 0 .4rem}
+    font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--accent);font-weight:700;margin:0 0 .4rem}
   .definition dd{margin:0;font-size:.99rem;line-height:1.62}
   .definition + .definition{margin-top:.8rem}
 
+  /* ---------- Note ---------- */
   .note{
     border:0;border-left:3px solid var(--accent);
-    background:var(--bg-alt);
-    border-radius:0 10px 10px 0;
-    padding:1rem 1.2rem;
-    font-size:.95rem;color:var(--muted);margin:1.6rem 0
-  }
+    background:var(--bg-alt);border-radius:0 10px 10px 0;
+    padding:1rem 1.2rem;font-size:.95rem;color:var(--muted);margin:1.6rem 0}
   .note strong{color:var(--text)}
 
+  /* ---------- Cards ---------- */
   .card-grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));margin:1.4rem 0}
-  .card{background:var(--bg-alt);border:1px solid var(--rule);border-radius:12px;
+  .card{background:var(--bg-elev);border:1px solid var(--rule);border-radius:12px;
     padding:1rem 1.15rem;box-shadow:var(--shadow);
     transition:border-color .2s, transform .2s, box-shadow .2s}
   @media (prefers-reduced-motion: no-preference){
@@ -249,27 +270,67 @@
     [data-theme="dark"] .card:hover{box-shadow:0 4px 14px rgba(0,0,0,.4)}
   }
   .card h3,.card h4{margin:0 0 .45rem;font-size:.98rem;
-    color:var(--accent);
-    font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+    color:var(--accent);font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
     font-weight:700;letter-spacing:.01em}
   .card p{margin:0;font-size:.93rem;color:var(--muted);line-height:1.55}
+  .card p + p{margin-top:.5rem}
+  .card--num{padding-left:1.15rem;position:relative}
+  .card--num::before{
+    content:attr(data-num);
+    display:inline-block;margin:0 0 .4rem;
+    font-family:"Fraunces",serif;font-weight:600;
+    color:var(--accent);font-size:.85rem;
+    letter-spacing:.1em;
+  }
 
-  /* ---------- Contact & discussion ---------- */
+  /* ---------- Table ---------- */
+  .table-wrap{overflow-x:auto;margin:1.4rem 0;border-radius:12px;
+    border:1px solid var(--rule);box-shadow:var(--shadow)}
+  table{width:100%;border-collapse:collapse;font-size:.93rem;background:var(--bg-elev)}
+  thead{background:var(--bg-alt)}
+  th,td{padding:.7rem 1rem;text-align:left;border-bottom:1px solid var(--rule)}
+  thead th{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+    font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--accent);font-weight:700}
+  tbody tr:last-child td{border-bottom:0}
+  tbody tr:hover{background:var(--bg-alt)}
+  td.num, th.num{font-variant-numeric:tabular-nums;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    text-align:right}
+
+  /* ---------- Ornament divider ---------- */
+  hr.sep{border:0;height:auto;margin:3.8rem 0;text-align:center;
+    background:transparent;line-height:1;font-size:1.1rem}
+  hr.sep::before{
+    content:"· · ·";display:inline-block;
+    color:var(--accent);opacity:.65;letter-spacing:.35em;
+    font-family:"Fraunces","Iowan Old Style",Georgia,serif;font-size:1.35rem}
+
+  /* ---------- Glossary two-column ---------- */
+  #glossary dl{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));
+    gap:1rem;margin:0}
+  #glossary dl .definition{margin:0}
+  #glossary dl .definition + .definition{margin-top:0}
+
+  /* ---------- References ---------- */
+  .references{
+    font-size:.92rem;line-height:1.6;color:var(--muted)}
+  .references ol{padding-left:1.4rem}
+  .references li{margin:0 0 .55rem}
+  .references em{color:var(--text)}
+
+  /* ---------- Contact ---------- */
   .contact-grid{display:grid;gap:1rem;
     grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin:1.6rem 0}
   .contact-card{
     display:block;padding:1.2rem 1.4rem;border:1px solid var(--rule);border-radius:12px;
     background:var(--bg-alt);box-shadow:var(--shadow);text-decoration:none;color:inherit;
     transition:border-color .2s, transform .2s, box-shadow .2s;
-    position:relative;overflow:hidden;
-  }
+    position:relative;overflow:hidden}
   .contact-card::after{
-    content:"";
-    position:absolute;left:0;top:0;bottom:0;width:3px;
-    background:var(--accent);
-    transform:scaleY(0);transform-origin:top;
-    transition:transform .25s ease;
-  }
+    content:"";position:absolute;left:0;top:0;bottom:0;width:3px;
+    background:var(--accent);transform:scaleY(0);transform-origin:top;
+    transition:transform .25s ease}
   .contact-card:hover{border-color:var(--accent)}
   @media (prefers-reduced-motion: no-preference){
     .contact-card:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,.08)}
@@ -282,30 +343,7 @@
   .giscus-wrap{margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--rule)}
   .giscus-wrap noscript p{color:var(--muted);font-size:.95rem}
 
-  /* ---------- Ornamental separator ---------- */
-  hr.sep{
-    border:0;height:auto;margin:3.8rem 0;text-align:center;background:transparent;
-    line-height:1;font-size:1.1rem;
-  }
-  hr.sep::before{
-    content:"· · ·";
-    display:inline-block;
-    color:var(--accent);opacity:.65;
-    letter-spacing:.35em;
-    font-family:"Fraunces","Iowan Old Style",Georgia,serif;
-    font-size:1.35rem;
-  }
-
-  /* ---------- Glossary two-column ---------- */
-  #glossary dl{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(290px,1fr));
-    gap:1rem;
-    margin:0;
-  }
-  #glossary dl .definition{margin:0}
-  #glossary dl .definition + .definition{margin-top:0}
-
+  /* ---------- Footer ---------- */
   footer{border-top:1px solid var(--rule);padding:2.5rem 0 4rem;
     font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
     font-size:.85rem;color:var(--muted)}
@@ -317,8 +355,7 @@
     background:var(--accent);color:var(--bg);border:0;cursor:pointer;
     font-size:1.1rem;box-shadow:0 4px 14px rgba(0,0,0,.18);
     opacity:0;pointer-events:none;transform:translateY(10px);
-    transition:opacity .25s, transform .25s
-  }
+    transition:opacity .25s, transform .25s}
   .totop.is-visible{opacity:1;pointer-events:auto;transform:translateY(0)}
 
   #about p{color:var(--muted);font-style:italic}
@@ -332,22 +369,23 @@
     .toc.is-open{display:block}
     .btn--toc{display:inline-flex}
     .hero{padding-top:4rem}
+    .abstract{padding:1.5rem 1.2rem 1.2rem}
+    .key-prop{padding:1.1rem 1.2rem}
   }
 
   @media print{
     .toc,.tools,.progress,.totop,.skip,.giscus-wrap{display:none !important}
     .layout{display:block}
-    body{background:#fff;color:#000;font-size:11pt;background-image:none}
+    body{background:#fff;color:#000;font-size:10.5pt;background-image:none}
     a{color:#000;text-decoration:none;border-bottom:none}
     section{page-break-inside:avoid}
     blockquote{background:none !important;border-left:2px solid #000;
-      border-top:0;border-bottom:0;
-      padding:.4rem 0 .4rem 1rem;box-shadow:none;font-style:italic}
+      border-top:0;border-bottom:0;padding:.4rem 0 .4rem 1rem;box-shadow:none;font-style:italic}
     blockquote::before{display:none}
     .hero__meta .version{background:#000;color:#fff}
-    .hero-ornament{background:#000}
-    .hero-ornament::after{background:#000}
+    .hero-ornament,.hero-ornament::after{background:#000}
     hr.sep::before{color:#000}
+    .abstract,.key-prop{background:none !important;border:1px solid #000;box-shadow:none}
     #glossary dl{display:block}
     #glossary dl .definition + .definition{margin-top:.8rem}
   }
@@ -370,16 +408,16 @@
         <span id="themeIcon" aria-hidden="true">☾</span><span id="themeLabel">Dark</span>
       </button>
     </div>
-    <p class="kicker">An independent philosophical essay</p>
+    <p class="kicker">A mid-level philosophical framework</p>
     <h1>The Responsibility of Existence</h1>
-    <p class="subtitle">A framework for capability, care, and coexistence.</p>
+    <p class="subtitle">A reach-based account of answerability, agency, and symbiosis.</p>
     <div class="hero-ornament" aria-hidden="true"></div>
     <div class="hero__meta">
-      <span>15 sections</span>
-      <span>·</span>
-      <span>≈ 17 min read</span>
-      <span>·</span>
-      <span class="version">Version 4.1</span>
+      <span>16 sections</span>
+      <span class="sep">·</span>
+      <span>≈ 55 min read</span>
+      <span class="sep">·</span>
+      <span class="version">Version 16 · Final</span>
     </div>
   </header>
 
@@ -388,245 +426,600 @@
     <nav class="toc" id="toc" aria-label="Table of contents">
       <p class="toc__title">Contents</p>
       <ol>
-        <li><a href="#overview">Overview</a></li>
-        <li><a href="#introduction">1. The question of responsibility</a></li>
-        <li><a href="#distinctions">2. Three distinctions</a></li>
-        <li class="sub"><a href="#existence">2.1 Existence</a></li>
-        <li class="sub"><a href="#status">2.2 Moral status</a></li>
-        <li class="sub"><a href="#responsibility">2.3 Responsibility</a></li>
-        <li><a href="#authority">3. Why responsibility is fiduciary</a></li>
-        <li><a href="#capability">4. Capability, reach, and consequence</a></li>
-        <li><a href="#symbiosis">5. Cosmic symbiosis</a></li>
-        <li><a href="#care">6. The boundaries of care</a></li>
-        <li><a href="#coexist">7. When differences cannot coexist</a></li>
-        <li><a href="#applications">8. Applications</a></li>
-        <li><a href="#heuristic">9. A decision heuristic</a></li>
-        <li><a href="#objections">10. Objections and replies</a></li>
-        <li><a href="#limitations">11. Limitations and self-critique</a></li>
-        <li><a href="#conclusion">12. Conclusion</a></li>
+        <li><a href="#abstract">Abstract</a></li>
+        <li><a href="#introduction">1. Introduction</a></li>
+        <li><a href="#context">2. Philosophical context</a></li>
+        <li><a href="#existence">3. Existence & moral status</a></li>
+        <li><a href="#bridge">4. The normative bridge</a></li>
+        <li><a href="#limits">5. The limits of reach</a></li>
+        <li><a href="#dimensions">6. Reach: six dimensions</a></li>
+        <li><a href="#fiduciary">7. Why responsibility is fiduciary</a></li>
+        <li class="sub"><a href="#necessity">7.6 The necessity argument</a></li>
+        <li><a href="#concepts">8. Seven concepts</a></li>
+        <li><a href="#protection">9. Protection & non-domination</a></li>
+        <li><a href="#symbiosis">10. Cosmic symbiosis</a></li>
+        <li><a href="#distributed">11. Distributed responsibility</a></li>
+        <li><a href="#tragic">12. Tragic conflict</a></li>
+        <li><a href="#conflicting">13. Conflicting claims</a></li>
+        <li><a href="#applications">14. Applications</a></li>
+        <li><a href="#objections">15. Objections & limits</a></li>
+        <li><a href="#conclusion">16. Conclusion</a></li>
+        <li><a href="#references">References</a></li>
         <li><a href="#glossary">Glossary</a></li>
-        <li><a href="#discussion">Discussion and contact</a></li>
+        <li><a href="#discussion">Discussion & contact</a></li>
         <li><a href="#about">About this text</a></li>
       </ol>
     </nav>
 
     <article id="main" tabindex="-1">
 
-      <!-- OVERVIEW -->
-      <section id="overview">
-        <h2>Overview</h2>
-        <p class="lede">Most ethical frameworks begin with the question of who matters. This one begins elsewhere: what follows from the fact that something matters <em>and</em> can act?</p>
-        <p><em>The Responsibility of Existence</em> states a single principle and follows it where it leads. The principle is this: <strong>a being’s responsibility grows with its capacity to understand, foresee, and influence the world around it.</strong> Not because greater capacity makes a being more valuable — it does not — but because greater capacity extends the reach of its actions, and reach is what turns action into consequence for others.</p>
-        <p>From this starting point the essay develops three linked ideas. First, that <strong>existence, moral status, and responsibility are distinct</strong> and must not be conflated. Second, that <strong>responsibility is a burden of care rather than a licence for control</strong> — and that this is an argument, not a stipulation. Third, that the proper aim of responsible action is <strong>cosmic symbiosis</strong> — the maintenance of difference without domination, including where difference cannot be fully harmonised.</p>
-        <div class="note"><strong>A note on scope.</strong> This is a framework, not a doctrine. It does not claim to settle particular cases. It offers a vocabulary, a set of distinctions, and a decision heuristic that may make those cases easier to reason about — and harder to evade.</div>
+      <!-- ABSTRACT -->
+      <section id="abstract">
+        <div class="abstract">
+          <p class="abstract__title">Abstract</p>
+          <p>This paper develops a relational account of responsibility grounded in the concept of <em>reach</em>: the extent to which an agent's actions systematically determine the conditions under which others can exercise agency.</p>
+          <p>Its central argument is that substantial, sustained, and consequential discretion over another party's conditions of agency generates distinctive obligations of justification, restraint, and accountability. The argument is defended through a normative interpretation of equal standing (§4.1–4.5), supported by a constitutive account of agency among agents (§4.6), and constrained by an explicit account of the conditions under which reach does <em>not</em> generate such obligations (§5).</p>
+          <ul class="contributions">
+            <li>A normative account connecting reach, dependence, equal standing, and answerability — deriving five fiduciary features from the requirements of answerability itself.</li>
+            <li>An argument that the fiduciary structure is the <em>minimal complete</em> specification of answerability — defended against six rivals (§7.6).</li>
+            <li>A distinction between seven concepts routinely conflated: causal, control, responsibility, answerability, accountability, culpability, and reparative responsibility (§8).</li>
+            <li>A partial formalization of reach and distributed responsibility, with a worked case (§11).</li>
+            <li>A pluralistic account of moral consideration and an account of tragic conflict and catastrophic risk (§3, §12–13).</li>
+          </ul>
+          <p style="margin-top:1.4rem;font-size:.94rem;color:var(--muted)">This framework is a mid-level normative proposal rather than a complete moral theory. It identifies six failure modes (§15.2), four conditions under which its application should be restricted (§15.3), and three major problems it does not solve (§15.6).</p>
+        </div>
+
+        <div class="key-prop">
+          <p>Capability extends reach. Reach shapes conditions. Where those conditions are systematically shaped by another, answerability arises — and it arises in a fiduciary form.</p>
+        </div>
       </section>
 
       <!-- 1 -->
       <section id="introduction">
-        <h2><span class="num">1.</span>The question of responsibility</h2>
-        <p>Modern ethics has largely been organised around the question of <em>rights</em>: what is owed to whom, and on what grounds. This is a powerful question, and it has produced real progress. But it is incomplete. It tells us what must not be done to a being; it says much less about what a being capable of action must do with its power.</p>
-        <p>The gap becomes visible when we ask who bears responsibility for consequences that no single actor intended, but that many actors made possible. Climate change, the design of autonomous systems, the management of information — these are not primarily problems of rights violated. They are problems of <em>capability outrunning accountability</em>: situations in which the power to produce consequences has grown faster than the understanding of what those consequences are.</p>
-        <p>This essay takes that gap seriously. Its central claim is that responsibility is not a fixed property that a being either has or lacks. It is a <strong>relation</strong> — between a being’s capacity to understand, foresee, and influence its world, and the consequences that actually follow from acting within it.</p>
+        <h2><span class="num">1</span>Introduction</h2>
 
-        <h3>The normative bridge</h3>
-        <p>Why does reach generate <em>responsibility</em> and not merely <em>causation</em>? The bridge is this:</p>
-        <p>When an agent’s actions systematically shape the conditions under which others exist and act, those others’ possibilities are partly determined by that agent. To be in a position where one’s choices determine others’ conditions is to be in a position where those others have a claim on one’s reasoning — not a claim to obedience, but a claim to consideration. The agent must weigh their conditions in deliberation, and must be able to answer for the conditions it produces.</p>
-        <p>Responsibility, on this account, is the <em>standing obligation to deliberate on behalf of those whose conditions one’s actions determine.</em> It is not a gift the powerful bestow, and it is not a punishment for wrongdoing. It is a structural consequence of reach.</p>
-        <p>Where reach increases, this obligation increases with it. Where understanding fails, the obligation is diminished but not always erased — because a being that could have known, but did not take the trouble to find out, has failed at the first component of responsibility, not escaped it.</p>
-        <blockquote><p>Responsibility is the shadow that capability casts on the world. Where there is no shadow, there was no capability. Where the shadow is long, it falls on everything nearby.</p></blockquote>
+        <h3>1.1 The problem</h3>
+        <p>Contemporary normative ethics has been organized, to a considerable degree, around questions of rights: what is owed to whom, and on what grounds (Scanlon 1998; Pettit 1997). This approach has generated substantial progress. Yet it leaves an important question insufficiently developed: what follows when an agent has the capacity to shape the conditions under which others live and act?</p>
+        <p>The problem becomes especially visible where consequences are produced through complex arrangements rather than by a single identifiable actor. Climate change, autonomous systems, and informational infrastructures are not merely cases in which particular rights are violated. They are also cases in which the capacity to produce consequences has expanded beyond the institutions and practices capable of understanding, distributing, and accounting for those consequences (Jonas 1984; Matthias 2004).</p>
+        <p>This paper's central claim is that responsibility, understood in this context, is not simply a fixed property that a being either possesses or lacks. It is a relation between an agent's capacity to understand, foresee, and influence its surroundings and the consequences that follow from exercising that capacity.</p>
+        <p>The relation is:</p>
+        <ul>
+          <li><strong>Asymmetric:</strong> answerability runs toward those whose conditions are shaped, not over them.</li>
+          <li><strong>Graded:</strong> its strength varies with the extent, systematicity, and foreseeability of the conditioning.</li>
+          <li><strong>Structural:</strong> it can hold whether or not the agent acknowledges it.</li>
+          <li><strong>Relational:</strong> it concerns the connection between an agent's reach and the conditions of others.</li>
+          <li><strong>Fiduciary in form:</strong> the answerability that arises under asymmetric reach has the five characteristic features of fiduciary relations (§7).</li>
+        </ul>
+
+        <h3>1.2 Methodology</h3>
+        <p>This is a mid-level normative framework in the sense used by Beauchamp and Childress (2019). It does not claim to be a complete moral theory, nor does it claim to settle every particular case. It offers conceptual distinctions, a normative argument, a partial formalization, and a decision heuristic intended to discipline reasoning where capability and accountability have diverged.</p>
+        <p>Three methodological commitments guide the argument.</p>
+        <p><strong>First, the framework is coherentist rather than foundationalist.</strong> It seeks reflective equilibrium between three considerations: the structural features of agency, the normative importance of equal standing, and considered judgments about cases. None is treated as an unquestionable foundation.</p>
+        <p><strong>Second, the framework makes claims that can be challenged.</strong> Its arguments can be tested against counterexamples, competing accounts, and cases in which its conclusions appear implausible. Its normative argument is vulnerable to counterexamples in which systematic conditioning appears not to generate answerability — a vulnerability addressed directly in §5.</p>
+        <p><strong>Third, the framework states its limits.</strong> It identifies its failure modes (§15.2), conditions under which its application should be restricted (§15.3), unresolved problems (§15.6), and the difference between answerability as a normative relation and answerability as an institutional practice (§8.10).</p>
+
+        <h3>1.3 Scope and terminology</h3>
+        <p>The paper uses <em>capability</em> rather than <em>intelligence</em> as its central term. Intelligence may contribute to capability, but capability is broader. Institutions, technological systems, collective agents, and ecological processes can shape conditions in ways that matter to the framework without being appropriately described as intelligent in the ordinary cognitive sense.</p>
+        <p>The framework's scope is normative rather than descriptive. It does not claim that agents actually acknowledge their answerability; it argues that answerability can be owed whether or not it is acknowledged. Nor does it claim that answerability is always enforceable.</p>
       </section>
 
       <!-- 2 -->
-      <section id="distinctions">
-        <h2><span class="num">2.</span>Three distinctions</h2>
-        <p>Before the principle can be defended, three concepts must be separated. They are routinely confused, and the confusion does real damage: it licenses domination in the name of care, and indifference in the name of respect.</p>
+      <section id="context">
+        <h2><span class="num">2</span>Philosophical context</h2>
+        <p>Seven traditions are sufficiently close to this framework that failing to distinguish it from them would undermine its claim to make a distinct contribution.</p>
 
-        <h3 id="existence">2.1 Existence</h3>
-        <dl class="definition">
-          <dt>Existence</dt>
-          <dd>That something <em>is</em>. Existence is a fact about the world, not a value claim about it. A stone exists; so does a person; so does a mathematical proof and a hallucination. To establish that something exists is to say nothing yet about whether it matters.</dd>
-        </dl>
-        <p>The first error is to move directly from existence to significance — to assume that because something is real, it is therefore owed consideration. It is a comforting inference, because it makes moral standing cheap. But it proves too much: if mere existence grounds moral status, then everything qualifies equally, and the concept of status loses all discriminating power.</p>
+        <h3>2.1 Jonas</h3>
+        <p>Jonas (1984) grounds responsibility for the future conditions of human existence in an account of the value and purpose of life. The present framework does not depend on that teleological foundation. It grounds answerability in the relationship between agents and those whose conditions they systematically shape. This makes the framework available to readers who reject Jonas's metaphysics, but leaves it exposed to a problem Jonas sought to address: why an agent should care about distant consequences and future beings (§4.6, §15.7).</p>
 
-        <h3 id="status">2.2 Moral status</h3>
-        <dl class="definition">
-          <dt>Moral status</dt>
-          <dd>That something’s interests count — or would count, if it had interests to speak of. Moral status is a claim about <em>consideration</em>: it says that a being must be taken into account, not that it may decide for others.</dd>
-        </dl>
-        <p>What qualifies as an interest? The framework does not attempt a full theory, but it offers three markers: <em>susceptibility</em> (the being can be harmed or benefited), <em>direction</em> (it has a good of its own, however minimal), and <em>standing</em> (its condition is not merely instrumental to another’s). These markers are graded, not binary — which is why moral status itself is graded, and why the framework resists the temptation to draw a single line between “persons” and “things.”</p>
-        <p>The second error is to treat status as authority — to assume that because something’s interests matter, it therefore has the right to determine what happens. This is the mistake of conflating being <em>counted</em> with being <em>in charge</em>. A child’s interests count enormously, but a child does not decide the household’s finances.</p>
+        <h3>2.2 Goodin</h3>
+        <p>Goodin (1985) grounds responsibility in vulnerability and dependency. This is close to the present framework, but the emphasis differs. Goodin's account begins with the vulnerable party; the present framework begins with the reach of the agent whose actions shape another's conditions. Reach may capture cases involving diffuse, numerous, or temporally distant affected parties who are not dependent in the ordinary interpersonal sense.</p>
 
-        <h3 id="responsibility">2.3 Responsibility</h3>
-        <dl class="definition">
-          <dt>Responsibility</dt>
-          <dd>That something can understand, foresee, and influence consequences — and is therefore answerable for them. Responsibility is a claim about <em>answerability</em>. It is not a measure of worth; it is a measure of reach.</dd>
-        </dl>
-        <p>The third error is the most consequential: to treat capability as entitlement — to assume that because something <em>can</em> act effectively, it therefore <em>should</em> decide. This is how power justifies itself. The framework offered here inverts the inference. Capability does not generate a right to rule. It generates an obligation to answer for what one’s actions set in motion.</p>
+        <h3>2.3 Young</h3>
+        <p>Young (2011) grounds responsibility in participation in structural processes that produce injustice. The present framework grounds answerability in systematic reach, whether or not injustice has already occurred. The cost is that the framework cannot simply borrow Young's political diagnosis to explain why structural participation generates responsibility. It must provide its own normative argument (§4).</p>
 
-        <div class="card-grid">
-          <div class="card"><h4>Wrong inference 1</h4><p>“It exists, therefore it matters.” Existence does not establish moral status.</p></div>
-          <div class="card"><h4>Wrong inference 2</h4><p>“It matters, therefore it may decide.” Consideration is not authority.</p></div>
-          <div class="card"><h4>Wrong inference 3</h4><p>“It can, therefore it should rule.” Capability is not entitlement.</p></div>
-        </div>
+        <h3>2.4 Care ethics</h3>
+        <p>Tronto (1993), Held (2006), and Noddings (1984) locate important aspects of responsibility in relational responsiveness and care. The present framework does not require an agent to experience care or emotional responsiveness; it can therefore apply to institutions and systems that cannot care in the ordinary psychological sense. Its debt to care ethics lies primarily in the content of responsibility. §7.6.2 shows that care ethics, without the fiduciary structure, is incomplete as a specification of answerability under asymmetric reach.</p>
+
+        <h3>2.5 Fiduciary theory</h3>
+        <p>Fox-Decent and Criddle (2016) argue that authority is legitimate only when exercised in a fiduciary manner on behalf of those subject to it. The present framework accepts much of the fiduciary structure but seeks to extend its relevance beyond formal legal and political authority. The proposed contribution is not the invention of fiduciary responsibility; it is the derivation of its characteristic structure from reach-based answerability (§7).</p>
+
+        <h3>2.6 Stewardship</h3>
+        <p>Stewardship models often locate responsibility in a steward who holds something in trust for a beneficiary but answers to an owner, sovereign, or community. The present framework rejects any arrangement in which accountability to a third party entirely replaces accountability to the affected party. §7.6.2 shows that stewardship either fails this requirement or collapses into the fiduciary structure.</p>
+
+        <h3>2.7 Duty of care</h3>
+        <p>Tort-based duties of care are often negative and episodic. They prohibit certain foreseeable harms and are commonly triggered by particular acts or relationships. Reach-based answerability is broader and potentially ongoing. §7.6.2 shows that duty of care, when expanded to meet those requirements, becomes the fiduciary structure.</p>
+
+        <h3>2.8 Non-domination</h3>
+        <p>Pettit's (1997) republicanism identifies arbitrary power as a central threat to freedom. Reach-based answerability shares this concern but adds a positive requirement. §7.6.2 shows that non-domination is a necessary condition of the fiduciary relation, not an adequate substitute for it.</p>
+
+        <h3>2.9 The philosophical movement</h3>
+        <p>The framework's proposed contribution is not simply that it integrates ideas from several traditions. It is that it attempts a particular philosophical movement:</p>
+        <blockquote><p>The fiduciary structure is treated not as an independent normative commitment imposed upon the relationship, but as a structure that follows from the requirements of answerability under asymmetric reach — and as the minimal complete structure that any adequate specification must contain.</p></blockquote>
+        <p>The derivation is developed in §7. It does not merely establish that the fiduciary structure is <em>available</em> as a specification of answerability. It establishes that the fiduciary structure is the <em>minimal complete</em> specification. §7.6 defends this stronger claim.</p>
       </section>
 
       <!-- 3 -->
-      <section id="authority">
-        <h2><span class="num">3.</span>Why responsibility is fiduciary</h2>
-        <p>The previous section established that capability generates answerability. It did not yet establish <em>what kind</em> of answerability. Why should responsibility be fiduciary — held <em>for</em> others — rather than proprietary — held <em>over</em> them?</p>
-        <p>The argument is this. Responsibility arises because others’ conditions are at stake in one’s choices. If responsibility were proprietary — if the responsible party could use their position to advance their own ends — then the very ground of responsibility would be contradicted. The others whose conditions made the responsibility arise would be treated as material for the responsible party’s projects, not as the reason the responsibility exists. Proprietary responsibility thus undermines itself: it converts a relation grounded in others’ standing into a licence to disregard that standing.</p>
-        <p>Fiduciary responsibility, by contrast, preserves the ground. It holds the responsible party answerable <em>to</em> those affected, not merely <em>for</em> the effects. The parent is responsible for the child without owning the child. The engineer is responsible for the safety of the system without acquiring the right to decide who uses it. The trustee holds the estate in the interest of the beneficiary, not in the interest of the trustee.</p>
-        <p>This has a striking implication. <strong>Greater capability does not generate greater value.</strong> A being with vast intelligence is not, for that reason, worth more than a being with modest intelligence. It is merely capable of affecting more. Its responsibility is larger precisely because its footprint is larger — not because its interests count for more.</p>
-        <blockquote><p>The powerful are not owed obedience because they understand more. They are answerable for more because they can do more.</p></blockquote>
+      <section id="existence">
+        <h2><span class="num">3</span>Existence, moral status, and the grounds of consideration</h2>
+
+        <h3>3.1 Existence is not identical to moral status</h3>
+        <p>The fact that something exists does not establish that every entity possesses identical moral standing. A conscious being capable of suffering presents a different moral case from an inanimate object. Rejecting identical moral status does not require treating entities without established moral status as morally irrelevant.</p>
+
+        <h3>3.2 Four grounds of value</h3>
+        <div class="card-grid">
+          <div class="card">
+            <h4>Experiential value</h4>
+            <p>A being capable of suffering, well-being, fear, or other forms of experience has interests that can be affected from its own perspective.</p>
+          </div>
+          <div class="card">
+            <h4>Agency-based value</h4>
+            <p>Capacities for choice, self-direction, understanding, or the pursuit of one's own purposes. Where such capacities exist, preserving meaningful opportunities for their exercise becomes an important consideration.</p>
+          </div>
+          <div class="card">
+            <h4>Ecological value</h4>
+            <p>Organisms, species, habitats, and ecological systems may possess value through their contribution to continuity, diversity, resilience, and functioning of the living world.</p>
+          </div>
+          <div class="card">
+            <h4>Relational and historical value</h4>
+            <p>Significance acquired through relationships, history, role in a community, or contribution to the conditions under which other forms of life and agency become possible.</p>
+          </div>
+        </div>
+        <p>These grounds can overlap. A forest may support sentient life, sustain human communities, contribute to ecological resilience, and possess historical significance. The framework therefore resists reducing all moral consideration to a single measure.</p>
+
+        <h3>3.3 Three mistaken inferences</h3>
+        <div class="card-grid">
+          <div class="card"><h4>Wrong inference 1</h4><p>"It exists, therefore it matters." Existence alone does not settle moral status.</p></div>
+          <div class="card"><h4>Wrong inference 2</h4><p>"It matters, therefore it may decide." Moral consideration does not automatically confer authority.</p></div>
+          <div class="card"><h4>Wrong inference 3</h4><p>"It can, therefore it should rule." Capability does not create entitlement to govern others.</p></div>
+        </div>
+
+        <h3>3.4 Uncertain moral status</h3>
+        <p>Some entities may possess forms of experience or agency that are difficult to recognize. The absence of established evidence for moral status is not equivalent to proof that no morally relevant capacities exist. A defensible approach is <strong>proportional caution</strong>. The more severe or irreversible the possible harm, the stronger the case for investigation and safeguards.</p>
+
+        <h3>3.5 Future possibilities</h3>
+        <p>An ecosystem may be valuable not only because of the organisms currently inhabiting it, but because it sustains possibilities for future forms of life. Knowledge, cultural continuity, biodiversity, and environmental stability may matter because they preserve opportunities that present generations cannot fully anticipate.</p>
       </section>
 
       <!-- 4 -->
-      <section id="capability">
-        <h2><span class="num">4.</span>Capability, reach, and consequence</h2>
-        <p>Responsibility, on this account, has three components. Each can be present to a greater or lesser degree, and each can fail independently of the others.</p>
-        <div class="card-grid">
-          <div class="card"><h3>Understanding</h3><p>An epistemic capacity: the ability to grasp what one’s situation is and what one’s actions mean within it.</p></div>
-          <div class="card"><h3>Foresight</h3><p>A temporal capacity: the ability to anticipate consequences before they occur, rather than only after.</p></div>
-          <div class="card"><h3>Influence</h3><p>A causal capacity: the ability to bring about changes in the world that would not otherwise have happened.</p></div>
-        </div>
-        <p>Responsibility is a function of all three. A being that understands and foresees but cannot act has little responsibility in the forward-looking sense — it cannot set anything in motion. A being that acts with great force but understands nothing of what it does has responsibility in a diminished sense, though it may still be the <em>cause</em> of enormous harm. Responsibility is not the same as causation; it is causation filtered through capacity.</p>
+      <section id="bridge">
+        <h2><span class="num">4</span>The normative bridge: from reach to answerability</h2>
 
-        <h3>Capacity under uncertainty</h3>
-        <p>The framework does not pretend that capacity can be measured precisely. Judgements about understanding, foresight, and influence are interpretive, revisable, and often contested — especially at the edges, where the hardest cases live. The framework’s response is not to demand false precision but to insist on three disciplines:</p>
-        <div class="card-grid">
-          <div class="card"><h3>Graded judgement</h3><p>Capacity is not binary. A being can be more or less capable along each dimension, and the dimensions can diverge.</p></div>
-          <div class="card"><h3>Revisability</h3><p>Judgements about capacity must be open to revision as evidence changes. A framework that treats capacity as fixed will systematically misjudge the beings it most needs to protect.</p></div>
-          <div class="card"><h3>Asymmetric caution</h3><p>Where capacity is uncertain, the responsible default is to <em>presume</em> capacity rather than deny it — because denial of capacity has historically been the mechanism by which the powerful have excluded the vulnerable from consideration.</p></div>
-        </div>
-        <p>This yields a graded picture. Responsibility is not binary. It comes in degrees, and it can be distributed: several agents may each bear partial responsibility for an outcome none of them produced alone. The picture also explains why ignorance mitigates without always excusing. A being that could have known, but did not take the trouble to find out, has not escaped responsibility — it has merely failed at the first component.</p>
-        <div class="note"><strong>On blame.</strong> Responsibility is not the same as blame. One can be responsible for an outcome — answerable for it, required to respond to it — without being blameworthy. Blame adds the further claim that the failure was avoidable and culpable. The framework here is primarily about the first notion.</div>
+        <h3>4.1 The structural argument</h3>
+        <p><strong>(P1) Agency is exercised by acting on conditions.</strong> To act is to shape the space of possibilities in which one acts and in which others may act. Agency is not merely the production of effects; it can involve determining the conditions under which choices become available, meaningful, or possible.</p>
+        <p><strong>(P2) Systematic social conditioning.</strong> When A's actions systematically shape the conditions under which B exercises agency, B's possibilities are partly determined by A. B's agency is thereby heteronomously conditioned in the relevant domain. Systematic conditioning must be distinguished from incidental causal effects.</p>
+        <p><strong>(P3) Equal standing.</strong> Where one agent systematically determines the conditions under which another exercises agency, that determination must either be attributable to the affected agent's own agency or be answerable to that agent in a form that permits meaningful scrutiny and contestation.</p>
+        <p><strong>(P4) The failure of attribution.</strong> Where A systematically determines B's conditions, those conditions cannot be attributed entirely to B's own agency. A has played a constitutive role in shaping them.</p>
+        <p><strong>(P5) The requirement of answerability.</strong> If the conditions cannot be attributed entirely to B's agency, equal standing requires that A be able to give an account of the determination to B. Such an account must be capable, in principle, of being received, examined, contested, and revised.</p>
+        <p><strong>(C) Conclusion.</strong> Where A's reach systematically shapes the conditions under which B exercises agency, A is answerable to B for that shaping.</p>
+
+        <h3>4.2 Why this interpretation of equal standing?</h3>
+        <p>Four alternative interpretations are available, and each fails.</p>
+        <ul>
+          <li><strong>Only non-interference.</strong> Too weak: an agent may avoid interfering with any particular decision while still determining the broader conditions under which another makes decisions.</li>
+          <li><strong>Substantive equality of outcome.</strong> Too strong: introduces a substantive theory of distribution the framework does not seek to establish.</li>
+          <li><strong>Only attribution to one's own agency.</strong> Fails where another agent has substantially shaped the relevant conditions.</li>
+          <li><strong>Fully reciprocal justification.</strong> Assumes a symmetry that does not exist in relationships of unequal reach.</li>
+        </ul>
+        <p>The proposed interpretation is a minimal normative position for cases of asymmetric conditioning.</p>
+
+        <h3>4.3 Why affected parties have a special claim</h3>
+        <p>The people whose agency is being shaped occupy a distinctive position: they bear the consequences of decisions over which they may have little control. Their claim is not necessarily a claim to control the decision. It is a claim that their position must count in its justification.</p>
+        <ol>
+          <li>Being affected establishes a possible interest in the consequences.</li>
+          <li>Having interests establishes reasons that may deserve moral consideration.</li>
+          <li>Being systematically subject to another's consequential discretion establishes a stronger claim to justification.</li>
+          <li>Being deprived of meaningful means of contestation strengthens the need for independent accountability.</li>
+        </ol>
+
+        <h3>4.4 Three features of the argument</h3>
+        <p><strong>First,</strong> it is not an argument from causation directly to obligation. P2 concerns systematic conditioning, not mere causal efficacy.</p>
+        <p><strong>Second,</strong> the argument is asymmetric. It establishes answerability <em>to</em> those whose conditions are shaped, not authority <em>over</em> them.</p>
+        <p><strong>Third,</strong> it is graded. The strength and scope of answerability vary with the extent, persistence, foreseeability, control, and asymmetry of the conditioning (§6).</p>
+
+        <h3>4.5 Three objections</h3>
+        <p><strong>Objection 1: benign imposition.</strong> Parents, teachers, and physicians systematically shape the conditions under which others act. Does the framework imply that these relationships are wrong? <em>Reply:</em> No. The framework distinguishes between being answerable and having acted wrongly.</p>
+        <p><strong>Objection 2: mutual conditioning.</strong> It makes each party answerable within the domain of their respective reach. The framework does not imply that every interaction creates unlimited responsibility.</p>
+        <p><strong>Objection 3: institutional mediation.</strong> Individual responsibility must track each agent's actual reach, control, and position within the arrangement. Institutions may themselves be answerable (§11).</p>
+
+        <h3>4.6 Agency and the practice of giving reasons</h3>
+        <p>Sellars (1956) and Brandom (1994) describe the space of reasons as a practice in which claims, commitments, and actions can be challenged and defended.</p>
+        <p><strong>(P1')</strong> Agents capable of acting for reasons participate, to some degree, in practices of giving and receiving reasons. <strong>(P2')</strong> Such practices involve commitments that can be questioned, defended, and revised. <strong>(P3')</strong> An agent who exercises reach over another's conditions makes decisions that can become objects of legitimate scrutiny. <strong>(C')</strong> The practices through which agents give and receive reasons provide a natural setting for exercising answerability.</p>
+        <p>The constitutive argument is important but limited. It establishes that answerability is closely connected to agency and reason-giving; it does not prove the full normative argument, identify every affected party, or establish that every agent will recognize or fulfil its answerability.</p>
+
+        <h3>4.7 The silent-principal objection</h3>
+        <p>Does the framework require answerability to be demanded before it can be owed? No. The framework treats answerability as a normative relation that may exist whether or not the affected party can articulate or enforce a demand. The inability to demand an account does not automatically diminish the significance of the conditions being shaped. It does, however, make representation more difficult (§10.6).</p>
       </section>
 
       <!-- 5 -->
-      <section id="symbiosis">
-        <h2><span class="num">5.</span>Cosmic symbiosis</h2>
-        <p>If responsibility is fiduciary — held for others rather than over them — then the question becomes: <em>for what</em> is the responsible being answerable? The answer this framework proposes is <strong>cosmic symbiosis</strong>.</p>
-        <dl class="definition">
-          <dt>Cosmic symbiosis</dt>
-          <dd>A relation among different forms of existence in which each preserves the conditions for the other’s continued existence and development, while remaining distinct. The word “cosmic” is not meant to invoke a literal cosmology; it signals that the relation is not confined to human affairs but extends to any form of existence that can be affected by another’s reach. Symbiosis does not require harmony, agreement, or affection. It requires only that difference not be resolved through annihilation.</dd>
-        </dl>
-        <p>The concept is deliberately modest. It does not demand that all beings converge on a single good, nor that conflict be eliminated. Conflict between different forms of existence is not a failure of symbiosis; it is one of its conditions. What symbiosis rules out is the transformation of difference into domination — the resolution of tension by removing one of the parties.</p>
-        <p>Two contrasts clarify the idea. Symbiosis is not <strong>fusion</strong>: it does not aim at the absorption of the other into oneself, however benevolent the absorption may feel to the absorber. And it is not <strong>indifference</strong>: it does not consist in leaving the other alone regardless of what happens to it. Symbiosis is active. It requires the ongoing maintenance of the conditions under which difference can persist.</p>
-        <blockquote><p>The enemy is not conflict. The enemy is annihilation — the resolution of tension by the removal of one of its terms.</p></blockquote>
+      <section id="limits">
+        <h2><span class="num">5</span>The limits of reach</h2>
+        <p>Almost every action affects conditions beyond the agent's immediate intentions. If every such influence generated a special relationship of answerability, the concept would become excessively broad.</p>
+
+        <h3>5.1–5.6 Six limits</h3>
+        <div class="card-grid">
+          <div class="card"><h4>Incidental influence</h4><p>Where influence is incidental, limited, and not reasonably subject to the agent's control, the grounds for special answerability are correspondingly weak.</p></div>
+          <div class="card"><h4>Insufficient foreseeability</h4><p>An outcome may be connected to an agent's actions without having been reasonably foreseeable. But unforeseeability is not a permanent exemption.</p></div>
+          <div class="card"><h4>Lack of meaningful control</h4><p>Responsibility should be proportionate to the actual scope of available action. Lack of total control does not eliminate responsibility for the parts that remain within discretion.</p></div>
+          <div class="card"><h4>Diffuse interdependence</h4><p>Participation is not identical to governance. Stronger answerability arises where an agent has a substantial role in determining conditions.</p></div>
+          <div class="card"><h4>Beneficial influence</h4><p>Not all asymmetry is wrongful. But beneficial intentions do not remove the need for answerability.</p></div>
+          <div class="card"><h4>Legitimate authority</h4><p>Legitimate authority is not authority without accountability. It is authority whose exercise can be justified in light of the relationship and its purposes.</p></div>
+        </div>
+
+        <h3>5.7 A threshold for distinctive answerability</h3>
+        <p>Distinctive answerability is most strongly established where several conditions converge:</p>
+        <ol>
+          <li>The agent substantially shapes another party's conditions of agency.</li>
+          <li>The influence is sustained, repeated, or sufficiently consequential.</li>
+          <li>The agent possesses relevant discretion or practical control.</li>
+          <li>The consequences are reasonably foreseeable, or become foreseeable through information the agent ought to consider.</li>
+          <li>The affected party has limited ability to contest, influence, or escape the conditions being shaped.</li>
+        </ol>
+        <p>These are not rigid necessary-and-sufficient conditions. The threshold is contextual and proportional.</p>
       </section>
 
       <!-- 6 -->
-      <section id="care">
-        <h2><span class="num">6.</span>The boundaries of care</h2>
-        <p>The adult and the child offer the clearest illustration of responsible relation. The adult understands more, foresees further, and influences more. The adult is therefore answerable for the child in a way the child is not answerable for the adult. But the relation is not one of ownership, and it is not permanent in its asymmetry.</p>
-        <p>Care has a characteristic failure mode: <strong>it protects by preventing</strong>. The protective impulse, unchecked, shades into the substitution of the caregiver’s judgement for the other’s. The result is a being that is safe and diminished — protected from harm by being protected from agency.</p>
-        <p>Responsible care therefore has a built-in limit. It must preserve, and where possible cultivate, the other’s <strong>capacity for self-direction</strong>. Protection that destroys that capacity has ceased to be care and become something else, however tender its motives. This is the test that any paternalistic arrangement must pass: does it leave the other more capable of directing its own existence, or less?</p>
-        <p>The same test applies beyond the human case. Where a being cannot speak for itself — an ecosystem, a future generation, a system not yet built — the responsible party must act as a trustee. And a trustee is bound by the interest of the beneficiary, not by the convenience of the trustee.</p>
+      <section id="dimensions">
+        <h2><span class="num">6</span>Reach: the six dimensions</h2>
+        <p>The normative argument of §4 depends on the claim that A's reach over B's conditions is <em>systematic</em>. This requires more precise examination. The framework proposes six dimensions.</p>
 
-        <h3>The principal problem</h3>
-        <p>Fiduciary responsibility presupposes a principal — someone whose interest the fiduciary serves. But when the principal cannot speak for itself — an ecosystem, a future generation, a system not yet built — the fiduciary must <em>construct</em> the principal’s interest rather than receive it. This construction is unavoidable, and it is dangerous. The fiduciary may project its own values onto the silent principal and call the result “the principal’s interest.” Three disciplines mitigate this risk: the construction must be revisable as evidence changes, it must be open to contestation by those who can speak in the principal’s vicinity, and it must be oriented toward preserving the principal’s capacity for self-direction rather than toward the fiduciary’s convenience.</p>
+        <div class="card-grid">
+          <div class="card card--num" data-num="Dimension 1">
+            <h4>Magnitude</h4>
+            <p>How substantially can A change B's conditions? The degree of material change in B's relevant possibilities, compared against a defensible baseline. Both expansion and restriction may constitute significant reach.</p>
+          </div>
+          <div class="card card--num" data-num="Dimension 2">
+            <h4>Duration</h4>
+            <p>How long do the consequences persist? Temporary effects and consequences extending across generations create different forms of responsibility.</p>
+          </div>
+          <div class="card card--num" data-num="Dimension 3">
+            <h4>Scope</h4>
+            <p>How many individuals, communities, species, or systems may be affected? Scope is relevant but not decisive. A larger number does not automatically outweigh the interests of a smaller group.</p>
+          </div>
+          <div class="card card--num" data-num="Dimension 4">
+            <h4>Foreseeability</h4>
+            <p>How much could A reasonably understand about likely consequences? Failure to investigate can itself be a failure where the agent had the capability and responsibility to investigate.</p>
+          </div>
+          <div class="card card--num" data-num="Dimension 5">
+            <h4>Control</h4>
+            <p>How much practical influence does A possess? Formal authority and practical control are not always the same. The framework is concerned with actual capacity to shape or alter conditions.</p>
+          </div>
+          <div class="card card--num" data-num="Dimension 6">
+            <h4>Asymmetry</h4>
+            <p>How limited are the affected parties in their ability to refuse, exit, contest, or alter the relationship? Asymmetry connects reach to non-domination (§9).</p>
+          </div>
+        </div>
+
+        <p>A single measure of reach would conceal important differences. An agent may have high magnitude but short duration, broad scope but limited practical control, high foreseeability but low asymmetry, or extensive control over a small number of people. The framework's claim is that responsibility must be assessed through the profile as a whole.</p>
       </section>
 
       <!-- 7 -->
-      <section id="coexist">
-        <h2><span class="num">7.</span>When differences cannot coexist</h2>
-        <p>The framework has so far emphasised the preservation of difference. But not all differences can be preserved without limitation. Some conflicts are genuine: two parties’ self-direction cannot both be fully realised at once. A framework that cannot name this is not honest.</p>
-        <p>Three cases must be distinguished.</p>
+      <section id="fiduciary">
+        <h2><span class="num">7</span>Why responsibility is fiduciary</h2>
+
+        <h3>7.1 The derivation</h3>
+        <p><strong>(P1, from §4)</strong> A's systematic reach over B's conditions generates answerability to B.</p>
+        <p><strong>(P2, structure of agency)</strong> B's conditions include the conditions under which B pursues interests and exercises agency.</p>
+        <p><strong>(P3, from P1 + P2)</strong> A is answerable to B for the effects of A's reach on those interests and conditions.</p>
+        <p><strong>(P4, the prohibition on self-serving substitution)</strong> If A were free to disregard B's interests and substitute A's own interests within the very domain in which A exercises reach, then answerability to B would become largely nominal.</p>
+        <p><strong>(P5, the positive requirement)</strong> Answerability therefore requires more than the absence of deliberate self-interest. A must take B's interests and capacity for self-direction seriously when exercising the reach that shapes B's conditions.</p>
+        <p><strong>(C, fiduciary structure)</strong> Under conditions of asymmetric reach, answerability takes on five characteristic features:</p>
         <div class="card-grid">
-          <div class="card">
-            <h3>Case A · Compatible difference</h3>
-            <p>Both parties can preserve their self-direction without one limiting the other. This is the paradigm case of cosmic symbiosis, and the framework’s prescriptions are clear: maintain the conditions, refuse domination, act as trustee where needed.</p>
-          </div>
-          <div class="card">
-            <h3>Case B · Tragic difference</h3>
-            <p>One party’s self-direction must be limited to preserve the other’s. This is the hard case, and the framework does not pretend it away. It offers four constraints on any such limitation.</p>
-          </div>
-          <div class="card">
-            <h3>Case C · Annihilation</h3>
-            <p>One party’s continued existence is treated as incompatible with the other’s. This is what cosmic symbiosis rules out.</p>
-          </div>
+          <div class="card"><h4>Principal</h4><p>B, whose conditions and interests are affected.</p></div>
+          <div class="card"><h4>Fiduciary</h4><p>A, whose reach creates the relevant responsibility.</p></div>
+          <div class="card"><h4>Loyalty</h4><p>A must not use the relationship merely to advance A's own interests at B's expense.</p></div>
+          <div class="card"><h4>Discretion</h4><p>A may have to make decisions that B cannot specify fully in advance.</p></div>
+          <div class="card"><h4>Accountability</h4><p>A must be able to explain and justify the exercise of that discretion to B.</p></div>
         </div>
-        <p>For <strong>Case B</strong>, the four constraints are:</p>
+
+        <h3>7.4 The circularity objection</h3>
+        <p>Does the derivation presuppose what it seeks to prove? No. The argument proceeds in stages: (i) equal standing supports answerability; (ii) answerability requires explainability; (iii) where conditions affect another's interests under asymmetric reach, answerability requires constraints on discretion; (iv) those constraints resemble the characteristic features of fiduciary relations. Giving an account is not itself identical to a fiduciary relationship. The fiduciary structure is a proposed specification of what answerability requires under conditions of asymmetric reach.</p>
+
+        <h3>7.5 A consequence worth stating</h3>
+        <p>Greater capability does not generate greater moral worth. A being with vast capability is not, for that reason, worth more than a being with modest capability. It is capable of affecting more, and therefore may have more extensive obligations. Its responsibility is greater because its reach is greater, not because its interests count for more.</p>
+
+        <!-- 7.6 The necessity argument -->
+        <h3 id="necessity">7.6 The necessity objection: why the fiduciary structure is the minimal complete specification</h3>
+        <p>If the fiduciary structure is merely one possible specification of answerability among several equally adequate ones, then the derivation in §7.1 establishes at most that the fiduciary structure is <em>available</em>, not that it is <em>required</em>. This section argues that the five requirements cannot be jointly satisfied by any specification that lacks the fiduciary structure.</p>
+
+        <h4>7.6.1 The requirements restated</h4>
+        <ul>
+          <li><strong>(R1) A principal</strong> whose conditions and interests are affected.</li>
+          <li><strong>(R2) Loyalty</strong> — a prohibition on substituting the agent's own interests for the principal's.</li>
+          <li><strong>(R3) Discretion</strong> — the agent must act within a range the principal cannot fully specify.</li>
+          <li><strong>(R4) Accountability</strong> — the agent must explain and justify the exercise of discretion to the principal.</li>
+          <li><strong>(R5) Positive orientation</strong> — the agent must take the principal's interests and capacity for self-direction seriously.</li>
+        </ul>
+
+        <h4>7.6.2 Six rivals considered</h4>
         <div class="card-grid">
-          <div class="card"><h3>1 · Minimality</h3><p>The limitation must be the least necessary to preserve the other’s self-direction.</p></div>
-          <div class="card"><h3>2 · Revisability</h3><p>The limitation must be open to revision as conditions change.</p></div>
-          <div class="card"><h3>3 · Orientation</h3><p>The limitation must be oriented toward restoring self-direction, not toward permanent substitution of judgement.</p></div>
-          <div class="card"><h3>4 · Reversibility</h3><p>Limitations that are difficult to reverse require a higher threshold of justification than those that can be undone. Irreversible interventions must clear a higher bar, because the cost of error is asymmetric.</p></div>
+          <div class="card"><h4>1 · Stewardship</h4><p>Locates accountability upward — to an owner, sovereign, community. Fails R4. A steward who is also accountable to the principal has become a fiduciary.</p></div>
+          <div class="card"><h4>2 · Duty of care</h4><p>Negative and episodic. Fails R5 (no positive orientation) and R3 (no ongoing discretion). When expanded to include positive orientation, becomes fiduciary.</p></div>
+          <div class="card"><h4>3 · Non-domination</h4><p>Specifies what must be avoided, not what must be done. Fails R5 and R2. Adding positive orientation and loyalty produces the fiduciary structure.</p></div>
+          <div class="card"><h4>4 · Care ethics</h4><p>Grounds in responsiveness and affect. Fails institutional application and R3. Supplemented structurally, becomes the fiduciary structure.</p></div>
+          <div class="card"><h4>5 · Kantian justification</h4><p>Justifies to an <em>idealized</em> rational agent, not the specific affected party. Fails R1 and R5. Specified to the actual party, becomes fiduciary.</p></div>
+          <div class="card"><h4>6 · Virtue ethics</h4><p>Specifies what a good agent is like, not relationships. Fails R1 and R4. Can complement but cannot replace the structural account.</p></div>
         </div>
-        <p>A paternalism that satisfies these four constraints is not a violation of cosmic symbiosis; it is one of its instruments. A paternalism that fails them has crossed into domination, however benevolent its framing.</p>
-        <p>For <strong>Case C</strong>, cosmic symbiosis rules out the resolution of tension by the removal of one of its terms — the treatment of the other as material to be eliminated rather than a party to be answered. It does not rule out conflict, victory, or loss. It rules out annihilation as a way of settling tension.</p>
-        <p>The framework thus does not require pacifism, nor does it forbid struggle. It requires that struggle remain answerable — that the loser not be erased from the moral account, and that the winner remain bound by the obligation to answer for what was set in motion.</p>
+
+        <h4>7.6.3 The pattern</h4>
+        <p>Each rival fails at least one requirement outright, or meets all requirements only by adding the features that constitute the fiduciary structure. The fiduciary structure is therefore not one specification among many equally adequate ones; it is the <em>minimal complete</em> specification that satisfies all five requirements simultaneously.</p>
+        <p>This is not a claim that the rivals are worthless. Each captures something important. What the framework denies is that any of them, taken alone, is an adequate specification of answerability under asymmetric reach. Each is a partial specification; the fiduciary structure is the minimal complete one.</p>
+
+        <h4>7.6.4 Three limits</h4>
+        <p><strong>First,</strong> the argument establishes that the fiduciary structure is the minimal <em>complete</em> specification, not that it is the only possible one. A more complex structure meeting all five requirements would not be ruled out.</p>
+        <p><strong>Second,</strong> the argument depends on R1–R5 being the right requirements. If a critic rejects one, the argument fails for that critic.</p>
+        <p><strong>Third,</strong> the argument is a comparative claim about rival traditions as they are standardly formulated. A version of stewardship, duty of care, or non-domination that already includes the features I claim they lack is either already a fiduciary structure under another name, or a specification the framework should incorporate.</p>
+
+        <div class="key-prop">
+          <p>The fiduciary structure is not merely available as a specification of answerability. It is the minimal complete specification — the structure that any adequate specification must at least contain.</p>
+        </div>
       </section>
 
       <!-- 8 -->
-      <section id="applications">
-        <h2><span class="num">8.</span>Applications</h2>
-        <p>The framework is abstract by design, but it is not idle. Three domains show how it disciplines reasoning about concrete conflicts.</p>
+      <section id="concepts">
+        <h2><span class="num">8</span>Responsibility, answerability, accountability, and culpability</h2>
 
-        <h3>8.1 Environmental conflicts</h3>
-        <p>Environmental disputes are often framed as conflicts between present interest and absent interest: between those who benefit now and those — human or non-human — who bear the cost later. The framework reframes the question. The issue is not whether the present generation <em>matters more</em>; it is that the present generation has vastly greater <strong>reach</strong>. Its capacity to influence the conditions of future existence is unprecedented. Greater reach means greater answerability, regardless of comparative worth.</p>
+        <h3>8.1 Why distinctions matter</h3>
+        <p>The language of responsibility often combines several different ideas. An agent may cause an outcome without being blameworthy. It may owe an explanation without having acted wrongly. It may possess a duty to repair without having been the sole cause of the harm.</p>
 
-        <h3>8.2 Advanced artificial intelligence</h3>
-        <p>The framework cautions against two symmetric mistakes. The first is to infer moral status from capability: because a system is powerful, it is therefore owed consideration. The second is to infer absence of responsibility from absence of status: because a system is not a moral patient, no one is answerable for what it does. Both inferences fail. The designers, deployers, and beneficiaries of a capable system retain responsibility precisely because <em>their</em> reach is extended by it. Capability borrowed is responsibility retained.</p>
+        <h3>8.2–8.8 Seven concepts</h3>
+        <div class="card-grid">
+          <div class="card"><h4>Causal responsibility</h4><p>Whether an agent contributed to producing an outcome. Relevant but not sufficient for blame or repair.</p></div>
+          <div class="card"><h4>Control responsibility</h4><p>The agent's practical capacity to initiate, modify, prevent, or reverse relevant conditions. May be partial or distributed.</p></div>
+          <div class="card"><h4>Responsibility</h4><p>Obligations attached to an agent's position, actions, capacities, and relationships. May be prospective or retrospective.</p></div>
+          <div class="card"><h4>Answerability</h4><p>The obligation to provide reasons, justify decisions, and remain open to examination and revision.</p></div>
+          <div class="card"><h4>Accountability</h4><p>Institutional or social arrangements through which answerability can be examined and enforced.</p></div>
+          <div class="card"><h4>Culpability</h4><p>Blameworthiness in light of knowledge, intentions, alternatives, and reasonable opportunities.</p></div>
+          <div class="card"><h4>Reparative responsibility</h4><p>Obligations to prevent, correct, or remedy adverse outcomes. Do not always correspond to degrees of blame.</p></div>
+        </div>
 
-        <h3>8.3 A worked case: the autonomous vehicle</h3>
-        <p>Consider the design of an autonomous vehicle facing an unavoidable collision. The framework does not resolve the trolley-problem variant. It does something more useful: it identifies who is answerable for what.</p>
-        <p>The <em>designer</em> has reach over the conditions under which the vehicle decides. The designer is therefore answerable for the decision architecture — not for any single collision, but for the class of collisions the architecture makes possible. The <em>deployer</em> has reach over the conditions under which the vehicle operates — the roads, the speeds, the populations it serves. The deployer is answerable for those conditions. The <em>beneficiary</em> — the passenger, the manufacturer, the city — has reach through the system’s deployment and is answerable for the choice to deploy. None of these parties owns the outcome. All are bound by it.</p>
-        <p>The framework’s question is not “which trade-off is correct?” but “who must be able to answer for this trade-off, and to whom?” That question has a determinate answer even when the trade-off does not.</p>
+        <h3>8.10 Answerability as relation and as practice</h3>
+        <p><strong>Relation:</strong> A is answerable to B. <strong>Practice:</strong> something exercised through institutions, procedures, explanations, hearings, review, and opportunities for contestation.</p>
+        <p>The relation can exist without an adequate practice. Institutions can participate in answerability without possessing individual agency in the same sense as persons. And the distinction clarifies the framework's limits: it specifies what answerability requires, not the complete institutional design for exercising it.</p>
+
+        <h3>8.11 Capability borrowed is responsibility retained</h3>
+        <p>A system may produce consequential outcomes without possessing the intentions or understanding required for ordinary moral blame. Responsibility must therefore be examined across the wider arrangement of designers, operators, institutions, and decision-makers. The existence of a system does not automatically eliminate the responsibility of those capable of governing its use.</p>
       </section>
 
       <!-- 9 -->
-      <section id="heuristic">
-        <h2><span class="num">9.</span>A decision heuristic</h2>
-        <p>Because the framework is not fully operationalised, it offers a sequence of questions rather than a set of thresholds. The sequence matters: each step disciplines the next.</p>
+      <section id="protection">
+        <h2><span class="num">9</span>Protection, freedom, and non-domination</h2>
+        <p>Protection is not automatically benevolent. An agent may claim to act for another's benefit while unnecessarily restricting that being's ability to make choices. A protective relationship can become one of domination when the protected party is permanently denied meaningful self-direction.</p>
+
+        <h3>9.5 Protection without captivity</h3>
+        <p>The framework proposes five constraints on legitimate protective action:</p>
         <div class="card-grid">
-          <div class="card"><h3>1 · Reach</h3><p>What is the actual reach of this action or system? Who is affected, how far, and for how long?</p></div>
-          <div class="card"><h3>2 · Exit and contest</h3><p>Who cannot easily exit or contest the consequences? These are the parties to whom the strongest fiduciary obligations run.</p></div>
-          <div class="card"><h3>3 · Self-direction</h3><p>Does the arrangement preserve or erode the affected parties’ capacity for self-direction? Where it erodes, apply the constraints of §7 (minimality, revisability, orientation, reversibility).</p></div>
-          <div class="card"><h3>4 · Trusteeship</h3><p>If the affected parties cannot speak, am I acting as a trustee of their continued possibility, or of my own convenience?</p></div>
-          <div class="card"><h3>5 · Answerability</h3><p>Can I name, in advance, who will answer for what this sets in motion — and to whom?</p></div>
+          <div class="card"><h4>Proportionality</h4><p>The intervention must be proportionate to the seriousness of the risk.</p></div>
+          <div class="card"><h4>Minimality</h4><p>It must be limited to what is necessary.</p></div>
+          <div class="card"><h4>Scrutiny</h4><p>It must be open to independent review.</p></div>
+          <div class="card"><h4>Revisability</h4><p>It must be reconsidered when circumstances change.</p></div>
+          <div class="card"><h4>Orientation</h4><p>It must seek to preserve or restore self-direction wherever possible.</p></div>
         </div>
-        <p>These questions do not settle hard cases. They make the stakes harder to ignore, and they make evasion harder to disguise as principle.</p>
+        <p>Protection that persistently fails these constraints risks becoming domination, regardless of how benevolent its stated purpose may be.</p>
+
+        <h3>9.6 The right to develop</h3>
+        <p>A powerful agent should not automatically prevent another from taking every risk. The relevant question is whether the risk is sufficiently serious and unjustified to warrant intervention, and whether less restrictive alternatives exist.</p>
       </section>
 
       <!-- 10 -->
-      <section id="objections">
-        <h2><span class="num">10.</span>Objections and replies</h2>
+      <section id="symbiosis">
+        <h2><span class="num">10</span>Cosmic symbiosis: a regulative ideal of coexistence</h2>
 
-        <h3>“This is just noblesse oblige.”</h3>
-        <p>The objection has force only if responsibility is treated as a gift the powerful bestow. It is not. Responsibility here is not a virtue the capable choose to adopt; it is a relation that follows from reach whether or not the capable acknowledge it. The framework does not flatter the powerful — it makes them answerable.</p>
+        <h3>10.2 Symbiosis as a regulative ideal</h3>
+        <p>Cosmic symbiosis is not presented as an established scientific description of universal harmony. It expresses the aspiration to preserve the conditions under which different forms of existence can continue, develop, and coexist without unnecessary domination or destruction. It performs three functions:</p>
+        <ol>
+          <li><strong>Specifies the orientation of fiduciary responsibility.</strong> The fiduciary is answerable not merely for another's survival, but for the conditions under which the other can continue to develop as a distinct form of existence.</li>
+          <li><strong>Rejects certain resolutions.</strong> The destruction or erasure of one party cannot be treated as an ordinary solution to a conflict.</li>
+          <li><strong>Directs attention toward the conditions of difference.</strong> Symbiosis is active rather than passive.</li>
+        </ol>
 
-        <h3>“Responsibility without blame is empty.”</h3>
-        <p>Not so. Much of what matters in practice is forward-looking: identifying who must respond, who must repair, who must decide. Blame is one response among others, and often the least useful. A framework that can assign answerability without immediately assigning guilt is more useful, not less.</p>
+        <h3>10.3 Two contrasts</h3>
+        <p><strong>Symbiosis is not fusion.</strong> It does not aim at absorbing the other into oneself, even where the absorption is described as benevolent.</p>
+        <p><strong>Symbiosis is not indifference.</strong> It does not mean leaving the other alone regardless of the consequences.</p>
 
-        <h3>“Who decides what counts as capacity?”</h3>
-        <p>No one decides infallibly. Capacity is graded, contestable, and often uncertain — particularly at the edges, where the most difficult cases live. The framework does not pretend to resolve that uncertainty. It insists only that the uncertainty be acknowledged, that judgements remain revisable, and that the default be asymmetric caution rather than denial.</p>
-
-        <h3>“Doesn’t this justify paternalism?”</h3>
-        <p>Only if the constraints of §6 and §7 are ignored. Care that diminishes the other’s capacity for self-direction has exceeded its mandate. The test is not whether the caregiver means well, but whether the arrangement leaves the other more or less capable of directing its own existence — and, where limitation is unavoidable, whether it is minimal, revisable, oriented toward restoration, and reversible where possible.</p>
-
-        <h3>“Isn’t this just care ethics or Jonas with extra steps?”</h3>
-        <p>The framework is continuous with both, but it makes a distinct move. Jonas emphasises responsibility toward the distant and future; care ethics emphasises responsiveness to the vulnerable. This framework locates the ground of both in <em>reach</em> — the causal footprint of capability — and derives fiduciary structure from the structure of reach rather than from the psychology of care or the metaphysics of technology.</p>
-        <p>The framework’s debt to stewardship traditions is also substantial, and should be acknowledged. The trustee relation described in §3 is not original to this essay; it is a restatement of an older idea, that power over another’s conditions creates an obligation to hold that power in trust. What the framework adds to this tradition is the derivation of fiduciary structure from the structure of reach — rather than from tradition, contract, or benevolence. Reach is the ground; fiduciary structure is what reach demands.</p>
+        <h3>10.6 The silent principal problem</h3>
+        <p>Future generations cannot directly express their interests. Ecosystems cannot provide conventional consent. Possible artificial agents may present unfamiliar forms of agency or experience. The absence of direct participation does not make their interests or value irrelevant.</p>
+        <p>Three disciplines are necessary: <strong>revisability</strong> (the interpretation must be open to revision as evidence changes), <strong>contestation</strong> (it must be open to criticism by those who can speak from relevant positions), and <strong>self-direction</strong> (it must be oriented toward preserving the principal's future capacity for agency).</p>
+        <p>These disciplines do not eliminate the problem. They establish minimum conditions for responsible representation.</p>
       </section>
 
       <!-- 11 -->
-      <section id="limitations">
-        <h2><span class="num">11.</span>Limitations and self-critique</h2>
-        <p>A framework that cannot name its own failure modes should not be trusted. Five are worth stating plainly.</p>
-        <p><strong>First, holism can be abused.</strong> Talk of symbiosis and interdependence can be used to justify control: if everything is connected, then everything is everyone’s business. The framework resists this only if the limit in §6 is taken seriously — difference must be preserved, not dissolved.</p>
-        <p><strong>Second, capacity is hard to measure.</strong> The framework’s central variable is not directly observable. Judgements about understanding, foresight, and influence are interpretive and revisable. The disciplines of §4 mitigate this but do not eliminate it.</p>
-        <p><strong>Third, the framework is not fully operationalised.</strong> It offers distinctions, questions, and a heuristic, not procedures. It will not tell a regulator what threshold to set or a designer what trade-off to make. It can only clarify what is at stake in those decisions.</p>
-        <p><strong>Fourth, it risks licensing control in the name of care.</strong> This is the most serious risk. Every paternalism in history has been justified by the greater capacity of the paternalist. The framework’s only defence is the built-in limit — care must preserve the other’s capacity for self-direction, or it is not care — together with the constraints on tragic difference in §7. Whether this defence is strong enough in practice remains an open question.</p>
-        <p><strong>Fifth, it may still privilege certain forms of cognition.</strong> By centering understanding and foresight, the framework may undervalue forms of existence whose reach operates through different modalities — ecological, collective, or non-linguistic. The framework’s asymmetric caution partially addresses this, but not fully.</p>
+      <section id="distributed">
+        <h2><span class="num">11</span>Distributed responsibility</h2>
+
+        <h3>11.1 The constraint</h3>
+        <p>Where an outcome is produced by multiple agents, a distribution of answerability is justifiable only if each agent's share is sensitive to that agent's reach profile across the six dimensions (§6).</p>
+
+        <h3>11.4 A partial metric</h3>
+        <p>The six dimensions can be represented as a profile: <code>r_i = (m_i, d_i, s_i, f_i, c_i, a_i)</code>, where each value is assessed on a normalized scale from 0 to 1. The numbers are not direct measurements of moral responsibility. They are structured assessments of relevant features of reach.</p>
+
+        <h3>11.6 A provisional distribution rule</h3>
+        <p>A weighted representation can be used to compare reach profiles:</p>
+        <p><code>q_i = Σ w_k · r_ik</code></p>
+        <p>Where a proportional allocation is appropriate, a provisional share can be represented as <code>σ_i = q_i / Σ q_j</code>. This is not a universal formula for moral or legal responsibility. It is a way to make assumptions visible.</p>
+        <p>The weights require justification in relation to the purpose and context of the assessment. A defensible application should state the chosen weights and explain why they are appropriate, test whether the result changes substantially under reasonable alternative weights, identify dimensions that cannot be meaningfully quantified, and avoid presenting numerical output as a substitute for normative judgment.</p>
+
+        <h3>11.7 A worked example</h3>
+        <p>Consider three agents involved in the deployment of an algorithmic hiring system. Suppose the following profiles are assessed:</p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Agent</th>
+                <th class="num">m</th>
+                <th class="num">d</th>
+                <th class="num">s</th>
+                <th class="num">f</th>
+                <th class="num">c</th>
+                <th class="num">a</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Designer</td><td class="num">0.7</td><td class="num">0.6</td><td class="num">0.8</td><td class="num">0.9</td><td class="num">0.8</td><td class="num">0.7</td></tr>
+              <tr><td>Deployer</td><td class="num">0.8</td><td class="num">0.5</td><td class="num">0.6</td><td class="num">0.7</td><td class="num">0.9</td><td class="num">0.6</td></tr>
+              <tr><td>Beneficiary</td><td class="num">0.4</td><td class="num">0.4</td><td class="num">0.5</td><td class="num">0.4</td><td class="num">0.3</td><td class="num">0.5</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>With weights favoring control and asymmetry: <code>w = (0.15, 0.10, 0.10, 0.20, 0.25, 0.20)</code>, the scores are approximately <strong>0.765</strong> (designer), <strong>0.715</strong> (deployer), and <strong>0.405</strong> (beneficiary). Normalized shares are approximately <strong>40.6%</strong>, <strong>37.9%</strong>, and <strong>21.5%</strong>.</p>
+        <p>This example does not establish that the framework's distribution is correct. It shows that the formalization produces determinate, testable, and contestable outputs. That is what a partial formalization is supposed to do.</p>
+
+        <h3>11.10 A gesture toward systemic responsibility</h3>
+        <p>An institution is not merely an aggregate of individual agents. It is a structured arrangement of roles, procedures, information flows, and decision points. When such an arrangement systematically shapes the conditions of others, the institution itself can be treated as a locus of answerability — not because it has intentions or experiences, but because its structure determines the conditions under which individuals act.</p>
+        <p>The conditions of this claim are strict. An institution can be a locus of answerability only if it has identifiable decision procedures, can give an account of those procedures through identifiable spokespersons or records, and can revise those procedures in response to contestation. Where these conditions fail, the framework's account of institutional answerability is incomplete.</p>
       </section>
 
       <!-- 12 -->
+      <section id="tragic">
+        <h2><span class="num">12</span>Tragic conflict, irreversibility, and existential risk</h2>
+
+        <h3>12.1 The limits of moral resolution</h3>
+        <p>Not every conflict admits of a solution in which all legitimate interests are preserved. Some decisions involve tragic loss: a situation in which every available option carries morally significant costs.</p>
+
+        <h3>12.3 Irreversibility</h3>
+        <p>Irreversible decisions deserve particular scrutiny. Where two options offer comparable protection, preference should ordinarily be given to the option that preserves the greatest possibility of correction. Reversibility is not an absolute requirement. Some emergencies may demand irreversible action. Such action requires stronger justification.</p>
+
+        <h3>12.5 Tragic responsibility</h3>
+        <p>Where no option avoids serious loss, responsible action requires more than selecting a preferred outcome. It requires acknowledging the costs imposed, explaining why alternatives were insufficient, limiting avoidable harm, and accepting accountability for the decision.</p>
+
+        <h3>12.6 Annihilation and existential threat</h3>
+        <p>Cosmic symbiosis rejects the idea that destroying one party is an ordinary or acceptable way to settle a conflict. It does not, however, establish that every threat must be tolerated or that self-defense is impermissible. Where no non-destructive alternative exists, the framework recognizes a tragic conflict rather than pretending the decision is morally uncomplicated.</p>
+      </section>
+
+      <!-- 13 -->
+      <section id="conflicting">
+        <h2><span class="num">13</span>Conflicting claims: priority, proportionality, and legitimate intervention</h2>
+
+        <h3>13.3 A structured order of consideration</h3>
+        <p>When legitimate claims conflict, deliberation should proceed through the following considerations.</p>
+        <div class="card-grid">
+          <div class="card card--num" data-num="Step 1"><h4>Serious threats</h4><p>Identify threats to life, fundamental interests, meaningful self-determination, and the conditions necessary for continued existence.</p></div>
+          <div class="card card--num" data-num="Step 2"><h4>Domination and irreversibility</h4><p>Particular caution is required where intervention may permanently remove an individual's capacity for independent action or destroy irreplaceable ecological systems.</p></div>
+          <div class="card card--num" data-num="Step 3"><h4>Maximum feasible coexistence</h4><p>Where several options can prevent serious harm, prefer the option that preserves the greatest meaningful freedom and broadest conditions for continued coexistence.</p></div>
+          <div class="card card--num" data-num="Step 4"><h4>Fair distribution of burdens</h4><p>Examine who bears the burdens, whether those parties are already disadvantaged, and whether the burdens can be reduced or shared more fairly.</p></div>
+          <div class="card card--num" data-num="Step 5"><h4>Review and revision</h4><p>Decisions should remain open to reassessment when evidence changes or assumptions prove mistaken.</p></div>
+        </div>
+
+        <h3>13.5 Catastrophic risk</h3>
+        <p>A credible threat of catastrophic harm may require exceptional intervention. However, the language of catastrophe is vulnerable to abuse. Exceptional intervention should require exceptionally severe threatened harm, credible supporting evidence, sufficient urgency to make ordinary procedures inadequate, examination of less restrictive alternatives, proportionality, limits on duration and scope wherever possible, and independent review as soon as circumstances permit.</p>
+
+        <h3>13.6 No single decision-maker</h3>
+        <p>No individual, institution, government, or artificial intelligence should possess unquestionable authority to determine that catastrophic intervention is necessary. The greater the power exercised, the stronger the requirement for accountability beyond the decision-maker's own judgement.</p>
+      </section>
+
+      <!-- 14 -->
+      <section id="applications">
+        <h2><span class="num">14</span>Applications</h2>
+
+        <h3>14.1 Environmental responsibility</h3>
+        <p>Environmental systems demonstrate how reach can extend across generations and beyond immediate human relationships. Where credible evidence indicates a risk of severe and irreversible ecological damage, the burden of justification should fall heavily on those proposing the potentially destructive action.</p>
+
+        <h3>14.2 Advanced artificial intelligence</h3>
+        <p>The framework cautions against two symmetrical mistakes: inferring moral status from capability, and inferring the absence of responsibility from the absence of moral status. Both inferences fail. The designers, deployers, operators, and institutions governing a capable system may retain responsibility because their reach is extended through it.</p>
+
+        <h3>14.3 Artificial moral status</h3>
+        <p>The framework does not assume that current AI systems possess subjective experience or moral status. It also rejects the principle that artificial origin would automatically exclude a future entity from moral consideration. If credible evidence emerged that an artificial system possessed morally relevant experience, interests, or agency, its status would require serious examination.</p>
+
+        <h3>14.4 Autonomous vehicles and decision systems</h3>
+        <p>Consider the design of an autonomous vehicle facing an unavoidable collision. The framework does not resolve the trolley-problem variant. It addresses a different question: who is answerable for the conditions under which the decision is made?</p>
+        <p>The designer has reach over the decision architecture. The deployer has reach over operating conditions. The beneficiary may have reach through decisions to purchase, commission, or deploy. None of these parties automatically owns the entire outcome. Their answerability must be assessed according to their respective reach profiles (§11).</p>
+        <p>The framework's central question is not simply "which trade-off is correct?" It is also: <strong>"Who must be able to answer for the conditions under which this trade-off was made, and to whom?"</strong> That question can have a meaningful answer even where the underlying moral dilemma remains unresolved.</p>
+      </section>
+
+      <!-- 15 -->
+      <section id="objections">
+        <h2><span class="num">15</span>Objections, limitations, and unresolved questions</h2>
+
+        <h3>15.1 The epistemic justice objection</h3>
+        <p>If judgments about capability are made by those already in positions of power, the framework risks reproducing the power structures it seeks to examine. Judgments about capability and reach must remain contestable. This does not eliminate the risk of circularity or domination. Where the requirement of contestability cannot be met, the framework's application may need to be suspended or restricted.</p>
+
+        <h3>15.2 Six failure modes</h3>
+        <div class="card-grid">
+          <div class="card card--num" data-num="Failure 1"><h4>Holism abused</h4><p>Talk of symbiosis and interdependence can justify control in the name of a larger whole.</p></div>
+          <div class="card card--num" data-num="Failure 2"><h4>Capability hard to assess</h4><p>Judgments about understanding, control, and foreseeability are uncertain and may reflect the interests of those making them.</p></div>
+          <div class="card card--num" data-num="Failure 3"><h4>Not fully operationalized</h4><p>The partial formalization makes choices explicit and demonstrates them on a test case, but it has not been validated across a broad range of cases.</p></div>
+          <div class="card card--num" data-num="Failure 4"><h4>Licensing control as care</h4><p>Historically, paternalistic power has often justified itself through claims of superior knowledge or capability. The framework's response is the constraints on protection (§9.5).</p></div>
+          <div class="card card--num" data-num="Failure 5"><h4>Privileging cognition</h4><p>By emphasizing understanding and foreseeability, the framework may undervalue forms of influence that operate through ecological, collective, or distributed processes.</p></div>
+          <div class="card card--num" data-num="Failure 6"><h4>Emergent systems</h4><p>Where an outcome is produced by a sociotechnical system whose behavior cannot be traced to identifiable agents, the framework lacks a complete account.</p></div>
+        </div>
+
+        <h3>15.3 Four conditions for restriction</h3>
+        <p><strong>First,</strong> where epistemic contestation is impossible. <strong>Second,</strong> where the interests of a silent principal are genuinely unknowable. <strong>Third,</strong> where reach analysis is used to displace legitimate political contestation. <strong>Fourth,</strong> where people are reduced to units in a distribution.</p>
+
+        <h3>15.6 What the framework does not solve</h3>
+        <p><strong>First, the specific motivation problem.</strong> The framework explains why answerability arises and offers a partial account of why agents might be motivated to fulfil it, but does not provide a complete account of moral motivation.</p>
+        <p><strong>Second, the aggregation problem.</strong> It proposes a constraint and a partial formalization, but not a validated procedure for distributing responsibility across complex arrangements.</p>
+        <p><strong>Third, the systemic problem.</strong> It does not provide a complete account of responsibility where outcomes emerge from systems that cannot be adequately traced to identifiable agents.</p>
+
+        <h3>15.7 The virtue of answerability</h3>
+        <p>Answerability can be understood not only as an obligation but as a <strong>virtue</strong>: a form of excellence in the exercise of agency among agents. An agent who possesses the virtue:</p>
+        <ol>
+          <li><strong>Anticipates</strong> the consequences of her reach before acting, not merely after.</li>
+          <li><strong>Prepares</strong> to give an account of her decisions to those affected.</li>
+          <li><strong>Receives</strong> contestation without defensiveness.</li>
+          <li><strong>Revises</strong> her conduct in response to justified contestation.</li>
+          <li><strong>Distinguishes</strong> between answerability owed to those affected and accountability owed to third parties.</li>
+        </ol>
+        <p>These features correspond to the structure of answerability in §7. The virtue response does not establish that every agent will be motivated to develop it. It claims only that the exercise of the virtue is a form of excellence, and that agents who care about excellence have reason to develop it.</p>
+
+        <h3>15.8 The critical theory objection</h3>
+        <p>A framework that grounds responsibility in reach may still rationalize existing power. The response is partial: the account of answerability is structural, the account of protection requires constraints against domination, the epistemic-justice requirement makes judgments contestable, and the account of legitimate intervention requires attention to self-direction, proportionality, and revisability. None of these guarantees that the framework cannot be misused.</p>
+      </section>
+
+      <!-- 16 -->
       <section id="conclusion">
-        <h2><span class="num">12.</span>Conclusion</h2>
-        <p>The framework can be stated in a sentence: <strong>capability extends reach, reach produces consequence, and consequence makes answerable.</strong> Responsibility is not a measure of worth. It is the shadow that capability casts on the world, and it falls on everything within reach.</p>
-        <p>The practical upshot is a discipline of attention. Before acting with power — technical, institutional, ecological, or personal — the responsible question is not “am I entitled to do this?” but “what will this set in motion, and who will have to answer for it?” The first question looks backward to status. The second looks forward to consequence. Only the second scales with capability.</p>
-        <p>What the framework asks, in the end, is modest: that those who can do more should be answerable for more, and that their answerability should take the form of care rather than control — care that sustains difference instead of extinguishing it, including where difference cannot be fully harmonised.</p>
+        <h2><span class="num">16</span>Conclusion</h2>
+        <p>The framework can be stated in a sentence: <strong>capability extends reach, reach shapes conditions, and where those conditions are systematically shaped by another, answerability arises — in a fiduciary form.</strong></p>
+        <p>Responsibility is not a measure of worth. It is a normative consequence of determining, to a significant degree, the conditions under which others exercise agency.</p>
+        <p>The framework is not a complete solution to the many-hands problem. It offers a constraint, a partial formalization, and a gesture toward institutional answerability. It is not a complete theory of motivation. It is not a substitute for politics, law, or institutional legitimacy.</p>
+        <p>Its central demand is modest but consequential:</p>
+
+        <div class="key-prop">
+          <p>Those who possess greater power to shape the conditions of others should be prepared to answer for that power.</p>
+          <p>Their answerability should take a form that preserves rather than replaces the agency of those affected. Protection should not become captivity. Capability should not become entitlement. Difference should not be treated as a problem that must always be eliminated.</p>
+        </div>
+
+        <p>The guiding ideal is not control over existence, but responsibility within coexistence. Cosmic symbiosis names that orientation: sustaining the conditions under which different forms of existence can continue and develop, while respecting their distinctness.</p>
+
+        <blockquote><p>Preserve the conditions of coexistence. Respect the agency of those capable of exercising it. Approach what remains unknown with humility rather than indifference.</p></blockquote>
+      </section>
+
+      <hr class="sep">
+
+      <!-- REFERENCES -->
+      <section id="references">
+        <h2>References</h2>
+        <div class="references">
+          <ol>
+            <li>Aristotle. (1999). <em>Nicomachean Ethics</em> (2nd ed., T. Irwin, Trans.). Hackett Publishing.</li>
+            <li>Beauchamp, T. L., & Childress, J. F. (2019). <em>Principles of Biomedical Ethics</em> (8th ed.). Oxford University Press.</li>
+            <li>Brandom, R. (1994). <em>Making It Explicit: Reasoning, Representing, and Discursive Commitment</em>. Harvard University Press.</li>
+            <li>Floridi, L., Cowls, J., Beltrametti, M., Chatila, R., Chazerand, R., Dignum, V., ... & Vayena, E. (2018). AI4People—An ethical framework for a good AI society. <em>Minds and Machines</em>, 28(4), 689–707.</li>
+            <li>Foot, P. (2001). <em>Natural Goodness</em>. Oxford University Press.</li>
+            <li>Fox-Decent, E. (2011). <em>Sovereignty's Promise: The State as Fiduciary</em>. Oxford University Press.</li>
+            <li>Fox-Decent, E., & Criddle, E. J. (2016). <em>Fiduciaries of Humanity: How International Law Constitutes Authority</em>. Oxford University Press.</li>
+            <li>Fricker, M. (2007). <em>Epistemic Injustice: Power and the Ethics of Knowing</em>. Oxford University Press.</li>
+            <li>Goodin, R. E. (1985). <em>Protecting the Vulnerable: A Reanalysis of Our Social Responsibilities</em>. University of Chicago Press.</li>
+            <li>Held, V. (2006). <em>The Ethics of Care: Personal, Political, and Global</em>. Oxford University Press.</li>
+            <li>Honneth, A. (1995). <em>The Struggle for Recognition: The Moral Grammar of Social Conflicts</em>. MIT Press.</li>
+            <li>Jonas, H. (1984). <em>The Imperative of Responsibility: In Search of an Ethics for the Technological Age</em>. University of Chicago Press.</li>
+            <li>Leopold, A. (1949). <em>A Sand County Almanac</em>. Oxford University Press.</li>
+            <li>MacIntyre, A. (1981). <em>After Virtue: A Study in Moral Theory</em>. University of Notre Dame Press.</li>
+            <li>Matthias, A. (2004). The responsibility gap: Ascribing responsibility for the actions of learning automata. <em>Ethics and Information Technology</em>, 6(3), 175–183.</li>
+            <li>Mill, J. S. (1859). <em>On Liberty</em>.</li>
+            <li>Noddings, N. (1984). <em>Caring: A Feminine Approach to Ethics and Moral Education</em>. University of California Press.</li>
+            <li>Nussbaum, M. C. (2006). <em>Frontiers of Justice: Disability, Nationality, Species Membership</em>. Harvard University Press.</li>
+            <li>Nussbaum, M. C. (2011). <em>Creating Capabilities: The Human Development Approach</em>. Harvard University Press.</li>
+            <li>Pettit, P. (1997). <em>Republicanism: A Theory of Freedom and Government</em>. Oxford University Press.</li>
+            <li>Rawls, J. (1971). <em>A Theory of Justice</em>. Harvard University Press.</li>
+            <li>Scanlon, T. M. (1998). <em>What We Owe to Each Other</em>. Harvard University Press.</li>
+            <li>Sellars, W. (1956). Empiricism and the philosophy of mind. In <em>Minnesota Studies in the Philosophy of Science</em>, vol. 1, 253–329.</li>
+            <li>Sen, A. (1999). <em>Development as Freedom</em>. Oxford University Press.</li>
+            <li>Strawson, P. F. (1962). Freedom and resentment. <em>Proceedings of the British Academy</em>, 48, 1–25.</li>
+            <li>Tronto, J. C. (1993). <em>Moral Boundaries: A Political Argument for an Ethic of Care</em>. Routledge.</li>
+            <li>Young, I. M. (2011). <em>Responsibility for Justice</em>. Oxford University Press.</li>
+            <li>Zagzebski, L. T. (1996). <em>Virtues of the Mind: An Inquiry into the Nature of Virtue and the Ethical Foundations of Knowledge</em>. Cambridge University Press.</li>
+          </ol>
+        </div>
       </section>
 
       <hr class="sep">
@@ -635,14 +1028,17 @@
       <section id="glossary">
         <h2>Glossary</h2>
         <dl>
-          <div class="definition"><dt>Existence</dt><dd>That something is. A fact about the world, not a value claim about it.</dd></div>
-          <div class="definition"><dt>Moral status</dt><dd>That something’s interests count, or would count if it had them. A claim about consideration, marked by susceptibility, direction, and standing.</dd></div>
-          <div class="definition"><dt>Responsibility</dt><dd>Answerability for consequences, grounded in the capacity to understand, foresee, and influence. A claim about reach.</dd></div>
-          <div class="definition"><dt>Fiduciary responsibility</dt><dd>Responsibility held <em>for</em> another rather than <em>over</em> them; exercised in the other’s interest, not the holder’s.</dd></div>
-          <div class="definition"><dt>Reach</dt><dd>The extent of the consequences an agent’s actions can set in motion. Responsibility scales with reach.</dd></div>
-          <div class="definition"><dt>Cosmic symbiosis</dt><dd>A relation among different forms of existence that preserves each party’s conditions for continued existence and development, without dissolving difference through domination or annihilation.</dd></div>
+          <div class="definition"><dt>Answerability</dt><dd>The obligation to provide reasons, justify decisions, and remain open to examination and revision. Broader than culpability, narrower than responsibility.</dd></div>
+          <div class="definition"><dt>Accountability</dt><dd>The institutional or social arrangements through which answerability can be examined and, where appropriate, enforced.</dd></div>
+          <div class="definition"><dt>Asymmetric caution</dt><dd>The default of presuming capacity where it is uncertain, rather than denying it — because denial of capacity has historically been the mechanism of exclusion.</dd></div>
+          <div class="definition"><dt>Cosmic symbiosis</dt><dd>A regulative ideal of coexistence in which different forms of existence preserve the conditions for one another's continued existence and development while remaining distinct.</dd></div>
+          <div class="definition"><dt>Culpability</dt><dd>Blameworthiness in light of knowledge, intentions, alternatives, and reasonable opportunities to act differently. Narrower than responsibility.</dd></div>
+          <div class="definition"><dt>Fiduciary responsibility</dt><dd>Responsibility held <em>for</em> another rather than <em>over</em> them, exercised in the other's interest and structured by the five features of principal, fiduciary, loyalty, discretion, and accountability.</dd></div>
           <div class="definition"><dt>Graded responsibility</dt><dd>The view that responsibility comes in degrees and can be distributed across multiple agents, rather than being binary.</dd></div>
-          <div class="definition"><dt>Asymmetric caution</dt><dd>The default of presuming capacity where it is uncertain, rather than denying it, because denial of capacity has historically been the mechanism of exclusion.</dd></div>
+          <div class="definition"><dt>Moral status</dt><dd>That something's interests count, or would count if it had them. A claim about consideration, marked by susceptibility, direction, and standing.</dd></div>
+          <div class="definition"><dt>Reach</dt><dd>The extent to which an agent's actions can systematically shape the conditions under which others exercise agency. Assessed through six dimensions: magnitude, duration, scope, foreseeability, control, and asymmetry.</dd></div>
+          <div class="definition"><dt>Reparative responsibility</dt><dd>Obligations to prevent, correct, or remedy adverse outcomes. May arise from causal contribution, control, benefit, institutional position, or special capacity to repair.</dd></div>
+          <div class="definition"><dt>Systematic conditioning</dt><dd>The ongoing structural shaping of another's conditions of agency, distinguished from incidental causal effects.</dd></div>
         </dl>
       </section>
 
@@ -698,7 +1094,7 @@
       <section id="about">
         <h2>About this text</h2>
         <p>This is an independent philosophical essay. It has not been peer reviewed, and it does not claim the authority of an established tradition. It is offered as a framework — a set of distinctions that may be useful for reasoning about responsibility in contexts where capability is growing faster than accountability.</p>
-        <p>The text is deliberately self-contained. It does not assume familiarity with the history of ethics, and it does not cite external sources. Readers who wish to test the framework are invited to apply it to cases the essay does not discuss, and to look for the places where it strains.</p>
+        <p>The text is deliberately self-contained in its argument, though it engages with the work of others (see References). Readers who wish to test the framework are invited to apply it to cases the essay does not discuss, and to look for the places where it strains.</p>
         <div class="note"><strong>Corrections and criticism</strong> are welcome. A framework that cannot survive disagreement was never a framework to begin with.</div>
       </section>
 
@@ -706,7 +1102,7 @@
   </div>
 
   <footer>
-    <p><strong>The Responsibility of Existence</strong> — version 4.1</p>
+    <p><strong>The Responsibility of Existence</strong> — version 16 (Final Consolidated Edition)</p>
     <p>An independent philosophical essay. Published as a static page; no tracking, no external dependencies beyond the optional comment widget.</p>
   </footer>
 </div>
@@ -833,4 +1229,4 @@
 })();
 </script>
 </body>
-  </html>
+</html>     
