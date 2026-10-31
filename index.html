@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Responsibility of Existence — A Reach-Based Account of Answerability, Agency, and Symbiosis</title>
-<meta name="description" content="A relational account of responsibility grounded in reach: capability, answerability, and the fiduciary structure of power.">
+<meta name="description" content="A relational account of responsibility grounded in reach: capability, answerability, the fiduciary structure of power, and structural responsibility.">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#fbfaf6" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#171a18" media="(prefers-color-scheme: dark)">
@@ -68,7 +68,6 @@
 
   .wrap{max-width:1140px;margin:0 auto;padding:0 1.5rem}
 
-  /* ---------- Hero ---------- */
   .hero{padding:4.5rem 0 3rem;border-bottom:1px solid var(--rule);position:relative}
   .hero h1{
     font-family:"Fraunces","Iowan Old Style",Georgia,serif;
@@ -107,11 +106,9 @@
   .btn:hover{border-color:var(--accent);color:var(--accent)}
   .btn--toc{display:none}
 
-  /* ---------- Layout ---------- */
   .layout{display:grid;grid-template-columns:264px minmax(0,1fr);gap:3.5rem;
     align-items:start;padding:3rem 0 5rem}
 
-  /* ---------- TOC ---------- */
   .toc{position:sticky;top:1.5rem;max-height:calc(100vh - 3rem);overflow-y:auto;
     padding-right:.5rem;font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
   .toc__title{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;
@@ -128,7 +125,6 @@
     background:var(--accent-soft);font-weight:600}
   .toc .sub a{padding:.4rem .75rem .4rem 1.55rem;font-size:.8rem;border-bottom:0}
 
-  /* ---------- Article ---------- */
   article{max-width:var(--maxw)}
   article:focus{outline:none}
   section{scroll-margin-top:2rem;margin:0 0 3.2rem}
@@ -156,7 +152,6 @@
   article h3 a:hover, article h4 a:hover, article td a:hover{
     border-bottom-color:var(--accent);color:var(--accent)}
 
-  /* ---------- Abstract ---------- */
   .abstract{
     border-top:2px solid var(--accent);
     border-bottom:1px solid var(--rule);
@@ -166,23 +161,7 @@
     font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;
     color:var(--accent);margin:0 0 .9rem;font-weight:700}
   .abstract p{font-size:.99rem;line-height:1.72;color:var(--text)}
-  .abstract .contributions{
-    display:grid;gap:.5rem 1.4rem;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    margin:1rem 0 0;padding:1rem 0 0;
-    border-top:1px solid var(--rule);
-    list-style:none;
-  }
-  .abstract .contributions li{
-    margin:0;font-size:.94rem;color:var(--text);line-height:1.55;
-    padding-left:1.2rem;position:relative;
-  }
-  .abstract .contributions li::before{
-    content:"§";position:absolute;left:0;top:0;
-    color:var(--accent);font-family:"Fraunces",serif;font-weight:600;
-    font-size:.9rem;opacity:.8}
 
-  /* ---------- Key proposition callout ---------- */
   .key-prop{
     border-left:3px solid var(--accent);
     padding:1.2rem 1.4rem;
@@ -196,14 +175,15 @@
     font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;
     color:var(--accent);font-weight:700;margin:0 0 .6rem;
   }
+  .key-prop[data-label]::before{content:attr(data-label)}
   .key-prop p{
     font-family:"Fraunces","Iowan Old Style",Georgia,serif;
     font-optical-sizing:auto;font-style:italic;
-    font-size:1.06rem;line-height:1.55;margin:0;
+    font-size:1.02rem;line-height:1.55;margin:0 0 .6rem;
   }
-  .key-prop p + p{margin-top:.6rem}
+  .key-prop p:last-child{margin-bottom:0}
+  .key-prop p strong{font-style:normal}
 
-  /* ---------- Pull quotes ---------- */
   blockquote{
     margin:2rem 0;
     padding:.6rem 0 .6rem 1.4rem;
@@ -216,7 +196,6 @@
   blockquote p{margin:0}
   blockquote p:last-child{margin-bottom:0}
 
-  /* ---------- Definition ---------- */
   .definition{
     background:transparent;
     border:0;border-left:2px solid var(--rule-strong);
@@ -229,7 +208,6 @@
   .definition dd{margin:0;font-size:.99rem;line-height:1.62}
   .definition + .definition{margin-top:.7rem}
 
-  /* ---------- Note ---------- */
   .note{
     border:0;border-left:2px solid var(--accent);
     background:var(--bg-alt);
@@ -237,7 +215,6 @@
     padding:.9rem 1.1rem;font-size:.94rem;color:var(--muted);margin:1.4rem 0}
   .note strong{color:var(--text)}
 
-  /* ---------- Cards (only §6 dimensions and §7.6.2 rivals) ---------- */
   .card-grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));margin:1.3rem 0}
   .card{background:var(--bg-elev);border:1px solid var(--rule);border-radius:10px;
     padding:1rem 1.15rem;
@@ -259,7 +236,6 @@
     font-weight:700;
   }
 
-  /* ---------- Table ---------- */
   .table-wrap{overflow-x:auto;margin:1.4rem 0;border-radius:8px;
     border:1px solid var(--rule)}
   table{width:100%;border-collapse:collapse;font-size:.93rem;background:var(--bg-elev)}
@@ -273,7 +249,6 @@
     font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
     text-align:right}
 
-  /* ---------- Ornament divider ---------- */
   hr.sep{border:0;height:auto;margin:3.4rem 0;text-align:center;
     background:transparent;line-height:1;font-size:1.1rem}
   hr.sep::before{
@@ -281,20 +256,17 @@
     color:var(--accent);opacity:.55;letter-spacing:.35em;
     font-family:"Fraunces","Iowan Old Style",Georgia,serif;font-size:1.35rem}
 
-  /* ---------- Glossary two-column ---------- */
   #glossary dl{
     display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));
     gap:1rem;margin:0}
   #glossary dl .definition{margin:0}
   #glossary dl .definition + .definition{margin-top:0}
 
-  /* ---------- References ---------- */
   .references{font-size:.92rem;line-height:1.6;color:var(--muted)}
   .references ol{padding-left:1.4rem}
   .references li{margin:0 0 .55rem}
   .references em{color:var(--text)}
 
-  /* ---------- Contact ---------- */
   .contact-grid{display:grid;gap:1rem;
     grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin:1.6rem 0}
   .contact-card{
@@ -310,7 +282,6 @@
   .giscus-wrap{margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--rule)}
   .giscus-wrap noscript p{color:var(--muted);font-size:.95rem}
 
-  /* ---------- Footer ---------- */
   footer{border-top:1px solid var(--rule);padding:2.5rem 0 4rem;
     font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
     font-size:.85rem;color:var(--muted)}
@@ -328,6 +299,17 @@
   #about p{color:var(--muted);font-style:italic}
   #about .note{font-style:normal}
   #about .note strong{font-style:normal}
+  #about h3{font-style:normal;color:var(--text)}
+
+  .appendix-intro{
+    border-top:2px solid var(--rule-strong);
+    border-bottom:1px solid var(--rule);
+    padding:1.4rem 0;
+    margin-bottom:2rem;
+    font-style:italic;
+    color:var(--muted);
+  }
+  .appendix-intro p{margin:0;font-size:.99rem}
 
   @media (max-width:900px){
     .layout{grid-template-columns:1fr;gap:1.5rem;padding-top:1.5rem}
@@ -378,11 +360,11 @@
     <p class="subtitle">A reach-based account of answerability, agency, and symbiosis.</p>
     <div class="hero-ornament" aria-hidden="true"></div>
     <div class="hero__meta">
-      <span>16 sections</span>
+      <span>16 sections · 2 appendices</span>
       <span class="sep">·</span>
-      <span>≈ 55 min read</span>
+      <span>≈ 60 min read</span>
       <span class="sep">·</span>
-      <span>Version 16 · Final Consolidated Edition</span>
+      <span>Version 19 · Structural-Responsibility Edition</span>
     </div>
   </header>
 
@@ -392,26 +374,32 @@
       <p class="toc__title">Contents</p>
       <ol>
         <li><a href="#abstract">Abstract</a></li>
+        <li><a href="#in-brief">In brief</a></li>
+        <li><a href="#argument">The argument in six steps</a></li>
         <li><a href="#introduction">1. Introduction</a></li>
         <li><a href="#context">2. Philosophical context</a></li>
-        <li><a href="#existence">3. Existence & moral status</a></li>
+        <li><a href="#existence">3. Existence &amp; moral status</a></li>
         <li><a href="#bridge">4. The normative bridge</a></li>
         <li><a href="#limits">5. The limits of reach</a></li>
         <li><a href="#dimensions">6. Reach: six dimensions</a></li>
         <li><a href="#fiduciary">7. Why responsibility is fiduciary</a></li>
         <li class="sub"><a href="#necessity">7.6 The necessity argument</a></li>
-        <li><a href="#concepts">8. Seven concepts</a></li>
-        <li><a href="#protection">9. Protection & non-domination</a></li>
+        <li><a href="#concepts">8. Eight concepts</a></li>
+        <li class="sub"><a href="#structural">8.13 Structural responsibility</a></li>
+        <li><a href="#protection">9. Protection &amp; non-domination</a></li>
         <li><a href="#symbiosis">10. Cosmic symbiosis</a></li>
         <li><a href="#distributed">11. Distributed responsibility</a></li>
+        <li class="sub"><a href="#structural-extends">11.11 Structural responsibility</a></li>
         <li><a href="#tragic">12. Tragic conflict</a></li>
         <li><a href="#conflicting">13. Conflicting claims</a></li>
         <li><a href="#applications">14. Applications</a></li>
-        <li><a href="#objections">15. Objections & limits</a></li>
+        <li><a href="#objections">15. Objections &amp; replies</a></li>
         <li><a href="#conclusion">16. Conclusion</a></li>
+        <li><a href="#appendix-a">Appendix A. Limits and self-assessment</a></li>
+        <li><a href="#appendix-b">Appendix B. Case template &amp; further cases</a></li>
         <li><a href="#references">References</a></li>
         <li><a href="#glossary">Glossary</a></li>
-        <li><a href="#discussion">Discussion & contact</a></li>
+        <li><a href="#discussion">Discussion &amp; contact</a></li>
         <li><a href="#about">About this text</a></li>
       </ol>
     </nav>
@@ -422,17 +410,40 @@
       <section id="abstract">
         <div class="abstract">
           <p class="abstract__title">Abstract</p>
-          <p>This paper develops a relational account of responsibility grounded in the concept of <em>reach</em>: the extent to which an agent's actions systematically determine the conditions under which others can exercise agency.</p>
-          <p>Its central argument is that substantial, sustained, and consequential discretion over another party's conditions of agency generates distinctive obligations of justification, restraint, and accountability. The argument is defended through a normative interpretation of equal standing (§4.1–4.5), supported by a constitutive account of agency among agents (§4.6), and constrained by an explicit account of the conditions under which reach does <em>not</em> generate such obligations (§5).</p>
-          <ul class="contributions">
-            <li>A normative account connecting reach, dependence, equal standing, and answerability — deriving five fiduciary features from the requirements of answerability itself.</li>
-            <li>An argument that the fiduciary structure is the <em>minimal complete</em> specification of answerability, defended against six rivals (§7.6).</li>
-            <li>A distinction between seven concepts routinely conflated: causal, control, responsibility, answerability, accountability, culpability, and reparative responsibility (§8).</li>
-            <li>A partial formalization of reach and distributed responsibility, with a worked case (§11).</li>
-            <li>A pluralistic account of moral consideration and an account of tragic conflict and catastrophic risk (§3, §12–13).</li>
-          </ul>
-          <p style="margin-top:1.2rem;font-size:.93rem;color:var(--muted)">A mid-level normative proposal rather than a complete moral theory. It identifies six failure modes (§15.2), four conditions under which its application should be restricted (§15.3), and three major problems it does not solve (§15.6).</p>
+          <p><strong>The claim.</strong> Substantial, sustained, and consequential discretion over another party's conditions of agency generates distinctive obligations of justification, restraint, and accountability. The paper calls that relation <em>reach</em>, defends it as a normative account of responsibility, and shows that the obligations it generates have the characteristic structure of fiduciary relations.</p>
+          <p><strong>The argument.</strong> The claim is defended through a normative interpretation of equal standing (§4.1–4.5), supported by a constitutive account of agency among agents (§4.6), constrained by an explicit account of the conditions under which reach does <em>not</em> generate such obligations (§5), and defended against six rival specifications of answerability (§7.6). The central contribution is the necessity argument: the fiduciary structure — principal, fiduciary, loyalty, discretion, accountability — is the <em>minimal complete</em> specification of what answerability requires under asymmetric reach.</p>
+          <p><strong>An eighth concept.</strong> Where reach cannot be traced to identifiable agents, the framework introduces <em>structural responsibility</em> (§8.13) — a forward-looking, participatory obligation to contribute to reform of the structures one sustains. This recovers a determinate answer in cases that would otherwise defeat the analysis (§14.2), without displacing liability where liability applies.</p>
+          <p><strong>What it is not.</strong> Not a complete moral theory, not a decision procedure, not a verdict on individual cases. It is a mid-level framework in Beauchamp and Childress's sense, offered as an instrument of analysis.</p>
+          <p><strong>What remains open.</strong> Six failure modes (§A.1), four conditions for restriction (§A.2), a documented case in which the framework fails even with the eighth concept (§14.2), and a list of unresolved problems and known weaknesses (§A.4). These are not footnotes; they are the framework's honesty about its own limits.</p>
         </div>
+      </section>
+
+      <!-- IN BRIEF -->
+      <section id="in-brief">
+        <h2>In brief</h2>
+        <p><strong>What this paper tries to do.</strong> It provides a structured way of reasoning about responsibility when many agents, institutions, and time horizons are involved. It separates things that are routinely conflated: <em>causing</em> something, having <em>control</em> over it, having a <em>task</em>, being <em>answerable</em>, being <em>blameworthy</em>, and being <em>liable</em>. It adds an eighth concept — <em>structural responsibility</em> — for cases in which no identifiable agent can be singled out. And it states four conditions under which a responsibility claim should be limited.</p>
+        <p><strong>What it is not.</strong> Not a complete moral theory. Not a finished decision procedure. Not a verdict on individual cases.</p>
+        <p><strong>Why it is needed.</strong> In practical debates — climate, AI, healthcare, corporate conduct, migration — "responsibility" is used in at least eight distinct senses. This makes disputes undecidable, because the parties are often right in different senses at the same time.</p>
+        <p><strong>How to use it.</strong> Test it against real cases, step by step (Appendix B.1 provides a template). The framework gains credibility by showing both where it works (§14.1) and where it fails even with its full conceptual apparatus (§14.2).</p>
+      </section>
+
+      <!-- ARGUMENT IN SIX STEPS -->
+      <section id="argument">
+        <h2>The argument in six steps</h2>
+        <p>The whole argument of this paper can be summarised as a chain of six claims. Sections 4 and 7 defend them in detail; the steps below are the skeleton on which the rest of the text is flesh.</p>
+
+        <div class="key-prop" data-label="The argument in six steps">
+          <p><strong>1.</strong> Agency is exercised by shaping the conditions under which others act (§4.1, P1).</p>
+          <p><strong>2.</strong> Where one agent <em>systematically</em> shapes another's conditions, that shaping is systematic conditioning — not incidental causation (§4.1, P2; §5).</p>
+          <p><strong>3.</strong> Equal standing requires that systematic conditioning either be attributable to the affected party's own agency or be answerable to them (§4.1, P3–P5).</p>
+          <p><strong>4.</strong> Where attribution fails — because another has played a constitutive role in shaping the conditions — answerability is owed (§4.1, C).</p>
+          <p><strong>5.</strong> Answerability under asymmetric reach requires the fiduciary structure: principal, fiduciary, loyalty, discretion, accountability (§7.1, §7.6).</p>
+          <p><strong>6.</strong> Therefore: those with reach are fiduciaries of those whose conditions they shape. Greater capability generates greater obligation, not greater moral worth (§7.5).</p>
+        </div>
+
+        <p>Where reach cannot be traced to identifiable agents, steps 1–6 have no application. For those cases the paper adds an eighth concept — structural responsibility (§8.13) — which is forward-looking rather than backward-looking, participatory rather than causal, and shared rather than distributed. It fills a gap; it does not displace the six-step argument.</p>
+
+        <p>The remainder of the paper does three things. It defends steps 1–6 against objections (§5, §7.6, §15), distinguishes the concepts on which they depend (§8), and applies them to concrete cases (§14). Appendices A and B contain the self-assessment and the case-analysis tools — material that matters, but that would obscure the argument if it were woven into it.</p>
       </section>
 
       <!-- 1 -->
@@ -457,7 +468,7 @@
         <p>Three methodological commitments guide the argument.</p>
         <p><strong>First, the framework is coherentist rather than foundationalist.</strong> It seeks reflective equilibrium between three considerations: the structural features of agency, the normative importance of equal standing, and considered judgments about cases. None is treated as an unquestionable foundation.</p>
         <p><strong>Second, the framework makes claims that can be challenged.</strong> Its arguments can be tested against counterexamples, competing accounts, and cases in which its conclusions appear implausible. Its normative argument is vulnerable to counterexamples in which systematic conditioning appears not to generate answerability — a vulnerability addressed directly in §5.</p>
-        <p><strong>Third, the framework states its limits.</strong> It identifies its failure modes (§15.2), conditions under which its application should be restricted (§15.3), unresolved problems (§15.6), and the difference between answerability as a normative relation and answerability as an institutional practice (§8.10).</p>
+        <p><strong>Third, the framework states its limits.</strong> It identifies its failure modes (§A.1), conditions under which its application should be restricted (§A.2), unresolved problems (§A.4), and the difference between answerability as a normative relation and answerability as an institutional practice (§8.10).</p>
 
         <h3>1.3 Scope and terminology</h3>
         <p>The paper uses <em>capability</em> rather than <em>intelligence</em> as its central term. Intelligence may contribute to capability, but capability is broader. Institutions, technological systems, collective agents, and ecological processes can shape conditions in ways that matter to the framework without being appropriately described as intelligent in the ordinary cognitive sense.</p>
@@ -476,7 +487,7 @@
         <p>Goodin (1985) grounds responsibility in vulnerability and dependency. This is close to the present framework, but the emphasis differs. Goodin's account begins with the vulnerable party; the present framework begins with the reach of the agent whose actions shape another's conditions. Reach may capture cases involving diffuse, numerous, or temporally distant affected parties who are not dependent in the ordinary interpersonal sense.</p>
 
         <h3>2.3 Young</h3>
-        <p>Young (2011) grounds responsibility in participation in structural processes that produce injustice. The present framework grounds answerability in systematic reach, whether or not injustice has already occurred. The cost is that the framework cannot simply borrow Young's political diagnosis to explain why structural participation generates responsibility. It must provide its own normative argument (§4).</p>
+        <p>Young (2011) grounds responsibility in participation in structural processes that produce injustice. The present framework grounds answerability in systematic reach, whether or not injustice has already occurred. The cost is that the framework cannot simply borrow Young's political diagnosis to explain why structural participation generates responsibility. It must provide its own normative argument (§4). Where reach cannot be located in identifiable agents, the framework introduces structural responsibility as an eighth concept (§8.13), whose relation to Young's social-connection model is defended at length there.</p>
 
         <h3>2.4 Care ethics</h3>
         <p>Tronto (1993), Held (2006), and Noddings (1984) locate important aspects of responsibility in relational responsiveness and care. The present framework does not require an agent to experience care or emotional responsiveness; it can therefore apply to institutions and systems that cannot care in the ordinary psychological sense. Its debt to care ethics lies primarily in the content of responsibility. §7.6.2 shows that care ethics, without the fiduciary structure, is incomplete as a specification of answerability under asymmetric reach.</p>
@@ -692,7 +703,6 @@
         <h3>7.5 A consequence worth stating</h3>
         <p>Greater capability does not generate greater moral worth. A being with vast capability is not, for that reason, worth more than a being with modest capability. It is capable of affecting more, and therefore may have more extensive obligations. Its responsibility is greater because its reach is greater, not because its interests count for more.</p>
 
-        <!-- 7.6 The necessity argument -->
         <h3 id="necessity">7.6 The necessity objection: why the fiduciary structure is the minimal complete specification</h3>
         <p>If the fiduciary structure is merely one possible specification of answerability among several equally adequate ones, then the derivation in §7.1 establishes at most that the fiduciary structure is <em>available</em>, not that it is <em>required</em>. This section argues that the five requirements cannot be jointly satisfied by any specification that lacks the fiduciary structure.</p>
 
@@ -781,6 +791,124 @@
 
         <h3>8.11 Capability borrowed is responsibility retained</h3>
         <p>A system may produce consequential outcomes without possessing the intentions or understanding required for ordinary moral blame. Responsibility must therefore be examined across the wider arrangement of designers, operators, institutions, and decision-makers. The existence of a system does not automatically eliminate the responsibility of those capable of governing its use.</p>
+
+        <h3>8.12 Summary table: eight concepts and their test questions</h3>
+        <p>The distinction developed in this section is not merely verbal. Each concept carries its own criteria, and each can be applied without the others. The table below summarises the operative difference. An <em>answerability claim</em> that cannot be restated in one of these rows is, on the framework's account, under-specified.</p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Concept</th>
+                <th>Definition</th>
+                <th>Test question</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Causal responsibility</td>
+                <td>Contribution to producing an outcome.</td>
+                <td>Would the outcome have differed without the contribution?</td>
+              </tr>
+              <tr>
+                <td>Control responsibility</td>
+                <td>Practical capacity to initiate, modify, prevent, or reverse relevant conditions.</td>
+                <td>Could the agent have done otherwise, given its position?</td>
+              </tr>
+              <tr>
+                <td>Responsibility (as task)</td>
+                <td>Obligations attached to a position, action, capacity, or relationship.</td>
+                <td>Who has the task of handling this?</td>
+              </tr>
+              <tr>
+                <td>Answerability</td>
+                <td>Obligation to provide reasons, justify decisions, and remain open to revision.</td>
+                <td>To whom is an account owed, and by whom?</td>
+              </tr>
+              <tr>
+                <td>Accountability</td>
+                <td>Institutional or social arrangements through which answerability is examined and enforced.</td>
+                <td>Is there a forum, procedure, or addressee for the account?</td>
+              </tr>
+              <tr>
+                <td>Culpability</td>
+                <td>Blameworthiness in light of knowledge, intentions, alternatives, and opportunities.</td>
+                <td>Is the agent sufficiently free, informed, and capable to be blamed?</td>
+              </tr>
+              <tr>
+                <td>Reparative responsibility</td>
+                <td>Obligations to prevent, correct, or remedy adverse outcomes.</td>
+                <td>Is there a basis for repair, independent of blame?</td>
+              </tr>
+              <tr>
+                <td>Structural responsibility</td>
+                <td>Forward-looking obligation to contribute to reform of a structural process in which one participates.</td>
+                <td>Does the structure systematically shape conditions, and does the agent have capacity to contribute to reform?</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="note"><strong>Rule of application.</strong> No responsibility ascription is complete until it specifies <em>which</em> of the eight concepts is being claimed. A claim that conflates two of them is, in the framework's terms, undecidable. This is the single most practically useful output of the paper.</div>
+
+        <!-- 8.13 Structural responsibility -->
+        <h3 id="structural">8.13 Structural responsibility</h3>
+        <p>The seven concepts above assume that responsibility can be located in an identifiable agent or in an institution with identifiable decision procedures. Where it cannot — where reach is distributed across many agents, none of whom has a determinable share, and there is no addressee for answerability — the framework lacks a category. §14.2 documents this directly. This section proposes the missing category.</p>
+
+        <div class="definition">
+          <dt>Structural responsibility</dt>
+          <dd>The forward-looking obligation to contribute to the reform or mitigation of a structural process in which one participates, where that process systematically shapes the conditions of agency of others in ways that cannot be traced to identifiable individual contributions.</dd>
+        </div>
+
+        <h4>Five features</h4>
+        <ol>
+          <li><strong>Forward-looking, not backward-looking.</strong> The question is <em>what should be done about this structure?</em>, not <em>who caused this?</em></li>
+          <li><strong>Participatory, not causal.</strong> It applies to those who sustain or benefit from the structure, whether or not their contribution is causally traceable.</li>
+          <li><strong>Shared, not distributed.</strong> It cannot be portioned out. It is held jointly, with each participant having an obligation to contribute to reform proportioned to capacity.</li>
+          <li><strong>Does not generate culpability.</strong> Participants in structural responsibility are not blameworthy for the structure.</li>
+          <li><strong>Generates answerability only at decision points.</strong> Where the structure has identifiable decision-makers, those decision-makers become answerable in the ordinary way (§7). Where it does not, structural responsibility is an obligation without a specific addressee — which is exactly what §8.10 predicts a normative relation can be.</li>
+        </ol>
+
+        <h4>Five conditions for application</h4>
+        <ol>
+          <li>The structural process must systematically shape conditions of agency.</li>
+          <li>Participation must be non-trivial — the agent must sustain or benefit from the structure.</li>
+          <li>The structure must be identifiable <em>as a structure</em> — there must be some way of describing it that is not a mere aggregate of individual actions.</li>
+          <li>The agent must have capacity to contribute to reform.</li>
+          <li>No ordinary reach-based answerability may already cover the case. Structural responsibility fills a gap; it does not displace the seven other concepts.</li>
+        </ol>
+
+        <h4>Three limiting conditions</h4>
+        <ol>
+          <li>The category must not be used to obscure ordinary reach-based responsibility.</li>
+          <li>It must not be used to attribute blame.</li>
+          <li>It must not be used to demand unlimited forward-looking obligation — the obligation is to contribute to reform, proportioned to capacity.</li>
+        </ol>
+
+        <h4>Relation to Young</h4>
+        <p>Young's (2011) social-connection model is the primary source for this category. Her central claim is that responsibility for structural injustice is not about blame or liability but about participation. The framework's structural responsibility belongs to the same family. This has led to the obvious objection — that §8.13 is Young's model under another name — and the objection deserves a direct answer.</p>
+
+        <p><strong>The objection.</strong> Structural responsibility, as defined above, adds nothing to Young's social-connection model. All five features and all five conditions are already present in Young. Calling it an "eighth category" is terminological repackaging, not a new contribution.</p>
+
+        <p><strong>Reply, first layer: what Young does not do.</strong> Young's model is a <em>free-standing</em> political theory of responsibility for structural injustice. It stands alone: it replaces the liability model for a certain class of cases and claims to be the correct understanding of those cases. §8.13 is not free-standing. It is one of eight categories, with an explicit transition rule (§11.11) and an explicit relation to the seven other concepts of §8. The difference is not cosmetic: a free-standing model must carry the whole analysis itself, whereas a situated category need only carry the part of the analysis the other seven do not cover.</p>
+
+        <p>This is the weakest of the three replies, and it should be said plainly. A critic may reply that architectural situation is a property of this paper, not of the category — Young's model <em>could</em> be situated in the same way. That reply is partly correct, which is why a second layer is needed.</p>
+
+        <p><strong>Reply, second layer: what Young cannot do.</strong> Young's model says nothing about what happens when the structure <em>has</em> identifiable decision points. She is not uninterested in the question, but her model is not built to answer it — it is built to explain why participation in structures generates responsibility <em>even when</em> no individual is at fault. Feature 5 of §8.13 does something Young's model does not: it ties structural responsibility to the framework's account of answerability. Where the structure has decision points, decision-makers become answerable in the ordinary way (§7). Where it does not, structural responsibility is an obligation without a specific addressee — which §8.10 has already predicted a normative relation can be.</p>
+
+        <p>This is a real difference, not a terminological one. Young's model treats structural injustice as a homogeneous category. §8.13 treats structural responsibility as a category with <em>internal structure</em> — one that can coexist with ordinary answerability in the same case, and that can therefore be used in cases where Young's model can only say "this is structural".</p>
+
+        <p><strong>Reply, third layer: compatibility, not competition.</strong> §8.13 is not formulated as a <em>competing</em> model to Young. It is formulated as a <em>complement</em>: a situating of what Young has already shown, within a framework that needs to distinguish eight different concepts. If Young is right — and she probably is — then what she says about structural injustice is correct. §8.13 does not add a new theory of injustice. It adds a <em>place</em> in a framework where Young's insight can coexist with reach-based responsibility without either swallowing the other.</p>
+
+        <p>This is not a retreat. It is a clarification of what the category claims. A critic who says "this is Young" is right on the substance and wrong on the conclusion: yes, it builds on Young, and no, that does not make it redundant — because the framework needs a place where Young's insight can live <em>together with</em> the other seven concepts.</p>
+
+        <p><strong>What falls if the critic is right.</strong> If a critic still holds that §8.13 adds nothing to Young, what is lost?</p>
+        <ul>
+          <li>§14.2's recovery falls in part. If §8.13 is Young under another name, migration remains a case in which the framework fails with its own categories — the eighth concept does not rescue §14.2, it merely borrows an answer from another tradition.</li>
+          <li>§11.11 stands. The transition rule — §11.1 applies when agents are identifiable, §8.13 when they are not — is independent of whether §8.13 is original. It is an architectural observation about the framework, not a theoretical contribution.</li>
+          <li>The §8.12 table stands. That structural responsibility is one of eight concepts with its own test question is an operational point, not a theoretical one.</li>
+        </ul>
+        <p>The defence of §8.13 is therefore partly independent of whether the category is original. A critic who is right that it is Young is wrong that it is redundant.</p>
+
+        <div class="note"><strong>Verification required before publication.</strong> The characterisation of Young in §2.3 and in this subsection is based on the standard reading of <em>Responsibility for Justice</em> (2011), not on a fresh reading of the primary source. Four claims in particular require verification: (i) that Young grounds responsibility in participation in structural processes; (ii) that her model is free-standing in the sense claimed above; (iii) that she does not make the answerability connection attributed to §8.13; (iv) that "social connection" is her own term. Claim (iii) is the most vulnerable, because it is a claim about the <em>absence</em> of an argument, and absence is harder to establish than presence.</div>
       </section>
 
       <!-- 9 -->
@@ -869,6 +997,11 @@
         <h3>11.10 A gesture toward systemic responsibility</h3>
         <p>An institution is not merely an aggregate of individual agents. It is a structured arrangement of roles, procedures, information flows, and decision points. When such an arrangement systematically shapes the conditions of others, the institution itself can be treated as a locus of answerability — not because it has intentions or experiences, but because its structure determines the conditions under which individuals act.</p>
         <p>The conditions of this claim are strict. An institution can be a locus of answerability only if it has identifiable decision procedures, can give an account of those procedures through identifiable spokespersons or records, and can revise those procedures in response to contestation. Where these conditions fail, the framework's account of institutional answerability is incomplete.</p>
+
+        <h3 id="structural-extends">11.11 How structural responsibility extends distributed responsibility</h3>
+        <p>§11.1–11.10 concern cases in which multiple identifiable agents contribute to an outcome, and in which the framework's task is to distribute answerability among them. §8.13 introduces a different case: where the relevant reach cannot be distributed because it cannot be traced, but where participation in a structure nonetheless generates obligation.</p>
+        <p>The two are not in competition. Distributed responsibility (§11.1) applies where the agents and their contributions are identifiable. Structural responsibility (§8.13) applies where they are not. The distinction is not a matter of degree — it is a difference in kind. A case that cannot be handled by §11.1 is not a harder case of distribution; it is a case of a different type.</p>
+        <p>The consequence for practice is that a framework user should ask, at step 3 of the template (Appendix B.1), whether causal contribution can be identified at all. If it can, §11 applies. If it cannot, §8.13 applies. The two answers will often coexist in the same case: identifiable decision-makers may be answerable in the ordinary way while the wider structure in which they operate is a matter of structural responsibility.</p>
       </section>
 
       <!-- 12 -->
@@ -912,60 +1045,69 @@
       <!-- 14 -->
       <section id="applications">
         <h2><span class="num">14.</span>Applications</h2>
+        <p>A framework earns its keep by what it can do with cases. The three below are chosen for a specific reason: the first shows the framework working as intended, the second shows it initially failing and then partially recovering through the eighth concept, and the third shows it extending to a domain for which it was not designed. Additional worked cases, together with the template used to produce them, are in Appendix B.</p>
 
-        <h3>14.1 Environmental responsibility</h3>
-        <p>Environmental systems demonstrate how reach can extend across generations and beyond immediate human relationships. Where credible evidence indicates a risk of severe and irreversible ecological damage, the burden of justification should fall heavily on those proposing the potentially destructive action.</p>
+        <h3>14.1 A case in which the framework works: healthcare prioritisation</h3>
+        <p><strong>The case.</strong> A regional health authority must allocate scarce critical-care capacity between two patient groups during a sustained surge. Politicians set funding. Officials draft guidelines. Clinicians apply them at the bedside. No single agent controls the outcome.</p>
+        <p><strong>Reach.</strong> Politicians have high reach over capacity, low reach over bedside application. Officials have moderate reach over both. Clinicians have low reach over capacity, high reach over the specific decision. Asymmetry is high for patients, low for politicians.</p>
+        <p><strong>Answerability.</strong> Politicians answer to citizens through elections; officials to ministers through administrative hierarchy; clinicians to patients and professional bodies. Each form of answerability has a distinct addressee and a distinct forum — which is exactly what §8.10 requires.</p>
+        <p><strong>Culpability.</strong> A clinician following a legitimate guideline should have low culpability. The framework cleanly separates culpability from responsibility as task, and locates accountability at the level where discretion is actually exercised.</p>
+        <p><strong>Verdict.</strong> The framework works. The clinician should not bear the moral weight of a system-level allocation decision she did not design; the politician should not evade the democratic accountability of the framework she set. <em>This case is the framework's benchmark — the strongest application in the paper.</em></p>
 
-        <h3>14.2 Advanced artificial intelligence</h3>
-        <p>The framework cautions against two symmetrical mistakes: inferring moral status from capability, and inferring the absence of responsibility from the absence of moral status. Both inferences fail. The designers, deployers, operators, and institutions governing a capable system may retain responsibility because their reach is extended through it.</p>
+        <h3>14.2 A case in which the framework initially fails: migration</h3>
+        <p><strong>The case.</strong> A regional refugee crisis requires coordinated reception across several states. No single state can absorb the flow alone; each has partial capacity and partial willingness.</p>
+        <p><strong>Reach.</strong> Distributed and non-traceable. No state is the sole cause of the crisis; many contribute through foreign policy, arms exports, and economic arrangements. The relevant reach cannot be assigned to identifiable agents in identifiable proportions.</p>
+        <p><strong>Answerability.</strong> Diffuse. There is no single addressee to whom an account is owed, and no forum capable of enforcing it. The regional body is weak; the international legal framework is under-enforced.</p>
+        <p><strong>Initial verdict.</strong> With the seven concepts of §8, the framework <strong>fails</strong> here. Its categories assume that reach and answerability can be located in identifiable agents. Where they cannot, the framework has nothing determinate to say.</p>
+        <p><strong>Recovery through §8.13.</strong> The structural-responsibility category recovers a partial answer. States participate in the international structure that produces refugee crises: through arms exports, economic arrangements, foreign policy, and the maintenance of a weak regional framework. Each has capacity to contribute to reform. Each therefore has a forward-looking obligation to contribute to reform, proportioned to capacity. No state is culpable for the crisis; each is structurally responsible. The regional body, to the extent it has identifiable decision points, becomes answerable in the ordinary way.</p>
+        <p><strong>What remains unresolved.</strong> The obligation is diffuse. "Contribute to reform" is not a determinate share. Structural responsibility does not generate liability, and it does not resolve the question of what a fair distribution of reception would be. §14.2 therefore remains a <em>partial</em> failure: the eighth concept recovers a determinate answer at the level of obligation, but not at the level of allocation. This is acknowledged in Appendix A.4.</p>
+        <p><strong>What this shows.</strong> The framework's categories are not fixed. Where a case defeats them, the right response is to ask what category is missing — not to declare the case unanalysable. §8.13 is the result of asking that question about §14.2.</p>
 
-        <h3>14.3 Artificial moral status</h3>
-        <p>The framework does not assume that current AI systems possess subjective experience or moral status. It also rejects the principle that artificial origin would automatically exclude a future entity from moral consideration. If credible evidence emerged that an artificial system possessed morally relevant experience, interests, or agency, its status would require serious examination.</p>
-
-        <h3>14.4 Autonomous vehicles and decision systems</h3>
-        <p>Consider the design of an autonomous vehicle facing an unavoidable collision. The framework does not resolve the trolley-problem variant. It addresses a different question: who is answerable for the conditions under which the decision is made?</p>
-        <p>The designer has reach over the decision architecture. The deployer has reach over operating conditions. The beneficiary may have reach through decisions to purchase, commission, or deploy. None of these parties automatically owns the entire outcome. Their answerability must be assessed according to their respective reach profiles (§11).</p>
-        <p>The framework's central question is not simply "which trade-off is correct?" It is also: <strong>"Who must be able to answer for the conditions under which this trade-off was made, and to whom?"</strong> That question can have a meaningful answer even where the underlying moral dilemma remains unresolved.</p>
+        <h3>14.3 A case in which the framework is tested: AI systems and the trolley problem</h3>
+        <p><strong>The case.</strong> An autonomous vehicle faces an unavoidable collision. The classical trolley-problem question — which trade-off is correct — is not what the framework addresses. The framework addresses a different question: <em>who is answerable for the conditions under which the decision is made?</em></p>
+        <p><strong>Reach.</strong> The designer has reach over the decision architecture. The deployer has reach over operating conditions. The beneficiary may have reach through decisions to purchase, commission, or deploy. None of them owns the entire outcome.</p>
+        <p><strong>Answerability.</strong> The designer is answerable to the deployer and, indirectly, to affected parties. The deployer is answerable to the operator and, via regulation, to the public. The beneficiary's answerability is mediated by the terms on which it acquires the system.</p>
+        <p><strong>Verdict.</strong> The framework does <em>not</em> resolve the underlying moral dilemma. It resolves a different question: <em>who must be able to answer for the conditions under which this trade-off was made, and to whom?</em> That question can have a meaningful answer even where the dilemma remains unresolved.</p>
+        <p><strong>What this shows.</strong> The framework is not a moral algorithm; it is a discipline for locating accountability when substantive moral questions remain open. That is not a weakness — it is the appropriate scope of a framework of this kind.</p>
       </section>
 
       <!-- 15 -->
       <section id="objections">
-        <h2><span class="num">15.</span>Objections, limitations, and unresolved questions</h2>
+        <h2><span class="num">15.</span>Objections and replies</h2>
+        <p>Three objections are strong enough that the framework cannot proceed without answering them. The epistemic-justice objection concerns who is entitled to make the relevant judgments; the consequentialist objection concerns whether the framework is answering the right question; the political-realist objection concerns whether normative analysis of this kind can matter at all. A further set of objections — care ethics, virtue ethics, non-ideal theory — is considered in Appendix A.3, together with the failure modes (§A.1) and the four conditions under which the framework's application should be restricted (§A.2).</p>
 
-        <h3>15.1 The epistemic justice objection</h3>
-        <p>If judgments about capability are made by those already in positions of power, the framework risks reproducing the power structures it seeks to examine. Judgments about capability and reach must remain contestable. This does not eliminate the risk of circularity or domination. Where the requirement of contestability cannot be met, the framework's application may need to be suspended or restricted.</p>
+        <h3>15.1 The epistemic-justice objection</h3>
+        <p><strong>Objection.</strong> The framework depends on judgments about capability, foreseeability, and reach. These judgments will be made by those already in positions of power, and they will tend to reproduce the power structures they purport to examine. The framework is therefore structurally biased toward the powerful.</p>
+        <p><strong>Reply.</strong> The objection is correct as far as it goes, and it is why the framework treats contestability as a structural requirement rather than a procedural nicety. Judgments about capability and reach must remain open to challenge; where they cannot be, the framework's application should be suspended (§A.2). The <em>asymmetric caution</em> principle (Glossary) is the further requirement that capacity should be presumed where it is uncertain, because denial of capacity has historically been the mechanism of exclusion.</p>
+        <p><strong>Residual cost.</strong> Contestability does not eliminate the risk of circularity; it mitigates it. The framework's claim is not that epistemic justice is achieved, but that it is a condition of legitimate application.</p>
 
-        <h3>15.2 Six failure modes</h3>
+        <h3>15.2 The consequentialist objection</h3>
+        <p><strong>Objection.</strong> The framework distributes responsibility by relations and roles but ignores aggregate outcomes. In practice it is the sum of consequences that matters, not the assignment of formal answerability. A framework that does not weight outcomes cannot guide action.</p>
+        <p><strong>Reply.</strong> The framework is not a decision procedure for cases; it is an instrument for allocating answerability when cases are contested. It can be combined with consequentialist analysis at step 4 of the template (Appendix B.1), where control and capacity are assessed. The combination is not a concession; it is what a mid-level framework is for.</p>
+        <p><strong>Residual cost.</strong> The framework must say explicitly how it is to be combined with consequentialist reasoning. If it does not, it will function in practice as a normative ritual that has no purchase on the cases that matter most. §A.1 identifies this as one of the six failure modes.</p>
+
+        <h3>15.3 The political-realist objection</h3>
+        <p><strong>Objection.</strong> Responsibility is already distributed by power. A normative framework that does not analyse power risks legitimising existing distributions by redescribing them as "reach". On this view, the framework's claim to locate answerability is illusory: the powerful will always be able to shape the criteria by which their own reach is assessed.</p>
+        <p><strong>Reply.</strong> This is the framework's weakest point with respect to the social sciences, and it should be acknowledged as such. But the reply is not empty. First, the framework is explicitly normative: it is a proposal about what <em>should</em> be answerable, not a description of what currently is. Second, the framework incorporates a power criterion into its account of reach — asymmetry (Dimension 6) is a measure of power. Third, §A.2's conditions for restriction are designed precisely to prevent the framework from being used to legitimise existing arrangements.</p>
+        <p><strong>Residual cost.</strong> The reply is partial. A full response would require the framework to integrate an account of how normative claims about reach are themselves shaped by existing power — a task beyond the scope of this paper, and acknowledged as one of the three unresolved problems (§A.4).</p>
+
+        <h3>15.4 Falsifiability: how the framework can be tested</h3>
+        <p>The framework is not an empirical theory, and it cannot be falsified in the way a scientific hypothesis can. But it can be <em>tested</em>, in the weaker sense that matters for normative proposals. Three kinds of test are available:</p>
         <ol>
-          <li><strong>Holism abused.</strong> Talk of symbiosis and interdependence can justify control in the name of a larger whole.</li>
-          <li><strong>Capability hard to assess.</strong> Judgments about understanding, control, and foreseeability are uncertain and may reflect the interests of those making them.</li>
-          <li><strong>Not fully operationalized.</strong> The partial formalization makes choices explicit and demonstrates them on a test case, but it has not been validated across a broad range of cases.</li>
-          <li><strong>Licensing control as care.</strong> Historically, paternalistic power has often justified itself through claims of superior knowledge or capability. The framework's response is the constraints on protection (§9.5).</li>
-          <li><strong>Privileging cognition.</strong> By emphasizing understanding and foreseeability, the framework may undervalue forms of influence that operate through ecological, collective, or distributed processes.</li>
-          <li><strong>Emergent systems.</strong> Where an outcome is produced by a sociotechnical system whose behavior cannot be traced to identifiable agents, the framework lacks a complete account.</li>
+          <li><strong>Counterexample tests.</strong> Cases in which the framework yields a verdict that conflicts with a broad and stable considered judgment.</li>
+          <li><strong>Discrimination tests.</strong> Cases that ought to be distinguished but that the framework treats identically, or cases that ought to be treated identically but that the framework distinguishes.</li>
+          <li><strong>Failure-mode tests.</strong> Cases in which one of the six failure modes (§A.1) is triggered in practice, and in which the framework has no internal resource for detecting the failure.</li>
         </ol>
+        <p>§14.2 documents a case of the first and second kind (migration). Appendix B.3 documents a case of the third (market power in supply chains). The framework's own claim to self-awareness depends on this kind of documentation being undertaken openly rather than being avoided.</p>
 
-        <h3>15.3 Four conditions for restriction</h3>
-        <p><strong>First,</strong> where epistemic contestation is impossible. <strong>Second,</strong> where the interests of a silent principal are genuinely unknowable. <strong>Third,</strong> where reach analysis is used to displace legitimate political contestation. <strong>Fourth,</strong> where people are reduced to units in a distribution.</p>
-
-        <h3>15.6 What the framework does not solve</h3>
-        <p><strong>First, the specific motivation problem.</strong> The framework explains why answerability arises and offers a partial account of why agents might be motivated to fulfil it, but does not provide a complete account of moral motivation.</p>
-        <p><strong>Second, the aggregation problem.</strong> It proposes a constraint and a partial formalization, but not a validated procedure for distributing responsibility across complex arrangements.</p>
-        <p><strong>Third, the systemic problem.</strong> It does not provide a complete account of responsibility where outcomes emerge from systems that cannot be adequately traced to identifiable agents.</p>
-
-        <h3>15.7 The virtue of answerability</h3>
-        <p>Answerability can be understood not only as an obligation but as a <strong>virtue</strong>: a form of excellence in the exercise of agency among agents. An agent who possesses the virtue:</p>
-        <ol>
-          <li><strong>Anticipates</strong> the consequences of her reach before acting, not merely after.</li>
-          <li><strong>Prepares</strong> to give an account of her decisions to those affected.</li>
-          <li><strong>Receives</strong> contestation without defensiveness.</li>
-          <li><strong>Revises</strong> her conduct in response to justified contestation.</li>
-          <li><strong>Distinguishes</strong> between answerability owed to those affected and accountability owed to third parties.</li>
-        </ol>
-        <p>These features correspond to the structure of answerability in §7. The virtue response does not establish that every agent will be motivated to develop it. It claims only that the exercise of the virtue is a form of excellence, and that agents who care about excellence have reason to develop it.</p>
-
-        <h3>15.8 The critical theory objection</h3>
-        <p>A framework that grounds responsibility in reach may still rationalize existing power. The response is partial: the account of answerability is structural, the account of protection requires constraints against domination, the epistemic-justice requirement makes judgments contestable, and the account of legitimate intervention requires attention to self-direction, proportionality, and revisability. None of these guarantees that the framework cannot be misused.</p>
+        <h3>15.5 What would count as a refutation</h3>
+        <p>The framework would be seriously undermined if:</p>
+        <ul>
+          <li>A systematic class of cases could be shown in which sustained, consequential, and asymmetrical reach does <em>not</em> generate any answerability whatsoever; or</li>
+          <li>It could be shown that the fiduciary structure is <em>not</em> the minimal complete specification, and that a rival that genuinely lacks the five requirements nevertheless satisfies all of them under another name; or</li>
+          <li>It could be shown that the framework cannot, even in principle, be applied in the second-best scenarios in which responsibility claims are actually made.</li>
+        </ul>
+        <p>None of these has been shown. But the framework's defence is therefore conditional, not absolute, and should be stated as such.</p>
       </section>
 
       <!-- 16 -->
@@ -973,7 +1115,7 @@
         <h2><span class="num">16.</span>Conclusion</h2>
         <p>The framework can be stated in a sentence: <strong>capability extends reach, reach shapes conditions, and where those conditions are systematically shaped by another, answerability arises — in a fiduciary form.</strong></p>
         <p>Responsibility is not a measure of worth. It is a normative consequence of determining, to a significant degree, the conditions under which others exercise agency.</p>
-        <p>The framework is not a complete solution to the many-hands problem. It offers a constraint, a partial formalization, and a gesture toward institutional answerability. It is not a complete theory of motivation. It is not a substitute for politics, law, or institutional legitimacy.</p>
+        <p>The framework is not a complete solution to the many-hands problem. It offers a constraint, a partial formalization, and a gesture toward institutional answerability. Where reach cannot be located in identifiable agents, it adds an eighth concept — structural responsibility — which is forward-looking rather than backward-looking, participatory rather than causal, and shared rather than distributed. That concept does not resolve allocation questions; it recovers a determinate answer at the level of obligation.</p>
         <p>Its central demand is modest but consequential:</p>
 
         <div class="key-prop">
@@ -988,18 +1130,126 @@
 
       <hr class="sep">
 
+      <!-- APPENDIX A -->
+      <section id="appendix-a">
+        <h2>Appendix A. Limits and self-assessment</h2>
+        <div class="appendix-intro">
+          <p>This appendix collects material that belongs to the paper's honesty about itself: the failure modes, the conditions under which it should not be applied, the objections not strong enough to require a full section, and the problems it does not solve. It is placed here rather than in the main argument because the main argument should not be interrupted by its author's misgivings. But the misgivings are real, and they should be read.</p>
+        </div>
+
+        <h3 id="appendix-a-1">A.1 Six failure modes</h3>
+        <ol>
+          <li><strong>Holism abused.</strong> Talk of symbiosis and interdependence can justify control in the name of a larger whole.</li>
+          <li><strong>Capability hard to assess.</strong> Judgments about understanding, control, and foreseeability are uncertain and may reflect the interests of those making them.</li>
+          <li><strong>Not fully operationalized.</strong> The partial formalization makes choices explicit and demonstrates them on a test case, but it has not been validated across a broad range of cases.</li>
+          <li><strong>Licensing control as care.</strong> Historically, paternalistic power has often justified itself through claims of superior knowledge or capability. The framework's response is the constraints on protection (§9.5).</li>
+          <li><strong>Privileging cognition.</strong> By emphasizing understanding and foreseeability, the framework may undervalue forms of influence that operate through ecological, collective, or distributed processes.</li>
+          <li><strong>Emergent systems.</strong> Where an outcome is produced by a sociotechnical system whose behavior cannot be traced to identifiable agents, the framework lacks a complete account. (Structural responsibility, §8.13, is the partial response.)</li>
+        </ol>
+
+        <h3 id="appendix-a-2">A.2 Four conditions for restriction</h3>
+        <p>The framework's application should be restricted under the following conditions. These are not exceptions to the argument; they are markers of where the argument cannot yet be responsibly extended.</p>
+        <ol>
+          <li><strong>Where epistemic contestation is impossible.</strong> If the judgments on which the framework depends cannot be challenged by those affected, the framework becomes an instrument of domination rather than a discipline of answerability.</li>
+          <li><strong>Where the interests of a silent principal are genuinely unknowable.</strong> Where future generations or non-human entities are affected but their interests cannot be responsibly inferred, the framework should not be used to claim authority over them.</li>
+          <li><strong>Where reach analysis is used to displace legitimate political contestation.</strong> The framework is an instrument of analysis, not a substitute for democratic deliberation.</li>
+          <li><strong>Where people are reduced to units in a distribution.</strong> The partial formalization in §11 is a tool, not a measure of human worth. Applications that treat numerical output as the answer have failed to use the framework as intended.</li>
+        </ol>
+
+        <h3 id="appendix-a-3">A.3 Further objections</h3>
+
+        <h4>Care ethics</h4>
+        <p><strong>Objection.</strong> The framework formalises relations that in practice are dependencies, forms of care, and asymmetries. It risks making care responsibility invisible, or treating it as a special case of a general structure that was built without it.</p>
+        <p><strong>Reply.</strong> Care ethics is treated seriously in §2.4 and §7.6.2. The framework does not deny that relational responsiveness matters. It claims that the fiduciary structure <em>contains</em> the requirements that care ethics rightly insists on, and adds the institutional conditions that care ethics alone cannot supply. A framework that tried to capture the phenomenology of care would cease to be a framework and become a phenomenology; the two are complements, not substitutes.</p>
+
+        <h4>Virtue ethics</h4>
+        <p><strong>Objection.</strong> Responsibility is a virtue — a form of excellence in the exercise of agency — not a structural relation. On this view the framework has mistaken a character trait for a juridical structure.</p>
+        <p><strong>Reply.</strong> The framework accepts the virtue dimension. Answerability can be understood both as an obligation and as a virtue: an agent who anticipates consequences, prepares an account, receives contestation without defensiveness, and revises in response exercises a form of excellence. The virtue response does not establish that every agent will be motivated to develop it; it claims only that the exercise of the virtue is a form of excellence. The two accounts are complementary.</p>
+
+        <h4>Non-ideal theory</h4>
+        <p><strong>Objection.</strong> The framework assumes rationality, transparency, and institutional capacity that are frequently absent. It is a theory for well-ordered societies, not for the world in which responsibility claims are actually made.</p>
+        <p><strong>Reply.</strong> The four limiting conditions (§A.2) are designed precisely for this. The framework is intended to be applied in second-best scenarios, and its normative claims are graded, not absolute. If the framework turns out to work only under good institutional conditions, its practical reach is limited — and this should be acknowledged as a genuine limitation.</p>
+
+        <h3 id="appendix-a-4">A.4 Unresolved problems and known weaknesses</h3>
+        <p>The framework does not solve the following problems. They are stated here rather than in the main text so that the argument can be assessed on its own terms.</p>
+        <ol>
+          <li><strong>Collective, non-localisable responsibility.</strong> §8.13 introduces a category — structural responsibility — that addresses the gap documented in §14.2. But the category is narrow: it generates forward-looking obligation, not liability, and it does not resolve allocation questions. The problem is therefore <em>addressed</em>, not <em>solved</em>. A fuller account would need to say how structural obligations interact with ordinary reach-based obligations where both apply, and how "capacity to contribute to reform" is to be assessed. The category's relation to Young's social-connection model is defended in §8.13; the defence is partly independent of whether the category is original, but the Young-referencing must be verified against the primary source before publication.</li>
+          <li><strong>Market power and informal relations.</strong> The fiduciary structure tends to over-weight formal contractual relations and under-weight informal market power. Appendix B.3 proposes a market-power criterion; it is not yet integrated into the main argument.</li>
+          <li><strong>Second-best scenarios.</strong> The framework's applicability outside well-ordered institutions is untested. The four limiting conditions (§A.2) are a placeholder, not a solution.</li>
+          <li><strong>Motivation.</strong> The framework explains why answerability arises but not why agents should be motivated to fulfil it. The virtue of answerability (§A.3) is offered as a partial response, not as a solution.</li>
+          <li><strong>Empirical validation.</strong> The partial formalization in §11 produces determinate outputs on a single test case. It has not been validated across a range of cases, and it may not generalise.</li>
+          <li><strong>Power and legitimacy.</strong> The political-realist objection (§15.3) is acknowledged but not fully answered. A framework that does not analyse power risks legitimising existing distributions.</li>
+        </ol>
+      </section>
+
+      <hr class="sep">
+
+      <!-- APPENDIX B -->
+      <section id="appendix-b">
+        <h2>Appendix B. Case analysis template and additional cases</h2>
+        <div class="appendix-intro">
+          <p>The template below is a working tool, not a normative claim. The cases that follow are applications of it. Together they extend the three cases of §14 to other domains, and they show both where the framework is useful and where it strains.</p>
+        </div>
+
+        <h3 id="appendix-b-1">B.1 Template for case analysis</h3>
+        <ol>
+          <li><strong>Case description.</strong> State the case in plain terms, without prejudging the verdict.</li>
+          <li><strong>Agents and institutions.</strong> Identify every party whose actions or structures are relevant.</li>
+          <li><strong>Causal contribution.</strong> Who contributed to producing the outcome, and in what way? (If no identifiable contribution can be found, skip to §8.13's structural responsibility test.)</li>
+          <li><strong>Control and capacity.</strong> Who could have acted otherwise, and at what cost?</li>
+          <li><strong>Responsibility as task.</strong> Who has the task of handling this, and on what basis?</li>
+          <li><strong>Answerability and accountability.</strong> Who must give an account, and to whom?</li>
+          <li><strong>Culpability and liability.</strong> Is there a basis for blame, or for repair independent of blame?</li>
+          <li><strong>Limiting conditions.</strong> Do any of §5.6's criteria fail?</li>
+          <li><strong>Intuitive verdict.</strong> What does a considered, pre-theoretical judgment say?</li>
+          <li><strong>Framework verdict.</strong> What does the framework say?</li>
+          <li><strong>Deviation and revision.</strong> If the two diverge, which should be revised, and why?</li>
+        </ol>
+        <p>Steps 9–11 are the most important. A framework that never diverges from intuition is not adding anything; a framework that diverges without argument is not earning its keep. The most valuable case is one in which the framework <em>fails</em>, because that is where it shows its limits.</p>
+
+        <h3 id="appendix-b-2">B.2 Climate responsibility</h3>
+        <p><strong>1. Case description.</strong> A mid-sized industrial state has historically contributed a moderate share of cumulative emissions, currently has high per-capita emissions, and possesses limited sovereign control over its energy system because of regional grid integration.</p>
+        <p><strong>2. Agents and institutions.</strong> The state, its government, its utilities, its citizens, regional grid authorities, and the international bodies with which it negotiates.</p>
+        <p><strong>3. Causal contribution.</strong> Moderate historically; high per capita currently. Causation is real but shared.</p>
+        <p><strong>4. Control and capacity.</strong> High fiscal capacity; low unilateral control over grid decarbonisation. Practical control is much lower than formal authority suggests.</p>
+        <p><strong>5. Responsibility as task.</strong> The state has the task of decarbonising its own system and of negotiating in good faith with regional partners.</p>
+        <p><strong>6. Answerability and accountability.</strong> Answerability to its own citizens (democratic) and to affected states (weaker institutional basis).</p>
+        <p><strong>7. Culpability and liability.</strong> Culpability is weakened by collective decision-making and long time horizons. Liability is possible via international agreement.</p>
+        <p><strong>8. Limiting conditions.</strong> Shared sovereignty; historical ignorance of some consequences; proportionality of burden.</p>
+        <p><strong>9. Intuitive verdict.</strong> The state should bear a fair share, but not the entire burden.</p>
+        <p><strong>10. Framework verdict.</strong> Strong answerability to citizens; weak answerability to affected foreign nationals; liability conditional on a just international scheme.</p>
+        <p><strong>11. Deviation and revision.</strong> If the framework assigns identical shares to a small state with no historical emissions and a large historical emitter, its <em>reach</em> category is under-theorised: it needs an explicit historical weighting. This is a revision point, not a defence of the framework.</p>
+
+        <h3 id="appendix-b-3">B.3 Supply-chain responsibility</h3>
+        <p><strong>1. Case description.</strong> A multinational retailer discovers credible evidence of labour-rights abuses at a tier-two supplier, with which it has no direct contractual relationship.</p>
+        <p><strong>2. Agents and institutions.</strong> The retailer, its direct supplier, the tier-two supplier, the local state, the affected workers, and the NGO sector that surfaced the evidence.</p>
+        <p><strong>3. Causal contribution.</strong> The retailer contributes indirectly through purchasing practices, price pressure, and delivery deadlines.</p>
+        <p><strong>4. Control and capacity.</strong> The retailer has substantial economic leverage but limited legal jurisdiction. Its capacity to act is real but bounded.</p>
+        <p><strong>5. Responsibility as task.</strong> The retailer has a task of due diligence, monitoring, and remediation support. It does not have a task of direct employment.</p>
+        <p><strong>6. Answerability and accountability.</strong> Answerability to investors, consumers, and workers; accountability via reporting requirements, certifications, and reputational mechanisms.</p>
+        <p><strong>7. Culpability and liability.</strong> Culpability depends on knowledge and capacity to influence. Liability is contractual and jurisdictional, not general.</p>
+        <p><strong>8. Limiting conditions.</strong> Causal distance; jurisdictional fragmentation; the possibility of exit <em>by</em> the supplier.</p>
+        <p><strong>9. Intuitive verdict.</strong> Responsibility exists, but it should be proportionate to influence, and should not collapse into full ownership of the supplier's conduct.</p>
+        <p><strong>10. Framework verdict.</strong> The framework's <em>fiduciary structure</em> captures the retailer-supplier relationship well: loyalty to the affected workers, discretion in purchasing, accountability to consumers and regulators.</p>
+        <p><strong>11. Deviation and revision.</strong> The framework tends to over-weight formal contractual relations and under-weight informal market power. <strong>Revision proposed:</strong> the fiduciary structure should be complemented by an explicit <em>market-power criterion</em> when the formal relation is thin. This revision is not yet integrated into the main argument (§A.4, problem 2).</p>
+
+        <div class="note"><strong>Why this appendix is separated.</strong> The three cases in §14 are the ones that carry the argument: a case where the framework works, a case where it initially fails and then recovers, and a case where it is tested. The cases here are extensions, not load-bearing. They belong in an appendix because they show the framework's reach without requiring the reader to accept it in order to follow the main argument.</div>
+      </section>
+
+      <hr class="sep">
+
       <!-- REFERENCES -->
       <section id="references">
         <h2>References</h2>
         <div class="references">
           <ol>
             <li>Aristotle. (1999). <em>Nicomachean Ethics</em> (2nd ed., T. Irwin, Trans.). Hackett Publishing.</li>
-            <li>Beauchamp, T. L., & Childress, J. F. (2019). <em>Principles of Biomedical Ethics</em> (8th ed.). Oxford University Press.</li>
+            <li>Beauchamp, T. L., &amp; Childress, J. F. (2019). <em>Principles of Biomedical Ethics</em> (8th ed.). Oxford University Press.</li>
             <li>Brandom, R. (1994). <em>Making It Explicit: Reasoning, Representing, and Discursive Commitment</em>. Harvard University Press.</li>
-            <li>Floridi, L., Cowls, J., Beltrametti, M., Chatila, R., Chazerand, R., Dignum, V., ... & Vayena, E. (2018). AI4People—An ethical framework for a good AI society. <em>Minds and Machines</em>, 28(4), 689–707.</li>
+            <li>Floridi, L., Cowls, J., Beltrametti, M., Chatila, R., Chazerand, R., Dignum, V., ... &amp; Vayena, E. (2018). AI4People—An ethical framework for a good AI society. <em>Minds and Machines</em>, 28(4), 689–707.</li>
             <li>Foot, P. (2001). <em>Natural Goodness</em>. Oxford University Press.</li>
             <li>Fox-Decent, E. (2011). <em>Sovereignty's Promise: The State as Fiduciary</em>. Oxford University Press.</li>
-            <li>Fox-Decent, E., & Criddle, E. J. (2016). <em>Fiduciaries of Humanity: How International Law Constitutes Authority</em>. Oxford University Press.</li>
+            <li>Fox-Decent, E., &amp; Criddle, E. J. (2016). <em>Fiduciaries of Humanity: How International Law Constitutes Authority</em>. Oxford University Press.</li>
             <li>Fricker, M. (2007). <em>Epistemic Injustice: Power and the Ethics of Knowing</em>. Oxford University Press.</li>
             <li>Goodin, R. E. (1985). <em>Protecting the Vulnerable: A Reanalysis of Our Social Responsibilities</em>. University of Chicago Press.</li>
             <li>Held, V. (2006). <em>The Ethics of Care: Personal, Political, and Global</em>. Oxford University Press.</li>
@@ -1041,6 +1291,7 @@
           <div class="definition"><dt>Moral status</dt><dd>That something's interests count, or would count if it had them. A claim about consideration, marked by susceptibility, direction, and standing.</dd></div>
           <div class="definition"><dt>Reach</dt><dd>The extent to which an agent's actions can systematically shape the conditions under which others exercise agency. Assessed through six dimensions: magnitude, duration, scope, foreseeability, control, and asymmetry.</dd></div>
           <div class="definition"><dt>Reparative responsibility</dt><dd>Obligations to prevent, correct, or remedy adverse outcomes. May arise from causal contribution, control, benefit, institutional position, or special capacity to repair.</dd></div>
+          <div class="definition"><dt>Structural responsibility</dt><dd>The forward-looking obligation to contribute to reform or mitigation of a structural process in which one participates, where that process systematically shapes the conditions of agency of others in ways that cannot be traced to identifiable individual contributions. Distinguished from responsibility-as-task by its participatory (rather than positional) basis, and from liability by its forward-looking rather than reparative orientation.</dd></div>
           <div class="definition"><dt>Systematic conditioning</dt><dd>The ongoing structural shaping of another's conditions of agency, distinguished from incidental causal effects.</dd></div>
         </dl>
       </section>
@@ -1051,6 +1302,18 @@
       <section id="discussion">
         <h2>Discussion and contact</h2>
         <p>This essay is offered as a framework to be argued with. Two channels are open for that purpose, and a third — the comment thread below — for anything that fits neither.</p>
+
+        <div class="note">
+          <strong>Call for comments (v19).</strong> Five specific areas of criticism are invited in particular:
+          <ol style="margin-top:.6rem;margin-bottom:0">
+            <li>The six-step argument (§The argument in six steps) — is any step weaker than the others?</li>
+            <li>The necessity argument (§7.6) — are any of the six rivals unfairly characterised?</li>
+            <li>Structural responsibility (§8.13) — is the reply to the "this is Young" objection adequate, and are any of the three layers weak?</li>
+            <li>The three cases in §14 — is the selection representative, and is §14.2 a genuine failure-and-recovery?</li>
+            <li>The three main objections (§15.1–15.3) — are the replies adequate, or merely acknowledged?</li>
+          </ol>
+          <p style="margin-top:.6rem;margin-bottom:0">Comments will be logged in the version history below. Substantive objections that are not addressed will be listed in Appendix A.4.</p>
+        </div>
 
         <div class="contact-grid">
           <a class="contact-card"
@@ -1098,6 +1361,57 @@
         <h2>About this text</h2>
         <p>This is an independent philosophical essay. It has not been peer reviewed, and it does not claim the authority of an established tradition. It is offered as a framework — a set of distinctions that may be useful for reasoning about responsibility in contexts where capability is growing faster than accountability.</p>
         <p>The text is deliberately self-contained in its argument, though it engages with the work of others (see References). Readers who wish to test the framework are invited to apply it to cases the essay does not discuss, and to look for the places where it strains.</p>
+
+        <h3>Editorial note: what changed in this edition</h3>
+        <p>Version 19 builds on the argumentative restructuring introduced in v18 and adds one substantive change: an eighth concept, <em>structural responsibility</em> (§8.13). The concept fills a gap documented in §14.2 — where reach cannot be traced to identifiable agents, the framework previously had nothing determinate to say. §8.13 proposes a forward-looking, participatory obligation to contribute to reform of the structures one sustains, and defends its relation to Young's (2011) social-connection model in three layers.</p>
+        <p>The reason for the change is that a framework which fails on a documented case should ask what category is missing, not simply record the failure. §8.13 is the result of asking that question about §14.2. But the category is narrow — it does not generate liability, and it does not resolve allocation — and §14.2 therefore remains a partial failure rather than a full recovery.</p>
+
+        <h3>Version history</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Version</th>
+                <th>Date</th>
+                <th>Change</th>
+                <th>Known weaknesses</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>v1–v15</td>
+                <td>—</td>
+                <td>Iterative development of the framework, argument, and applications.</td>
+                <td>(as documented in earlier versions)</td>
+              </tr>
+              <tr>
+                <td>v16</td>
+                <td>—</td>
+                <td>Final Consolidated Edition: the seven-concept distinction, the necessity argument (§7.6), the partial formalization (§11), and the failure modes.</td>
+                <td>Case applications limited; objections partially answered; no explicit "in brief".</td>
+              </tr>
+              <tr>
+                <td>v17</td>
+                <td>—</td>
+                <td>Revised Edition: plain-language overview, termbank table, case analysis template, four new worked cases, five new objections, falsifiability section, known weaknesses, version history.</td>
+                <td>Too long; hedging competed with the argument; five objections diluted the three that matter.</td>
+              </tr>
+              <tr>
+                <td>v18</td>
+                <td>—</td>
+                <td>Argumentative Edition: six-step argument added; three cases in §14 (working, failing, tested); three main objections in §15; failure modes, limiting conditions, weaker objections and known weaknesses moved to Appendix A; case template and further cases moved to Appendix B.</td>
+                <td>Migration case (§14.2) remained a documented failure with no recovery. The framework had nothing determinate to say where reach could not be traced.</td>
+              </tr>
+              <tr>
+                <td><strong>v19</strong></td>
+                <td>Current</td>
+                <td><strong>Structural-Responsibility Edition:</strong> §8.13 introduces structural responsibility as an eighth concept; §11.11 explains how it extends distributed responsibility; §14.2 (migration) is revised from a documented failure to a documented failure-and-recovery; §A.4 point 1 is updated accordingly. The relation to Young is defended in three layers in §8.13, with an explicit note on what falls if a critic rejects the category as redundant.</td>
+                <td>The category is narrow: it does not generate liability and does not resolve allocation. §14.2 remains a partial failure. The Young-referencing in §8.13 requires primary-source verification — in particular the claim that Young does not make the answerability connection attributed to §8.13.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
         <div class="note"><strong>Corrections and criticism</strong> are welcome. A framework that cannot survive disagreement was never a framework to begin with.</div>
       </section>
 
@@ -1105,8 +1419,9 @@
   </div>
 
   <footer>
-    <p><strong>The Responsibility of Existence</strong> — version 16 (Final Consolidated Edition)</p>
+    <p><strong>The Responsibility of Existence</strong> — version 19 (Structural-Responsibility Edition)</p>
     <p>An independent philosophical essay. Published as a static page; no tracking, no external dependencies beyond the optional comment widget.</p>
+    <p>This edition adds structural responsibility as an eighth concept and revises the migration case from a documented failure to a documented failure-and-recovery: six-step argument · eight concepts · three cases (working, failing-then-recovering, tested) · three main objections · Appendix A (limits and self-assessment) · Appendix B (case template and further cases).</p>
   </footer>
 </div>
 
@@ -1227,4 +1542,4 @@
 })();
 </script>
 </body>
-  </html>
+</html>
