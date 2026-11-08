@@ -121,10 +121,11 @@
     font-family:"Fraunces","Iowan Old Style",Georgia,serif;
     font-optical-sizing:auto;
     font-size:clamp(1.5rem,3vw,2rem);line-height:1.18;margin:0 0 1.1rem;
-    letter-spacing:-.014em;font-weight:600;padding-top:.4rem;
+    letter-spacing:-.014em;font-weight:600;padding-top:.4rem;position:relative;
   }
   section > h2 .num{color:var(--accent);font-weight:400;
     margin-right:.55em;font-size:.8em;font-variant-numeric:tabular-nums}
+  .coda h2{position:relative}
   h3{font-size:1.12rem;margin:2rem 0 .7rem;font-weight:600;letter-spacing:-.005em}
   h4{font-size:1rem;margin:1.4rem 0 .5rem;font-weight:600}
   p{margin:0 0 1.15rem}
@@ -132,6 +133,37 @@
   em{font-style:italic}
   ol,ul{margin:0 0 1.15rem;padding-left:1.4rem}
   li{margin:0 0 .4rem}
+
+  /* === Section lede (one-line summary under each h2) === */
+  .section-lede{
+    font-size:1.02rem;
+    color:var(--muted);
+    font-style:italic;
+    margin:-.4rem 0 1.4rem;
+    line-height:1.55;
+    max-width:60ch;
+    padding-left:1rem;
+    border-left:2px solid var(--rule);
+  }
+
+  /* === Permalink anchor === */
+  .anchor-link{
+    position:absolute;
+    left:-1.4em;
+    top:.55em;
+    color:var(--muted);
+    text-decoration:none;
+    font-size:.82em;
+    font-weight:400;
+    opacity:0;
+    transition:opacity .15s, color .15s;
+    line-height:1;
+  }
+  section > h2:hover .anchor-link,
+  .coda h2:hover .anchor-link,
+  .anchor-link:focus{opacity:.55}
+  .anchor-link:hover{opacity:1;color:var(--accent)}
+  @media (max-width:900px){.anchor-link{display:none}}
 
   article p a, article li a, article dd a, article h3 a, article h4 a, article td a{
     color:var(--link);text-decoration:none;
@@ -150,6 +182,14 @@
     font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;
     color:var(--accent);margin:0 0 .9rem;font-weight:700}
   .abstract p{font-size:.99rem;line-height:1.72;color:var(--text)}
+  .abstract__lede{
+    font-size:1.08rem !important;
+    line-height:1.6 !important;
+    margin-bottom:1.4rem !important;
+    padding-bottom:1.2rem;
+    border-bottom:1px solid var(--rule);
+  }
+  .abstract__lede strong{color:var(--accent)}
 
   /* === Reader's guide === */
   .reader-guide{
@@ -178,6 +218,121 @@
   .reader-guide li{margin:0 0 .3rem;line-height:1.55}
   .reader-guide p{font-size:.94rem;margin:0 0 .6rem}
 
+  /* === Why this matters + roadmap === */
+  .why-matters{
+    background:var(--bg-alt);
+    border:1px solid var(--rule);
+    border-radius:12px;
+    padding:1.8rem 2rem 1.6rem;
+    margin:2rem 0 2.5rem;
+  }
+  .why-matters h2{
+    margin:0 0 .6rem;
+    font-size:1.35rem;
+    border-top:none;
+    padding-top:0;
+    font-family:"Fraunces","Iowan Old Style",Georgia,serif;
+  }
+  .why-matters > p{font-size:.97rem;line-height:1.65}
+  .why-matters h3{
+    font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+    font-size:.76rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin:1.5rem 0 .6rem;
+    font-weight:700;
+  }
+  .why-matters ol{font-size:.94rem;line-height:1.6;padding-left:1.3rem;margin:0 0 1rem}
+  .why-matters ul{font-size:.94rem;line-height:1.6;padding-left:1.3rem}
+  .why-matters li{margin:0 0 .5rem}
+  .why-matters .closer{
+    margin-top:1.2rem;
+    padding-top:1rem;
+    border-top:1px solid var(--rule);
+    font-size:.94rem;
+  }
+  .roadmap-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:.9rem;
+    margin:1.4rem 0 0;
+  }
+  .roadmap-card{
+    background:var(--bg-elev);
+    border:1px solid var(--rule);
+    border-radius:8px;
+    padding:.9rem 1rem;
+    display:flex;
+    flex-direction:column;
+  }
+  .roadmap-card__label{
+    font-family:ui-sans-serif,system-ui,sans-serif;
+    font-size:.68rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--accent);
+    font-weight:700;
+    margin:0 0 .25rem;
+  }
+  .roadmap-card__title{
+    font-weight:600;
+    font-size:.95rem;
+    margin:0 0 .4rem;
+    line-height:1.25;
+  }
+  .roadmap-card__desc{
+    font-size:.85rem;
+    line-height:1.5;
+    color:var(--muted);
+    margin:0 0 .6rem;
+    flex:1;
+  }
+  .roadmap-card__sections{
+    font-family:ui-sans-serif,system-ui,sans-serif;
+    font-size:.76rem;
+    color:var(--accent);
+    font-weight:600;
+    margin:0;
+  }
+
+  /* === Objections === */
+  .objection{
+    margin:1.3rem 0;
+    padding:1rem 1.2rem;
+    background:var(--bg-alt);
+    border-left:3px solid var(--rule-strong);
+    border-radius:0 8px 8px 0;
+  }
+  .objection h3{
+    margin:0 0 .5rem;
+    font-size:1rem;
+    color:var(--text);
+    font-weight:600;
+    font-style:italic;
+  }
+  .objection h3 .obj-num{
+    color:var(--accent);
+    margin-right:.45em;
+    font-variant-numeric:tabular-nums;
+    font-style:normal;
+    font-weight:700;
+  }
+  .objection p{
+    margin:0;
+    font-size:.93rem;
+    line-height:1.6;
+  }
+  .objection p + p{margin-top:.5rem}
+  .objection .reply::before{
+    content:"Reply. ";
+    color:var(--accent);
+    font-weight:700;
+    font-size:.82em;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+  }
+
   .key-prop{
     border-left:3px solid var(--accent);
     padding:1.2rem 1.4rem;
@@ -200,7 +355,6 @@
   .key-prop p:last-child{margin-bottom:0}
   .key-prop p strong{font-style:normal}
 
-  /* === Key points boxes === */
   .key-points{
     margin:2rem 0 0;
     padding:.95rem 1.2rem;
@@ -219,15 +373,8 @@
     font-weight:700;
     margin:0 0 .6rem;
   }
-  .key-points ul{
-    margin:0;
-    padding-left:1.3rem;
-    font-size:.92rem;
-  }
-  .key-points li{
-    margin:0 0 .35rem;
-    line-height:1.55;
-  }
+  .key-points ul{margin:0;padding-left:1.3rem;font-size:.92rem}
+  .key-points li{margin:0 0 .35rem;line-height:1.55}
   .key-points li:last-child{margin-bottom:0}
 
   blockquote{
@@ -308,7 +455,6 @@
   .coda p{font-size:1.02rem;line-height:1.7}
   .coda p:last-child{margin-bottom:0}
 
-  /* === Glossary === */
   .glossary{margin:1.2rem 0}
   .glossary dt{
     font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
@@ -370,6 +516,11 @@
     .key-prop{padding:1rem 1.1rem}
     .coda{padding:1.5rem 1.1rem}
     .reader-guide{padding:1.2rem 1.2rem}
+    .why-matters{padding:1.3rem 1.2rem}
+    .roadmap-grid{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:520px){
+    .roadmap-grid{grid-template-columns:1fr}
   }
 
   @media print{
@@ -382,8 +533,11 @@
       padding:.4rem 0 .4rem 1rem;font-style:italic}
     .hero-ornament,.hero-ornament::after{background:#000}
     hr.sep::before{color:#000}
-    .abstract,.key-prop,.coda,.key-points,.reader-guide{background:none !important;border-left:2px solid #000}
+    .abstract,.key-prop,.coda,.key-points,.reader-guide,.why-matters,.objection{
+      background:none !important;border-left:2px solid #000}
     .part-divider{border-color:#000}
+    .anchor-link{display:none !important}
+    .section-lede{border-left-color:#000}
   }
 </style>
 </head>
@@ -400,6 +554,9 @@
   <header class="hero">
     <div class="tools">
       <button class="btn btn--toc" id="tocToggle" aria-expanded="false" aria-controls="toc">☰ Contents</button>
+      <button class="btn btn--print" id="printBtn" aria-label="Print or save as PDF">
+        <span aria-hidden="true">⎙</span><span>Print / PDF</span>
+      </button>
       <button class="btn" id="themeToggle" aria-pressed="false" aria-label="Toggle colour theme">
         <span id="themeIcon" aria-hidden="true">☾</span><span id="themeLabel">Dark</span>
       </button>
@@ -408,11 +565,11 @@
     <p class="subtitle">A framework for symbiosis under asymmetric influence — grounded in a defended meta-ethical position, structured by reach and consequence, and constrained by an explicit account of power and its own corrigibility.</p>
     <div class="hero-ornament" aria-hidden="true"></div>
     <div class="hero__meta">
-      <span>4 parts · 17 sections</span>
+      <span>4 parts · 17 sections · 7 objections</span>
       <span class="sep">·</span>
-      <span>≈ 70 min read</span>
+      <span>≈ 75 min read</span>
       <span class="sep">·</span>
-      <span>Version 2026.11</span>
+      <span>Version 2026.12</span>
     </div>
   </header>
 
@@ -422,6 +579,7 @@
       <p class="toc__title">Contents</p>
       <ol>
         <li><a href="#abstract">Abstract</a></li>
+        <li><a href="#why-matters">Why this matters</a></li>
         <li><a href="#reader-guide">Reader's guide</a></li>
         <li><a href="#part-i"><span class="part-label">Part I</span>Foundations</a></li>
         <li class="sub"><a href="#s1">1. The Meta-Ethical Ground</a></li>
@@ -443,7 +601,8 @@
         <li class="sub"><a href="#s14">14. Practical Application</a></li>
         <li class="sub"><a href="#s15">15. Limitations and Falsification</a></li>
         <li class="sub"><a href="#s16">16. Responsibility Without Sovereignty</a></li>
-        <li><a href="#s17">17. An Open Commitment to Existence</a></li>
+        <li class="sub"><a href="#s17">17. An Open Commitment to Existence</a></li>
+        <li><a href="#objections">Common objections</a></li>
         <li><a href="#glossary">Glossary</a></li>
         <li><a href="#references">Bibliography</a></li>
         <li><a href="#discussion">Discussion &amp; contact</a></li>
@@ -456,11 +615,63 @@
       <section id="abstract">
         <div class="abstract">
           <p class="abstract__title">Abstract</p>
-          <p>Existence is relational. Living beings, intelligences, institutions, technologies and ecosystems exist through relations of dependence, influence and consequence. Some relations are reciprocal and enabling; others are unequal, restrictive or harmful. Interdependence does not guarantee harmony, and influence alone does not create moral duty. The framework developed here specifies when influence does create duty, what that duty requires, and how it can be discharged without becoming new domination.</p>
+          <p class="abstract__lede"><strong>In one sentence:</strong> when your influence shapes the conditions under which others live, choose and develop, you owe them an account — and you cannot be the sole judge of whether that account is adequate.</p>
+          <p>Existence is relational. Living beings, intelligences, institutions, technologies and ecosystems exist through relations of dependence, influence and consequence. Some relations are reciprocal and enabling; others are unequal, restrictive or harmful. Interdependence does not guarantee harmony, and influence alone does not create moral duty. The framework developed here specifies <em>when</em> influence does create duty, <em>what</em> that duty requires, and <em>how</em> it can be discharged without becoming new domination.</p>
           <p>The essay's normative core is stated and defended rather than assumed. It adopts a contractualist-republican hybrid, corrected by care ethics, and defends that choice against three rivals (§1). It argues for the capacity-responsibility principle against causal, relational and contractual alternatives, and acknowledges the cost of that choice — the risk that responsibility becomes a function of power (§2). It resolves the moral standing of entities whose inner life we cannot reach through a principle of <em>pro tanto</em> consideration under uncertainty, not through a metaphysics of consciousness (§3.2).</p>
           <p>On this foundation the essay builds: <em>Reach</em> as a six-dimension profile of influence, with a provisional decision procedure (§5.1); a three-condition gate — discretion, persistence, non-revisability — that specifies when influence triggers a distinctive duty of <strong>answerability</strong> (§6); a three-level duty ladder running from explanation through contestation to reversibility reserve and external authorisation (§7); a floor of <strong>symbiotic standing</strong> for relationships of significant dependence (§8); and an explicit analysis of <strong>power</strong> — the capacity to set the terms of the framework itself — which the framework acknowledges it cannot fully capture (§9).</p>
-          <p>Its central claim is that substantial, discretionary and non-revisable influence creates a prima facie duty of answerability independent of blame, consent or authority, and that no actor should be the sole judge of whether that duty has been met. §15 states twelve operationalized falsification conditions, each with a test. The framework is offered as corrigible by design: a framework that cannot name its own failure conditions is not a framework but a preference.</p>
+          <p>Its central claim is that substantial, discretionary and non-revisable influence creates a prima facie duty of answerability independent of blame, consent or authority, and that no actor should be the sole judge of whether that duty has been met. §15 states five operationalized falsification conditions, each with a test. The framework is offered as corrigible by design: a framework that cannot name its own failure conditions is not a framework but a preference.</p>
         </div>
+      </section>
+
+      <section id="why-matters" class="why-matters" aria-labelledby="why-matters-h">
+        <h2 id="why-matters-h">Why this matters</h2>
+        <p>If you build systems that affect millions of people — recommendation algorithms, credit scoring, public health guidelines, AI assistants — you already exercise a kind of power that most ethical frameworks were not designed for. This essay offers a vocabulary and a procedure for that situation. The same questions apply, at a different scale, to a parent raising a child, a state writing policy, a company setting terms, or a person deciding what to leave behind.</p>
+
+        <h3>Five questions the framework answers</h3>
+        <ol>
+          <li><strong>When does influence create duty?</strong> Not every interaction does. §6 gives three conditions — discretion, persistence, non-revisability — that mark the threshold.</li>
+          <li><strong>How much duty?</strong> Not all-or-nothing. §7 gives a three-level ladder from explanation, through review, to independent authorisation.</li>
+          <li><strong>Whose interests count?</strong> Including those who cannot speak for themselves — future generations, ecosystems, entities we do not yet understand. §8 gives five minimum conditions.</li>
+          <li><strong>Who watches the powerful?</strong> No actor should be the sole judge of its own influence (§10). §9 admits the framework cannot fully solve <em>who appoints the watchers</em>.</li>
+          <li><strong>When should the framework itself be abandoned?</strong> §15.2 gives five operationalised conditions, each with a measurable test.</li>
+        </ol>
+
+        <h3>What the framework does not do</h3>
+        <ul>
+          <li>It does not tell you what to decide. It tells you what questions you owe an answer to — and to whom.</li>
+          <li>It does not claim neutrality. It takes a substantive moral position (§1) and defends it against rivals.</li>
+          <li>It does not solve the problem of power (§9). It names it, and requires every application to ask who set the terms.</li>
+        </ul>
+
+        <h3>The argument at a glance</h3>
+        <div class="roadmap-grid">
+          <div class="roadmap-card">
+            <p class="roadmap-card__label">Part I</p>
+            <p class="roadmap-card__title">Foundations</p>
+            <p class="roadmap-card__desc">A substantive moral position, defended against rivals. Responsibility follows capacity — not causation, relationship, or consent.</p>
+            <p class="roadmap-card__sections">§1–2</p>
+          </div>
+          <div class="roadmap-card">
+            <p class="roadmap-card__label">Part II</p>
+            <p class="roadmap-card__title">Reality, Symbiosis, Reach</p>
+            <p class="roadmap-card__desc">Every being's reality is its own. Reach is six-dimensional. Three conditions trigger duty, arranged in a three-level ladder.</p>
+            <p class="roadmap-card__sections">§3–7</p>
+          </div>
+          <div class="roadmap-card">
+            <p class="roadmap-card__label">Part III</p>
+            <p class="roadmap-card__title">Standing, Power, Representation</p>
+            <p class="roadmap-card__desc">Five conditions for standing. The blind spot: who sets the framework's own terms. What to do about silent interests.</p>
+            <p class="roadmap-card__sections">§8–13</p>
+          </div>
+          <div class="roadmap-card">
+            <p class="roadmap-card__label">Part IV</p>
+            <p class="roadmap-card__title">Application, Limits, Commitment</p>
+            <p class="roadmap-card__desc">A nine-step procedure, two worked cases, five operationalised falsifiers, and a closing commitment.</p>
+            <p class="roadmap-card__sections">§14–17</p>
+          </div>
+        </div>
+
+        <p class="closer"><strong>If you only read one section</strong>, read §6. That is where the framework either works or does not.</p>
       </section>
 
       <nav class="reader-guide" id="reader-guide" aria-label="Reader's guide">
@@ -481,10 +692,10 @@
         </ul>
 
         <h3>If you want to test the framework</h3>
-        <p>Start with §14 (practical application) and §15 (falsifiers). The framework is offered as a working tool, not a finished theory. Apply it to a case the essay does not discuss, and look for the places where it strains.</p>
+        <p>Start with §14 (practical application and two worked examples) and §15 (falsifiers). The framework is offered as a working tool, not a finished theory. Apply it to a case the essay does not discuss, and look for the places where it strains.</p>
 
         <h3>If you want a summary</h3>
-        <p>Each numbered section ends with a short <em>Key points</em> box. A reader who reads only the abstract and the key points will have the argument's shape.</p>
+        <p>Each numbered section ends with a short <em>Key points</em> box, and opens with a one-line summary. A reader who reads only the abstract and the key points will have the argument's shape. If you want the very shortest path: read §17 (the conclusion), then come back to §1 if you want the ground, §6 if you want the mechanism, and §15 if you want the limits.</p>
       </nav>
 
       <div class="part-divider" id="part-i">
@@ -494,6 +705,7 @@
 
       <section id="s1">
         <h2><span class="num">1.</span>The Meta-Ethical Ground: Why This Framework, and Not Another</h2>
+        <p class="section-lede">The framework takes a substantive moral position — and defends it — rather than pretending to neutrality between all reasonable doctrines.</p>
         <p>A framework that asserts normative conclusions without stating their ground is not a framework — it is a preference. This section states the ground and defends it against rivals.</p>
 
         <p>The framework rests on a <strong>contractualist-republican hybrid</strong>:</p>
@@ -535,6 +747,7 @@
 
       <section id="s2">
         <h2><span class="num">2.</span>The Argument for Capacity-Responsibility</h2>
+        <p class="section-lede">Responsibility follows the capacity to shape conditions — not causation, relationship, or consent.</p>
         <p>The framework's central claim — that responsibility follows capacity — is not self-evident. Three rival principles are available:</p>
         <ul>
           <li><strong>Causal responsibility:</strong> responsibility follows the entity that caused the harm.</li>
@@ -577,6 +790,7 @@
 
       <section id="s3">
         <h2><span class="num">3.</span>The Multiplicity of Reality</h2>
+        <p class="section-lede">Every being holds a point in reality that cannot be exchanged for another's — including the ones we cannot understand.</p>
 
         <h3>3.1 Every being lives within its own version of reality</h3>
         <p>No being meets existence "as it is." Every form of being — human, bird, fungus, river, stone — exists through its own way of being in relation to what surrounds it. Its reality is a point at which existence happens in a particular way: through particular dependencies, durations, and ways of being affected and affecting.</p>
@@ -609,6 +823,7 @@
 
       <section id="s4">
         <h2><span class="num">4.</span>Symbiosis</h2>
+        <p class="section-lede">Coexistence without sameness; not forced harmony.</p>
         <p>Symbiosis is the underlying condition of existence. It describes the continuous relationships through which different forms of existence sustain, influence, challenge, and transform one another.</p>
         <p>Symbiosis does not require sameness. A forest, an ecosystem, a human society, and a future network of artificial intelligences may all contain relationships of dependence and influence without sharing the same needs or forms of experience. Their coexistence requires not that they become identical, but that their relationships remain sufficiently open for continued existence, development, and meaningful participation.</p>
         <p>Symbiosis must not be confused with forced harmony. A system that maintains stability by silencing individuals, eliminating differences, or sacrificing vulnerable participants is not symbiotic. The whole matters — but so do the beings that constitute it.</p>
@@ -627,6 +842,7 @@
 
       <section id="s5">
         <h2><span class="num">5.</span>Asymmetric Influence and the Principle of Reach</h2>
+        <p class="section-lede">Six dimensions of influence, weighted toward non-reversibility — not aggregated into a score.</p>
         <p>Responsibility should correspond to the actual capacity to affect others. The framework describes this capacity through <strong>Reach</strong> — a profile of influence described through six dimensions:</p>
         <ul>
           <li><strong>Asymmetry</strong> — difference in power, knowledge, resources, or capacity.</li>
@@ -670,6 +886,7 @@
 
       <section id="s6">
         <h2><span class="num">6.</span>The Threshold of Responsibility</h2>
+        <p class="section-lede">Influence becomes formative — and triggers duty — when it is discretionary, persistent, and hard to reverse.</p>
         <p>Not every interaction creates the same degree of responsibility. Three necessary conditions activate an elevated threshold:</p>
         <ul>
           <li><strong>N1 — Discretion.</strong> The entity has meaningful discretion over whether or how an action is performed.</li>
@@ -694,6 +911,7 @@
 
       <section id="s7">
         <h2><span class="num">7.</span>The Duty Ladder</h2>
+        <p class="section-lede">Three graduated levels of duty: explain, review and respond, preserve and authorise. Higher levels include lower ones.</p>
         <p>Responsibility should be proportionate to the influence being exercised. The framework establishes three levels of duty.</p>
 
         <p><strong>Level 1 — Explain.</strong> The entity must be able to explain relevant decisions and their foreseeable consequences: the purpose of an action, the interests involved, the uncertainties present, and the reasons for choosing a particular course.</p>
@@ -719,6 +937,7 @@
 
       <section id="s8">
         <h2><span class="num">8.</span>Freedom, Contestation, and Symbiotic Standing</h2>
+        <p class="section-lede">Five minimum conditions for relationships of significant dependence — exit, contestation, development, non-foreclosure, recognition.</p>
         <p>Symbiosis requires more than continued existence. A being may remain alive or operational while losing the ability to influence its own circumstances. Five minimum conditions of symbiotic standing:</p>
         <ul>
           <li><strong>F1 — Exit or Voice.</strong> Where possible, meaningful opportunity to withdraw, refuse, or communicate disagreement.</li>
@@ -744,6 +963,7 @@
 
       <section id="s9">
         <h2><span class="num">9.</span>Power, Not Just Influence</h2>
+        <p class="section-lede">The framework's blind spot: who sets the terms of the framework itself. The regress is named, not solved.</p>
         <p>The framework has spoken of <strong>influence</strong> — capacity to affect conditions. But there is a deeper form of power that the framework must address: <strong>the power to set the terms of the framework itself</strong>.</p>
         <p>Who decides what counts as "high" reach? Who sits on the independent review? Who represents the silent? Who defines the categories through which influence is measured?</p>
         <p>These questions are not answered by reach-analysis. They are expressions of a power that reach-analysis presupposes but does not capture.</p>
@@ -774,6 +994,7 @@
 
       <section id="s10">
         <h2><span class="num">10.</span>The Prohibition Against Self-Authorised Judgment</h2>
+        <p class="section-lede">No actor should be the sole judge of its own influence. Independent review is not distrust of the powerful — it is recognition that no perspective is complete.</p>
         <p>No entity should be the sole and unquestionable judge of its own consequential influence.</p>
 
         <blockquote>
@@ -795,6 +1016,7 @@
 
       <section id="s11">
         <h2><span class="num">11.</span>Conflicts Between Interests</h2>
+        <p class="section-lede">Neither majority interests nor individual preferences automatically override the other — decisions must be justified, not derived.</p>
         <p>Symbiotic relationships will produce conflicts. The framework rejects both the assumption that majority interests automatically justify every sacrifice imposed on a minority, and the assumption that every individual preference must override all collective or ecological considerations. Decisions should follow proportionate consideration.</p>
 
         <h3>11.1 Minimum necessary harm</h3>
@@ -817,6 +1039,7 @@
 
       <section id="s12">
         <h2><span class="num">12.</span>Future Generations and the Preservation of Possibility</h2>
+        <p class="section-lede">Preserve the future's ability to choose — not the choice itself.</p>
         <p>Responsibility extends beyond those present when a decision is made. Actions can shape conditions for beings that do not yet exist.</p>
         <p>The most important obligation is not to determine their future for them, but to <strong>preserve reasonable opportunities for them to determine it themselves</strong>.</p>
 
@@ -836,6 +1059,7 @@
 
       <section id="s13">
         <h2><span class="num">13.</span>Learning, Correction, and Reversibility</h2>
+        <p class="section-lede">Learning is a duty — not an advantage — where the capacity is available and the consequences are significant.</p>
         <p>No framework, institution, or intelligence should assume its understanding is complete. A philosophy that cannot be challenged risks becoming an instrument of the very domination it seeks to prevent.</p>
         <ul>
           <li><strong>The duty to learn.</strong> An entity with substantial influence has a responsibility to improve its understanding: listening to criticism, investigating unexpected outcomes, recognizing experiences that challenge its assumptions.</li>
@@ -859,6 +1083,7 @@
 
       <section id="s14">
         <h2><span class="num">14.</span>Practical Application</h2>
+        <p class="section-lede">A nine-step procedure, worked through on two contrasting cases: hospital AI triage and platform recommendation.</p>
         <ol>
           <li><strong>Identify the relationship.</strong> Which entities are affected? What dependencies exist?</li>
           <li><strong>Assess Reach</strong> according to §5.1's priority rule.</li>
@@ -871,16 +1096,60 @@
           <li><strong>Reassess.</strong> Responsibility does not end when the action is completed.</li>
         </ol>
 
+        <h3>14.1 Worked example: hospital AI triage</h3>
+        <p>An illustrative case, not a real one. A hospital deploys an AI system to prioritise ICU admissions during a respiratory pandemic. The system scores patients on likelihood of survival and expected resource use. Clinicians can override, but rarely do.</p>
+
+        <p><strong>Step 1 — Identify the relationship.</strong> Affected: patients (present and future), families, clinicians, taxpayers who fund ICU capacity. Dependencies: patients cannot choose their score; families cannot contest it directly; clinicians' judgment is shaped by the system's recommendation.</p>
+
+        <p><strong>Step 2 — Assess Reach.</strong> Asymmetry <em>high</em> (no insight into the model, no alternative provider in a crisis). Control <em>high</em> (the score governs access to a scarce, life-sustaining resource). Persistence <em>high</em> (outcomes are irreversible). Magnitude <em>high</em> (life and death). Scope <em>medium–high</em> (hundreds to thousands regionally). Foreseeability <em>high</em> (allocation is exactly what the system is built to do). Four dimensions "high" → threshold-activated (§5.1 rule 1).</p>
+
+        <p><strong>Step 3 — Threshold.</strong> N1 discretion: yes (the hospital chose to deploy). N2 persistence: yes. N3 non-revisability: yes (death, organ damage). All three present. Threshold raisers: low contestability and catastrophic irreversible consequences. → Elevated responsibility.</p>
+
+        <p><strong>Step 4 — Duty level.</strong> Level 3 applies: preserve information (model version, training data, individual scores, override records); independent examination (clinical ethics board with lay members); appropriate authorisation (public-health authority oversight); consideration of less harmful alternatives (rule-based triage such as SOFA, or clinician-only triage); reversibility (sunset clause, periodic revalidation).</p>
+
+        <p><strong>Step 5 — Symbiotic standing.</strong> F1 <em>exit or voice</em>: patients have no exit, but should have voice through a family liaison or patient advocate. F2 <em>contestation</em>: an appeals process is required; overrides must be documented and reviewed. F3 <em>development</em>: not for patients in acute crisis, but for the system itself (learning from outcomes). F4 <em>non-foreclosure</em>: denial must not foreclose future access if the patient stabilises. F5 <em>recognition</em>: patients' own accounts of their condition should be recorded, not only the model's.</p>
+
+        <p><strong>Step 6 — Power analysis.</strong> Who defined the categories? The vendor and clinical leadership — patients had no voice. Who controls review? The hospital ethics committee — but who appoints them? The hospital board. Whose interests are structurally excluded? The poorest patients (who may present later, with worse scores), disabled patients (whose "quality of life" scores may embed bias), and patients without advocates.</p>
+
+        <p><strong>Step 7 — Alternatives.</strong> Clinician-only triage: slower, more inconsistent, but more contestable. Rule-based triage (e.g., SOFA): less predictive, but transparent. Hybrid: AI as recommendation, human decision documented — the framework's default preference, because it preserves contestation.</p>
+
+        <p><strong>Step 8 — Accountability.</strong> Independent review body including patient representatives, not only clinicians. Sunset clause. Periodic audit. Published override rates, disaggregated by demographic group.</p>
+
+        <p><strong>Step 9 — Reassess.</strong> After six months: are outcomes for marginalised groups worse than baseline? Are overrides correlated with patient demographics? If yes, revise or suspend.</p>
+
+        <div class="key-prop" data-label="What this example shows">
+          <p>The framework does not decide the case. It tells the hospital <em>what it owes an answer to</em> — and to whom. The hospital may still deploy the AI. But it cannot do so silently, without review, or without admitting whose interests it cannot see.</p>
+        </div>
+
+        <h3>14.2 Contrasting example: platform recommendation</h3>
+        <p>A social platform tunes its recommendation algorithm. Affected: users (their attention, mood, beliefs, relationships), advertisers, and indirectly the public sphere. No individual recommendation is dramatic; the effect is cumulative across hundreds of millions of people.</p>
+
+        <p><strong>Reach.</strong> Asymmetry <em>high</em> (no insight into the model). Control <em>medium</em> (users can scroll past, but the feed shapes what they see at all). Persistence <em>medium</em> (each recommendation fades, but the pattern persists). Magnitude <em>medium</em> per recommendation, <em>high</em> in aggregate. Scope <em>very high</em>. Foreseeability <em>medium–high</em> (effects on mood and polarisation are now documented). Two dimensions "high" → threshold-activated by §5.1 rule 1, but the case is materially different from §14.1.</p>
+
+        <p><strong>Threshold.</strong> N1 discretion: yes. N2 persistence: yes (for users who return daily). N3 non-revisability: <em>partial</em> — a recommendation can be undone, but the cumulative pattern on a population cannot easily be. Threshold-activated but not at Level 3 for individual decisions; Level 3 applies to the <em>system design</em>.</p>
+
+        <p><strong>Duty level.</strong> Level 2 for individual decisions (explanation, contestation, response). Level 3 for the design of the system itself: preservation of training data and version history, independent audit, and public authorisation of high-risk optimisations.</p>
+
+        <p><strong>Power analysis.</strong> Who defined the categories of "engagement"? The platform. Who controls the audit? Usually the platform, unless regulation forces otherwise. Whose interests are structurally excluded? Users who never see the feed at all, and third parties affected by the public sphere the platform shapes but does not represent.</p>
+
+        <p><strong>What the framework yields.</strong> Not "shut it down" and not "it is just an algorithm." It yields <em>this specific set of obligations</em>: L2 on individual decisions, L3 on system design, external audit, published aggregate metrics on polarisation and well-being, and a sunset clause for any optimisation that cannot demonstrate reversibility at the population level.</p>
+
+        <div class="key-prop" data-label="What the two examples show together">
+          <p>The framework <em>discriminates</em>. It does not treat every case of high reach as equivalent. ICU triage is Level 3 across the board because every decision is life-or-death. Platform recommendation is Level 2 for individual decisions but Level 3 for the design that generates them. The distinction is exactly what §5.1's priority rule and §6's threshold are for.</p>
+        </div>
+
         <aside class="key-points">
           <ul>
             <li>Nine-step sequence, from identifying the relationship to reassessment.</li>
             <li>Step 6 (power analysis) is not optional — it is what prevents the framework from becoming a refined legitimation of the status quo.</li>
+            <li>§14.1 (ICU triage) and §14.2 (recommendation algorithm) show that the framework <em>discriminates</em>: the same high-reach profile yields different duty levels depending on the case.</li>
           </ul>
         </aside>
       </section>
 
       <section id="s15">
         <h2><span class="num">15.</span>Limitations and Falsification</h2>
+        <p class="section-lede">Six structural limitations, five operationalised falsifiers. A framework that cannot name its own failure conditions is not a framework but a preference.</p>
 
         <h3>15.1 Structural limitations</h3>
         <ul>
@@ -903,6 +1172,8 @@
         </ol>
         <p>These conditions are not perfect. No falsification of a normative framework is. But they are <strong>operational</strong> — they point to observable outcomes and comparable baselines.</p>
 
+        <div class="note"><strong>See also.</strong> The seven objections in the section <a href="#objections">Common objections</a> are the faster version of the same self-criticism. §15 is the operational version.</div>
+
         <aside class="key-points">
           <ul>
             <li>Six structural limitations are acknowledged, including the incompleteness of the power analysis and the meta-ethical choice.</li>
@@ -914,6 +1185,7 @@
 
       <section id="s16">
         <h2><span class="num">16.</span>Responsibility Without Sovereignty</h2>
+        <p class="section-lede">The central danger is that difference becomes a justification for domination. Greater capability should create greater restraint — not entitlement.</p>
         <p>The central danger of asymmetrical influence is not difference itself. It is the possibility that difference becomes a justification for domination.</p>
         <p>An entity may possess greater knowledge, intelligence, or capacity. But none of these qualities independently establishes a right to determine the existence of others. Greater capability should create greater restraint. Greater understanding should create greater curiosity about what remains unknown. And greater power should create a stronger obligation to ensure that those affected are not reduced to objects within another's plans.</p>
         <p>This principle applies in both directions. A more advanced intelligence may encounter forms of life it cannot fully comprehend. Its first responsibility is not to eliminate the unfamiliar. But the same principle applies in reverse: a less advanced entity should not be automatically dismissed merely because it cannot comprehend a more advanced one.</p>
@@ -934,6 +1206,7 @@
       <div class="coda" id="s17">
         <p class="coda__label">Conclusion</p>
         <h2>17. An Open Commitment to Existence</h2>
+        <p class="section-lede" style="color:var(--accent);border-left-color:var(--accent);">Be responsible for the influence you possess. Be humble before the existence you cannot fully comprehend.</p>
         <p>We are part of something larger than ourselves. Our understanding is incomplete. Our influence is unequal. Our relationships shape conditions that extend beyond our immediate existence.</p>
         <p>We cannot know everything that deserves consideration. But we can choose not to treat the limits of our understanding as proof that nothing lies beyond them.</p>
         <p>This does not require abandoning reason. It requires allowing reason to recognize its own limitations. It does not require abandoning responsibility. It requires understanding that responsibility without care can become cold control, while care without accountability can become arbitrary intervention. Both are necessary.</p>
@@ -955,6 +1228,50 @@
           </ul>
         </aside>
       </div>
+
+      <hr class="sep">
+
+      <section id="objections">
+        <h2>Common objections</h2>
+        <p class="section-lede">Seven objections the framework has to survive. Each is a real objection; none is fatal.</p>
+
+        <div class="objection">
+          <h3><span class="obj-num">1.</span>"This is just a values framework dressed up as a procedure."</h3>
+          <p class="reply">It is a framework with a stated ground (§1) and stated costs (§2.3, §9, §15.1). It does not claim procedural neutrality. It claims to be applicable and corrigible — not neutral. If the objection is that it is not neutral, the framework agrees; if the objection is that it pretends to be, the framework explicitly disclaims that (§1.2).</p>
+        </div>
+
+        <div class="objection">
+          <h3><span class="obj-num">2.</span>"The capacity principle legitimises power — the powerful 'bear responsibility' and thereby acquire authority."</h3>
+          <p class="reply">§5.2 distinguishes responsibility from authority explicitly. Bearing responsibility for influence is grounds for <em>limiting</em> one's discretion, not for expanding it. But the risk is real; §2.3 and §9 acknowledge it cannot be eliminated, only constrained. The falsification condition in §15.2 (4) — that independent review is in practice controlled by the reviewed — is precisely the test that would detect this failure.</p>
+        </div>
+
+        <div class="objection">
+          <h3><span class="obj-num">3.</span>"Independent review is a regress — who reviews the reviewers?"</h3>
+          <p class="reply">Yes. §9 admits this is a structural blind spot. The regress is not solved; it is named, and every application is required to ask who appointed the reviewers. Naming the regress is not the same as solving it, and the framework claims only the former. The consequence is that the framework must be applied <em>situatedly</em>, not mechanically — but a framework that must be applied situatedly is not thereby useless; every consequential moral framework must be.</p>
+        </div>
+
+        <div class="objection">
+          <h3><span class="obj-num">4.</span>"The stone. Is <em>pro tanto</em> consideration under uncertainty a real principle, or an evasion of the metaphysical question?"</h3>
+          <p class="reply">§3.2 is deliberately the weakest possible claim — a <em>pro tanto</em> reason for caution under uncertainty, not a metaphysics of stone-consciousness. If the objection is that it is too weak to do the work the framework asks of it, that is a real cost — but it is a cost of the framework, not a refutation. If the objection is that it is too strong, the reply is that it is defeatable by a single example of a case where the reason for caution is outweighed — which is exactly what "pro tanto" means.</p>
+        </div>
+
+        <div class="objection">
+          <h3><span class="obj-num">5.</span>"The falsification conditions are not really testable."</h3>
+          <p class="reply">§15.2 specifies observable indicators (vulnerability metrics, override rates, appointment of reviewers) and comparative baselines (matched cases without the framework). They are imperfect — as all normative falsification is — but they are the strongest form available. A framework that says "abandon me if you observe X" is more testable than one that says "abandon me if you no longer believe in me."</p>
+        </div>
+
+        <div class="objection">
+          <h3><span class="obj-num">6.</span>"This is Western liberal philosophy in disguise."</h3>
+          <p class="reply">Yes, partly. The ground is a contractualist-republican-care hybrid, drawn from Scanlon, Pettit, and Tronto. It does not claim universal metaphysical authority; it claims defensibility and corrigibility (§1.2). A framework that engages with its own tradition openly is more honest than one that presents itself as tradition-neutral. The framework is open to revision in light of non-Western critique; that is what "corrigible by design" means.</p>
+        </div>
+
+        <div class="objection">
+          <h3><span class="obj-num">7.</span>"What about the environment, animals, future generations — are they not just absorbed into 'interests'?"</h3>
+          <p class="reply">§8.2 (representation of the silent) and §12 (preservation of possibility) address these structurally, not substantively. The framework says <em>how</em> their interests should be represented; not <em>what</em> those interests are. It is a procedure for representation, not a theory of intrinsic value. That is a deliberate division of labour: intrinsic value is contested; representation procedure can be shared.</p>
+        </div>
+
+        <p style="margin-top:1.6rem;font-size:.95rem;color:var(--muted);font-style:italic;">Substantive objections that are not addressed here are invited via the contact channels below. They will be listed, with replies, in future revisions.</p>
+      </section>
 
       <hr class="sep">
 
@@ -1099,7 +1416,7 @@
         <p><em>By Jesper Blom.</em></p>
         <p>This is an independent philosophical essay. It has not been peer reviewed, and it does not claim the authority of an established tradition. It is offered as a framework — a set of distinctions that may be useful for reasoning about responsibility in contexts where capability is growing faster than accountability.</p>
         <p>The text is deliberately self-contained in its argument, though it engages with the work of others (see Bibliography). Readers who wish to test the framework are invited to apply it to cases the essay does not discuss, and to look for the places where it strains.</p>
-        <p>This version (2026.11) is a substantial revision. It states and defends the framework's meta-ethical ground explicitly, argues for the capacity-responsibility principle rather than assuming it, resolves the moral standing of entities whose inner life we cannot reach through a principle of <em>pro tanto</em> consideration under uncertainty, and adds an explicit analysis of power — including an acknowledgment that the framework cannot fully solve the problem of who sets its own terms.</p>
+        <p>This version (2026.12) is a substantial revision. It states and defends the framework's meta-ethical ground explicitly, argues for the capacity-responsibility principle rather than assuming it, resolves the moral standing of entities whose inner life we cannot reach through a principle of <em>pro tanto</em> consideration under uncertainty, and adds an explicit analysis of power — including an acknowledgment that the framework cannot fully solve the problem of who sets its own terms. It also adds two worked examples (§14.1–2), a section of common objections, and a one-line summary at the head of every numbered section.</p>
 
         <div class="note"><strong>Corrections and criticism</strong> are welcome. A framework that cannot survive disagreement was never a framework to begin with.</div>
 
@@ -1159,20 +1476,27 @@
     try { localStorage.setItem("roe-theme", next); } catch (e) {}
   });
 
+  var printBtn = document.getElementById("printBtn");
+  if (printBtn) {
+    printBtn.addEventListener("click", function () { window.print(); });
+  }
+
   var toc = document.getElementById("toc");
   var tocToggle = document.getElementById("tocToggle");
 
-  tocToggle.addEventListener("click", function () {
-    var open = toc.classList.toggle("is-open");
-    tocToggle.setAttribute("aria-expanded", open ? "true" : "false");
-  });
+  if (tocToggle && toc) {
+    tocToggle.addEventListener("click", function () {
+      var open = toc.classList.toggle("is-open");
+      tocToggle.setAttribute("aria-expanded", open ? "true" : "false");
+    });
 
-  toc.addEventListener("click", function (e) {
-    if (e.target.tagName === "A" && window.innerWidth <= 900) {
-      toc.classList.remove("is-open");
-      tocToggle.setAttribute("aria-expanded", "false");
-    }
-  });
+    toc.addEventListener("click", function (e) {
+      if (e.target.tagName === "A" && window.innerWidth <= 900) {
+        toc.classList.remove("is-open");
+        tocToggle.setAttribute("aria-expanded", "false");
+      }
+    });
+  }
 
   var links = Array.prototype.slice.call(document.querySelectorAll('.toc a[href^="#"]'));
   var targets = links.map(function (a) {
@@ -1229,7 +1553,20 @@
   toTop.addEventListener("click", function () {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
+
+  // Add permalink anchors to section headings
+  document.querySelectorAll('section[id] > h2, .coda[id] > h2').forEach(function (h2) {
+    var section = h2.closest('section, .coda');
+    if (!section || !section.id) return;
+    if (h2.querySelector('.anchor-link')) return;
+    var a = document.createElement('a');
+    a.href = '#' + section.id;
+    a.className = 'anchor-link';
+    a.setAttribute('aria-label', 'Permalink to section');
+    a.textContent = '§';
+    h2.insertBefore(a, h2.firstChild);
+  });
 })();
 </script>
 </body>
-                                                                                                                                                                                                                                                                   </html>
+</html>                                                                                                                                                                                                                                                                 </
