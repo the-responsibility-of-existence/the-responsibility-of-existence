@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Responsibility of Existence</title>
+<meta name="description" content="A framework for symbiosis under asymmetric influence.">
+<meta name="color-scheme" content="light dark">
+<script>try{var t=localStorage.getItem("roe-theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");document.documentElement.dataset.theme=t}catch(e){}</script>
 <style>
   :root{
     --text:#1a1a1a;
@@ -330,7 +333,6 @@
     text-transform:uppercase;
   }
 
-  /* === Swedish summary — reuses reader-guide style for consistency === */
   #svensk-sammanfattning{
     background:var(--accent-soft);
     border-left:4px solid var(--accent);
@@ -580,6 +582,11 @@
     .anchor-link{display:none !important}
     .section-lede{border-left-color:#000}
   }
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  body.show-rev .rev{background:rgba(230,170,0,.25);box-decoration-break:clone;-webkit-box-decoration-break:clone}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none !important}}
+  @media (max-width:900px){.tools{position:static;margin:0 0 1rem;flex-wrap:wrap}.hero{padding-top:1.5rem}.btn{min-height:40px}}
+  @media print{.rev{background:none !important}#revToggle{display:none}}
 </style>
 </head>
 <body>
@@ -598,6 +605,7 @@
       <button class="btn btn--print" id="printBtn" aria-label="Print or save as PDF">
         <span aria-hidden="true">⎙</span><span>Print / PDF</span>
       </button>
+      <button class="btn" id="revToggle" aria-pressed="false">Show changes</button>
       <button class="btn" id="themeToggle" aria-pressed="false" aria-label="Toggle colour theme">
         <span id="themeIcon" aria-hidden="true">☾</span><span id="themeLabel">Dark</span>
       </button>
@@ -610,7 +618,7 @@
       <span class="sep">·</span>
       <span>≈ 90 min read</span>
       <span class="sep">·</span>
-      <span>Version 2026.14</span>
+      <span>Version 2026.15</span>
     </div>
   </header>
 
@@ -767,7 +775,7 @@
           <p>Any arrangement that systematically constrains a person's exercise of normative agency stands in need of justification to that person — and that justification must be genuinely open to their contestation.</p>
         </blockquote>
 
-        <p>This is the ground. Everything else follows.</p>
+        <p>This is the ground. <span class="rev">The rest of the framework is built on it; §1.3 and §2 show how.</span></p>
 
         <h3 id="s1-1">1.1 Why this ground and not another</h3>
         <p>Three rival grounds are possible:</p>
@@ -781,6 +789,12 @@
         <h3 id="s1-2">1.2 The cost of this choice</h3>
         <p>The framework is now committed to a substantive moral position. It cannot claim neutrality between all reasonable comprehensive doctrines. It can only claim that its position is <strong>defensible</strong> — and that it is open to revision in light of argument.</p>
         <p>This is a cost worth paying, because the alternative is a framework that borrows authority it cannot account for. A framework that presents itself as meta-ethically neutral while making determinate normative claims is not modest — it is evasive.</p>
+
+        <h3 id="s1-3" class="rev">1.3 Closer rivals, and the bridge to §2</h3>
+        <p class="rev">The three "pure" positions above are limiting cases that few philosophers hold unmixed. The closer rivals are other justification-based accounts of responsibility.</p>
+        <p class="rev"><strong>Forst</strong> (2012; 2017) grounds a basic right to justification and, in <em>Normativity and Power</em>, analyses how power shapes the space of reasons. This is the framework's nearest relative. It differs by making duties graded (<a href="#s7">§7</a>), by tying them to a capacity profile (<a href="#s5">§5</a>), and by stating the power regress as an explicit limitation (<a href="#s9">§9</a>).</p>
+        <p class="rev"><strong>Young</strong> (2011) grounds responsibility for structural injustice in participation in the processes that produce it, and names power, privilege, interest and collective ability as parameters for allocating it. Capacity is thus already one of her parameters. The framework instead makes discretion and non-revisability the trigger (<a href="#s6">§6</a>) and specifies what discharge looks like (<a href="#s7">§7</a>). It shares her worry that structural responsibility can dissolve into everyone's and no one's; <a href="#s10-1">§10.1</a> is its response.</p>
+        <p class="rev"><strong>The bridge.</strong> The foundational principle says <em>what</em> needs justification: arrangements that systematically constrain agency. It does not say <em>who</em> owes it. The capacity principle (<a href="#s2">§2</a>) answers that: the duty falls on those able to shape the conditions, because only they can alter, withdraw or justify the arrangement. §2 is thus an allocation rule for the ground, not a second foundation. Whether contractualist and republican commitments are fully compatible is a further question left open; they share a justificatory structure, which is all the framework needs.</p>
 
         <aside class="key-points">
           <ul>
@@ -857,6 +871,7 @@
 
         <p>The stone is the limiting case of this principle. We do not know whether the stone matters. The principle says: <strong>treat that uncertainty as a reason, not as a license</strong>. The stone does not need to "understand" for its place in existence to deserve consideration — but the consideration it deserves is weak, defeasible, and proportionate to what is at stake.</p>
         <p>This is not a strong claim. It is the weakest claim that can do the work. And it is honest about what it is: <strong>a principle of caution, not a metaphysics of stone-consciousness</strong>.</p>
+        <p class="rev"><strong>Scope and limits.</strong> First, this principle supplements the ground in §1 rather than following from it: a contractualist ground cannot give a stone a seat at the table, since a stone cannot reject principles. The framework accepts that seam. Second, the principle is bounded by proportionality: the reason weakens as the grounds for attributing any interests to the entity weaken, and is negligible where nothing beyond bare logical possibility supports it. Third, the claims in §5.2 and §11.3 that low reach does not lower worth are conditional: low reach does not reduce whatever standing an entity has; it does not show that every entity has full standing.</p>
 
         <aside class="key-points">
           <ul>
@@ -910,14 +925,12 @@
         </ol>
         <p>The rule is provisional. It can be criticized, tested, and revised. But it is a rule — not a refusal to decide.</p>
 
-        <!-- ============================================================ -->
-        <!-- NEW: §5.1.1–5.1.2 — Anchor examples and disagreement protocol -->
-        <!-- ============================================================ -->
         <h3 id="s5-1-1">5.1.1 Anchor examples for each dimension</h3>
         <p>To reduce arbitrariness in Reach assessment, each dimension should be assessed against explicit anchor examples. The following are illustrative, not exhaustive; they are intended to be revised as the framework is applied.</p>
 
         <div class="table-wrap">
           <table>
+<caption>Table 1. Anchor examples for the six Reach dimensions</caption>
             <thead>
               <tr>
                 <th>Dimension</th>
@@ -961,11 +974,10 @@
                 <td><strong>Foreseeability</strong></td>
                 <td>Consequences could not reasonably have been anticipated given available knowledge.</td>
                 <td>Consequences were foreseeable with effort, but not obvious.</td>
-                <td>Consequences were readily foreseeable, or the entity had the capacity to investigate and failed to do so.</td>
+                <td>Consequences were readily foreseeable, or the entity had the capacity to investigate them.</td>
               </tr>
             </tbody>
           </table>
-          <caption>Table 1. Anchor examples for the six Reach dimensions</caption>
         </div>
 
         <h3 id="s5-1-2">5.1.2 Disagreement protocol</h3>
@@ -977,18 +989,18 @@
           <li><strong>Escalate</strong> to an independent reviewer only if the disagreement is material to the level of answerability required.</li>
         </ol>
         <p>This protocol does not resolve disagreement. It makes it <em>visible and actionable</em>, which is what a qualitative framework can honestly offer. Collapsing disagreement into a single score would conceal the normative choices that assessment inevitably involves.</p>
-        <!-- END NEW: §5.1.1–5.1.2 -->
 
         <h3 id="s5-2">5.2 Reach is not worth — and responsibility is not authority</h3>
         <div class="key-prop">
-          <p><strong>Reach describes the capacity to affect — not the capacity to deserve consideration. A being with little reach does not matter less within existence. It simply has less power to shape the conditions of others.</strong></p>
+          <p><strong>Reach describes the capacity to affect — not the capacity to deserve consideration. A being with little reach does not matter less <span class="rev">for that reason</span>. It simply has less power to shape the conditions of others.</strong></p>
         </div>
-        <p>The stone has almost no reach. That does not make it less important. <strong>The question of reach and the question of value are two different questions.</strong> Responsibility follows reach. Consideration follows existence.</p>
+        <p>The stone has almost no reach. That does not<span class="rev">, by itself,</span> make it less important. <strong>The question of reach and the question of value are two different questions.</strong> Responsibility follows reach. Consideration follows existence.</p>
         <p>And a further precision: <strong>responsibility for influencing is not authority to decide</strong>. That an entity bears responsibility for the consequences of its influence does not give it the right to exercise power over those affected. On the contrary — the greater the responsibility, the stronger the reason to <strong>limit one's own discretion</strong> through review, transparency, and corrigibility.</p>
 
         <h3 id="s5-3">5.3 Responsibility is not blame</h3>
         <p>Responsibility and blame are different concepts. An entity may have responsibility because it can influence a situation, even when it did not create the original conditions. Conversely, an entity may contribute to harm without having had the knowledge or capacity to foresee it.</p>
         <p>Responsibility concerns what an entity can reasonably be expected to recognize, consider, and do. Blame concerns judgments about particular actions and failures. Confusing the two risks replacing accountability with punishment.</p>
+        <p class="rev">Foreseeability appears among the Reach dimensions as a measure of epistemic capacity — what an entity could have known or investigated — which sets how much it owes in explanation and inquiry. It is not a finding of fault.</p>
 
         <aside class="key-points">
           <ul>
@@ -1002,7 +1014,7 @@
       <section id="s6">
         <h2><span class="num">6.</span>The Threshold of Responsibility</h2>
         <p class="section-lede">Influence becomes formative — and triggers duty — when it is discretionary, persistent, and hard to reverse.</p>
-        <p>Not every interaction creates the same degree of responsibility. Three necessary conditions activate an elevated threshold:</p>
+        <p>Not every interaction creates the same degree of responsibility. Three conditions <span class="rev">together are sufficient to</span> activate an elevated threshold<span class="rev"> (they are not all necessary for elevated duty; see §6.2)</span>:</p>
         <ul>
           <li><strong>N1 — Discretion.</strong> The entity has meaningful discretion over whether or how an action is performed.</li>
           <li><strong>N2 — Persistence.</strong> The action has consequences extending beyond an immediate and insignificant interaction.</li>
@@ -1016,11 +1028,8 @@
           <li><strong>Serious or catastrophic irreversible consequences.</strong> When an action risks severe and lasting harm, the required level of responsibility rises substantially.</li>
         </ul>
 
-        <!-- ============================================================ -->
-        <!-- NEW: §6.2 — Hard cases for the threshold                     -->
-        <!-- ============================================================ -->
         <h3 id="s6-2">6.2 Hard cases for the threshold</h3>
-        <p>The N1–N3 threshold must be tested against cases where it might give counterintuitive results. Three such cases follow.</p>
+        <p>The N1–N3 threshold must be tested against cases where it might give counterintuitive results. Four such cases follow.</p>
 
         <h4>Case A — The one-time irreversible intervention</h4>
         <p>A research consortium proposes to release a genetically modified organism designed to eliminate a disease vector. The intervention is one-time (N2 not met: not sustained), but its ecological consequences are potentially irreversible and affect millions.</p>
@@ -1034,16 +1043,18 @@
         <p>A physician follows a clinical protocol that determines which patients receive which treatments. The physician has control over the <em>implementation</em> of the protocol but no discretion over its <em>content</em>. N1 (discretion) is not met.</p>
         <p><em>Analysis:</em> The threshold does not trigger at the level of the physician. But it does trigger at the level of the <strong>protocol-designer</strong>, who has discretion, persistence and non-revisability in the relevant sense. The framework's answer is that <strong>the threshold applies to the entity that exercises the relevant discretion</strong>, not to every entity in the causal chain. This is correct, but it shows that identifying "the entity" is itself a normative question, not a descriptive one. The framework does not resolve this question; it identifies it as a site of contestation.</p>
 
+        <h4 class="rev">Case D — Ordinary parenting</h4>
+        <p class="rev">The introduction names a parent raising a child as a case the framework addresses. A parent's decisions are discretionary (N1), persistent (N2) and often hard to reverse (N3), so the threshold is met almost by default. <em>Analysis:</em> N1 filters very little, because nearly every consequential choice by someone with discretion satisfies it. The threshold only opens the question; the duty level is set by <a href="#s7">§7</a> and <a href="#s5-1">§5.1</a>. For a parent that is Level 1–2: be able to explain, and give the child's growing capacity for contestation increasing weight (F2, F3). Level 3 authorisation belongs to the institutions standing behind the family, such as child protection and courts. This is defensible, but it concedes that the threshold alone cannot tell a parent from a platform; Reach and the ladder do that work.</p>
+
         <div class="note">
           <strong>What these cases show.</strong> They do not falsify the threshold. They show that the threshold is <em>less decisive than its presentation suggests</em>, and that the framework's work is done by the combination of threshold, threshold-raisers, Reach profile and escalation level — not by any one of these alone. This is a strength (the framework is not a single test) but also a weakness (it is harder to apply than a single test would be).
         </div>
-        <!-- END NEW: §6.2 -->
 
         <aside class="key-points">
           <ul>
             <li>Three threshold conditions: <strong>N1 discretion</strong>, <strong>N2 persistence</strong>, <strong>N3 non-revisability</strong>.</li>
             <li>Threshold raisers: low contestability, serious or catastrophic irreversible consequences.</li>
-            <li><a href="#s6-2">§6.2</a> tests the threshold against three hard cases and shows it is a <em>sufficient</em> but not <em>necessary</em> condition — threshold-raisers can supplement it.</li>
+            <li><a href="#s6-2">§6.2</a> tests the threshold against four hard cases and shows it is a <em>sufficient</em> but not <em>necessary</em> condition — threshold-raisers can supplement it.</li>
           </ul>
         </aside>
       </section>
@@ -1108,13 +1119,6 @@
         <p>These questions are not answered by reach-analysis. They are expressions of a power that reach-analysis presupposes but does not capture.</p>
         <p>This is the framework's structural blind spot. Independent review is not a design parameter that can be installed from outside — it is a <strong>political achievement</strong> requiring power balance, institutional resilience, and continuous contestation. A framework that treats independent review as a technical solution risks becoming <strong>an instrument by which the powerful legitimate their power</strong> through installing review bodies that look independent but that they control.</p>
 
-        <!-- ============================================================ -->
-        <!-- NEW: §9.1 — First- and second-order answerability            -->
-        <!-- (Placed here — after the blind-spot is named, before the     -->
-        <!--  key-prop that acknowledges what cannot be solved — so that  -->
-        <!--  the natural flow "But it must acknowledge it:" introduces   -->
-        <!--  the key-prop directly.)                                     -->
-        <!-- ============================================================ -->
         <h3 id="s9-1">9.1 First- and second-order answerability</h3>
         <p>The reviewer problem can be restated in a sharper form. If every reviewer requires another reviewer, accountability appears to produce an endless hierarchy. The framework does not solve this by declaring a final reviewer beyond challenge — that would merely reproduce the original difficulty at a higher level.</p>
         <p>Instead, the framework distinguishes two orders of answerability:</p>
@@ -1131,7 +1135,7 @@
         </ol>
         <p>Where these conditions hold, the regress is <em>bounded</em>: it does not terminate in a final authority, but it does terminate in a structure where no position is exempt from challenge. Where they do not hold, the regress is merely displaced, and the framework's claim to have addressed the problem is weakened.</p>
         <p>The framework does not claim that these conditions are easily met. It claims that they are the conditions under which mutual accountability is not merely a gesture. Whether they can be met in practice is an empirical and institutional question — but it is a question the framework must pose.</p>
-        <!-- END NEW: §9.1 -->
+        <p class="rev">A limit should be stated plainly: conditions 1 and 2 presuppose the very capacity to contest that asymmetry erodes. The structure works best where some countervailing power already exists (courts, unions, regulators, a free press) and it cannot create that power. This is why this section calls independent review a political achievement.</p>
 
         <p>The framework cannot solve this problem. But it must <strong>acknowledge</strong> it:</p>
 
@@ -1192,7 +1196,7 @@
         <p>Ecosystems cannot always be evaluated through the immediate preferences of individual participants. Protecting ecological integrity may require restrictions on certain activities. But ecological protection must not become an excuse for arbitrary disregard of sentient beings. Where irreversible ecological destruction is a serious possibility, independent ecological review should be required.</p>
 
         <h3 id="s11-3">11.3 No automatic hierarchy</h3>
-        <p>No single dimension of existence automatically dominates every other consideration. Intelligence, productivity, population size, economic usefulness, or technical sophistication cannot independently determine moral priority. A being may possess great reach without thereby possessing greater worth. A stone may possess almost no reach without thereby possessing less worth. Decisions must be justified through their actual consequences and the interests involved — not through a being's place in an imagined scale.</p>
+        <p>No single dimension of existence automatically dominates every other consideration. Intelligence, productivity, population size, economic usefulness, or technical sophistication cannot independently determine moral priority. A being may possess great reach without thereby possessing greater worth. A stone may possess almost no reach without <span class="rev">that fact reducing whatever worth it has</span>. Decisions must be justified through their actual consequences and the interests involved — not through a being's place in an imagined scale.</p>
 
         <aside class="key-points">
           <ul>
@@ -1225,7 +1229,7 @@
 
       <section id="s13">
         <h2><span class="num">13.</span>Learning, Correction, and Reversibility</h2>
-        <p class="section-lede">No framework, institution, or intelligence should assume its understanding is complete. The duty to learn is what keeps a framework from becoming what it opposes.</p>
+        <p class="section-lede">The duty to learn is what keeps a framework from becoming what it opposes.</p>
         <p>No framework, institution, or intelligence should assume its understanding is complete. A philosophy that cannot be challenged risks becoming an instrument of the very domination it seeks to prevent.</p>
         <ul>
           <li><strong>The duty to learn.</strong> An entity with substantial influence has a responsibility to improve its understanding: listening to criticism, investigating unexpected outcomes, recognizing experiences that challenge its assumptions.</li>
@@ -1267,7 +1271,7 @@
 
         <p><strong>Step 1 — Identify the relationship.</strong> Affected: patients (present and future), families, clinicians, taxpayers who fund ICU capacity. Dependencies: patients cannot choose their score; families cannot contest it directly; clinicians' judgment is shaped by the system's recommendation.</p>
 
-        <p><strong>Step 2 — Assess Reach.</strong> Asymmetry <em>high</em> (no insight into the model, no alternative provider in a crisis). Control <em>high</em> (the score governs access to a scarce, life-sustaining resource). Persistence <em>high</em> (outcomes are irreversible). Magnitude <em>high</em> (life and death). Scope <em>medium–high</em> (hundreds to thousands regionally). Foreseeability <em>high</em> (allocation is exactly what the system is built to do). Four dimensions "high" → threshold-activated (<a href="#s5-1">§5.1</a> rule 1).</p>
+        <p><strong>Step 2 — Assess Reach.</strong> Asymmetry <em>high</em> (no insight into the model, no alternative provider in a crisis). Control <em>high</em> (the score governs access to a scarce, life-sustaining resource). Persistence <em>high</em> (outcomes are irreversible). Magnitude <em>high</em> (life and death). Scope <em>medium–high</em> (hundreds to thousands regionally). Foreseeability <em>high</em> (allocation is exactly what the system is built to do). <span class="rev">Five dimensions "high" (scope is medium–high)</span> → threshold-activated (<a href="#s5-1">§5.1</a> rule 1).</p>
 
         <p><strong>Step 3 — Threshold.</strong> N1 discretion: yes (the hospital chose to deploy). N2 persistence: yes. N3 non-revisability: yes (death, organ damage). All three present. Threshold raisers: low contestability and catastrophic irreversible consequences. → Elevated responsibility.</p>
 
@@ -1290,7 +1294,7 @@
         <h3 id="s14-2">14.2 Contrasting example: platform recommendation</h3>
         <p>A social platform tunes its recommendation algorithm. Affected: users (their attention, mood, beliefs, relationships), advertisers, and indirectly the public sphere. No individual recommendation is dramatic; the effect is cumulative across hundreds of millions of people.</p>
 
-        <p><strong>Reach.</strong> Asymmetry <em>high</em> (no insight into the model). Control <em>medium</em> (users can scroll past, but the feed shapes what they see at all). Persistence <em>medium</em> (each recommendation fades, but the pattern persists). Magnitude <em>medium</em> per recommendation, <em>high</em> in aggregate. Scope <em>very high</em>. Foreseeability <em>medium–high</em> (effects on mood and polarisation are now documented). Two dimensions "high" → threshold-activated by <a href="#s5-1">§5.1</a> rule 1, but the case is materially different from <a href="#s14-1">§14.1</a>.</p>
+        <p><strong>Reach.</strong> Asymmetry <em>high</em> (no insight into the model). Control <em>medium</em> (users can scroll past, but the feed shapes what they see at all). Persistence <em>medium</em> (each recommendation fades, but the pattern persists). Magnitude <em>medium</em> per recommendation, <em>high</em> in aggregate. Scope <em>very high</em>. Foreseeability <em>medium–high</em> (effects on mood and polarisation are now documented). <span class="rev">Three dimensions "high" (asymmetry, scope, and magnitude in aggregate)</span> → threshold-activated by <a href="#s5-1">§5.1</a> rule 1, but the case is materially different from <a href="#s14-1">§14.1</a>.</p>
 
         <p><strong>Threshold.</strong> N1 discretion: yes. N2 persistence: yes (for users who return daily). N3 non-revisability: <em>partial</em> — a recommendation can be undone, but the cumulative pattern on a population cannot easily be. Threshold-activated but not at Level 3 for individual decisions; Level 3 applies to the <em>system design</em>.</p>
 
@@ -1299,10 +1303,6 @@
         <p><strong>Power analysis.</strong> Who defined the categories of "engagement"? The platform. Who controls the audit? Usually the platform, unless regulation forces otherwise. Whose interests are structurally excluded? Users who never see the feed at all, and third parties affected by the public sphere the platform shapes but does not represent.</p>
 
         <p><strong>What the framework yields.</strong> Not "shut it down" and not "it is just an algorithm." It yields <em>this specific set of obligations</em>: L2 on individual decisions, L3 on system design, external audit, published aggregate metrics on polarisation and well-being, and a sunset clause for any optimisation that cannot demonstrate reversibility at the population level.</p>
-
-        <div class="key-prop" data-label="What the first two examples show together">
-          <p>The framework <em>discriminates</em>. It does not treat every case of high reach as equivalent. ICU triage is Level 3 across the board because every decision is life-or-death. Platform recommendation is Level 2 for individual decisions but Level 3 for the design that generates them. The distinction is exactly what <a href="#s5-1">§5.1</a>'s priority rule and <a href="#s6">§6</a>'s threshold are for.</p>
-        </div>
 
         <h3 id="s14-3">14.3 A low-Reach case: a local café changes its menu</h3>
         <p>A small café changes its menu — removes a popular dish, adds a few new items. Affected: regular customers (disappointed, curious, or indifferent), the owner (revenue), and suppliers (different orders). Nothing dramatic. The question is not whether the café is <em>allowed</em> to change its menu — of course it is — but whether the framework correctly identifies this as a case that does <em>not</em> trigger elevated duty.</p>
@@ -1318,12 +1318,9 @@
         <p><strong>What the framework yields.</strong> Nothing — and that is the point. A framework that triggered Level 3 on every menu change would be useless; it would make every decision feel like an ICU triage. The café case shows that <a href="#s6">§6</a>'s threshold <em>filters</em>. It says "no" to most of life, and "yes" only when influence is discretionary, persistent, and hard to reverse.</p>
 
         <div class="key-prop" data-label="What the first three examples show together">
-          <p>The framework <em>discriminates</em> across the full range. ICU triage is Level 3 across the board. Platform recommendation is Level 2 for individual decisions but Level 3 for system design. The café menu change is Level 1 at most, and arguably not even that. A framework that produced the same verdict for all three would be a blunt instrument. The fact that it produces different verdicts — and that the differences track §5.1 and §6 — is the strongest evidence that the mechanism works.</p>
+          <p>The framework <em>discriminates</em> across the full range. ICU triage is Level 3 across the board. Platform recommendation is Level 2 for individual decisions but Level 3 for system design. The café menu change is Level 1 at most, and arguably not even that. A framework that produced the same verdict for all three would be a blunt instrument. <span class="rev">The fact that it produces different verdicts, and that the differences track §5.1 and §6, shows that the mechanism discriminates. Because the author chose the cases, this is illustration rather than validation; §15.2 is where validation would have to happen.</span></p>
         </div>
 
-        <!-- ============================================================ -->
-        <!-- NEW: §14.4 — The community health worker                     -->
-        <!-- ============================================================ -->
         <h3 id="s14-4">14.4 A counterintuitive case: the community health worker</h3>
         <p>The examples above illustrate the framework's application to powerful actors (AI systems, platforms, institutions) and to trivial ones (a café). A harder case is one where the framework gives a <strong>counterintuitive</strong> answer: an actor with limited institutional power may nonetheless bear substantial answerability.</p>
 
@@ -1340,7 +1337,6 @@
         <div class="key-prop" data-label="What the fourth example shows">
           <p>Answerability follows capacity to shape conditions, not institutional power. A community health worker with no formal authority may bear substantial answerability to her patients — not because she is powerful, but because her decisions are discretionary, persistent, and hard for patients to reverse. The framework is not a weapon against the powerful; it is a lens for identifying where consequential influence is actually exercised.</p>
         </div>
-        <!-- END NEW: §14.4 -->
 
         <aside class="key-points">
           <ul>
@@ -1375,7 +1371,8 @@
           <li><strong>Independent review installed under the framework is in practice controlled by the reviewed</strong> — measured by documenting who appoints, funds, and dismisses reviewers.</li>
           <li><strong>The framework is in practice used by powerful actors to legitimize decisions</strong> that would otherwise have been criticized — measured by comparing decisions made with the framework as reference to matched decisions made without it.</li>
         </ol>
-        <p>These conditions are not perfect. No falsification of a normative framework is. But they are <strong>operational</strong> — they point to observable outcomes and comparable baselines.</p>
+        <p>These conditions are not perfect. No falsification of a normative framework is. But they are <strong>operational in form</strong> — each names an observable and a comparison.</p>
+        <p class="rev">Three limits should be stated openly. (i) The indicators (access to contestation, reversibility, distribution of burdens) are partly the framework's own values, so the test is partly internal; independent indicators should be added where possible. (ii) The comparative designs require natural experiments or matched cases that may rarely exist. (iii) Outcome-based tests are a consequentialist element that sits in tension with §1. They are treated as evidence on whether the principles do what they are for, not as the ground.</p>
 
         <h3 id="s15-3">15.3 Replacement conditions</h3>
         <p>Falsification (<a href="#s15-2">§15.2</a>) tells us when the framework should be abandoned. It does not tell us what should replace it. A framework that can only be abandoned, not superseded, is incomplete — it makes criticism easy and progress impossible. This subsection specifies the conditions under which another framework should take its place.</p>
@@ -1383,7 +1380,7 @@
         <p>A framework <em>F′</em> should replace The Responsibility of Existence if all five conditions are met:</p>
 
         <ol>
-          <li><strong>F′ retains what the framework does well.</strong> F′ must account for the same phenomena — structural influence, asymmetric contexts, non-revisability, representation of silent interests — at least as well as <a href="#s1">§1</a>–<a href="#s13">§13</a> of this essay. A framework that gains on one axis by losing on others is a lateral move, not a replacement.</li>
+          <li><strong>F′ retains what the framework does well.</strong> F′ must account for the same phenomena — structural influence, asymmetric contexts, non-reversibility, representation of silent interests — at least as well as <a href="#s1">§1</a>–<a href="#s13">§13</a> of this essay. A framework that gains on one axis by losing on others is a lateral move, not a replacement.</li>
           <li><strong>F′ resolves at least one of the framework's acknowledged limitations (<a href="#s15-1">§15.1</a>)</strong> without introducing new limitations of comparable severity. Solving the power regress (<a href="#s9">§9</a>) would be the strongest case; solving two would be decisive.</li>
           <li><strong>F′ is operationally applicable.</strong> It must be possible to apply F′ to cases, and its application must produce more defensible decisions than the current framework on a substantial and non-trivial set of cases — not merely in principle, but in practice.</li>
           <li><strong>F′ is itself corrigible.</strong> It must name its own falsification conditions and its own replacement conditions. A framework that cannot be revised is not a replacement — it is a substitute.</li>
@@ -1482,7 +1479,7 @@
 
         <div class="objection">
           <h3><span class="obj-num">5.</span>"The falsification conditions are not really testable."</h3>
-          <p class="reply"><a href="#s15-2">§15.2</a> specifies observable indicators (vulnerability metrics, override rates, appointment of reviewers) and comparative baselines (matched cases without the framework). They are imperfect — as all normative falsification is — but they are the strongest form available. A framework that says "abandon me if you observe X" is more testable than one that says "abandon me if you no longer believe in me."</p>
+          <p class="reply"><a href="#s15-2">§15.2</a> specifies observable indicators (vulnerability metrics, override rates, appointment of reviewers) and comparative baselines (matched cases without the framework). They are imperfect — as all normative falsification is — but they are the strongest form the author can currently specify<span class="rev">, and §15.2 states their limits</span>. A framework that says "abandon me if you observe X" is more testable than one that says "abandon me if you no longer believe in me."</p>
         </div>
 
         <div class="objection">
@@ -1500,7 +1497,7 @@
 
       <hr class="sep">
 
-      <section id="svensk-sammanfattning">
+      <section id="svensk-sammanfattning" lang="sv">
         <h2>Svensk sammanfattning</h2>
         <p class="sv-note">Denna sammanfattning är avsedd för svensktalande läsare som vill förstå essäns kärna. Den är inte en översättning — den är en introduktion.</p>
 
@@ -1511,7 +1508,7 @@
         <h3>Kärnbegreppen i fem punkter</h3>
         <ol>
           <li><strong>Reach</strong> (räckvidd) — ett mått på din förmåga att påverka andras villkor, beskrivet i sex dimensioner: asymmetri, kontroll, varaktighet, magnitud, omfattning, förutsebarhet. Inte en poäng, utan en profil.</li>
-          <li><strong>N1–N3</strong> — tre tröskelvillkor som avgör när påverkan blir <em>formativ</em> och kräver förklaring: handlingsutrymme (N1), varaktighet (N2), och icke-återkallelighet (N3). Alla tre måste vara uppfyllda.</li>
+          <li><strong>N1–N3</strong> — tre tröskelvillkor som avgör när påverkan blir <em>formativ</em> och kräver förklaring: handlingsutrymme (N1), varaktighet (N2), och icke-återkallelighet (N3). <span class="rev">När alla tre är uppfyllda aktiveras tröskeln; de är tillräckliga men inte alla nödvändiga för förhöjda skyldigheter (se §6.2).</span></li>
           <li><strong>Duty Ladder</strong> — tre nivåer av skyldighet som bygger på varandra: förklara (L1), granska och svara (L2), bevara och auktorisera (L3). Högre nivåer kräver starkare skydd mot maktmissbruk — inte mer makt.</li>
           <li><strong>Symbiotic Standing (F1–F5)</strong> — fem minimivillkor för relationer av betydande beroende: utträde eller röst, bestridande, utveckling, icke-förslutning, erkännande.</li>
           <li><strong>Power</strong> (maktens struktur) — ramverkets erkända blinda fläck: den som sätter reglerna för ramverket självt. <a href="#s9">§9</a> namnger problemet, <a href="#s15-3">§15.3</a> specificerar vad som skulle krävas för att lösa det.</li>
@@ -1559,7 +1556,7 @@
           <dd>The profile of an actor's influence over the conditions under which others act, choose and develop. Described along six dimensions (Asymmetry, Control, Persistence, Magnitude, Scope, Foreseeability), not aggregated into a score. <a href="#s5-1">§5.1</a> gives a provisional priority rule weighted toward non-reversibility; <a href="#s5-1-1">§5.1.1</a> gives anchor examples; <a href="#s5-1-2">§5.1.2</a> gives a disagreement protocol.</dd>
 
           <dt>N1–N3</dt>
-          <dd>Discretion, Persistence, Non-revisability. The three threshold conditions of <a href="#s6">§6</a> that mark when influence becomes <em>formative</em> and triggers the duty of answerability. <a href="#s6-2">§6.2</a> tests the threshold against three hard cases.</dd>
+          <dd>Discretion, Persistence, Non-revisability. The three threshold conditions of <a href="#s6">§6</a> that mark when influence becomes <em>formative</em> and triggers the duty of answerability. <a href="#s6-2">§6.2</a> tests the threshold against four hard cases.</dd>
 
           <dt>Answerability</dt>
           <dd>The duty to provide reasons for consequential conditions one helps create or maintain, to permit appropriate examination of those reasons, and to remain open to correction. Distinct from blame, authority and control (<a href="#s5-3">§5.3</a>).</dd>
@@ -1591,6 +1588,7 @@
 
       <section id="references">
         <h2>Bibliography</h2>
+        <p class="rev" style="font-size:.9rem;color:var(--muted)">Scanlon, Pettit, Tronto, Forst and Young are discussed or cited in the text. The remaining entries are background reading that informed the framework.</p>
         <div class="references">
           <ol>
             <li>Beetham, D. <em>The Legitimation of Power</em>. Macmillan, 1991.</li>
@@ -1688,7 +1686,7 @@
         <p><em>By Jesper Blom.</em></p>
         <p>This is an independent philosophical essay. It has not been peer reviewed, and it does not claim the authority of an established tradition. It is offered as a framework — a set of distinctions that may be useful for reasoning about responsibility in contexts where capability is growing faster than accountability.</p>
         <p>The text is deliberately self-contained in its argument, though it engages with the work of others (see Bibliography). Readers who wish to test the framework are invited to apply it to cases the essay does not discuss, and to look for the places where it strains.</p>
-        <p>This version (2026.14) is the final refinement of the 2026 series. It adds <a href="#s14-3">§14.3</a> — a third worked example, deliberately low-Reach, that shows the framework correctly identifying cases in which elevated duty does <em>not</em> apply — so that the three examples together span the full range from ICU triage (Level 3 across the board) to a café menu change (Level 1 at most). It adds a Swedish summary (<a href="#svensk-sammanfattning">Svensk sammanfattning</a>) for Swedish-speaking readers. And it makes every cross-reference in the running text a clickable link — so that §5.2 in the body now takes you directly to §5.2, and §15.3 in an objection takes you directly to §15.3. Earlier versions added the two high-Reach examples (2026.12), the replacement conditions (2026.13), and the original corrections to the falsification count (2026.12).</p>
+        <p>This version (2026.15) adds a closer treatment of rival accounts (§1.3), a bridge from the foundational principle to capacity-responsibility, and clearer statements about the stone, the threshold and the falsification conditions. Version 2026.14 added <a href="#s14-3">§14.3</a> — a third worked example, deliberately low-Reach, that shows the framework correctly identifying cases in which elevated duty does <em>not</em> apply — so that the three examples together span the full range from ICU triage (Level 3 across the board) to a café menu change (Level 1 at most). It also added a Swedish summary (<a href="#svensk-sammanfattning">Svensk sammanfattning</a>) for Swedish-speaking readers. And it made every cross-reference in the running text a clickable link — so that §5.2 in the body now takes you directly to §5.2, and §15.3 in an objection takes you directly to §15.3. Earlier versions added the two high-Reach examples (2026.12), the replacement conditions (2026.13), and the original corrections to the falsification count (2026.12).</p>
 
         <div class="note"><strong>Corrections and criticism</strong> are welcome. A framework that cannot survive disagreement was never a framework to begin with. A framework that cannot be replaced cannot be corrected — see <a href="#s15-3">§15.3</a>.</div>
 
@@ -1826,6 +1824,12 @@
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 
+  var rt = document.getElementById("revToggle");
+  rt.addEventListener("click", function () {
+    var on = document.body.classList.toggle("show-rev");
+    rt.setAttribute("aria-pressed", on ? "true" : "false");
+    rt.textContent = on ? "Hide changes" : "Show changes";
+  });
   // Add permalink anchors to section headings
   document.querySelectorAll('section[id] > h2, .coda[id] > h2').forEach(function (h2) {
     var section = h2.closest('section, .coda');
