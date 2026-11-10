@@ -7,6 +7,8 @@
 <meta name="description" content="A framework for answerability, asymmetric influence, and the preservation of agency in relations of dependence.">
 <link rel="canonical" href="https://the-responsibility-of-existence.github.io/">
 <meta name="author" content="Jesper Blom">
+<meta name="theme-color" content="#fdfdfb" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1a1815" media="(prefers-color-scheme: dark)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="The Responsibility of Existence">
 <meta property="og:description" content="A framework for answerability, asymmetric influence, and the preservation of agency in relations of dependence.">
@@ -30,10 +32,20 @@
   "headline": "The Responsibility of Existence",
   "alternativeHeadline": "A Framework for Answerability under Asymmetric Influence",
   "description": "A framework for answerability, asymmetric influence, and the preservation of agency in relations of dependence.",
+  "abstract": "A framework for deciding when influence creates a duty to answer, how demanding that duty is, who must discharge it, and how it can be discharged without turning into new domination. Its central principle (J) holds that arrangements systematically constraining others' conditions must provide at least one of meaningful exit, independent review, or justification open to contestation. A positive philosophical contribution, the epistemic burden principle, argues that asymmetric influence creates a heightened burden for the more powerful party to test its account against independent evidence and meaningful correction.",
   "author": { "@type": "Person", "name": "Jesper Blom" },
   "datePublished": "2026-11-01",
+  "dateModified": "2026-11-11",
+  "version": "revised critical edition",
   "inLanguage": "en",
   "isAccessibleForFree": true,
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "keywords": ["answerability", "asymmetric influence", "non-domination", "epistemic burden", "symbiosis", "structural responsibility"],
+  "about": [
+    { "@type": "Thing", "name": "Political philosophy" },
+    { "@type": "Thing", "name": "Ethics of AI" },
+    { "@type": "Thing", "name": "Responsibility" }
+  ],
   "url": "https://the-responsibility-of-existence.github.io/"
 }
 </script>
@@ -53,7 +65,7 @@
   *{box-sizing:border-box}
   html{font-size:18px;scroll-behavior:smooth}
   body{margin:0;background:var(--bg);color:var(--text);
-    font-family:"Fraunces","Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    font-family:"Fraunces","Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,"Times New Roman",serif;
     font-optical-sizing:auto;line-height:1.7;-webkit-font-smoothing:antialiased;
     transition:background .3s,color .3s}
   h1,h2,h3,h4{line-height:1.22;margin:0}
@@ -358,6 +370,15 @@
   }
   @media (max-width:520px){.roadmap-grid{grid-template-columns:1fr}}
 
+  @media (prefers-contrast: more){
+    :root{--rule:#a8a8a8;--rule-strong:#707070;--muted:#404040}
+    [data-theme="dark"]{--rule:#707070;--rule-strong:#a0a0a0;--muted:#c8c4bc}
+    .btn,.contact-card,.roadmap-card{border-width:2px}
+  }
+  @media (prefers-reduced-transparency: reduce){
+    .btn,.roadmap-card,.contact-card{box-shadow:none}
+  }
+
   @media print{
     .toc,.tools,.progress,.totop,.skip,.giscus-wrap{display:none !important}
     .layout{display:block}
@@ -397,7 +418,7 @@
       <button class="btn btn--print" id="printBtn" aria-label="Print or save as PDF">
         <span aria-hidden="true">⎙</span><span>Print / PDF</span>
       </button>
-      <button class="btn" id="themeToggle" aria-pressed="false" aria-label="Toggle colour theme">
+      <button class="btn" id="themeToggle" aria-label="Toggle colour theme">
         <span id="themeIcon" aria-hidden="true">☾</span><span id="themeLabel">Dark</span>
       </button>
     </div>
@@ -406,9 +427,9 @@
     <p class="subtitle">A framework for answerability under asymmetric influence — connecting discretionary power, contestability, and the preservation of agency without claiming that procedure alone can secure justice.</p>
     <div class="hero-ornament" aria-hidden="true"></div>
     <div class="hero__meta">
-      <span>November 2026 · synthesised edition</span>
+      <span>November 2026 · revised critical edition</span>
       <span class="sep">·</span>
-      <span>5 parts · 17 sections · 5 supplementary · 12 objections · Swedish summary</span>
+      <span>5 parts · 17 sections · 12 objections · Swedish summary</span>
       <span class="sep">·</span>
       <span>≈ 60 min read</span>
     </div>
@@ -462,7 +483,7 @@
           <p class="abstract__lede"><strong>In one sentence:</strong> when you exercise discretionary influence over the conditions under which others live, choose and develop, and when they cannot exit or contest that influence effectively, you owe them an account of it — and you cannot be the sole judge of whether that account is good enough.</p>
           <p><strong>What this essay is, and what it is not.</strong> It is a framework for deciding when influence creates a duty to answer, how demanding that duty is, who must discharge it, and how it can be discharged without turning into new domination. It is not a new foundational principle in the tradition of Pettit, Forst or Jonas. Its core principle (J) is a <em>thin, disjunctive, abductively supported</em> synthesis of existing traditions, not a demonstration of necessity. Its contribution is partly operational — the activation rule, the duty ladder, the rating protocol, the illustration of how ECP may supplement Young in a concrete case, the measurable indicators of symbiosis, and the conversion of the reviewer regress from diagnosis to design — and partly philosophical: the <em>epistemic burden principle</em> (<a href="#s5">§5.2</a>), which argues that asymmetric influence creates a heightened burden of epistemic justification: the more powerful party cannot treat its own assessment as conclusive when the affected party lacks effective means of correction.</p>
           <p><strong>1. Ground.</strong> J is a thin, disjunctive principle: arrangements that systematically constrain others' conditions must provide at least one of meaningful exit, independent review, or justification open to contestation. Which is required depends on the structure of the constraint — where exit and review work, justification need not be owed; where they fail, it is. J is primarily an epistemic principle: it protects against the actor confusing their own view with the truth. J is <em>abductively</em> supported — it offers a plausible explanation of why unchecked discretionary power can produce domination and systematic error — and it has stated defeaters (<a href="#s2">§2.2b</a>). J is motivated by a fallibilist premise and a stated bridge norm (<a href="#s2">§2.0</a>), not derived from them. It is not necessary. It is defensible. The framework handles domination; it does not solve it.</p>
-          <p><strong>2. Standing and symbiosis.</strong> Who is owed an account, including beings that cannot speak for themselves, handled through four tiers of standing under uncertainty with an explicit plausibility threshold (<a href="#s4">§4</a>). Symbiosis is specified with observable indicators (S1–S3), so that the framework's ideal is as contestable as its procedure (<a href="#s5">§5.1</a>). Collective contestation may represent silent parties, but it must not undermine individual contestation (§4.6 vii). Section <a href="#s5">§5.2</a> develops a more limited claim: asymmetric influence creates a heightened burden to seek correction from sources not controlled by the decision-maker. This is a defeasible epistemic argument, not a claim that only one procedure can produce knowledge.</p>
+          <p><strong>2. Standing and symbiosis.</strong> Who is owed an account, including beings that cannot speak for themselves, handled through four tiers of standing under uncertainty with an explicit plausibility threshold (<a href="#s4">§4</a>). Symbiosis is specified with observable indicators (SY1–SY3), so that the framework's ideal is as contestable as its procedure (<a href="#s5">§5.1</a>). Collective contestation may represent silent parties, but it must not undermine individual contestation (§4.6 vii). Section <a href="#s5">§5.2</a> develops a more limited claim: asymmetric influence creates a heightened burden to seek correction from sources not controlled by the decision-maker. This is a defeasible epistemic argument, not a claim that only one procedure can produce knowledge.</p>
           <p><strong>3. Activation.</strong> One rule: a discretion gate plus three drivers (entrenchment, severity, contestation deficit) that determine one of three levels of duty, with anchors and a rating protocol that make the judgments visible and contestable (<a href="#s6">§6</a>–<a href="#s9">9</a>).</p>
           <p><strong>4. Structure.</strong> A floor of minimum conditions, the prohibition on being sole judge of one's own influence, the reviewer regress treated as a design problem, and accounts of conflict, future generations and learning (<a href="#s10">§10</a>–<a href="#s13">13</a>).</p>
           <p><strong>5. Application and testing.</strong> Worked cases including one that appears to refute the framework (<a href="#s14">§14.2b</a>), five proposed evaluation conditions for the activation rule, with independent measures where possible, provisional thresholds and preregistration requirements (<a href="#s15">§15.2</a>), and modular conditions for replacement (<a href="#s15">§15.3</a>).</p>
@@ -471,8 +492,8 @@
         </div>
       </section>
 
-      <aside class="preface" id="preface" aria-label="The argument in brief">
-        <h2>The argument in brief</h2>
+      <section class="preface" id="preface" aria-labelledby="preface-h">
+        <h2 id="preface-h">The argument in brief</h2>
         <p>The essay is long, and its spine can be stated in a page. This is that page.</p>
         <ol>
           <li><strong>The problem.</strong> Influence that is structural, persistent, diffuse and hard to attribute to any single wrongful act is not adequately covered by existing moral vocabulary — blame, rights, consent, regulation. This is the gap the framework addresses (<a href="#s1">§1</a>).</li>
@@ -483,11 +504,11 @@
           <li><strong>The limits.</strong> J is not necessary. It is defensible. The framework <em>handles</em> domination; it does not <em>solve</em> it. Its activation rule has proposed evaluation conditions; its ground and epistemic principle have stated defeaters. None of these is a proof of anything. They are invitations to argue.</li>
         </ol>
         <p class="preface-note">If you read only one section after this page, read <a href="#s7">§7</a> — that is where the framework either works or does not. If you read only one passage, read <a href="#s5">§5.2</a> — that is where it makes its main epistemic proposal.</p>
-      </aside>
+      </section>
 
       <nav class="reader-guide" id="reader-guide" aria-label="How to read this essay">
         <h2>How to read this essay</h2>
-        <p>This essay has seventeen numbered sections in five parts, plus five supplementary subsections (2.0, 3.3, 5.1, 5.2, 14.2b) that carry some of its more substantive claims. It is dense by design, but it does not have to be read linearly.</p>
+        <p>This essay has seventeen numbered sections in five parts, plus supplementary subsections (2.0, 2.2b, 2.4b, 3.3, 5.1, 5.2, 14.2b, 14.5b) that carry some of its more substantive claims. Five of these — 2.0, 3.3, 5.1, 5.2, 14.2b — are the most directly load-bearing. It is dense by design, but it does not have to be read linearly.</p>
 
         <h3>The argument at a glance</h3>
         <div class="roadmap-grid">
@@ -555,7 +576,7 @@
           <li><a href="#s2">§2.4b</a> — the power objection. Does the framework's proceduralism simply reproduce the power it diagnoses?</li>
           <li><a href="#s3">§3.3</a> — ECP against Young. Does the discretionary trigger really add what the social connection model lacks?</li>
           <li><a href="#s4">§4.6</a> — collective versus individual contestation. Does condition (vii) really protect individuals within collectives?</li>
-          <li><a href="#s5">§5.1</a> — making symbiosis measurable. Are S1–S3 the right indicators, and are they really independent of answerability?</li>
+          <li><a href="#s5">§5.1</a> — making symbiosis measurable. Are SY1–SY3 the right indicators, and are they really independent of answerability?</li>
           <li><a href="#s5">§5.2</a> — <strong>the epistemic burden principle</strong>. Is the argument circular? Is the claim about epistemic self-confirmation — that power systematically distorts the powerful party's belief about whether it has taken the other's perspective into account — defensible, or does it overstate what power does to knowledge? Are the stated defeaters genuine?</li>
           <li><a href="#s11">§11.4</a> — the reviewer regress. Does converting T5 from diagnosis to precondition really bound the regress? Or does it relocate the problem?</li>
           <li><a href="#s15">§15.2</a> — the falsification conditions. Are they operational, and are they preregistered in a way that would actually constrain the author?</li>
@@ -623,7 +644,7 @@
         <h2><span class="num">2.</span>The Ground and Its Support</h2>
         <p class="section-lede">The framework needs a thin, defensible principle, an abductive justification that is honest about its own weakness, and stated defeaters for the ground itself.</p>
 
-                <h3 id="s2-0">2.0 A motivating premise: fallibilism about understanding</h3>
+        <h3 id="s2-0">2.0 A motivating premise: fallibilism about understanding</h3>
         <div class="key-prop" data-label="Premise (F) and bridge norm (B)">
           <p><strong>F (fallibilism).</strong> No actor fully understands the conditions it shapes, or everything that depends on what it does. This is a claim about the limits of understanding, not about the cosmos and not about any ranking of beings.</p>
           <p><strong>B (bridge norm).</strong> Where an actor's influence falls on others who bear the cost of its errors, and who may see what the actor cannot, the actor should not be the sole judge of that influence; it should seek correction from them.</p>
@@ -637,12 +658,12 @@
 
         <p><strong>What would refute F as motivation.</strong></p>
         <ul>
-          <li><strong>F1.</strong> There is an actor or domain whose understanding of the conditions it shapes is in fact complete. Then B has no motivation there.</li>
-          <li><strong>F2.</strong> The incompleteness is contingent and the actor alone can reliably remedy it. Then actor-controlled inquiry would suffice and correction by others is unnecessary.</li>
-          <li><strong>F3.</strong> Correction by those affected does not, on balance, improve the actor's account or outcomes. This is an empirical defeater that the tests in <a href="#s15">§15.2</a> can address.</li>
-          <li><strong>F4.</strong> J and §5.2 are as well supported without F as with it. Then F is illustration, not ground, and should be dropped.</li>
+          <li><strong>FD1.</strong> There is an actor or domain whose understanding of the conditions it shapes is in fact complete. Then B has no motivation there.</li>
+          <li><strong>FD2.</strong> The incompleteness is contingent and the actor alone can reliably remedy it. Then actor-controlled inquiry would suffice and correction by others is unnecessary.</li>
+          <li><strong>FD3.</strong> Correction by those affected does not, on balance, improve the actor's account or outcomes. This is an empirical defeater that the tests in <a href="#s15">§15.2</a> can address.</li>
+          <li><strong>FD4.</strong> J and §5.2 are as well supported without F as with it. Then F is illustration, not ground, and should be dropped.</li>
         </ul>
-        <p>F4 is the one the framework most needs to take seriously. The claim made here is deliberately small: F gives a shared motivation, nothing more, and the framework is no weaker if a reader prefers to omit it.</p>
+        <p>FD4 is the one the framework most needs to take seriously. The claim made here is deliberately small: F gives a shared motivation, nothing more, and the framework is no weaker if a reader prefers to omit it.</p>
 
         <h3 id="s2-1">2.1 The core principle (J)</h3>
         <div class="key-prop" data-label="The core principle (J)">
@@ -857,21 +878,21 @@
         <p><strong>Three indicators, specified conceptually apart from answerability. Their measurement may nevertheless depend on testimony, representation, and contestable evidence; conceptual distinction is not measurement independence.</strong></p>
 
         <ul>
-          <li><strong>Non-exploitation (S1).</strong> The dependent party's continued participation does not require it to accept terms that it would reject if it had exit at tolerable cost. Measured by: the gap between stated preferences and accepted terms, adjusted for exit costs. A high gap indicates exploitation; a low gap indicates that the relation is not extractive, whatever else it is. Note that the indicator is defined by the <em>dependent party's</em> stated preferences, not by the more powerful party's assessment of what those preferences should be. This gives S1 a referent distinct from the procedure of answerability. It does not make the evidence self-authenticating: stated preferences may be constrained, adaptive, strategic or difficult to elicit, so interpretation must remain open to challenge.</li>
-          <li><strong>Non-assimilation (S2).</strong> The dependent party's difference is not treated as a defect to be corrected. Measured by: whether the actor's interventions aim at <em>removing the difference</em> or at <em>removing the burden the difference carries</em>. A programme that seeks to make deaf children hearing is assimilation; a programme that provides sign language and accessible environments is not. The indicator is observable in the design of interventions, not in the intentions of actors. It also requires that the dependent party can identify which of their burdens are being addressed — an assessment the more powerful party cannot make on their behalf. This gives S2 a design-level referent, but classification can still be disputed. The affected party's account is important evidence, not an infallible or exclusive verdict about the intervention.</li>
-          <li><strong>Continued possibility (S3).</strong> The dependent party retains the conditions for continued existence, development and participation. Measured by: whether F1–F5 (<a href="#s10">§10</a>) hold over time, not just at a single decision. A relation that satisfies F1–F5 at one moment and violates them at the next is not symbiotic; it is a relation that happened to be benign once. Because S3 is temporal, it requires that the dependent party can report on whether the conditions still hold — which the more powerful party cannot assess from a single observation. F1–F5 are conditions rather than procedures, but evidence about whether they hold may require testimony, observation and independent assessment. The distinction is conceptual, not a guarantee of measurement independence.</li>
+          <li><strong>Non-exploitation (SY1).</strong> The dependent party's continued participation does not require it to accept terms that it would reject if it had exit at tolerable cost. Measured by: the gap between stated preferences and accepted terms, adjusted for exit costs. A high gap indicates exploitation; a low gap indicates that the relation is not extractive, whatever else it is. Note that the indicator is defined by the <em>dependent party's</em> stated preferences, not by the more powerful party's assessment of what those preferences should be. This gives SY1 a referent distinct from the procedure of answerability. It does not make the evidence self-authenticating: stated preferences may be constrained, adaptive, strategic or difficult to elicit, so interpretation must remain open to challenge.</li>
+          <li><strong>Non-assimilation (SY2).</strong> The dependent party's difference is not treated as a defect to be corrected. Measured by: whether the actor's interventions aim at <em>removing the difference</em> or at <em>removing the burden the difference carries</em>. A programme that seeks to make deaf children hearing is assimilation; a programme that provides sign language and accessible environments is not. The indicator is observable in the design of interventions, not in the intentions of actors. It also requires that the dependent party can identify which of their burdens are being addressed — an assessment the more powerful party cannot make on their behalf. This gives SY2 a design-level referent, but classification can still be disputed. The affected party's account is important evidence, not an infallible or exclusive verdict about the intervention.</li>
+          <li><strong>Continued possibility (SY3).</strong> The dependent party retains the conditions for continued existence, development and participation. Measured by: whether F1–F5 (<a href="#s10">§10</a>) hold over time, not just at a single decision. A relation that satisfies F1–F5 at one moment and violates them at the next is not symbiotic; it is a relation that happened to be benign once. Because SY3 is temporal, it requires that the dependent party can report on whether the conditions still hold — which the more powerful party cannot assess from a single observation. F1–F5 are conditions rather than procedures, but evidence about whether they hold may require testimony, observation and independent assessment. The distinction is conceptual, not a guarantee of measurement independence.</li>
         </ul>
 
-        <p><strong>What this does, and what it does not do.</strong> It does not make symbiosis a score. It makes it <em>contestable</em> in the same way the activation rule is: with anchors, counter-profiles, independent raters. If a relation scores low on S1–S3 across repeated assessments, the framework says it is not symbiotic — whatever the actors claim. If a relation scores high, the framework does not say it <em>is</em> symbiotic; it says the observable indicators are consistent with it.</p>
+        <p><strong>What this does, and what it does not do.</strong> It does not make symbiosis a score. It makes it <em>contestable</em> in the same way the activation rule is: with anchors, counter-profiles, independent raters. If a relation scores low on SY1–SY3 across repeated assessments, the framework says it is not symbiotic — whatever the actors claim. If a relation scores high, the framework does not say it <em>is</em> symbiotic; it says the observable indicators are consistent with it.</p>
 
         <p><strong>Why this matters for the framework's integrity.</strong> The framework requires actors to answer for their influence. It would be incoherent for the framework's own ideal to be exempt from that requirement. A framework whose central ideal cannot be assessed is a framework with a hole in its centre. §5.1 closes the hole. §5.2 argues that the hole cannot be closed without answerability.</p>
 
         <aside class="key-points">
           <ul>
             <li>Existence is relational.</li>
-            <li>Symbiosis is a normative ideal, specified through three observable indicators: non-exploitation (S1), non-assimilation (S2), continued possibility (S3).</li>
+            <li>Symbiosis is a normative ideal, specified through three observable indicators: non-exploitation (SY1), non-assimilation (SY2), continued possibility (SY3).</li>
             <li>Each indicator has a conceptual referent distinct from answerability, although assessing it may require contestable testimony and independent evidence.</li>
-            <li>Each indicator requires the dependent party's own assessment — the more powerful party cannot specify what S1–S3 require on their behalf.</li>
+            <li>Each indicator requires the dependent party's own assessment — the more powerful party cannot specify what SY1–SY3 require on their behalf.</li>
             <li>The framework applies to its own ideal the standard it applies to actors.</li>
           </ul>
         </aside>
@@ -930,7 +951,7 @@
             <li>Five defeaters (B1–B5) identify when the claim should be weakened, redesigned or abandoned.</li>
           </ul>
         </aside>
-</section>
+      </section>
 
       <div class="part-divider" id="part-iii">
         <p class="part-divider__label">Part III</p>
@@ -1314,7 +1335,7 @@
           <li><strong>Compressible:</strong> prior authorisation, replaced by review completed before the sunset.</li>
           <li><strong>Not decided by the framework:</strong> which rationing rule is fair, and whether 48 hours really precludes prior review. Raters may disagree; under <a href="#s9">§9.2</a> the disagreement is recorded, not averaged away.</li>
         </ul>
-        <p><strong>Failure mode:</strong> if “emergency” is routinely invoked to skip prior review, test T5 (<a href="#s15">§15.2</a>) is triggered. Here the framework imposes a cost on the actor’s preferred option and admits residual dispute.</p>
+        <p><strong>Failure mode:</strong> if "emergency" is routinely invoked to skip prior review, test T5 (<a href="#s15">§15.2</a>) is triggered. Here the framework imposes a cost on the actor's preferred option and admits residual dispute.</p>
 
         <h3 id="s14-6">14.6 Calibration table</h3>
         <div class="table-wrap">
@@ -1374,9 +1395,9 @@
         <p><strong>Limits of the epistemic burden principle.</strong></p>
         <ul>
           <li><strong>The principle is limited to conditions of asymmetric influence.</strong> Where parties have comparable power or effective routes of correction, the heightened burden may be unnecessary or modest.</li>
-          <li><strong>The principle is epistemic and procedural, not metaphysical.</strong> Symbiosis is not a metaphysical entity; it is what S1–S3 measure.</li>
+          <li><strong>The principle is epistemic and procedural, not metaphysical.</strong> Symbiosis is not a metaphysical entity; it is what SY1–SY3 measure.</li>
           <li><strong>The principle is defensible, not proven.</strong> Its defeaters are stated in <a href="#s5">§5.2</a>. B1 (no systematic epistemic risk) is a central empirical vulnerability.</li>
-          <li><strong>The principle does not claim that answerability is sufficient for symbiosis or uniquely necessary for knowledge.</strong> It claims that it is a heightened epistemic burden under conditions of asymmetric influence, for the more powerful party to <em>know</em> (rather than merely believe) that S1–S3 hold.</li>
+          <li><strong>The principle does not claim that answerability is sufficient for symbiosis or uniquely necessary for knowledge.</strong> It claims that it is a heightened epistemic burden under conditions of asymmetric influence, for the more powerful party to <em>know</em> (rather than merely believe) that SY1–SY3 hold.</li>
         </ul>
 
         <h3 id="s15-2">15.2 Five falsification conditions: full specification</h3>
@@ -1524,7 +1545,7 @@
 
         <div class="objection">
           <h3><span class="obj-num">11.</span>"The epistemic burden principle is circular. It smuggles answerability into the definition of symbiosis."</h3>
-          <p class="reply">This is the most serious objection to the framework's positive contribution, and the reply is in <a href="#s5">§5.2</a>. S1–S3 are specified independently of answerability. S1 measures the gap between stated preferences and accepted terms, adjusted for exit costs. S2 measures whether interventions aim at removing the burden or the difference. S3 measures whether F1–F5 hold over time. These are observable without invoking any procedure of answerability. The principle adds a substantive claim: these three conditions can only be <em>reliably assessed</em> — and therefore only <em>reliably secured</em> — through procedures of answerability. This is not tautological. It is a claim about the epistemic conditions under which S1–S3 can be known. The principle may be wrong — the argument can be challenged, and the defeaters are stated in <a href="#s5">§5.2</a> — but the revised formulation does not define symbiosis in terms of answerability. If the reader finds the reply unconvincing, that is itself a useful test of the framework.</p>
+          <p class="reply">This is the most serious objection to the framework's positive contribution, and the reply is in <a href="#s5">§5.2</a>. SY1–SY3 are specified independently of answerability. SY1 measures the gap between stated preferences and accepted terms, adjusted for exit costs. SY2 measures whether interventions aim at removing the burden or the difference. SY3 measures whether F1–F5 hold over time. These are observable without invoking any procedure of answerability. The principle adds a substantive claim: these three conditions can only be <em>reliably assessed</em> — and therefore only <em>reliably secured</em> — through procedures of answerability. This is not tautological. It is a claim about the epistemic conditions under which SY1–SY3 can be known. The principle may be wrong — the argument can be challenged, and the defeaters are stated in <a href="#s5">§5.2</a> — but the revised formulation does not define symbiosis in terms of answerability. If the reader finds the reply unconvincing, that is itself a useful test of the framework.</p>
         </div>
 
         <div class="objection">
@@ -1548,7 +1569,7 @@
         <ol>
           <li><strong>Grund och stöd (§2–3).</strong> Ett motiverande fallibilistiskt antagande (F, §2.0) — ingen aktör förstår fullt ut de villkor den formar — och en uttalad bryggnorm (B) gör bestridande till ett rimligt botemedel, men J härleds inte ur dem. J är en tunn, disjunktiv princip: ordningar som systematiskt begränsar andras villkor måste erbjuda minst en av tre saker — meningsfull exit, oberoende granskning, eller rättfärdigande öppet för bestridande. J är <em>abduktivt</em> stödd: den organiserar flera överväganden om riskerna med okontrollerad makt, men är inte den enda möjliga förklaringen. Fyra familjer av överväganden — justifikatoriska, republikanska, epistemiska, relationella — pekar mot J, men de är inte fullt oberoende. Den epistemiska är primär. J:s vederläggningsvillkor (D1–D4) finns i §2.2b. §3.3 jämför ECP med Youngs social connection model i ett illustrativt fall; det visar en möjlig komplettering, inte en avgjord överlägsenhet.</li>
           <li><strong>Vem som räknas (§4).</strong> Fyra nivåer: aktörer, varelser med eget välbefinnande, osäkra kandidater och icke-subjekt. Kollektivt bestridande får inte underminera individuellt bestridande (§4.6 vii).</li>
-          <li><strong>Symbios och symbios-answerability-tesen (§5.1–5.2).</strong> Symbios ges tre observerbara indikatorer, specificerade oberoende av answerability: icke-utnyttjande (S1), icke-assimilation (S2) och fortsatt möjlighet (S3). Den reviderade principen (§5.2) hävdar något mer begränsat: asymmetriskt inflytande skapar en förhöjd risk för epistemisk självbekräftelse. Den mäktigare parten bör därför inte ensam kontrollera både påverkan och bevisningen för att påverkan är legitim. Kravet är proportionerlig oberoende granskning och meningsfull möjlighet till korrigering — inte att answerability är en nödvändig förutsättning för kunskap. Fem vederläggningsvillkor (B1–B5) anger när principen ska försvagas eller överges.</li>
+          <li><strong>Symbios och symbios-answerability-tesen (§5.1–5.2).</strong> Symbios ges tre observerbara indikatorer, specificerade oberoende av answerability: icke-utnyttjande (SY1), icke-assimilation (SY2) och fortsatt möjlighet (SY3). Den reviderade principen (§5.2) hävdar något mer begränsat: asymmetriskt inflytande skapar en förhöjd risk för epistemisk självbekräftelse. Den mäktigare parten bör därför inte ensam kontrollera både påverkan och bevisningen för att påverkan är legitim. Kravet är proportionerlig oberoende granskning och meningsfull möjlighet till korrigering — inte att answerability är en nödvändig förutsättning för kunskap. Fem vederläggningsvillkor (B1–B5) anger när principen ska försvagas eller överges.</li>
           <li><strong>När och hur mycket (§6–9).</strong> Handlingsutrymme är en grind. Tre drivare avgör nivån: inlåsning, allvar och bristande möjlighet att bestrida. Contestation deficit är där den disjunktiva J blir operationell. Nivåerna är att förklara, att ge möjlighet till granskning och svar, och att bevara, låta granska oberoende och auktorisera. Skyldigheter fördelas efter förmåga.</li>
           <li><strong>Ingen ensam domare (§11).</strong> Maktregressen behandlas som ett designproblem. T5 är ett <em>förhandsvillkor</em> för Level 3-auktorisation. En aktör som vägrar publicera sina R1-indikatorer förlorar inte ramverket — den förlorar sin Level 3-legitimitet. Detta är vad det innebär att ramverket <em>hanterar</em> dominans.</li>
           <li><strong>Tillämpning, test och utbyte (§14–15).</strong> Ett nio-stegs-förfarande och flera fall, inklusive akutläkaren (§14.2b). Fem falsifieringsvillkor (T1–T5) med oberoende mått, <em>preregistrering</em> och provisoriska trösklar. Sex villkor för att byta ut ramverket. §15.1 erkänner öppet de gränser som stresstestet av J och symbios-answerability-tesen har blottat.</li>
@@ -1639,9 +1660,9 @@
           <dd>How much is at stake for the affected, rated at individual and, for system design, aggregate level.</dd>
 
           <dt>Symbiosis</dt>
-          <dd>A normative ideal: relations of dependence in which the dependence is not exploited, difference is not forced into sameness, and the dependent party keeps the conditions for continued existence, development and participation (§5). Made measurable through S1–S3 (§5.1). Under the epistemic burden principle, answerability is its heightened epistemic safeguard under asymmetric influence (§5.2).</dd>
+          <dd>A normative ideal: relations of dependence in which the dependence is not exploited, difference is not forced into sameness, and the dependent party keeps the conditions for continued existence, development and participation (§5). Made measurable through SY1–SY3 (§5.1). Under the epistemic burden principle, answerability is its heightened epistemic safeguard under asymmetric influence (§5.2).</dd>
 
-          <dt>Symbiosis indicators (S1–S3)</dt>
+          <dt>Symbiosis indicators (SY1–SY3)</dt>
           <dd>Non-exploitation, non-assimilation, continued possibility (§5.1). Conceptually distinct from answerability, though measurement may rely on contestable testimony and independent evidence.</dd>
 
           <dt>Epistemic burden principle</dt>
@@ -1710,8 +1731,8 @@
             <li><strong>The power objection (<a href="#s2">§2.4b</a>)</strong> — does the framework's proceduralism simply reproduce the power it diagnoses? Is T5-as-precondition enough, or is it a relocation of the problem?</li>
             <li><strong>ECP against Young (<a href="#s3">§3.3</a>)</strong> — does the discretionary trigger really add what the social connection model lacks?</li>
             <li><strong>Collective versus individual contestation (<a href="#s4">§4.6</a>)</strong> — does the added condition (vii) really protect individuals within collectives?</li>
-            <li><strong>Making symbiosis measurable (<a href="#s5">§5.1</a>)</strong> — are S1–S3 the right indicators, and are they really independent of answerability?</li>
-            <li><strong>The epistemic burden principle (<a href="#s5">§5.2</a>)</strong> — is the argument circular? Are S1–S3 really independently specified? Does asymmetric influence justify a heightened burden of independent evidence? Are affected-party reports given appropriate weight without being romanticised? Are the five defeaters (B1–B5) adequate? Does the proposed principle add useful operational guidance to existing traditions?</li>
+            <li><strong>Making symbiosis measurable (<a href="#s5">§5.1</a>)</strong> — are SY1–SY3 the right indicators, and are they really independent of answerability?</li>
+            <li><strong>The epistemic burden principle (<a href="#s5">§5.2</a>)</strong> — is the argument circular? Are SY1–SY3 really independently specified? Does asymmetric influence justify a heightened burden of independent evidence? Are affected-party reports given appropriate weight without being romanticised? Are the five defeaters (B1–B5) adequate? Does the proposed principle add useful operational guidance to existing traditions?</li>
             <li><strong>The counterintuitive case (<a href="#s14">§14.2b</a>)</strong> — is the reply convincing, or does it merely relocate the demand to a place where it cannot be tested?</li>
             <li><strong>The preregistration requirement (<a href="#s15">§15.2</a>)</strong> — is it operational, or does it merely look operational?</li>
             <li><strong>The scope conditions (<a href="#s1">§1.2</a>)</strong> — are they the right boundaries, or does the framework claim too much, or too little?</li>
@@ -1835,7 +1856,7 @@
     root.dataset.theme = theme;
     themeIcon.textContent = theme === "dark" ? "☀" : "☾";
     themeLabel.textContent = theme === "dark" ? "Light" : "Dark";
-    themeBtn.setAttribute("aria-pressed", theme === "dark" ? "true" : "false");
+    themeBtn.setAttribute("aria-label", theme === "dark" ? "Switch to light theme" : "Switch to dark theme");
     updateGiscusTheme();
   }
 
@@ -1891,7 +1912,7 @@
     links.forEach(function (l) {
       var isActive = l.getAttribute("href") === "#" + activeId;
       l.classList.toggle("is-active", isActive);
-      if (isActive) l.setAttribute("aria-current", "true");
+      if (isActive) l.setAttribute("aria-current", "location");
       else l.removeAttribute("aria-current");
     });
   }
@@ -1928,10 +1949,11 @@
     var section = h2.closest('section, .coda');
     if (!section || !section.id) return;
     if (h2.querySelector('.anchor-link')) return;
+    var text = (h2.textContent || '').replace(/\s+/g, ' ').trim();
     var a = document.createElement('a');
     a.href = '#' + section.id;
     a.className = 'anchor-link';
-    a.setAttribute('aria-label', 'Permalink to section');
+    a.setAttribute('aria-label', 'Permalink to ' + (text || section.id));
     a.textContent = '§';
     h2.insertBefore(a, h2.firstChild);
   });
