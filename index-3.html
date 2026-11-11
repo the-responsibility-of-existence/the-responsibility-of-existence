@@ -24,7 +24,7 @@
 <meta name="twitter:description" content="A framework for answerability, asymmetric influence, and the preservation of agency in relations of dependence.">
 <meta name="twitter:image" content="https://the-responsibility-of-existence.github.io/og-image.png">
 <meta name="color-scheme" content="light dark">
-<script>try{var t=localStorage.getItem("roe-theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");document.documentElement.dataset.theme=t}catch(e){}</script>
+<script>try{var t=localStorage.getItem("roe-theme");if(t!=="light"&&t!=="dark")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.dataset.theme=t}catch(e){}</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -60,6 +60,14 @@
     --muted:#a09a8e;--accent:#c9a87c;--accent-soft:#2a2620;
     --rule:#3a3630;--rule-strong:#4a453c;--link:#c9a87c;
     --shadow:0 1px 2px rgba(0,0,0,.3);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --text:#e8e4dc;--bg:#1a1815;--bg-alt:#22201c;--bg-elev:#2a2722;
+      --muted:#a09a8e;--accent:#c9a87c;--accent-soft:#2a2620;
+      --rule:#3a3630;--rule-strong:#4a453c;--link:#c9a87c;
+      --shadow:0 1px 2px rgba(0,0,0,.3);
+    }
   }
   *{box-sizing:border-box}
   html{font-size:18px;scroll-behavior:smooth}
@@ -138,6 +146,7 @@
     margin:0 0 1.1rem;letter-spacing:-.014em;font-weight:600;padding-top:.4rem;position:relative}
   section > h2 .num{color:var(--accent);font-weight:400;
     margin-right:.55em;font-size:.8em;font-variant-numeric:tabular-nums}
+  section > h3[id]{position:relative}
   .coda h2{position:relative}
   h3{font-size:1.12rem;margin:2rem 0 .7rem;font-weight:600;letter-spacing:-.005em;
      scroll-margin-top:1.5rem}
@@ -411,6 +420,9 @@
   @media (prefers-contrast: more){
     :root{--rule:#a8a8a8;--rule-strong:#707070;--muted:#404040}
     [data-theme="dark"]{--rule:#707070;--rule-strong:#a0a0a0;--muted:#c8c4bc}
+    @media (prefers-color-scheme: dark){
+      :root:not([data-theme="light"]){--rule:#707070;--rule-strong:#a0a0a0;--muted:#c8c4bc}
+    }
     .btn,.contact-card,.roadmap-card{border-width:2px}
   }
   @media (prefers-reduced-transparency: reduce){
@@ -436,6 +448,7 @@
     .roadmap-card{border:1px solid #999;box-shadow:none}
     .contact-grid{display:none}
     details.objection{border-left:2px solid #000}
+    details.objection:not([open]) > *:not(summary){display:block !important}
     details.objection summary::before{content:"—";color:#000}
     details.objection[open] summary::before{content:"—"}
     .readability{display:none}
@@ -575,8 +588,8 @@
         <p class="preface-note">If you read only one section after this page, read <a href="#s7">§7</a> — that is where the framework either works or does not. If you read only one passage, read <a href="#s5">§5.2</a> — that is where it makes its main epistemic proposal. If you want to see what the framework claims that is genuinely new, read <a href="#s1-5">§1.5</a>.</p>
       </section>
 
-      <nav class="reader-guide" id="reader-guide" aria-label="How to read this essay">
-        <h2>How to read this essay</h2>
+      <section class="reader-guide" id="reader-guide" aria-labelledby="reader-guide-h">
+        <h2 id="reader-guide-h">How to read this essay</h2>
         <p>This essay has seventeen numbered sections in five parts, plus supplementary subsections (1.5, 2.0, 2.2b, 2.4b, 2.7, 2.8, 3.3, 5.1, 5.2, 5.3, 5.4, 14.2b, 14.5b, 14.7) that carry some of its more substantive claims. Eight of these — 1.5, 2.7, 2.8, 3.3, 5.1, 5.2, 5.3, 5.4 — are the most directly load-bearing. It is dense by design, but it does not have to be read linearly.</p>
 
         <h3>The argument at a glance</h3>
@@ -670,8 +683,8 @@
         <p>Read <a href="#s1-5">§1.5</a> and Table 1. That is where the framework makes its specific claim, and shows what each tradition supplies and what the framework adds.</p>
 
         <h3>Om du läser svenska</h3>
-        <p>Det finns en svensk sammanfattning i slutet av texten — <a href="#svensk-sammanfattning">klicka här för att hoppa direkt till den</a>.</p>
-      </nav>
+        <p>Det finns en <a href="#svensk-sammanfattning">svensk sammanfattning</a> i slutet av texten.</p>
+      </section>
 
       <div class="part-divider" id="part-i">
         <p class="part-divider__label">Part I</p>
@@ -1829,9 +1842,9 @@
         </aside>
       </section>
 
-      <div class="coda" id="s17">
+      <div class="coda" id="s17" role="region" aria-labelledby="s17-h">
         <p class="coda__label">Conclusion</p>
-        <h2>17. An Open Commitment to Existence</h2>
+        <h2 id="s17-h">17. An Open Commitment to Existence</h2>
         <p class="section-lede" style="color:var(--accent);border-left-color:var(--accent);">Be responsible for the influence you possess. Be humble before the existence you cannot fully comprehend.</p>
         <p>We are part of something larger than ourselves. Our understanding is incomplete. Our influence is unequal. Our relationships shape conditions that extend beyond our immediate existence. Every being that has a perspective holds a point in reality that cannot be exchanged for anyone else's, and some of those perspectives are hard for us to reach.</p>
         <p>We cannot know everything that deserves consideration. But we can decline to treat the limits of our understanding as proof that nothing lies beyond them, and we can ask for evidence where the question is open. This does not require abandoning reason. It requires allowing reason to recognise its limits. It does not require abandoning responsibility. It requires understanding that responsibility without care can become cold control, while care without accountability can become arbitrary intervention. Both are necessary.</p>
@@ -1862,7 +1875,7 @@
         <p class="section-lede">Thirteen objections the framework has to survive. Each is a real objection; none is fatal — but the first is the hardest, and the second and eleventh are the ones the framework most needs to answer.</p>
 
         <p class="expand-row">
-          <button class="btn" id="expandObjections" aria-expanded="false" aria-controls="objections">Expand all objections</button>
+          <button class="btn" id="expandObjections" aria-expanded="false">Expand all objections</button>
         </p>
 
         <details class="objection">
@@ -2343,20 +2356,23 @@
   onScroll();
 
   toTop.addEventListener("click", function () {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    var behavior = matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
+    window.scrollTo({ top: 0, behavior: behavior });
   });
 
-  document.querySelectorAll('section[id] > h2, .coda[id] > h2').forEach(function (h2) {
-    var section = h2.closest('section, .coda');
-    if (!section || !section.id) return;
-    if (h2.querySelector('.anchor-link')) return;
-    var text = (h2.textContent || '').replace(/\s+/g, ' ').trim();
+  document.querySelectorAll('section[id] > h2, section[id] > h3[id], .coda[id] > h2').forEach(function (h) {
+    var isH3 = h.tagName === 'H3';
+    var container = h.closest('section, .coda');
+    var targetId = isH3 ? h.id : (container ? container.id : null);
+    if (!targetId) return;
+    if (h.querySelector('.anchor-link')) return;
+    var text = (h.textContent || '').replace(/\s+/g, ' ').trim();
     var a = document.createElement('a');
-    a.href = '#' + section.id;
+    a.href = '#' + targetId;
     a.className = 'anchor-link';
-    a.setAttribute('aria-label', 'Permalink to ' + (text || section.id));
+    a.setAttribute('aria-label', 'Permalink to ' + (text || targetId));
     a.textContent = '§';
-    h2.insertBefore(a, h2.firstChild);
+    h.insertBefore(a, h.firstChild);
   });
 
   var expandBtn = document.getElementById('expandObjections');
