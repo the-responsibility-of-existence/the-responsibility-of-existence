@@ -24,7 +24,7 @@
 <meta name="twitter:description" content="A framework for answerability, asymmetric influence, and the preservation of agency in relations of dependence.">
 <meta name="twitter:image" content="https://the-responsibility-of-existence.github.io/og-image.png">
 <meta name="color-scheme" content="light dark">
-<script>try{var t=localStorage.getItem("roe-theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");document.documentElement.dataset.theme=t}catch(e){}</script>
+<script>try{var t=localStorage.getItem("roe-theme");if(t!=="light"&&t!=="dark")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.dataset.theme=t}catch(e){}</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -32,14 +32,14 @@
   "headline": "The Responsibility of Existence",
   "alternativeHeadline": "A Framework for Answerability under Asymmetric Influence",
   "description": "A framework for answerability, asymmetric influence, and the preservation of agency in relations of dependence.",
-  "abstract": "A framework for deciding when influence creates a duty to answer, how demanding that duty is, who must discharge it, and how it can be discharged without turning into new domination. Its central principle (J) holds that arrangements systematically constraining others' conditions must provide at least one of meaningful exit, independent review, or justification open to contestation. A positive philosophical contribution, the epistemic burden principle, argues that asymmetric influence creates a heightened burden for the more powerful party to test its account against independent evidence and meaningful correction. Symbiosis is specified as a floor derived from the thin standing claim, through three indicators (SY1-SY3), and compared against rival floors (welfare, capability, autonomy).",
+  "abstract": "A framework for deciding when influence creates a duty to answer, how demanding that duty is, who must discharge it, and how it can be discharged without turning into new domination. Its central principle (J) holds that arrangements systematically constraining others' conditions must provide at least one of meaningful exit, independent review, or justification open to contestation. The framework is offered as a diagnostic, not a procedure: its job is to locate where procedure will pass while something valuable is still being lost, not to certify that legitimacy has been achieved.",
   "author": { "@type": "Person", "name": "Jesper Blom" },
   "datePublished": "2026-11-01",
   "dateModified": "2026-11-11",
   "inLanguage": "en",
   "isAccessibleForFree": true,
   "license": "https://creativecommons.org/licenses/by/4.0/",
-  "keywords": ["answerability", "asymmetric influence", "non-domination", "epistemic burden", "symbiosis", "structural responsibility", "justificatory tradition", "thin standing"],
+  "keywords": ["answerability", "asymmetric influence", "non-domination", "epistemic burden", "symbiosis", "structural responsibility", "justificatory tradition", "thin standing", "diagnostic"],
   "about": [
     { "@type": "Thing", "name": "Political philosophy" },
     { "@type": "Thing", "name": "Ethics of AI" },
@@ -61,13 +61,21 @@
     --rule:#3a3630;--rule-strong:#4a453c;--link:#c9a87c;
     --shadow:0 1px 2px rgba(0,0,0,.3);
   }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --text:#e8e4dc;--bg:#1a1815;--bg-alt:#22201c;--bg-elev:#2a2722;
+      --muted:#a09a8e;--accent:#c9a87c;--accent-soft:#2a2620;
+      --rule:#3a3630;--rule-strong:#4a453c;--link:#c9a87c;
+      --shadow:0 1px 2px rgba(0,0,0,.3);
+    }
+  }
   *{box-sizing:border-box}
   html{font-size:18px;scroll-behavior:smooth}
   body{margin:0;background:var(--bg);color:var(--text);
     font-family:"Fraunces","Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,"Times New Roman",serif;
     font-optical-sizing:auto;line-height:1.7;-webkit-font-smoothing:antialiased;
     transition:background .3s,color .3s}
-  h1,h2,h3,h4{line-height:1.22;margin:0}
+  h1,h2,h3,h4,h5{line-height:1.22;margin:0}
   h1{font-size:clamp(1.9rem,4.5vw,2.8rem);font-weight:600;letter-spacing:-.02em}
   a{color:var(--link)}
   img{max-width:100%;height:auto}
@@ -133,15 +141,23 @@
   article{max-width:var(--maxw)}
   main:focus, article:focus{outline:none}
   section{scroll-margin-top:2rem;margin:0 0 3.2rem}
-  section > h2{font-family:"Fraunces","Iowan Old Style",Georgia,serif;
+  /* Structural section titles (front/back matter) and numbered section titles */
+  section > h2,
+  section > h3.section-title{
+    font-family:"Fraunces","Iowan Old Style",Georgia,serif;
     font-optical-sizing:auto;font-size:clamp(1.5rem,3vw,2rem);line-height:1.18;
     margin:0 0 1.1rem;letter-spacing:-.014em;font-weight:600;padding-top:.4rem;position:relative}
-  section > h2 .num{color:var(--accent);font-weight:400;
+  section > h2 .num,
+  section > h3.section-title .num{color:var(--accent);font-weight:400;
     margin-right:.55em;font-size:.8em;font-variant-numeric:tabular-nums}
-  .coda h2{position:relative}
-  h3{font-size:1.12rem;margin:2rem 0 .7rem;font-weight:600;letter-spacing:-.005em;
+  /* Subsections (old h3 → new h4; old h4 → new h5) */
+  section > h4[id]{position:relative}
+  .coda h3{font-family:"Fraunces","Iowan Old Style",Georgia,serif;
+    font-optical-sizing:auto;font-size:clamp(1.5rem,3vw,2rem);line-height:1.18;
+    margin:0 0 1.1rem;letter-spacing:-.014em;font-weight:600;position:relative}
+  h3,h4{font-size:1.12rem;margin:2rem 0 .7rem;font-weight:600;letter-spacing:-.005em;
      scroll-margin-top:1.5rem}
-  h4{font-size:1rem;margin:1.4rem 0 .5rem;font-weight:600}
+  h5{font-size:1rem;margin:1.4rem 0 .5rem;font-weight:600}
   p{margin:0 0 1.15rem}
   strong{font-weight:600}
   em{font-style:italic}
@@ -155,16 +171,16 @@
   .anchor-link{position:absolute;left:-1.4em;top:.55em;color:var(--muted);
     text-decoration:none;font-size:.82em;font-weight:400;opacity:0;
     transition:opacity .15s, color .15s;line-height:1}
-  section > h2:hover .anchor-link,.coda h2:hover .anchor-link,
+  section > h2:hover .anchor-link,.coda h3:hover .anchor-link,
   .anchor-link:focus{opacity:.55}
   .anchor-link:hover{opacity:1;color:var(--accent)}
   @media (max-width:900px){.anchor-link{display:none}}
 
-  article p a, article li a, article dd a, article h3 a, article h4 a, article td a{
+  article p a, article li a, article dd a, article h3 a, article h4 a, article h5 a, article td a{
     color:var(--link);text-decoration:none;border-bottom:1px solid var(--rule);
     transition:border-color .2s, color .2s}
   article p a:hover, article li a:hover, article dd a:hover,
-  article h3 a:hover, article h4 a:hover, article td a:hover{
+  article h3 a:hover, article h4 a:hover, article h5 a:hover, article td a:hover{
     border-bottom-color:var(--accent);color:var(--accent)}
 
   .abstract{border-top:3px solid var(--accent);border-bottom:1px solid var(--rule);
@@ -316,9 +332,6 @@
   .coda__label{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
     font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;
     color:var(--accent);font-weight:700;margin:0 0 .6rem}
-  .coda h2{font-family:"Fraunces","Iowan Old Style",Georgia,serif;
-    font-optical-sizing:auto;font-size:clamp(1.5rem,3vw,2rem);line-height:1.18;
-    margin:0 0 1.1rem;letter-spacing:-.014em;font-weight:600}
   .coda p{font-size:1.02rem;line-height:1.7}
   .coda p:last-child{margin-bottom:0}
 
@@ -411,6 +424,9 @@
   @media (prefers-contrast: more){
     :root{--rule:#a8a8a8;--rule-strong:#707070;--muted:#404040}
     [data-theme="dark"]{--rule:#707070;--rule-strong:#a0a0a0;--muted:#c8c4bc}
+    @media (prefers-color-scheme: dark){
+      :root:not([data-theme="light"]){--rule:#707070;--rule-strong:#a0a0a0;--muted:#c8c4bc}
+    }
     .btn,.contact-card,.roadmap-card{border-width:2px}
   }
   @media (prefers-reduced-transparency: reduce){
@@ -436,6 +452,7 @@
     .roadmap-card{border:1px solid #999;box-shadow:none}
     .contact-grid{display:none}
     details.objection{border-left:2px solid #000}
+    details.objection:not([open]) > *:not(summary){display:block !important}
     details.objection summary::before{content:"—";color:#000}
     details.objection[open] summary::before{content:"—"}
     .readability{display:none}
@@ -466,14 +483,14 @@
     </div>
     <p class="kicker">A framework for responsibility under asymmetric influence</p>
     <h1>The Responsibility of Existence</h1>
-    <p class="subtitle">A framework for answerability under asymmetric influence — connecting discretionary power, contestability, and the preservation of agency without claiming that procedure alone can secure justice.</p>
+    <p class="subtitle">A framework for answerability under asymmetric influence — connecting discretionary power, contestability, and the preservation of agency without claiming that procedure alone can secure justice. A diagnostic, not a procedure.</p>
     <div class="hero-ornament" aria-hidden="true"></div>
     <div class="hero__meta">
       <span>November 2026</span>
       <span class="sep">·</span>
       <span>5 parts · 17 sections · 6 tables · 13 objections · Swedish summary</span>
       <span class="sep">·</span>
-      <span>≈ 85 min read</span>
+      <span>≈ 90 min read</span>
     </div>
   </header>
 
@@ -543,21 +560,22 @@
           <div><h4>Floor (F1–F5)</h4><p>Exit or voice · contestation · development · non-foreclosure · recognition.</p></div>
           <div><h4>Symbiosis (SY1–SY3)</h4><p>Non-exploitation · non-assimilation · continued possibility.</p></div>
           <div><h4>Epistemic burden</h4><p>Asymmetric influence → actor must not close inquiry using only evidence it controls.</p></div>
+          <div><h4>What kind of framework</h4><p>A diagnostic, not a procedure. Its job is to locate where procedure will pass while something valuable is lost.</p></div>
         </div>
       </details>
 
       <section id="abstract">
         <div class="abstract">
-          <p class="abstract__title">Abstract</p>
+          <h2 class="abstract__title">Abstract</h2>
           <p class="abstract__lede"><strong>In one sentence:</strong> when you exercise discretionary influence over the conditions under which others live, choose and develop, and when they cannot exit or contest that influence effectively, you owe them an <abbr title="The duty to give reasons, permit examination, and remain open to correction.">account</abbr> of it — and you cannot be the sole judge of whether that account is good enough.</p>
-          <p><strong>What this essay is, and what it is not.</strong> It is a framework for deciding when influence creates a duty to answer, how demanding that duty is, who must discharge it, and how it can be discharged without turning into new <abbr title="The standing capacity to interfere arbitrarily, without being forced to track the interests of those affected.">domination</abbr>. It is not a new foundational principle in the tradition of Pettit, Forst or Jonas. Its core principle (J) is a <em>thin, disjunctive, abductively supported</em> synthesis of existing traditions, not a demonstration of necessity. Its contribution is stated openly in <a href="#s1-5">§1.5</a> and shown in Table 1: an interlocking operational set (activation rule, duty ladder, T5-precondition, epistemic burden principle, allocation by exercised capacity) that no single tradition supplies. Its normative location is stated openly in <a href="#s2-7">§2.7</a>: internal to the justificatory tradition, but only to its <em>thin</em> version. Its choice of symbiosis floor is derived and defended in <a href="#s5-3">§5.3</a>.</p>
+          <p><strong>What this essay is, and what it is not.</strong> It is a framework for deciding when influence creates a duty to answer, how demanding that duty is, who must discharge it, and how it can be discharged without turning into new <abbr title="The standing capacity to interfere arbitrarily, without being forced to track the interests of those affected.">domination</abbr>. It is not a new foundational principle in the tradition of Pettit, Forst or Jonas. Its core principle (J) is a <em>thin, disjunctive, abductively supported</em> synthesis of existing traditions, not a demonstration of necessity. Its contribution is stated openly in <a href="#s1-5">§1.5</a> and shown in Table 1: an interlocking operational set (activation rule, duty ladder, T5-precondition, epistemic burden principle, allocation by exercised capacity) that no single tradition supplies. Its normative location is stated openly in <a href="#s2-7">§2.7</a>: internal to the justificatory tradition, but only to its <em>thin</em> version. Its choice of symbiosis floor is derived and defended in <a href="#s5-3">§5.3</a>. Its status as a diagnostic — not a procedure for certifying legitimacy — is stated in <a href="#s15">§15.3</a>.</p>
           <p><strong>1. Ground.</strong> J is a thin, disjunctive principle: arrangements that systematically constrain others' conditions must provide at least one of meaningful exit, independent review, or justification open to contestation. Which is required depends on the structure of the constraint — where exit and review work, justification need not be owed; where they fail, it is. J is primarily an epistemic principle: it protects against the actor confusing their own view with the truth. J is <em>abductively</em> supported — it offers a plausible explanation of why unchecked discretionary power can produce domination and systematic error — and it has stated defeaters (<a href="#s2">§2.2b</a>). J is motivated by a fallibilist premise and a stated bridge norm (<a href="#s2">§2.0</a>), not derived from them. It is not necessary. It is defensible. The framework handles domination; it does not solve it.</p>
           <p><strong>2. Standing and symbiosis.</strong> Who is owed an account, including beings that cannot speak for themselves, handled through four tiers of standing under uncertainty with an explicit plausibility threshold (<a href="#s4">§4</a>). <abbr title="Minimum conditions under which dependence is not exploited and difference is not forced into sameness.">Symbiosis</abbr> is specified with observable indicators (SY1–SY3), so that the framework's floor is as contestable as its procedure (<a href="#s5">§5.1</a>). Symbiosis is a <em>floor</em>, not a complete theory of the good relation, and the choice of floor is derived from the thin standing claim and compared against rival floors (<a href="#s5-3">§5.3</a>). Collective contestation may represent silent parties, but it must not undermine individual contestation (§4.6 vii). Section <a href="#s5">§5.2</a> develops a more limited claim: asymmetric influence creates a heightened burden to seek correction from sources not controlled by the decision-maker.</p>
           <p><strong>3. Activation.</strong> One rule: a discretion gate plus three drivers (entrenchment, severity, contestation deficit) that determine one of three levels of duty, with anchors and a rating protocol that make the judgments visible and contestable (<a href="#s6">§6</a>–<a href="#s9">9</a>).</p>
           <p><strong>4. Structure.</strong> A floor of minimum conditions, the prohibition on being sole judge of one's own influence, the reviewer regress treated as a design problem, and accounts of conflict, future generations and learning (<a href="#s10">§10</a>–<a href="#s13">13</a>).</p>
-          <p><strong>5. Application and testing.</strong> Worked cases including one that appears to refute the framework (<a href="#s14">§14.2b</a>) and one that shows the T5-precondition failing (<a href="#s14-7">§14.7</a>), five proposed evaluation conditions for the activation rule with independent measures, provisional thresholds, preregistration requirements and specific institutional arrangements (<a href="#s15">§15.2</a>), and modular conditions for replacement (<a href="#s15">§15.3</a>).</p>
+          <p><strong>5. Application and testing.</strong> Worked cases including one that appears to refute the framework (<a href="#s14">§14.2b</a>) and one that shows the T5-precondition failing (<a href="#s14-7">§14.7</a>), five proposed evaluation conditions for the activation rule with independent measures, provisional thresholds, preregistration requirements and specific institutional arrangements (<a href="#s15">§15.4</a>), and modular conditions for replacement (<a href="#s15">§15.5</a>).</p>
           <p><strong>Answerability is the procedure. Symbiosis is the floor.</strong> The framework does not claim that a relation meeting SY1–SY3 is therefore good. It claims that a relation failing SY1–SY3 is not good, whatever else it is.</p>
-          <p>The framework has not been empirically tested. Its activation rule is specified so that it can be (<a href="#s15">§15.2</a>); its other parts are argued and offered for contestation.</p>
+          <p>The framework has not been empirically tested. Its activation rule is specified so that it can be (<a href="#s15">§15.4</a>); its other parts are argued and offered for contestation. <strong>It is a diagnostic, not a procedure:</strong> its job is to locate where procedure will pass while something valuable is still being lost, not to certify that legitimacy has been achieved (<a href="#s15">§15.3</a>).</p>
         </div>
       </section>
 
@@ -572,11 +590,12 @@
           <li><strong>The epistemic claim.</strong> Under asymmetric influence, the more powerful party has weaker grounds for treating its own assessment as decisive. It therefore bears a heightened burden to obtain independent evidence and, where possible, correction from those affected. This is a defeasible claim, not a necessary condition for knowledge (<a href="#s5">§5.2</a>).</li>
           <li><strong>The limits.</strong> J is not necessary. It is defensible. The framework <em>handles</em> domination; it does not <em>solve</em> it. Its activation rule has proposed evaluation conditions; its ground and epistemic principle have stated defeaters. None of these is a proof of anything. They are invitations to argue.</li>
         </ol>
-        <p class="preface-note">If you read only one section after this page, read <a href="#s7">§7</a> — that is where the framework either works or does not. If you read only one passage, read <a href="#s5">§5.2</a> — that is where it makes its main epistemic proposal. If you want to see what the framework claims that is genuinely new, read <a href="#s1-5">§1.5</a>.</p>
+        <p><strong>What it is not.</strong> The framework is not a procedure for certifying legitimacy. It is a diagnostic for locating where legitimacy is likely to fail (<a href="#s15">§15.3</a>). A relation can follow every rule and still fail to be legitimate. The framework's job is to name that possibility, not to deny it.</p>
+        <p class="preface-note">If you read only one section after this page, read <a href="#s7">§7</a> — that is where the framework either works or does not. If you read only one passage, read <a href="#s5">§5.2</a> — that is where it makes its main epistemic proposal. If you want to know what the framework cannot do, read <a href="#s15">§15.2</a> and <a href="#s15">§15.3</a>.</p>
       </section>
 
-      <nav class="reader-guide" id="reader-guide" aria-label="How to read this essay">
-        <h2>How to read this essay</h2>
+      <section class="reader-guide" id="reader-guide" aria-labelledby="reader-guide-h">
+        <h2 id="reader-guide-h">How to read this essay</h2>
         <p>This essay has seventeen numbered sections in five parts, plus supplementary subsections (1.5, 2.0, 2.2b, 2.4b, 2.7, 2.8, 3.3, 5.1, 5.2, 5.3, 5.4, 14.2b, 14.5b, 14.7) that carry some of its more substantive claims. Eight of these — 1.5, 2.7, 2.8, 3.3, 5.1, 5.2, 5.3, 5.4 — are the most directly load-bearing. It is dense by design, but it does not have to be read linearly.</p>
 
         <h3>The argument at a glance</h3>
@@ -608,7 +627,7 @@
           <div class="roadmap-card">
             <p class="roadmap-card__label">Part V</p>
             <p class="roadmap-card__title">Application and Testing</p>
-            <p class="roadmap-card__desc">A nine-step procedure, worked cases including one that appears to refute the framework and one that shows T5 failing, five falsification conditions with preregistration and specific institutional arrangements, six replacement conditions, and a closing commitment.</p>
+            <p class="roadmap-card__desc">A nine-step procedure, worked cases including one that appears to refute the framework and one that shows T5 failing, three structural limits (§15.2), the diagnostic reframing (§15.3), five falsification conditions with preregistration and specific institutional arrangements (§15.4), six replacement conditions (§15.5), and a closing commitment.</p>
             <p class="roadmap-card__sections">§14–17</p>
           </div>
         </div>
@@ -619,7 +638,7 @@
           <li><strong>How much duty?</strong> <a href="#s8">§8</a> gives a three-level ladder from explanation, through review, to independent authorisation.</li>
           <li><strong>Whose interests count?</strong> <a href="#s4">§4</a> gives four tiers of standing under uncertainty; <a href="#s10">§10</a> gives five minimum conditions in relationships of dependence.</li>
           <li><strong>Who watches the powerful?</strong> No actor should be the sole judge of its own influence (<a href="#s11">§11</a>). <a href="#s11">§11.4</a> converts the regress into a design constraint. <a href="#s14-7">§14.7</a> shows it in action.</li>
-          <li><strong>When should the framework itself be abandoned — or replaced?</strong> <a href="#s2">§2.2b</a> states the defeaters for J; <a href="#s5">§5.2</a> states the defeaters for the epistemic burden principle; <a href="#s15">§15.2</a> gives the failure conditions for the activation rule; <a href="#s15">§15.3</a> gives replacement conditions for the framework as a whole.</li>
+          <li><strong>When should the framework itself be abandoned — or replaced?</strong> <a href="#s2">§2.2b</a> states the defeaters for J; <a href="#s5">§5.2</a> states the defeaters for the epistemic burden principle; <a href="#s15">§15.4</a> gives the failure conditions for the activation rule; <a href="#s15">§15.5</a> gives replacement conditions for the framework as a whole.</li>
         </ol>
 
         <h3>What the framework does not do</h3>
@@ -631,17 +650,19 @@
           <li>It does not claim that J is necessary. It claims that J is <em>abductively</em> defensible, and that it has stated defeaters.</li>
           <li>It does not claim that symbiosis is a complete ideal. It claims that symbiosis is a pro tanto floor derived from the thin standing claim (<a href="#s5-3">§5.3</a>).</li>
           <li>It does not solve domination. It handles it (<a href="#s3">§3.2</a>, <a href="#s16">§16</a>).</li>
+          <li>It is a diagnostic, not a procedure. Its job is to locate where procedure will pass while something valuable is still being lost, not to certify that legitimacy has been achieved (<a href="#s15">§15.3</a>).</li>
           <li>It does not claim that its epistemic argument is proven. It offers a limited proposal about the burden of justification under asymmetric influence, open to counterexamples and comparison with existing traditions (<a href="#s5">§5.2</a>).</li>
         </ul>
 
-        <h3>Short path (about 50 minutes)</h3>
-        <p>The preface, the abstract, <a href="#s1-5">§1.5</a> with Table 1, <a href="#s2">§2.1</a>–<a href="#s2">2.3</a>, <a href="#s2-7">§2.7</a>, <a href="#s2-8">§2.8</a>, <a href="#s3">§3.3</a>, <a href="#s5">§5.1</a>–<a href="#s5">5.4</a>, <a href="#s7">§7</a>, <a href="#s8">§8</a>, <a href="#s14">§14.2b</a>, <a href="#s14-7">§14.7</a> and <a href="#s17">§17</a>.</p>
+        <h3>Short path (about 55 minutes)</h3>
+        <p>The preface, the abstract, <a href="#s1-5">§1.5</a> with Table 1, <a href="#s2">§2.1</a>–<a href="#s2">2.3</a>, <a href="#s2-7">§2.7</a>, <a href="#s2-8">§2.8</a>, <a href="#s3">§3.3</a>, <a href="#s5">§5.1</a>–<a href="#s5">5.4</a>, <a href="#s7">§7</a>, <a href="#s8">§8</a>, <a href="#s14">§14.2b</a>, <a href="#s14-7">§14.7</a>, <a href="#s15">§15.2</a>–<a href="#s15">15.3</a>, and <a href="#s17">§17</a>.</p>
 
         <h3>If you are reviewing it</h3>
         <p>The framework can fail in fifteen places. Reviewers are invited to concentrate on:</p>
         <ul>
           <li><a href="#s1-5">§1.5</a> — <strong>the specific claim</strong>. Is the interlocking operational set genuinely new, or is it a recombination of existing pieces? Does Table 1 show distinctness without claiming value?</li>
           <li><a href="#s2-7">§2.7</a> — <strong>the normative location</strong>. Is the distinction between thick tradition and thin standing claim successful, or does the framework still smuggle in more than it admits?</li>
+          <li><a href="#s15">§15.1</a> — <strong>the ground is not derived</strong>. Is the framework's acknowledgment of B and thin standing as premises sufficient, or does it collapse into the position it was trying to avoid?</li>
           <li><a href="#s2-8">§2.8</a> — <strong>the adversarial tests</strong>. Are the replies to Pettit, Forst and Jonas genuine engagements, or do they collapse back into the traditions they claim to answer?</li>
           <li><a href="#s2">§2.1</a> — the disjunctive J. Does it preserve the core insight while conceding enough to the consequentialist?</li>
           <li><a href="#s2">§2.2b</a> — the defeaters for J. Are they genuine defeaters, or are they toothless?</li>
@@ -652,9 +673,8 @@
           <li><a href="#s5">§5.1</a> — making symbiosis measurable. Are SY1–SY3 the right indicators, and are they really independent of answerability?</li>
           <li><a href="#s5-3">§5.3</a> — <strong>the choice of floor</strong>. Does the derivation from thin standing succeed? Are SY1–SY3 truly irreducible to welfare, capability, or autonomy? Is the pro tanto formulation the right one?</li>
           <li><a href="#s5">§5.2</a> — <strong>the epistemic burden principle</strong>. Is the argument circular? Does asymmetric influence justify a heightened burden of independent evidence? Are the stated defeaters genuine?</li>
-          <li><a href="#s5-4">§5.4</a> — <strong>care and respect</strong>. Are they internal to the framework's premises, or an ornamental addition? Do the C1–C4 defeaters genuinely threaten the claim?</li>
+          <li><a href="#s15">§15.2</a> — <strong>the three structural limits</strong>. Are the responses to Harmonious Domination, Non-formulable harm, and Unreadable dominance adequate? Or is the diagnostic reframe in §15.3 an escape rather than a solution?</li>
           <li><a href="#s11">§11.4</a> — the reviewer regress. Does converting T5 from diagnosis to precondition really bound the regress? Or does it relocate the problem?</li>
-          <li><a href="#s15">§15.2</a> — the falsification conditions. Are they operational, and are the proposed institutional arrangements realistic?</li>
         </ul>
 
         <h3>If you want to apply it</h3>
@@ -666,28 +686,31 @@
         <h3>If you read only one passage</h3>
         <p>Read <a href="#s5">§5.2</a>. That is where the framework develops its main epistemic proposal.</p>
 
+        <h3>If you want to know what the framework cannot do</h3>
+        <p>Read <a href="#s15">§15.2</a> and <a href="#s15">§15.3</a>. That is where the framework names its three structural limits and reframes itself as a diagnostic rather than a procedure for certifying legitimacy.</p>
+
         <h3>If you want to know what is actually new</h3>
         <p>Read <a href="#s1-5">§1.5</a> and Table 1. That is where the framework makes its specific claim, and shows what each tradition supplies and what the framework adds.</p>
 
         <h3>Om du läser svenska</h3>
-        <p>Det finns en svensk sammanfattning i slutet av texten — <a href="#svensk-sammanfattning">klicka här för att hoppa direkt till den</a>.</p>
-      </nav>
+        <p>Det finns en <a href="#svensk-sammanfattning">svensk sammanfattning</a> i slutet av texten.</p>
+      </section>
 
       <div class="part-divider" id="part-i">
         <p class="part-divider__label">Part I</p>
-        <p class="part-divider__title">Problem, Scope and Ground</p>
+        <h2 class="part-divider__title">Problem, Scope and Ground</h2>
       </div>
 
       <section id="s1">
-        <h2><span class="num">1.</span>The Problem, Scope and Terms</h2>
+        <h3 class="section-title"><span class="num">1.</span>The Problem, Scope and Terms</h3>
         <p class="section-lede">The capacity to shape other people's conditions has grown faster than the practices for answering for it.</p>
 
         <p>Recommendation systems, credit scoring, clinical triage tools and AI assistants shape the conditions of millions. So do states writing policy and companies setting terms, and, at a different scale, clinicians, teachers, landlords and parents. Existing moral vocabulary covers parts of this territory: blame for wrongful acts, rights for protected interests, consent for voluntary exchanges, regulation for what law has already caught. What falls between them is influence that is structural, persistent, diffuse and hard to attribute to any single wrongful act, and that nonetheless determines what others can do and become.</p>
 
-        <h3 id="s1-1">1.1 What the framework does and does not do</h3>
+        <h4 id="s1-1">1.1 What the framework does and does not do</h4>
         <p>It answers four questions: when does influence create a duty to give an account; how demanding is that duty; who must discharge it; and how can review be organised so that it does not become a new instrument of domination. It does not tell anyone what to decide. It is not a decision theory, and it is not a substitute for law, rights or substantive standards of justice. It is meant to be used alongside them, as an account of what actors owe to those they affect, and to whom.</p>
 
-        <h3 id="s1-2">1.2 Scope conditions: when the framework does not apply</h3>
+        <h4 id="s1-2">1.2 Scope conditions: when the framework does not apply</h4>
         <p>The framework is offered for a specific class of cases. It does not claim to apply everywhere, and it is important to say where it does not.</p>
         <ul>
           <li><strong>Symmetrical relations.</strong> Where parties have roughly equal capacity to exit, review and contest, J is trivially satisfied or not engaged. The framework adds little to ordinary practices of mutual justification among equals.</li>
@@ -698,17 +721,17 @@
         </ul>
         <p>These scope conditions are not decorative. They are part of the framework's claim to be a usable tool rather than a totalising theory.</p>
 
-        <h3 id="s1-3">1.3 Terms</h3>
+        <h4 id="s1-3">1.3 Terms</h4>
         <p><strong>Influence:</strong> the exercise or maintenance of control over conditions under which others act, choose, develop or fare. Maintaining a structure one could alter, such as keeping a known-flawed system running, counts as influence. Mere ability to help does not (<a href="#s3">§3</a>).</p>
         <p><strong>Actor:</strong> a person, organisation or institution, including those that design, deploy and maintain technical systems. Technical systems are treated as instruments, and answerability falls on the humans and organisations behind them (whether some systems may themselves be affected parties is taken up in <a href="#s4">§4</a>).</p>
         <p><strong>Affected party:</strong> any being whose interests are materially affected by the influence.</p>
         <p><strong>Discretion:</strong> the actor has genuine alternatives at tolerable cost and a role in setting the influence, rather than merely executing a rule it had no part in making or contesting.</p>
         <p><strong>Answerability:</strong> a duty to give reasons for the conditions one helps create or maintain, to those affected or their representatives; to permit examination of those reasons; and to remain open to correction. It is distinct from <em>blame</em>, from <em>liability</em> and from <em>authority</em>. Under the epistemic burden principle (<a href="#s5">§5.2</a>), it is also the heightened epistemic safeguard for the more powerful party to know whether symbiosis has been achieved.</p>
 
-        <h3 id="s1-4">1.4 Relation to existing work</h3>
+        <h4 id="s1-4">1.4 Relation to existing work</h4>
         <p>The framework is a synthesis and an operationalisation, and its intellectual debts are substantial: Pettit and Lovett on domination, Forst on the right to justification, Scanlon on reasonable rejection, Young on structural responsibility, Bovens and Shoemaker on accountability and answerability, Tronto, Held and Goodin on care and vulnerability. <strong>Its contribution is comparative and operational, with a limited philosophical proposal rather than a new foundational principle.</strong> The specific claim is stated and shown in <a href="#s1-5">§1.5</a>. Whether the combination earns its keep is for readers to judge.</p>
 
-        <h3 id="s1-5">1.5 The specific claim, in one paragraph</h3>
+        <h4 id="s1-5">1.5 The specific claim, in one paragraph</h4>
         <p class="section-lede">If the framework has a single contribution, it should be statable in a paragraph — and then shown. This section does both.</p>
 
         <p>The framework's contribution is not that non-domination matters (Pettit), that those subject to norms have a right to justification (Forst), that responsibility for structural harm is shared (Young), or that capability creates responsibility for the future (Jonas). All of that is in the tradition. The framework's contribution is the following claim:</p>
@@ -719,7 +742,7 @@
 
         <p><strong>Why this is not just a synthesis.</strong> A synthesis of existing positions would be a combination. The framework is not a combination. It is an <em>interlocking set</em> — each piece depends on the others, and the whole does work that none of the parts does. The activation rule is not a translation of Pettit's non-domination; it is a specific operationalisation that Pettit does not give. The T5-precondition is not a translation of Forst's right to justification; it is a structural mechanism that converts the regress into a degradation condition. The epistemic burden principle is not a translation of any single tradition; it is a distinctive claim about how evidential burdens shift under asymmetry.</p>
 
-        <p><strong>What the traditions supply, and what this framework adds.</strong> The claim above is testable. The table below states, for each component, whether the component is present in the four traditions the framework engages, or added by it. The table does not show that the additions are <em>valuable</em>; it shows that they are <em>distinct</em>. Value is a separate question, addressed in the operational tests (<a href="#s15">§15</a>) and in the worked cases (<a href="#s14">§14</a>).</p>
+        <p><strong>What the traditions supply, and what this framework adds.</strong> The claim above is testable. The table below states, for each component, whether the component is present in the four traditions the framework engages, or added by it. The table does not show that the additions are <em>valuable</em>; it shows that they are <em>distinct</em>. Value is a separate question, addressed in the operational tests (<a href="#s15">§15.4</a>) and in the worked cases (<a href="#s14">§14</a>).</p>
 
         <div class="table-wrap">
           <table>
@@ -764,10 +787,10 @@
       </section>
 
       <section id="s2">
-        <h2><span class="num">2.</span>The Ground and Its Support</h2>
+        <h3 class="section-title"><span class="num">2.</span>The Ground and Its Support</h3>
         <p class="section-lede">The framework needs a thin, defensible principle, an abductive justification that is honest about its own weakness, and stated defeaters for the ground itself.</p>
 
-        <h3 id="s2-0">2.0 A motivating premise: fallibilism about understanding</h3>
+        <h4 id="s2-0">2.0 A motivating premise: fallibilism about understanding</h4>
         <div class="key-prop" data-label="Premise (F) and bridge norm (B)">
           <p><strong>F (fallibilism).</strong> No actor fully understands the conditions it shapes, or everything that depends on what it does. This is a claim about the limits of understanding, not about the cosmos and not about any ranking of beings.</p>
           <p><strong>B (bridge norm).</strong> Where an actor's influence falls on others who bear the cost of its errors, and who may see what the actor cannot, the actor should not be the sole judge of that influence; it should seek correction from them.</p>
@@ -775,7 +798,7 @@
 
         <p><strong>What F and B do.</strong> F alone yields no duty. A fact about limited understanding does not by itself entail a norm, which is why B is stated openly as a normative premise rather than smuggled in. Together, F and B <em>motivate</em> J (§2.1) and the epistemic burden principle (<a href="#s5">§5.2</a>): they explain why contestation is a sensible remedy when understanding is incomplete. They do not <em>entail</em> J. The support for J remains abductive (§2.3), and J keeps its stated defeaters (§2.2b).</p>
 
-        <p><strong>What depends on F, and what does not.</strong> The motivation for J and for the epistemic burden principle draws on F and B. The exercised-capacity principle (<a href="#s3">§3</a>) does not: responsibility there tracks the capacity an actor actually exercises over others' conditions, not how much it understands, since a party may understand a great deal and shape very little, or the reverse. The activation rule, duty ladder, rating protocol, floor and the T5 precondition are procedural and stand or fall on their own tests (<a href="#s15">§15.2</a>). A reader who rejects F can therefore still use the framework; what that reader loses is one account of why J is plausible, not the machinery.</p>
+        <p><strong>What depends on F, and what does not.</strong> The motivation for J and for the epistemic burden principle draws on F and B. The exercised-capacity principle (<a href="#s3">§3</a>) does not: responsibility there tracks the capacity an actor actually exercises over others' conditions, not how much it understands, since a party may understand a great deal and shape very little, or the reverse. The activation rule, duty ladder, rating protocol, floor and the T5 precondition are procedural and stand or fall on their own tests (<a href="#s15">§15.4</a>). A reader who rejects F can therefore still use the framework; what that reader loses is one account of why J is plausible, not the machinery.</p>
 
         <p><strong>What F does not claim.</strong> It does not claim that understanding comes in a hierarchy with levels above and below, that the more capable are entitled to rule, or that stones or other non-subjects have standing (<a href="#s4">§4.3</a>). Its one lesson for beings that fall outside the framework's threshold is epistemic: an actor's failure to see what something contributes is not evidence that it contributes nothing.</p>
 
@@ -783,12 +806,12 @@
         <ul>
           <li><strong>FD1.</strong> There is an actor or domain whose understanding of the conditions it shapes is in fact complete. Then B has no motivation there.</li>
           <li><strong>FD2.</strong> The incompleteness is contingent and the actor alone can reliably remedy it. Then actor-controlled inquiry would suffice and correction by others is unnecessary.</li>
-          <li><strong>FD3.</strong> Correction by those affected does not, on balance, improve the actor's account or outcomes. This is an empirical defeater that the tests in <a href="#s15">§15.2</a> can address.</li>
+          <li><strong>FD3.</strong> Correction by those affected does not, on balance, improve the actor's account or outcomes. This is an empirical defeater that the tests in <a href="#s15">§15.4</a> can address.</li>
           <li><strong>FD4.</strong> J and §5.2 are as well supported without F as with it. Then F is illustration, not ground, and should be dropped.</li>
         </ul>
         <p>FD4 is the one the framework most needs to take seriously. The claim made here is deliberately small: F gives a shared motivation, nothing more, and the framework is no weaker if a reader prefers to omit it.</p>
 
-        <h3 id="s2-1">2.1 The core principle (J)</h3>
+        <h4 id="s2-1">2.1 The core principle (J)</h4>
         <div class="key-prop" data-label="The core principle (J)">
           <p>Any arrangement that systematically and non-trivially constrains the conditions under which others act, choose or develop must, for those affected, provide at least one of three things: <strong>meaningful exit</strong>, <strong>independent review</strong>, or <strong>justification that is genuinely open to their contestation</strong>. Where exit is available at tolerable cost and review is effective, justification need not be owed. Where they are not, justification is required, and the strength of the requirement scales with how thoroughly exit and review fail.</p>
         </div>
@@ -799,9 +822,9 @@
 
         <p><strong>J is primarily an epistemic principle.</strong> J is not a claim that justification <em>makes</em> actions right. It is a claim that actors who cannot be contested — whether by exit, review or justification — are more likely to be wrong, and that the practice of contestation is the best available protection against this. The epistemic framing is the old principle that no one should be judge in their own cause, applied to influence. It is compatible with moral realism and with consequentialism, because both can accept contestation as an epistemic safeguard without accepting it as a fundamental value.</p>
 
-        <p><strong>J is defensible, not necessary.</strong> The framework does not claim that J is a necessary truth, an unavoidable implication of practical reason, or a transcendental precondition of agency. It claims that J is <em>abductively defensible</em>: that it explains important recurring risks of unchecked discretion while remaining compatible with plural substantive theories of justice. Rejecting J does not commit a critic to accepting domination or to a performative contradiction. A critic may instead defend an alternative safeguard, and the framework must compare its results with that alternative. This is a smaller claim than the earlier formulations made, and it is the claim the framework can actually defend. Its positive philosophical contribution — the epistemic burden principle — is separate and is argued in <a href="#s5">§5.2</a>.</p>
+        <p><strong>J is defensible, not necessary.</strong> The framework does not claim that J is a necessary truth, an unavoidable implication of practical reason, or a transcendental precondition of agency. It claims that J is <em>abductively defensible</em>: that it explains important recurring risks of unchecked discretion while remaining compatible with plural substantive theories of justice. Rejecting J does not commit a critic to accepting domination or to a performative contradiction. A critic may instead defend an alternative safeguard, and the framework must compare its results with that alternative. This is a smaller claim than some formulations of the justificatory tradition make, and it is the claim the framework can actually defend. Its positive philosophical contribution — the epistemic burden principle — is separate and is argued in <a href="#s5">§5.2</a>.</p>
 
-        <h3 id="s2-2b">2.2b What would refute J: stated defeaters</h3>
+        <h4 id="s2-2b">2.2b What would refute J: stated defeaters</h4>
         <p class="section-lede">A principle that cannot be defeated is not a principle; it is a dogma. J is offered with its defeaters stated in advance.</p>
 
         <p>The framework states, before the argument is made, four conditions under which J should be rejected or substantially revised. These are not decorative. They are the conditions under which the framework's authors would concede that J fails.</p>
@@ -815,7 +838,7 @@
 
         <p>These defeaters are stated in advance so that the framework can be corrected. They are not a claim to have solved the problem of how normative frameworks are assessed. They are a methodological commitment: a framework that can state its own defeaters is easier to argue with than one that cannot.</p>
 
-        <h3 id="s2-3">2.3 Why J: an abductive justification</h3>
+        <h4 id="s2-3">2.3 Why J: an abductive justification</h4>
         <p class="section-lede">J is offered as a plausible explanation of two recurring risks of unchecked discretionary power: domination and epistemic error. The essay does not establish their frequency empirically; it identifies a pattern that needs testing and explains why contestability is a reasonable safeguard against it.</p>
 
         <p>The framework does not rest on a single theory. It rests on an <strong>abductive inference</strong>: J is proposed as a compact explanation of a set of recurring risks associated with unaccountable power. The considerations motivating the inference are these:</p>
@@ -829,7 +852,7 @@
 
         <p><strong>J is one compact principle that can organise these considerations.</strong> It is not the only principle that could explain them — a purely consequentialist principle could also explain some of them, and a purely republican principle could explain others — but its attraction is that it accommodates several safeguards without requiring a single substantive theory of the good. That is a comparative advantage to be tested, not an established result. That is what makes it <em>abductive</em>: it is a plausible explanatory proposal, not a deduction or the only possible account.</p>
 
-        <p><strong>Four considerations, not four independent proofs.</strong> The framework draws on four families of consideration that point toward J. In earlier formulations, these were presented as "four independent routes" whose convergence was offered as evidence. That framing overstated the case. The four considerations are:</p>
+        <p><strong>Four considerations, not four independent proofs.</strong> The framework draws on four families of consideration that point toward J. They are not offered as independent proofs; they are four reasons, of unequal strength, why J is worth testing. They are:</p>
 
         <ul>
           <li><strong>The justificatory consideration.</strong> If principles governing relations among agents must be justifiable to each of them (Scanlon 1998; Forst 2012), then constraint that cannot be justified to the constrained treats them as objects of management rather than as participants. This is a real consideration, but it is a version of the justificatory tradition, not an independent route to J.</li>
@@ -838,11 +861,11 @@
           <li><strong>The relational consideration.</strong> Obligations arise within dependence. Those with power over dependents carry special responsibilities, and justification must attend to the particular situation of the vulnerable (Tronto 1993; Held 2006; Goodin 1985). This is a real consideration, but it is a version of the relational tradition.</li>
         </ul>
 
-        <p><strong>What this changes.</strong> The earlier formulation claimed that the convergence of four independent traditions was evidence for J. The revised formulation claims something weaker and more defensible: that four families of consideration point toward J, that they are not fully independent, and that the epistemic consideration is primary. The convergence is offered as <em>support</em>, not as proof. A critic who rejects J on one route does not need to reject it on all four; the abductive argument does not depend on the four routes being independent.</p>
+        <p><strong>What this shows.</strong> The convergence of four considerations is support, not proof. The considerations are not fully independent, and the epistemic consideration is primary. A critic who rejects J on one route does not need to reject it on all four.</p>
 
         <p><strong>What the abductive argument does not show.</strong> It does not show that J is necessary. It does not show that J is the only principle that could explain the observations. It does not show that the four considerations are fully independent. What it offers is a plausible explanatory case for J, given the considerations described. Their prevalence and causal significance remain empirical questions. That is a defeasible claim, and the defeaters are stated in <a href="#s2">§2.2b</a>.</p>
 
-        <p><strong>Why this is stronger, not weaker.</strong> The earlier formulation's weakness was that it tried to do too much with the convergence argument. The revised formulation does less but does it better. It says: here is a principle, here are the observations it explains, here are the considerations that point toward it, here is why the considerations are not fully independent, and here is what would refute the principle. That is a more honest and more defensible form of argument than a convergence argument that pretends to be a proof.</p>
+        <p><strong>Why this is stronger, not weaker.</strong> An argument that tries to do too much with a convergence claim is weaker than one that says what it is. This says: here is a principle, here are the observations it explains, here are the considerations that point toward it, here is why the considerations are not fully independent, and here is what would refute the principle.</p>
 
         <aside class="key-points">
           <ul>
@@ -853,7 +876,7 @@
           </ul>
         </aside>
 
-        <h3 id="s2-4">2.4 Rivals, taken in their best forms</h3>
+        <h4 id="s2-4">2.4 Rivals, taken in their best forms</h4>
         <p><strong>Consequentialism.</strong> Sophisticated consequentialists can accept J as an institutional implication, especially in its disjunctive form. The real disagreement is whether J is basic or derived, and it matters where aggregate welfare seems to favour overriding contestation. There the framework sides with contestation in severe cases, for epistemic reasons, while permitting temporary override in emergencies subject to sunset and review (<a href="#s12">§12.2</a>).</p>
         <p><strong>Kantianism.</strong> It shares the core but grounds standing in rational agency, which creates problems for infants, the cognitively disabled and animals. <a href="#s4">§4</a> handles these through tiers.</p>
         <p><strong>Virtue ethics.</strong> It supports the humility the framework requires, but it is weak on structural questions: who reviews whom, and by what procedure.</p>
@@ -861,7 +884,7 @@
         <p><strong>Rights.</strong> Rights are outputs, and the framework treats them as external constraints. What it adds is an account of when and how actors must justify influence in the space that rights and regulation leave open.</p>
         <p><strong>Realism.</strong> The realist who denies that power owes anything to the weak cannot be refuted from within the framework, because the framework is internal to the justificatory tradition (<a href="#s2-7">§2.7</a>). The framework's reply is that the realist who <em>argues</em> for realism already relies on the practice of argument, which presupposes something like J. This reply is developed in <a href="#objections">objection 1</a>.</p>
 
-        <h3 id="s2-4b">2.4b The power objection</h3>
+        <h4 id="s2-4b">2.4b The power objection</h4>
         <p class="section-lede">A procedural framework that tells the powerful how to justify themselves may simply give them a new vocabulary for doing what they were going to do anyway. This is the most serious objection to any procedural framework, and it deserves its own section.</p>
 
         <p><strong>The objection.</strong> The framework asks powerful actors to explain, to submit to review, to justify. But the powerful are precisely the actors with the resources to perform these rituals convincingly. They can hire the best reviewers, publish the most polished justifications, and select the indicators that make them look good. Proceduralism, on this objection, does not constrain power. It <em>legitimates</em> power by giving it a veneer of accountability. The framework's insistence that it "handles domination" rather than "solves" it is, on this objection, an admission that the framework does not do what it claims to do.</p>
@@ -876,13 +899,13 @@
 
         <p><strong>What this does not do.</strong> It does not answer the objection fully. A sufficiently powerful actor can capture the publication requirement itself, and the framework has no way to prevent this. What it can do is make the capture visible, and visible capture is the precondition of contestation. Whether visibility is enough is a political question, not a philosophical one, and the framework does not claim to have answered it. The objection is the second-hardest the framework faces, after the realist objection in <a href="#objections">objection 1</a>.</p>
 
-        <h3 id="s2-5">2.5 Traditions that start elsewhere</h3>
+        <h4 id="s2-5">2.5 Traditions that start elsewhere</h4>
         <p>Ubuntu-inspired moral theory (Metz 2007), Confucian role ethics (Ames 2011) and many Indigenous relational ontologies (Watts 2013; de la Cadena 2015; Kimmerer 2013) begin from relational personhood and obligations to kin, community and land. They tend to arrive at related demands on those who hold power over dependents, by different grounds. The framework treats them as additional considerations pointing toward its operative core — not as independent proofs. They also press two challenges: that the affected party may be a community rather than an individual, so that contestation and representation may be collective (<a href="#s4">§4.6</a>, <a href="#s10">§10</a>); and that the boundary of who counts is not settled by any one tradition (<a href="#s4">§4</a>).</p>
 
-        <h3 id="s2-6">2.6 Costs</h3>
-        <p>J is thin, so it underdetermines outcomes. The framework presupposes a minimal commitment to the equal standing of those affected; it is therefore not neutral among all comprehensive doctrines. Its aim is breadth of acceptability rather than neutrality. And because the ground is an abductive argument rather than a proof, it is open to the objection that the abduction is weak. The reply is the modular design of <a href="#s15">§15.3</a>: the ground can be replaced without discarding the rest, provided the replacement does the same work.</p>
+        <h4 id="s2-6">2.6 Costs</h4>
+        <p>J is thin, so it underdetermines outcomes. The framework presupposes a minimal commitment to the equal standing of those affected; it is therefore not neutral among all comprehensive doctrines. Its aim is breadth of acceptability rather than neutrality. And because the ground is an abductive argument rather than a proof, it is open to the objection that the abduction is weak. The reply is the modular design of <a href="#s15">§15.5</a>: the ground can be replaced without discarding the rest, provided the replacement does the same work.</p>
 
-        <h3 id="s2-7">2.7 The framework's normative location, stated openly</h3>
+        <h4 id="s2-7">2.7 The framework's normative location, stated openly</h4>
         <p class="section-lede">A framework that claims breadth while relying on a specific tradition is not honest about what it is. This section says what the framework is — and, just as importantly, what it is not.</p>
 
         <p>The framework is <strong>internal to a justificatory tradition</strong>. It takes for granted that those subject to arrangements have standing to demand reasons for them. It does not attempt to argue someone into that position from outside. A reader who rejects the justificatory tradition altogether — who thinks power owes nothing to the weak, or that moral standing is not universal — will not be persuaded by anything in this essay. That is a real limitation, and it is stated as one rather than concealed by the language of abduction and defeasibility.</p>
@@ -897,7 +920,7 @@
           <li><strong>Framework-specific claim.</strong> Justification can take the form of meaningful exit, independent review, or contestation — disjunctively. <em>Specific to this framework; a design choice within the justificatory tradition.</em></li>
         </ol>
 
-        <p><strong>Why this distinction matters.</strong> The earlier formulation collapsed all three into "internal to the justificatory tradition" and thereby overstated the thickness of the framework's commitment. A natural-law theorist, a Confucian, or a virtue ethicist could accept claim 1 and disagree only with claim 2 or claim 3. That is a much smaller point of disagreement than the earlier formulation implied. The framework is not asking the reader to accept Habermasian discourse ethics; it is asking the reader to accept that affected parties matter in a way that cannot be reduced to their usefulness to the powerful, and to accept a specific procedural implication of that.</p>
+        <p><strong>Why this distinction matters.</strong> A natural-law theorist, a Confucian, or a virtue ethicist could accept claim 1 and disagree only with claim 2 or claim 3. That is a much smaller point of disagreement than saying that the framework requires the thick justificatory tradition. The framework is not asking the reader to accept Habermasian discourse ethics; it is asking the reader to accept that affected parties matter in a way that cannot be reduced to their usefulness to the powerful, and to accept a specific procedural implication of that.</p>
 
         <p><strong>What this means for the realist objection (objection 1).</strong> The framework's reply to the realist is not that the realist is wrong, but that the realist is outside the framework's scope. A reader who denies even the thin standing claim — who thinks that affected parties have no moral weight at all beyond their instrumental value — is not engaged. But this is a much more extreme position than it sounds. Most realists in political theory accept that affected parties have <em>some</em> moral weight; they disagree about whether that weight generates duties of justification. The framework engages <em>that</em> disagreement, not the more radical one.</p>
 
@@ -915,12 +938,12 @@
           </ul>
         </aside>
 
-        <h3 id="s2-8">2.8 Adversarial tests: what Pettit, Forst and Jonas would object</h3>
+        <h4 id="s2-8">2.8 Adversarial tests: what Pettit, Forst and Jonas would object</h4>
         <p class="section-lede">Section 1.5 and Table 1 show what the framework adds to the four traditions it engages. §2.7 shows its normative location within one of them. Neither shows what those traditions would say <em>against</em> it. That is the test this section sets for itself.</p>
 
         <p>A framework that engages other traditions by listing what it <em>adds</em> to them has not yet engaged them. The real test is what each tradition would <em>object</em>, and whether the framework can answer — or fail to answer, and say so. Three traditions are engaged below. The replies are not offered as decisive. They are offered as the replies the framework can actually give, with the failure conditions stated.</p>
 
-        <h4>Pettit: the epistemic framing undercuts the republican point</h4>
+        <h5>Pettit: the epistemic framing undercuts the republican point</h5>
 
         <p><strong>The objection.</strong> The strongest objection is not that the framework has borrowed the republican idea of non-domination — §1.4 acknowledges the debt — but that the framework's <em>epistemic</em> framing of J (§2.1) undercuts the republican point. Pettit is not primarily an epistemologist: his claim is that domination is a <em>political</em> fact, not an <em>epistemic</em> one. If J is "primarily epistemic" — if it is defended as a safeguard against the actor confusing their own view with the truth — then it is unclear what <em>normative</em> force it has. Why should an actor care that they cannot <em>know</em> whether they dominate, if domination is the problem?</p>
 
@@ -928,7 +951,7 @@
 
         <p><strong>What this does not do.</strong> It does not show that the epistemic framing is the <em>right</em> framing for the republican claim. A sufficiently committed republican could say: "I do not need the epistemic framing; the political framing is enough." The framework's reply is that this is fine — the framework does not require the epistemic framing, and is compatible with a purely political reading. What the epistemic framing adds is a <em>bridge</em> to traditions that do not accept the republican premise, and a <em>diagnostic</em> for cases (such as §14.7) where the political framing alone would not tell the regulator what to demand.</p>
 
-        <h4>Forst: the thin/thick distinction is unstable</h4>
+        <h5>Forst: the thin/thick distinction is unstable</h5>
 
         <p><strong>The objection.</strong> Forst's right to justification is already thin: it is the right to <em>demand and receive</em> reasons, not the right to any particular set of reasons. If Forst already has the thin version, what does the framework add?</p>
 
@@ -936,7 +959,7 @@
 
         <p><strong>What this does not do.</strong> It does not show that Forst's account <em>lacks</em> an allocation. A sufficiently creative reader of Forst could derive one. The framework's claim is narrower: that the <em>specific</em> allocation the framework proposes — graduated by entrenchment, severity and contestation deficit, and allocated by capacity — is not present in Forst as Forst is normally read, and that it is a distinctive contribution.</p>
 
-        <h4>Jonas: the framework is too near-sighted</h4>
+        <h5>Jonas: the framework is too near-sighted</h5>
 
         <p><strong>The objection.</strong> Jonas is concerned with the species and with the future; the framework is concerned with present affected parties. If the framework is a version of Jonas's ethics, it is a truncated one. If it is not, it is unclear why it should be called an ethics of responsibility at all.</p>
 
@@ -944,7 +967,7 @@
 
         <p><strong>What this does not do.</strong> It does not show that the framework can do everything Jonas's ethics can do. Jonas's ethics is a <em>complete</em> account of responsibility for the future; the framework is a <em>partial</em> account, and §12.5 and §15.1 say so. A reader who wants the fuller account should read Jonas; a reader who wants an operational framework for contemporary structural influence should read this. The framework does not claim to replace Jonas; it claims to apply one strand of his ethics to a domain he did not address in detail.</p>
 
-        <h4>What the section shows, and what it does not</h4>
+        <h5>What the section shows, and what it does not</h5>
 
         <p>What it shows: the framework can be engaged adversarially from within each of the three traditions it most closely resembles, and in each case it has a reply that does not collapse into the tradition it is engaging. What it does not show: that these replies are <em>decisive</em>. A sufficiently committed Pettit scholar, Forst scholar or Jonas scholar could reject each reply and continue to press the objection. The framework does not claim to have answered them; it claims to have <em>engaged</em> them, and to have stated what it would take for each engagement to fail. That is the standard §2.2b sets for J, and it is the standard §2.8 sets for the framework's relation to its closest rivals.</p>
 
@@ -960,7 +983,7 @@
       </section>
 
       <section id="s3">
-        <h2><span class="num">3.</span>The Exercised-Capacity Principle</h2>
+        <h3 class="section-title"><span class="num">3.</span>The Exercised-Capacity Principle</h3>
         <p class="section-lede">Influence triggers the duty, stakes and contestation scale it, and capacity allocates it. The framework handles domination; it does not solve it.</p>
 
         <div class="key-prop" data-label="The Exercised-Capacity Principle">
@@ -971,17 +994,17 @@
         <p><strong>Scale:</strong> stakes and contestation deficit.</p>
         <p><strong>Allocation:</strong> capacity to discharge. A front-line worker can explain her decisions. She cannot establish an independent review board.</p>
 
-        <h3 id="s3-1">3.1 Why not the rivals</h3>
+        <h4 id="s3-1">3.1 Why not the rivals</h4>
         <p><strong>Causal responsibility</strong> is necessary for attribution but insufficient for structural influence (Thompson 1980). <strong>Fault-based responsibility</strong> concerns blame; answerability does not presuppose fault (Shoemaker 2011). <strong>Relational responsibility</strong> is real, and the framework retains it, but relational duties alone say nothing about anonymous influence. <strong>Consent</strong> is valuable where meaningful, but under asymmetry it can be manufactured or coerced. <strong>The social connection model</strong> (Young 2011) is the closest rival, and the framework is largely compatible with it; it adds a discretionary trigger and a specification of levels. §3.3 offers a case in which ECP may add practical allocation detail to Young's account.</p>
 
-        <h3 id="s3-2">3.2 The cost: answerability handles power; it does not solve it</h3>
+        <h4 id="s3-2">3.2 The cost: answerability handles power; it does not solve it</h4>
         <p>A principle that makes the powerful responsible risks being used by them as a badge of legitimacy. The framework does not claim to eliminate this risk. Three constraints apply: responsibility is not authority (<a href="#s8">§8</a>, <a href="#s16">§16</a>), review must meet independence conditions (<a href="#s11">§11</a>), and the risk is tested directly in <a href="#s15">§15</a>.</p>
 
         <p><strong>Handling, not solving.</strong> The framework's aim is not to solve the problem of power — no framework can. Its aim is to convert the problem from an unstructured condition into a set of design constraints that can be observed, contested and revised. A framework that claimed to <em>solve</em> domination would be either naive or dangerous. A framework that <em>handles</em> domination accepts that the work is never done.</p>
 
         <p>What the framework can do is make capture visible and costly. §11.4 specifies the mechanism: Level 3 authorisation requires publication of R1 indicators before authorisation, and an actor that refuses the publication cannot claim Level 3 legitimacy. This does not prevent capture. It supplies evidence relevant to legitimacy, but publication alone does not make a process independent or legitimate. The framework can require disclosure and create grounds for challenge; it cannot ensure that challengers have power to prevail. §14.7 shows the mechanism in action.</p>
 
-        <h3 id="s3-3">3.3 The exercised-capacity principle alongside the social connection model: an illustrative case</h3>
+        <h4 id="s3-3">3.3 The exercised-capacity principle alongside the social connection model: an illustrative case</h4>
         <p class="section-lede">A general claim about allocation is worth little without a case in which it does work that the closest rival cannot.</p>
 
         <p><strong>The case.</strong> A recommendation algorithm on a large platform amplifies content that increases political polarisation. Who bears the duty to answer for it?</p>
@@ -1006,14 +1029,14 @@
 
       <div class="part-divider" id="part-ii">
         <p class="part-divider__label">Part II</p>
-        <p class="part-divider__title">Who Is Owed an Account</p>
+        <h2 class="part-divider__title">Who Is Owed an Account</h2>
       </div>
 
       <section id="s4">
-        <h2><span class="num">4.</span>Standing Under Uncertainty</h2>
+        <h3 class="section-title"><span class="num">4.</span>Standing Under Uncertainty</h3>
         <p class="section-lede">Incomprehensibility is not evidence of unimportance, but neither is it evidence of importance. The framework needs a threshold.</p>
 
-        <h3 id="s4-1">4.1 Four tiers</h3>
+        <h4 id="s4-1">4.1 Four tiers</h4>
         <ul>
           <li><strong>Tier A: agents.</strong> Beings with normative agency (persons).</li>
           <li><strong>Tier B: welfare subjects.</strong> Beings with interests of their own: sentient animals, and humans who lack agency, such as infants.</li>
@@ -1021,19 +1044,19 @@
           <li><strong>Tier D: non-subjects.</strong> Entities with no credible interests of their own: stones, rivers and ecosystems as such. The framework claims no direct standing for them. They matter through the interests of beings in Tiers A–C who depend on them, through future generations (<a href="#s12">§12</a>), and through values that people hold non-instrumentally.</li>
         </ul>
 
-        <h3 id="s4-2">4.2 The plausibility threshold</h3>
+        <h4 id="s4-2">4.2 The plausibility threshold</h4>
         <p>The test for Tier C is whether there is a credible, evidence-based reason to think the entity has states that matter to it: behavioural and physiological indicators of valenced experience, evolutionary or functional continuity with known subjects, or features associated with serious theories of consciousness. Without such a threshold, precaution generates reasons everywhere and guides nowhere (Sunstein 2005).</p>
 
-        <h3 id="s4-3">4.3 The stone, restated</h3>
+        <h4 id="s4-3">4.3 The stone, restated</h4>
         <p>The stone marks the edge of the framework's claims. For beings that meet the threshold, our failure to understand their way of being is no reason to dismiss their interests. For the stone, which does not meet it, the framework claims no standing and says so.</p>
 
-        <h3 id="s4-4">4.4 Artificial systems</h3>
+        <h4 id="s4-4">4.4 Artificial systems</h4>
         <p>Answerability for the influence of AI systems falls on the humans and organisations that design, deploy and maintain them. Whether some artificial systems may themselves be Tier C candidates is contested, and the framework does not answer it.</p>
 
-        <h3 id="s4-5">4.5 Perspectival plurality</h3>
+        <h4 id="s4-5">4.5 Perspectival plurality</h4>
         <p>For beings in Tiers A–C, their way of experiencing the world may be difficult or impossible for us to reach. That a perspective is inaccessible is not evidence that it is absent (Fricker 2007). This is the content of the recognition condition in <a href="#s10">§10</a>.</p>
 
-        <h3 id="s4-6">4.6 Representation</h3>
+        <h4 id="s4-6">4.6 Representation</h4>
         <p>Some affected parties cannot take part directly: future generations, infants, animals, communities that lack institutional voice. Representation is legitimate only if (i) representatives are chosen through a process that can itself be contested, (ii) they state the basis on which they claim to know the interests concerned, (iii) where interests are contested there is more than one representative or perspective, (iv) they can be removed, (v) they are neither the actor nor dependent on the actor for appointment or funding, and (vi) they represent uncertainty rather than substituting invented certainty. Where the represented can express preferences, those take precedence over the representative's view of their best interests.</p>
 
         <p><strong>(vii) Collective contestation must not undermine individual contestation.</strong> Where a collective procedure is used to represent affected parties, the procedure must preserve the ability of individuals <em>within</em> the collective to contest the collective's decisions, and to seek independent review of them where the collective's own procedures fail. A collective that silences its members is not a substitute for individual standing. It is an additional layer of possible domination. The framework does not take a position on which traditions are legitimate. It requires that no individual's standing be extinguished by the fact that a collective has spoken.</p>
@@ -1049,7 +1072,7 @@
       </section>
 
       <section id="s5">
-        <h2><span class="num">5.</span>Interdependence, Difference and Non-Domination</h2>
+        <h3 class="section-title"><span class="num">5.</span>Interdependence, Difference and Non-Domination</h3>
         <p class="section-lede">Existence is relational. Symbiosis is the floor that relational existence can fail to meet — and it must be measurable if the framework is to be taken seriously. §5.2 argues that the relation between symbiosis and answerability is stronger than means and end. §5.3 derives and defends the choice of floor. §5.4 argues that care and respect are internal to the framework, not ornaments on it.</p>
 
         <p>Living beings, institutions, technologies and ecosystems exist through relations of dependence and influence. Existence is relational: no being exists except through relations of dependence, influence and constitution — a child through care, an ecosystem through nutrient cycles, a person through language and recognition. This is not a metaphysical claim about the nature of being; it is an empirical and phenomenological one.</p>
@@ -1060,10 +1083,10 @@
 
         <p>Harmony enforced by silencing, homogenising or sacrificing the vulnerable is not symbiosis. Difference is not a defect to be corrected. Different beings may perceive reality through entirely different capacities. The ability to explain something does not mean one has understood its full significance. This is why difference should be approached with curiosity rather than automatic correction. The asymmetry also runs both ways: the more capable may misunderstand the less capable, and the less capable cannot audit the more capable. That second half is why independent capacity for review (<a href="#s11">§11</a>) matters.</p>
 
-        <h3 id="s5-1">5.1 Making symbiosis measurable (or admitting it is not)</h3>
+        <h4 id="s5-1">5.1 Making symbiosis measurable (or admitting it is not)</h4>
         <p class="section-lede">If the framework states defeaters for its ground and failure conditions for its activation rule, its own ideal cannot be exempt from assessment.</p>
 
-        <p>Symbiosis was defined above as a floor for relations of dependence. If the framework's stated defeaters (<a href="#s2">§2.2b</a>) and failure conditions (<a href="#s15">§15.2</a>) are taken seriously, symbiosis cannot remain a purely rhetorical horizon.</p>
+        <p>Symbiosis was defined above as a floor for relations of dependence. If the framework's stated defeaters (<a href="#s2">§2.2b</a>) and failure conditions (<a href="#s15">§15.4</a>) are taken seriously, symbiosis cannot remain a purely rhetorical horizon.</p>
 
         <p><strong>Three indicators, specified conceptually apart from answerability. Their measurement may nevertheless depend on testimony, representation, and contestable evidence; conceptual distinction is not measurement independence.</strong></p>
 
@@ -1087,7 +1110,7 @@
           </ul>
         </aside>
 
-        <h3 id="s5-2">5.2 The epistemic burden of asymmetric influence</h3>
+        <h4 id="s5-2">5.2 The epistemic burden of asymmetric influence</h4>
         <p class="section-lede">Power does not make knowledge impossible. It changes what counts as adequate evidence.</p>
 
         <p>The previous section defined symbiosis as a floor and offered three indicators by which particular relations may be assessed. A difficulty remains. Where one party controls the terms of dependence, it may also control the categories, information and measures through which the relation is evaluated. The more powerful party can therefore mistake the absence of visible objection for consent, compliance for flourishing, or institutional approval for legitimacy.</p>
@@ -1099,7 +1122,7 @@
           <p>This is a rebuttable burden of inquiry and justification. It is not a claim that answerability is the only route to knowledge, that affected parties are infallible, or that procedure is sufficient for justice.</p>
         </aside>
 
-        <h4>Argument</h4>
+        <h5>Argument</h5>
         <p><strong>1. The object of assessment is partly first-personal.</strong> Whether a relation is exploitative, assimilating or agency-preserving cannot always be determined from aggregate outcomes alone. A policy may improve a measured outcome while imposing a burden that the metric omits; an intervention may preserve biological functioning while foreclosing meaningful choice. The experiences and judgments of affected parties are therefore relevant evidence, though not the only evidence.</p>
 
         <p><strong>2. Asymmetry affects the production and interpretation of evidence.</strong> The more powerful party may set the available options, define success, control records, determine which complaints are legible, and select the time horizon over which outcomes are measured. These mechanisms can produce systematic blind spots without requiring malice. The claim is probabilistic and institutional: asymmetry can shape what is seen, recorded and treated as credible. It does not establish that every powerful actor is biased or that every affected-party report is accurate.</p>
@@ -1110,18 +1133,18 @@
 
         <p><strong>5. This yields a practical principle of answerability.</strong> The greater the discretionary influence, severity, entrenchment and deficit of contestation, the less acceptable it is for the actor to rely on its own assessment alone. The duty ladder in <a href="#s8">§8</a> translates this burden into graduated requirements: explanation, review and response, then preservation of evidence and independent examination.</p>
 
-        <h4>What follows — and what does not</h4>
+        <h5>What follows — and what does not</h5>
         <p>The argument supports a <em>presumption against epistemic closure</em>: where power is asymmetric and affected parties cannot effectively contest, the powerful party must not treat its own view as conclusive. It does <em>not</em> prove that answerability is a logically necessary condition of knowledge. Knowledge may sometimes arise through reliable observation, independent science, trusted intermediaries, or other methods. Nor does it prove that participation by affected parties is sufficient: people may disagree, be misinformed, face adaptive preferences, or have interests that conflict.</p>
 
         <p>The framework's claim is instead comparative and normative. In conditions of asymmetric influence, a process that includes independent scrutiny and protected correction is generally better placed to detect errors than a process that leaves the actor as the sole author and judge of the evidence. This claim is defeasible. It should be weakened or rejected where such procedures systematically worsen outcomes, silence internal minorities, introduce new capture, or add burdens disproportionate to the risk.</p>
 
-        <h4>Relation to existing traditions</h4>
+        <h5>Relation to existing traditions</h5>
         <p><em>Pettit.</em> Republican freedom as non-domination already makes contestability central. This framework does not claim that Pettit lacks a positive ideal or that it has discovered contestation. It attempts to connect non-domination to a graded account of answerability for discretionary influence, including cases where dependence is not reducible to state interference.</p>
         <p><em>Forst.</em> The right to justification already insists that those subject to norms must be able to demand and assess reasons. This framework does not supply the missing justification principle. It asks how the burden of producing evidence, preserving records and funding review should be allocated when the parties' capacities are unequal.</p>
         <p><em>Young.</em> The social connection model already explains responsibility for structural processes without reducing it to individual fault. ECP's proposed addition is a more explicit operational trigger and duty ladder. Whether that improves on Young's account is an open comparative question, not a settled gap in her theory.</p>
         <p><em>Care ethics.</em> Care theorists have developed sophisticated accounts of attentiveness, responsibility, competence and responsiveness. The framework's contribution is not to claim that care ethics has no procedure, but to insist that responsiveness must include channels through which the cared-for can challenge the carer's interpretation, alongside independent safeguards where direct voice is unavailable.</p>
 
-        <h4>Defeaters and tests</h4>
+        <h5>Defeaters and tests</h5>
         <ul>
           <li><strong>B1 — No systematic epistemic risk.</strong> If evidence shows that asymmetry does not predictably affect what powerful actors notice, record or credit, the heightened-burden rationale is weakened.</li>
           <li><strong>B2 — Better alternatives.</strong> If another procedure provides equally reliable correction at lower cost and with less risk of capture or exclusion, it should replace the proposed safeguards.</li>
@@ -1161,14 +1184,14 @@
           </ul>
         </aside>
 
-        <h3 id="s5-3">5.3 Why this symbiosis, and not another</h3>
+        <h4 id="s5-3">5.3 Why this symbiosis, and not another</h4>
         <p class="section-lede">SY1–SY3 are not self-evidently the right indicators of a good relation. This section defends their selection by deriving them from the thin standing claim, and by comparing them to the main rival floors.</p>
 
-        <p><strong>The objection.</strong> §5.1 specifies symbiosis through SY1–SY3 (non-exploitation, non-assimilation, continued possibility). But why these three? Why not welfare, or capability, or autonomy, or something else? A framework that presents a substantive floor without defending it has smuggled in a normative position under the guise of an operational specification. The previous version of this section defended the <em>need</em> for a floor. It did not defend <em>this</em> floor. This section does both.</p>
+        <p><strong>The objection.</strong> §5.1 specifies symbiosis through SY1–SY3 (non-exploitation, non-assimilation, continued possibility). But why these three? Why not welfare, or capability, or autonomy, or something else? A framework that presents a substantive floor without defending it has smuggled in a normative position under the guise of an operational specification.</p>
 
         <p><strong>What kind of ideal symbiosis is.</strong> Symbiosis is a <strong>floor</strong>, not a complete theory of the good relation. It specifies the minimum conditions that a relation must meet to count as non-exploitative, non-assimilating, and life-preserving. It does not say that a relation meeting SY1–SY3 is therefore <em>good</em>. A relation can meet all three and still be cold, indifferent, or unjust in other respects. Symbiosis is a necessary condition for a good relation, not a sufficient one.</p>
 
-        <h4>Deriving SY1–SY3 from thin standing</h4>
+        <h5>Deriving SY1–SY3 from thin standing</h5>
 
         <p><strong>The premise.</strong> Affected parties have standing to demand reasons for arrangements that shape their conditions (<a href="#s2-7">§2.7</a>, claim 1 and claim 2). This is the framework's thin standing claim.</p>
 
@@ -1182,13 +1205,13 @@
 
         <p><strong>What the derivation shows, and what it does not.</strong> The derivation shows that SY1–SY3 are the three distinct ways standing can fail, and therefore the three minimum conditions for it not to. It does not show that SY1–SY3 are <em>sufficient</em> for a good relation. It does not show that no other condition is also necessary. It shows that if a relation fails any of SY1–SY3, standing in that relation is vacuous, whatever else is true. That is enough for the framework to do its operational work.</p>
 
-        <p><strong>What kind of floor symbiosis is.</strong> The derivation shows that SY1–SY3 are the three minimum conditions for standing to be non-vacuous. It does not show that they are <em>absolute</em> conditions, binding on anyone who rejects the thin standing claim. Symbiosis is therefore a <strong>pro tanto floor</strong>: it binds those who accept the framework's premises, and it specifies what those premises <em>require in practice</em> rather than what they merely <em>recommend</em>. A reader who rejects thin standing is outside the floor's scope, but a reader who accepts it and then violates SY1–SY3 is not merely failing an ideal — they are contradicting a condition of their own stated commitment. That is a stronger claim than "symbiosis is desirable", and a weaker claim than "symbiosis is a categorical imperative". It is the claim the derivation can actually support.</p>
+        <p><strong>What kind of floor symbiosis is.</strong> The derivation shows that SY1–SY3 are the three minimum conditions for standing to be non-vacuous. It does not show that they are <em>absolute</em> conditions, binding on anyone who rejects the thin standing claim. Symbiosis is therefore a <strong>pro tanto floor</strong>: it binds those who accept the framework's premises, and it specifies what those premises <em>require in practice</em> rather than what they merely <em>recommend</em>. A reader who rejects thin standing is outside the floor's scope, but a reader who accepts it and then violates SY1–SY3 is not merely failing an ideal — they are contradicting a condition of their own stated commitment.</p>
 
-        <p><strong>Why "pro tanto" matters for the framework's status.</strong> The earlier formulation of this section sometimes spoke as if SY1–SY3 were a <em>floor</em> in the sense of an absolute minimum that any relation of dependence must meet, regardless of premises. That overstates the derivation. What the derivation shows is that <em>given</em> thin standing, SY1–SY3 are the minimum conditions for that standing not to be vacuous. The floor is therefore conditional on the framework's own starting point, not unconditional on any starting point whatsoever. This is not a weakness: it is the honest form of the claim. A framework that claimed an unconditional floor would need an argument from outside any justificatory tradition, and §2.7 has already said the framework does not have one. A framework that claims a pro tanto floor can be defended from within the tradition it inhabits — and that is enough for the framework to do its work.</p>
+        <p><strong>Why "pro tanto" matters for the framework's status.</strong> SY1–SY3 are not absolute conditions, binding on anyone who rejects the thin standing claim. What the derivation shows is that <em>given</em> thin standing, SY1–SY3 are the minimum conditions for that standing not to be vacuous. The floor is therefore conditional on the framework's own starting point, not unconditional on any starting point whatsoever. This is the honest form of the claim. A framework that claimed an unconditional floor would need an argument from outside any justificatory tradition, and §2.7 has already said the framework does not have one. A framework that claims a pro tanto floor can be defended from within the tradition it inhabits — and that is enough for the framework to do its work.</p>
 
         <p><strong>Why this matters for the framework's integrity.</strong> The framework requires actors to answer for their influence. If the framework's own floor cannot be derived from the framework's own premises, the framework is incoherent. The derivation closes that gap. It does not prove that SY1–SY3 are the <em>only</em> possible floor — only that they are the floor that the thin standing claim itself requires.</p>
 
-        <h4>Compared to rival floors</h4>
+        <h5>Compared to rival floors</h5>
 
         <p><strong>Welfare.</strong> A welfare-consequentialist might propose that the good relation is the one that maximises aggregate welfare. But a benevolent despot with perfect welfare provision can still fail SY1 (if the terms are exploitative), SY2 (if difference is treated as defect), and SY3 (if development and participation are foreclosed). The framework's SY1–SY3 are specifically designed to catch what welfare aggregation misses. Welfare can be maximised by a relation that has no standing in the sense the framework requires.</p>
 
@@ -1210,36 +1233,36 @@
           </ul>
         </aside>
 
-        <h3 id="s5-4">5.4 Care, respect, and the limits of understanding</h3>
+        <h4 id="s5-4">5.4 Care, respect, and the limits of understanding</h4>
         <p class="section-lede">The framework's closing pages speak of care and of respect for what we do not understand. It would be a mistake to read those as mood music. This section argues that care and respect are internal to the framework's premises, and that they do work in it that J alone does not.</p>
 
         <p>There is a real risk that the framework appears to bolt care ethics and a certain reverence for the incomprehensible onto an otherwise procedural argument. J carries the normative weight; the epistemic burden principle carries the epistemic weight; and then, in §17, the language of care and of respect for the incomprehensible appears as a kind of moral coda. If that were the structure, the framework would be vulnerable to a legitimate objection: care and respect would be decorations that do no argumentative work, and could be removed without loss to the framework's substance.</p>
 
         <p>This section argues the opposite. Care and respect are not additions to the framework. They are what thin standing <em>means</em> when it is applied to a particular relation of dependence, and what fallibilism <em>requires</em> when the affected party's situation is not fully accessible to the actor. They are operationalised in SY1–SY3, and they appear in the framework's own claim (§5.3) that SY1–SY3 are the three ways standing can be made vacuous.</p>
 
-        <h4>Step 1. Responsibility without care becomes control</h4>
+        <h5>Step 1. Responsibility without care becomes control</h5>
 
         <p>An actor who gives an account of their influence but does not attend to whether the account <em>responds</em> to what is at stake for the other has given an account of the wrong thing. Responsibility without attending to what the other actually needs becomes a demand for compliance rather than a response to need. §5.1's SY1 (non-exploitation) is precisely this: a relation in which the dependent party is required to accept terms they would reject at tolerable exit cost is a relation in which responsibility has become extraction. Care, in the specific sense used here, is not sentiment; it is the orientation of the actor's <em>attention</em> toward the affected party's own good as the affected party reports it. The framework's normative vocabulary is not "be kind"; it is "do not require acceptance of terms the other would reject if they could exit". That is the operationalised form of care.</p>
 
-        <h4>Step 2. Care without respect for the incomprehensible becomes paternalism</h4>
+        <h5>Step 2. Care without respect for the incomprehensible becomes paternalism</h5>
 
         <p>Care that believes it understands the other's interests better than the other does can be benign in intention and domineering in effect. §5.1's SY2 (non-assimilation) is the operational form of this danger: a programme that seeks to <em>remove the difference</em> rather than to <em>remove the burden the difference carries</em> may be well-intentioned care, but it is not respect. Respect, in the specific sense used here, is not politeness; it is the actor's acknowledgment that the affected party's good is not fully specified by the actor's own categories, and that the affected party may be right about their own good in ways the actor cannot see. The framework's operational form of this is SY2's test: whether the intervention aims at removing the burden or at removing the difference. A well-meaning actor who fails this test is not being cruel; they are being disrespectful in the specific sense the framework requires.</p>
 
-        <h4>Step 3. Respect for the incomprehensible is internal to the framework</h4>
+        <h5>Step 3. Respect for the incomprehensible is internal to the framework</h5>
 
         <p>Both F (§2.0) and thin standing (§2.7) entail something that is often treated as a separate moral attitude. Fallibilism says: no actor fully understands the conditions it shapes. Thin standing says: affected parties have moral weight that cannot be reduced to their instrumental value to the powerful. Put together, they do not merely <em>permit</em> respect for what the actor does not understand; they <em>require</em> it. If the actor cannot specify the other's good on their behalf, and if the other's good has weight, then the actor must attend to the other's own account of it — even where that account is strange or inaccessible. This is not a separate premise the framework imports. It is what the framework's own premises mean when applied to relations where the other's perspective is not fully available.</p>
 
         <p>§5.2 already said something like this when it insisted that responsiveness must include channels through which the cared-for can challenge the carer's interpretation. §5.4 makes the point structural: the requirement is not an addition to the framework's proceduralism, but a consequence of the framework's own premises. A reader who accepts F and thin standing cannot consistently reject SY1–SY3 without rejecting the premises that make SY1–SY3 necessary.</p>
 
-        <h4>Step 4. The stone is the boundary case, not the exception</h4>
+        <h5>Step 4. The stone is the boundary case, not the exception</h5>
 
         <p>§4.3 and §17 treat the stone as a boundary case for <em>standing</em>: the framework claims no standing for it, and says so. The stone is also a boundary case for <em>care</em>: we cannot care <em>about</em> the stone in the way we care about persons, because we do not know what the stone has to care about. But we can <em>respect</em> the possibility that it has something, and we can allow that possibility to limit what we do with it. This is not sentimentality. It is the disciplined form of the fallibilist premise when applied to an entity that does not meet the framework's standing threshold. §17's "the stone understands nothing of us" is not poetry; it is the boundary condition of the framework's own epistemic modesty.</p>
 
-        <h4>What this shows, and what it does not</h4>
+        <h5>What this shows, and what it does not</h5>
 
         <p>What it shows: care and respect are not imports; they are consequences of premises the framework already holds, and they are operationalised in SY1–SY3. What it does not show: that a relation satisfying SY1–SY3 is therefore <em>caring</em> or <em>respectful</em> in any thicker sense. The framework specifies the <em>minimum</em> conditions for standing to be non-vacuous; it does not specify what a <em>flourishing</em> relation of care or respect looks like. A relation that meets SY1–SY3 and is also cold, distant, or indifferent is not captured by the framework's claim — but it is not required by it either. The framework specifies the floor; what a relation <em>above</em> the floor looks like is left to the traditions §5.2 engages.</p>
 
-        <h4>Defeaters</h4>
+        <h5>Defeaters</h5>
         <ul>
           <li><strong>C1 — Care and respect are genuinely external.</strong> If it can be shown that an actor who accepts F and thin standing and then acts without care or respect has <em>not</em> violated the framework, only disappointed its mood, then §5.4 should be revised to say so.</li>
           <li><strong>C2 — SY1–SY3 can be satisfied without care or respect.</strong> If a cold but well-administered system can meet SY1–SY3 without any orientation of attention or acknowledgment of the limits of understanding, then §5.4's claim that care and respect are operationalised in SY1–SY3 is too strong.</li>
@@ -1262,11 +1285,11 @@
 
       <div class="part-divider" id="part-iii">
         <p class="part-divider__label">Part III</p>
-        <p class="part-divider__title">When, and How Much</p>
+        <h2 class="part-divider__title">When, and How Much</h2>
       </div>
 
       <section id="s6">
-        <h2><span class="num">6.</span>The Influence Profile</h2>
+        <h3 class="section-title"><span class="num">6.</span>The Influence Profile</h3>
         <p class="section-lede">Five components, each assessed against observable indicators.</p>
 
         <div class="table-wrap">
@@ -1303,10 +1326,10 @@
       </section>
 
       <section id="s7">
-        <h2><span class="num">7.</span>The Activation Rule</h2>
+        <h3 class="section-title"><span class="num">7.</span>The Activation Rule</h3>
         <p class="section-lede">Discretion opens the gate. Entrenchment, severity and contestation deficit set the level.</p>
 
-        <h3 id="s7-1">7.1 The rule</h3>
+        <h4 id="s7-1">7.1 The rule</h4>
         <ul>
           <li><strong>No discretion:</strong> the actor does not bear the duty for this influence. It shifts to whoever set the governing rule or could have. The actor still owes escalation (<a href="#s8">§8.2</a>).</li>
           <li><strong>Discretion present:</strong> Level 1 always applies. It is the lightest duty and is owed even where exit and review work, because exit and review are only informed if the actor can say what it is doing.</li>
@@ -1315,7 +1338,7 @@
         </ul>
         <p>Severity is judged first at the individual level. For decisions about the design of a system that acts on many people, it is also judged at the aggregate level (<a href="#s9">§9.1</a>). Where an actor lacks the evidence to exclude a credible severe outcome, it rates S on the credible worst case.</p>
 
-        <h3 id="s7-2">7.2 Why these conditions</h3>
+        <h4 id="s7-2">7.2 Why these conditions</h4>
         <p>Each element can be derived from J (<a href="#s2">§2.1</a>).</p>
         <ul>
           <li><strong>Discretion.</strong> Justification is owed for what an agent chooses.</li>
@@ -1324,7 +1347,7 @@
           <li><strong>Contestation deficit.</strong> Where the affected can exit, object effectively and understand what is done to them, they supply part of the accountability themselves (Hirschman 1970). The deficit measures how much must instead be supplied by the actor and by reviewers. It is the operational measure of how thoroughly exit and review fail.</li>
         </ul>
 
-        <h3 id="s7-3">7.3 What the rule is not</h3>
+        <h4 id="s7-3">7.3 What the rule is not</h4>
         <p>It is not a score and it applies no weights. It is not a verdict either. It yields a presumptive level that can be overridden only with stated reasons (<a href="#s9">§9.3</a>). It is a decision aid with its joints exposed.</p>
 
         <aside class="key-points">
@@ -1337,10 +1360,10 @@
       </section>
 
       <section id="s8">
-        <h2><span class="num">8.</span>The Duty Ladder and Who Bears It</h2>
+        <h3 class="section-title"><span class="num">8.</span>The Duty Ladder and Who Bears It</h3>
         <p class="section-lede">Three levels, each containing the one below. Duties are allocated by capacity, not heaped on whoever is nearest.</p>
 
-        <h3 id="s8-1">8.1 The levels</h3>
+        <h4 id="s8-1">8.1 The levels</h4>
         <p><strong>Level 1: Explain.</strong> The actor can state, on request and in proportion to the matter, the purpose of the action, the interests considered, the alternatives considered and the known uncertainties.</p>
         <p><strong>Level 2: Review and respond.</strong> Level 1, plus: an accessible channel for objection; access to the relevant information; a reasoned response within a reasonable time; revision where warranted; a record of decisions and reasons; a reviewer other than the original decider where feasible; and evidence that review is not symbolic.</p>
         <p><strong>Level 3: Preserve, examine, authorise.</strong> Level 2, plus: preserved records and version history; independent examination meeting the conditions of <a href="#s11">§11</a>; a written assessment of less harmful alternatives; authorisation by a body outside the actor for severe or irreversible influence; staged implementation, reversibility by design or a sunset clause; remedy for those harmed; and post-implementation review. Level 3 authorisation requires publication of the authorising body's R1 indicators before authorisation (<a href="#s11">§11.4</a>).</p>
@@ -1379,11 +1402,11 @@
           </table>
         </div>
 
-        <h3 id="s8-2">8.2 Allocation by capacity</h3>
+        <h4 id="s8-2">8.2 Allocation by capacity</h4>
         <p>The level attaches to the influence, that is, to the arrangement. Duties are then allocated.</p>
         <p>Those with the capacity to establish mechanisms (institutions, system owners, funders, regulators) bear the duty to establish Level 2 and Level 3 mechanisms. Others along the chain owe their own Level 1 explanation, honest participation, escalation of concerns and non-obstruction. No scapegoating: a front-line actor is not answerable for structural deficits she cannot cure, though she remains answerable for her own discretion.</p>
 
-        <h3 id="s8-3">8.3 Not authority</h3>
+        <h4 id="s8-3">8.3 Not authority</h4>
         <p>A higher level means stronger constraints on power, not greater authority. Level 3 does not make the most powerful actor the arbiter of its own case.</p>
 
         <aside class="key-points">
@@ -1397,10 +1420,10 @@
       </section>
 
       <section id="s9">
-        <h2><span class="num">9.</span>Rating Protocol: Anchors, Hygiene and Sensitivity</h2>
+        <h3 class="section-title"><span class="num">9.</span>Rating Protocol: Anchors, Hygiene and Sensitivity</h3>
         <p class="section-lede">Judgment cannot be eliminated. It can be made visible, checkable and contestable.</p>
 
-        <h3 id="s9-1">9.1 Anchors</h3>
+        <h4 id="s9-1">9.1 Anchors</h4>
 
         <div class="table-wrap">
           <table>
@@ -1438,7 +1461,7 @@
 
         <p>Severity is rated on the most burdened individual first. Breadth does not raise individual severity. For decisions about system design, aggregate severity is rated on population-level effects. Capabilities-style accounts of what is at stake (Sen 2009; Nussbaum 2006) can be used to calibrate these ratings.</p>
 
-        <h3 id="s9-2">9.2 Hygiene</h3>
+        <h4 id="s9-2">9.2 Hygiene</h4>
         <ol>
           <li>Rate before looking at the level the rule produces and before deciding what the actor wants to do.</li>
           <li>Use at least two raters, one independent of the actor where Level 2 or above is in question.</li>
@@ -1447,10 +1470,10 @@
           <li><strong>Calibration.</strong> Compare the profile with the reference cases in <a href="#s14">§14</a>.</li>
         </ol>
 
-        <h3 id="s9-3">9.3 Reasoned override</h3>
+        <h4 id="s9-3">9.3 Reasoned override</h4>
         <p>The presumptive level may be overridden up or down only with written reasons. Overrides are recorded and, where safe, published.</p>
 
-        <h3 id="s9-4">9.4 Counter-profiles</h3>
+        <h4 id="s9-4">9.4 Counter-profiles</h4>
         <p>Any affected party or representative may file an alternative profile, and the actor must respond to the specific differences.</p>
 
         <aside class="key-points">
@@ -1465,11 +1488,11 @@
 
       <div class="part-divider" id="part-iv">
         <p class="part-divider__label">Part IV</p>
-        <p class="part-divider__title">Structure: Floor, Review, Power</p>
+        <h2 class="part-divider__title">Structure: Floor, Review, Power</h2>
       </div>
 
       <section id="s10">
-        <h2><span class="num">10.</span>The Floor: Minimum Conditions in Relationships of Dependence</h2>
+        <h3 class="section-title"><span class="num">10.</span>The Floor: Minimum Conditions in Relationships of Dependence</h3>
         <p class="section-lede">Continued existence is not enough. A being can stay alive or operational while losing any say over its own circumstances.</p>
 
         <ul>
@@ -1492,16 +1515,16 @@
       </section>
 
       <section id="s11">
-        <h2><span class="num">11.</span>No Sole Judge: Review, Power and the Regress</h2>
+        <h3 class="section-title"><span class="num">11.</span>No Sole Judge: Review, Power and the Regress</h3>
         <p class="section-lede">No actor should be the sole judge of its own influence. The reviewer regress is a design problem, bounded by finality without infallibility — and by a precondition that converts diagnosis into design.</p>
 
-        <h3 id="s11-1">11.1 The prohibition</h3>
+        <h4 id="s11-1">11.1 The prohibition</h4>
         <blockquote>
           <p>An actor exercising substantial influence must remain answerable to forms of review that are meaningfully independent of its own interests and decisions.</p>
         </blockquote>
         <p>This does not assume that the powerful are malicious. Actors are prone to self-serving judgment and are limited in what they can see (<a href="#s2">§2.3</a>), and review that is not independent of the reviewed has little claim to legitimacy.</p>
 
-        <h3 id="s11-2">11.2 The regress</h3>
+        <h4 id="s11-2">11.2 The regress</h4>
         <p>If every reviewer needs a reviewer, accountability looks like an endless hierarchy. The response has three parts.</p>
         <ul>
           <li><strong>Finality without infallibility.</strong> Working systems end the regress with decisions that are final for practical purposes but can be reopened on new evidence, on new standing, on demonstrated procedural failure, or at a sunset.</li>
@@ -1509,7 +1532,7 @@
           <li><strong>Plurality and publicity instead of a top.</strong> Several reviewers with different standpoints, publishing their reasons, make decentralised scrutiny possible (cf. Ostrom 1990).</li>
         </ul>
 
-        <h3 id="s11-3">11.3 Design conditions for review</h3>
+        <h4 id="s11-3">11.3 Design conditions for review</h4>
         <ul>
           <li><strong>R1</strong> Independent appointment, funding and removal.</li>
           <li><strong>R2</strong> Plurality.</li>
@@ -1520,12 +1543,12 @@
         </ul>
         <p><strong>Capture indicators:</strong> reviewers appointed or funded by the reviewed; a record of never dissenting; staff moving between reviewer and reviewed; reviewers denied access; chronic delay.</p>
 
-        <h3 id="s11-4">11.4 Power over the framework itself: from diagnosis to design</h3>
-        <p class="section-lede">The framework's earlier formulation treated the power regress as a limit it could not eliminate. That was too weak. It has an internal resource against capture, and the resource is T5.</p>
+        <h4 id="s11-4">11.4 Power over the framework itself: from diagnosis to design</h4>
+        <p class="section-lede">The framework treats the power regress not as a limit it cannot eliminate, but as a design problem it can bound.</p>
 
         <p>Who defined the categories? Who selected the reviewers? Who can dismiss them? Whose interests are excluded even where formally represented? These four questions are asked in every application (<a href="#s14">§14</a>, step 6). The deeper problem remains: powerful actors will shape how the framework is applied to them. No framework can eliminate this. But a framework can convert the problem from a concession into a design constraint.</p>
 
-        <p><strong>The revised requirement.</strong> T5 must be a <em>precondition</em>, not a diagnosis. Level 3 authorisation (<a href="#s8">§8.1</a>) requires, as a condition of validity, that the authorising body publishes its R1 indicators <em>before</em> authorisation: who appointed its members, who funds it, how members can be removed, and the rate at which its findings have been reversed or ignored. An authorisation issued by a body that cannot or will not publish these indicators is not a Level 3 authorisation. It is a Level 2 authorisation with a Level 3 label. <a href="#s14-7">§14.7</a> illustrates the mechanism in a concrete case.</p>
+        <p><strong>The requirement.</strong> T5 must be a <em>precondition</em>, not a diagnosis. Level 3 authorisation (<a href="#s8">§8.1</a>) requires, as a condition of validity, that the authorising body publishes its R1 indicators <em>before</em> authorisation: who appointed its members, who funds it, how members can be removed, and the rate at which its findings have been reversed or ignored. An authorisation issued by a body that cannot or will not publish these indicators is not a Level 3 authorisation. It is a Level 2 authorisation with a Level 3 label. <a href="#s14-7">§14.7</a> illustrates the mechanism in a concrete case.</p>
 
         <p><strong>Why this changes the framework's status.</strong> It does not eliminate the power regress — no framework can. But it converts the regress from a <em>concession</em> into a <em>design constraint</em>. An actor that wants Level 3 legitimacy must accept the conditions that make Level 3 legitimacy meaningful. If it refuses, the framework does not collapse; it <em>downgrades the actor's claim</em>. This is an internal constraint on the framework's own use, not a resource that can fairly be claimed to be absent from Young, Forst or Pettit. Their accounts contain their own resources for contesting power; the comparison must be made at the level of institutional design. This framework can.</p>
 
@@ -1543,22 +1566,22 @@
       </section>
 
       <section id="s12">
-        <h2><span class="num">12.</span>Conflicts, Ecology and Future Generations</h2>
+        <h3 class="section-title"><span class="num">12.</span>Conflicts, Ecology and Future Generations</h3>
         <p class="section-lede">Decisions must be justified, not derived.</p>
 
-        <h3 id="s12-1">12.1 Weighing conflicting interests</h3>
+        <h4 id="s12-1">12.1 Weighing conflicting interests</h4>
         <p>Neither majority interest nor individual preference automatically prevails. The method is individual comparison: compare the burdens that each alternative places on each affected party, party by party, and favour the alternative that avoids the most serious individual burden. Claims of comparable weight may be aggregated as a tie-breaker (Scanlon 1998). Among the acceptable alternatives, choose the one with minimum necessary harm.</p>
 
-        <h3 id="s12-2">12.2 Emergencies</h3>
+        <h4 id="s12-2">12.2 Emergencies</h4>
         <p>Where an immediate, serious threat makes the full procedure impossible, an actor may act first, provided it acts only as far as necessary, records its reasons at the time, is bound by an automatic sunset, and submits to review afterwards. Emergencies create no standing exemptions.</p>
 
-        <h3 id="s12-3">12.3 Ecological integrity</h3>
+        <h4 id="s12-3">12.3 Ecological integrity</h4>
         <p>Ecosystems cannot be assessed through the preferences of individual participants. Protecting them may require restricting activities, and the justification runs through dependent beings in Tiers A–C, through future generations, and through the non-instrumental values that people hold (<a href="#s4">§4.1</a>).</p>
 
-        <h3 id="s12-4">12.4 No automatic hierarchy</h3>
+        <h4 id="s12-4">12.4 No automatic hierarchy</h4>
         <p>Intelligence, productivity, population size and technical sophistication do not by themselves determine moral priority. Weight follows the nature and strength of the interests at stake, not a being's rank on an imagined scale of worth.</p>
 
-        <h3 id="s12-5">12.5 Future generations</h3>
+        <h4 id="s12-5">12.5 Future generations</h4>
         <p>The duty is condition-regarding: to preserve the conditions under which future people can exercise agency and meet basic needs, and a reasonably wide space of valuable options, rather than to fix the choices they will make. Because it concerns conditions and not particular individuals, it does not depend on who will exist (cf. the non-identity problem, Parfit 1984). Option preservation is not absolute. It operates as a weight, strongest where actions are irreversible (cf. Jonas 1984).</p>
 
         <aside class="key-points">
@@ -1572,7 +1595,7 @@
       </section>
 
       <section id="s13">
-        <h2><span class="num">13.</span>Learning, Correction and Reversibility</h2>
+        <h3 class="section-title"><span class="num">13.</span>Learning, Correction and Reversibility</h3>
         <p class="section-lede">No actor, institution or intelligence should assume its understanding is complete.</p>
 
         <p><strong>The duty to learn.</strong> Where capacity exists and consequences are significant, actors monitor outcomes, investigate unexpected results, listen to criticism and update.</p>
@@ -1590,14 +1613,14 @@
 
       <div class="part-divider" id="part-v">
         <p class="part-divider__label">Part V</p>
-        <p class="part-divider__title">Application and Testing</p>
+        <h2 class="part-divider__title">Application and Testing</h2>
       </div>
 
       <section id="s14">
-        <h2><span class="num">14.</span>Application: A Nine-Step Procedure and Worked Cases</h2>
+        <h3 class="section-title"><span class="num">14.</span>Application: A Nine-Step Procedure and Worked Cases</h3>
         <p class="section-lede">The same procedure yields very different obligations for different cases. A framework that gave every case the same answer would be useless.</p>
 
-        <h3 id="s14-1">14.1 The procedure</h3>
+        <h4 id="s14-1">14.1 The procedure</h4>
         <ol>
           <li>Identify the relationship. Who is affected, in which tier (<a href="#s4">§4</a>), and what dependencies exist?</li>
           <li>Identify actors and discretion.</li>
@@ -1610,13 +1633,13 @@
           <li>Reassess on stated triggers, and invite counter-profiles.</li>
         </ol>
 
-        <h3 id="s14-2">14.2 Case: AI triage in intensive care</h3>
+        <h4 id="s14-2">14.2 Case: AI triage in intensive care</h4>
         <p>A hospital deploys an AI system to prioritise ICU admissions during a respiratory pandemic. Entrenchment is High, severity is High, and contestation deficit is High. Level 3.</p>
         <p>What Level 3 requires: preserved model versions, descriptions of training data, individual scores and override records; an independent ethics board with lay and patient representation; a written comparison with clinician-only triage; authorisation from the public-health authority; a sunset clause; and a remedy for those wrongly denied.</p>
         <p><strong>Power analysis:</strong> the categories were set by the vendor and clinical leadership, and the ethics committee is appointed by the hospital board, which fails R1 unless changed. A hybrid in which the AI recommends and a human decides, with the decision documented, is the default preference because it keeps contestation alive.</p>
         <p>The framework does not decide the case. It tells the hospital what it owes an answer to, and to whom.</p>
 
-        <h3 id="s14-2b">14.2b Case: the emergency physician (a counterintuitive result)</h3>
+        <h4 id="s14-2b">14.2b Case: the emergency physician (a counterintuitive result)</h4>
         <p class="section-lede">Every other case in this essay produces the answer a careful reader would predict. This one does not.</p>
 
         <p>A physician in an emergency department must decide, in under ninety seconds, whether to intubate a patient. The activation rule gives Level 3.</p>
@@ -1625,7 +1648,7 @@
 
         <p><strong>The reply.</strong> The Level 3 duty does not fall on the physician in the moment. It falls on the <em>arrangement</em> (<a href="#s8">§8.2</a>): on the hospital, the protocols, the audit trail, the retrospective review, and the training. The physician's own duty is Level 1 in the moment and Level 2 afterwards. The ninety-second decision is <em>answerable</em>, not <em>authorised in advance</em>. It is authorised by the structure that made it possible, and that structure is the duty-bearer of Level 3.</p>
 
-        <p><strong>Why this case is included.</strong> It looks like a <em>reductio</em> of the framework. The reply is that the reader has misidentified the duty-bearer, not that the framework is wrong. A framework that survives its own apparent <em>reductio</em> is stronger than one that only survives confirmation. But the reply can be challenged: if the framework relocates every hard demand to "the arrangement", it may become untestable. That is a real worry, and it is one of the things the tests in <a href="#s15">§15.2</a> are meant to probe.</p>
+        <p><strong>Why this case is included.</strong> It looks like a <em>reductio</em> of the framework. The reply is that the reader has misidentified the duty-bearer, not that the framework is wrong. A framework that survives its own apparent <em>reductio</em> is stronger than one that only survives confirmation. But the reply can be challenged: if the framework relocates every hard demand to "the arrangement", it may become untestable. That is a real worry, and it is one of the things the tests in <a href="#s15">§15.4</a> are meant to probe.</p>
 
         <aside class="key-points">
           <ul>
@@ -1635,13 +1658,13 @@
           </ul>
         </aside>
 
-        <h3 id="s14-3">14.3 Case: a platform's recommendation system</h3>
+        <h4 id="s14-3">14.3 Case: a platform's recommendation system</h4>
         <p>For individual recommendations: Level 2. For the design of the system: Level 3, with preserved version history, independent audit, published aggregate metrics, and a sunset for any optimisation that cannot show population-level reversibility. "Engagement" is defined by the platform, audits are typically controlled by it, and non-users affected through the public sphere are excluded.</p>
 
-        <h3 id="s14-4">14.4 Case: a community health worker</h3>
+        <h4 id="s14-4">14.4 Case: a community health worker</h4>
         <p>She has little institutional power. The rule says the arrangement requires Level 3. But she has no capacity to build independent review. Under <a href="#s8">§8.2</a>, the duty to establish mechanisms falls on the programme, the ministry and the funders. Her personal duties are to explain her decisions, respond to objections within her role, and escalate when protocols fail. The level belongs to the arrangement; the duties are allocated by capacity.</p>
 
-        <h3 id="s14-5">14.5 Four short cases</h3>
+        <h4 id="s14-5">14.5 Four short cases</h4>
         <ul>
           <li><strong>One-off organism release.</strong> Level 3, although the act happens once.</li>
           <li><strong>Dating platform age penalty.</strong> Level 2.</li>
@@ -1649,16 +1672,16 @@
           <li><strong>Physician following a protocol.</strong> No discretion over the protocol's content; the duty to justify the content moves to its designers.</li>
         </ul>
 
-        <h3 id="s14-5b">14.5b Case: emergency water rationing (duties conflict)</h3>
+        <h4 id="s14-5b">14.5b Case: emergency water rationing (duties conflict)</h4>
         <p>A water authority must impose rationing within 48 hours in a severe drought. Entrenchment and severity are High (crop loss and harm to people with medical dependence are not undone) and contestation deficit is High, so the rule gives Level 3, whose prior independent authorisation takes weeks. <a href="#s12">§12.2</a> allows acting first. The duties then split.</p>
         <ul>
           <li><strong>Not compressible:</strong> published reasons, preserved records, a contestation channel open from day one, exemptions for life-critical dependence, and a sunset clause.</li>
           <li><strong>Compressible:</strong> prior authorisation, replaced by review completed before the sunset.</li>
           <li><strong>Not decided by the framework:</strong> which rationing rule is fair, and whether 48 hours really precludes prior review. Raters may disagree; under <a href="#s9">§9.2</a> the disagreement is recorded, not averaged away.</li>
         </ul>
-        <p><strong>Failure mode:</strong> if "emergency" is routinely invoked to skip prior review, test T5 (<a href="#s15">§15.2</a>) is triggered. Here the framework imposes a cost on the actor's preferred option and admits residual dispute.</p>
+        <p><strong>Failure mode:</strong> if "emergency" is routinely invoked to skip prior review, test T5 (<a href="#s15">§15.4</a>) is triggered. Here the framework imposes a cost on the actor's preferred option and admits residual dispute.</p>
 
-        <h3 id="s14-6">14.6 Calibration table</h3>
+        <h4 id="s14-6">14.6 Calibration table</h4>
         <div class="table-wrap">
           <table>
             <caption>Table 4. Calibration of the framework's reference cases</caption>
@@ -1687,7 +1710,7 @@
         </div>
         <p>These ratings are the author's and are offered for challenge.</p>
 
-        <h3 id="s14-7">14.7 Case: an AI company's internal audit (T5-precondition failing)</h3>
+        <h4 id="s14-7">14.7 Case: an AI company's internal audit (T5-precondition failing)</h4>
         <p class="section-lede">This case shows what happens when the framework's T5-precondition is not met: the actor does not lose the framework; the actor loses the claim to Level 3 legitimacy.</p>
 
         <p>An AI company commissions an "independent" audit of its recommendation system, which has been shown to amplify polarising content. The audit is published with a foreword by the CEO, the reviewers are paid by the company, and the company's board appoints them. The audit concludes that the system is "broadly safe" and recommends "continued monitoring."</p>
@@ -1719,94 +1742,85 @@
       </section>
 
       <section id="s15">
-        <h2><span class="num">15.</span>Limits, Testing and Replacement</h2>
-        <p class="section-lede">This section gives the operational detail behind the failure conditions stated in <a href="#s2">§2.2b</a> and <a href="#s15">§15.2</a>, and states the limits that the stress-test of J and the epistemic burden principle have exposed.</p>
+        <h3 class="section-title"><span class="num">15.</span>Limits, Testing and Replacement</h3>
+        <p class="section-lede">This section does three things the rest of the essay does not: it states what the framework's ground does not rest on, it states the three structural limits the framework cannot close, and it reframes what the framework is for. The reframing answers the hardest objection the framework faces — that a sufficiently organised actor can follow every rule and still destroy something valuable.</p>
 
-        <h3 id="s15-1">15.1 Limitations</h3>
-        <p><strong>Operational limits.</strong></p>
+        <h4 id="s15-1">15.1 The ground is not derived</h4>
+        <p>The framework rests on three premises it does not derive. Saying so is not a failure. Saying otherwise is.</p>
+
+        <p><strong>(i) B is a premise, not a theorem.</strong> §2.0 states B as a bridge norm: where an actor's influence falls on others who bear the cost of its errors, the actor should not be the sole judge of its influence. F (fallibilism) motivates B. F does not entail B. The only route from F to a duty would be a transcendental argument of the kind Habermas and Apel give — that the practice of making claims and asking for reasons already presupposes the standing of others to ask. That route is available. It is also thick: it commits the framework to a specific theory of communicative rationality. §2.7 says the framework does not require that theory. Therefore B is a premise. A reader who rejects B has no reason to accept the framework's account of why J is motivated. The framework does not claim otherwise.</p>
+
+        <p><strong>(ii) Thin standing is a premise, not a theorem.</strong> §2.7 states thin standing as the framework's first normative commitment: affected parties have some moral weight that cannot be reduced to their instrumental value to the powerful. This is widely shared across traditions. It is not derived. It is chosen. A reader who rejects thin standing — the realist who thinks power owes nothing to the weak — is outside the framework's scope, and §2.7 says so. But a reader who <em>accepts</em> thin standing and still asks "why should I be bound by B?" is asking a question the framework cannot answer, because B is a further normative choice, not a consequence of thin standing alone.</p>
+
+        <p><strong>(iii) The operational components stand on their own.</strong> The activation rule, the duty ladder, the rating protocol, the T5-precondition, the SY1–SY3 indicators and the epistemic burden principle do not depend on whether B or thin standing are correct. They stand or fall on their own tests (<a href="#s15">§15.4</a>) and their own applications (<a href="#s14">§14</a>). A reader who rejects the framework's ground can still use its machinery. A reader who accepts the ground but cannot make the machinery work has not thereby refuted the ground — only shown that the machinery fails in a particular case. This separation is the framework's main protection against the charge that it presupposes the morality it tries to derive: it does not derive the morality; it states the morality, and then builds machinery that is judged separately.</p>
+
+        <p><strong>What this means for the framework's status.</strong> The framework is not a deduction. It is not a transcendental argument. It is a set of operational proposals, made from within a normative tradition that is stated explicitly, and offered for testing on their own terms. Whether that is enough for a philosophical contribution is a question for the reader. But it is what the framework actually offers.</p>
+
+        <h4 id="s15-2">15.2 Three structural limits</h4>
+        <p>These are not limitations of execution. They are limitations of what any procedure of the kind the framework proposes can see. Naming them is part of what makes the framework honest.</p>
+
+        <p><strong>Limit 1 — Harmonious Domination.</strong> Consider a society that satisfies every rule and every indicator: all actors have discretion, all are subject to L1–L3 duties, all reviews meet R1–R6, all SY1–SY3 indicators pass. Suppose also that the terms the dependent party accepts are terms it would reject at tolerable exit cost <em>if it could imagine the alternative</em>, but the alternative has been made unimaginable — through assimilation, through manufactured preferences, through the systematic unavailability of the vocabulary needed to formulate an objection. The indicators say: no exploitation (the party reports acceptance), no assimilation (the interventions remove burdens, not differences), continued possibility (F1–F5 hold). The relation is harmonious. And the dependent party has no standing worth the name. The framework cannot detect this, because the framework's indicators are measured on conditions the dominant party has set.</p>
+
+        <p>The framework's partial response is a change of default: testimony from a party inside a structurally asymmetric relation is not evidence <em>for</em> symbiosis; it is evidence that the capture has succeeded, unless independent confirmation exists. This is stronger than what the framework said before. It is not enough. There is no procedure that can reliably distinguish a party that has genuinely accepted its conditions from a party whose capacity to reject them has been dismantled.</p>
+
+        <p><strong>Limit 2 — Non-formulable harm.</strong> SY1–SY3 each require some articulation: stated preferences (SY1), design classification (SY2), observation of F1–F5 (SY3). A harm that the harmed party cannot formulate — because the resources for formulating it have been withheld, or because the party's form of life is not legible in the framework's terms — falls outside the indicators. The framework's partial response is to treat silence as a presumption against, not a neutral condition. Where a party cannot articulate its own interest, the burden shifts to the more powerful party to show, by means other than the party's testimony, that the interest is not being harmed. This is a consequence of the fallibilist premise (§2.0) applied consistently. It is not a solution. A sufficiently determined dominant party can satisfy the burden with evidence it controls.</p>
+
+        <p><strong>Limit 3 — Unreadable dominance.</strong> A sufficiently advanced intelligence, or a sufficiently well-organised institution, can satisfy every procedural requirement while controlling a party whose form of life it does not understand and cannot make legible. L3 authorisation requires R1–R6 and publication of R1 indicators. It does not require <em>understanding</em> of the party it authorises control over. The framework's partial response is to add understanding as a condition for L3: an authorisation that the affected party cannot in principle evaluate is not an authorisation in the framework's sense. It may be a legitimate exercise of power by other standards. It is not a legitimate exercise by this one.</p>
+
+        <p>But this response has its own limit. The dominant party may believe it understands — and be wrong, in ways its own categories cannot detect. Or the affected party may be capable of being understood but not of understanding the terms in which it is understood. The framework cannot specify, from the inside, what it would look like for the dominant party to understand something correctly. It can only specify that it must <em>act as if</em> it does not, and preserve the conditions under which the affected party can correct the account.</p>
+
+        <p><strong>What these three limits share.</strong> Each is a case where a procedure can be followed completely and something valuable is still destroyed. They are not failures of the framework's mechanics. They are structural features of any procedure that operates through categories. The framework cannot eliminate them. What it can do is locate them.</p>
+
+        <h4 id="s15-3">15.3 What the framework is, therefore</h4>
+        <p>The three limits above have a consequence that the framework must own. <strong>The framework is not a procedure for producing legitimacy. It is a diagnostic for locating where legitimacy is likely to fail.</strong></p>
+
+        <p>This distinction matters, because it changes what the framework is asked to do. A procedure that can be followed and still fail is a failed procedure. A diagnostic that identifies failures before they happen is a working diagnostic. The framework is the second. Its job is not to certify that a relation is legitimate. Its job is to identify the places where procedure will pass while something valuable is still being lost — and to make those places visible, contestable and, where possible, correctable.</p>
+
+        <p><strong>What this means for the hardest objection.</strong> If a society follows the entire framework and still destroys something valuable it does not understand, that is not a refutation of the framework. It is an application of the framework. The framework's contribution is to say, in advance, that this is what will happen — that procedure will pass, that indicators will hold, and that something is still being lost. The framework cannot prevent this. It can name it. That is more than any procedure can do. It is less than the framework's own rhetorical ambitions sometimes implied.</p>
+
+        <p><strong>What follows for the reader.</strong> The framework should be used as a diagnostic. When you apply it, do not ask "does this relation meet the framework?" Ask "where does this relation's procedure diverge from the things it cannot see?" The framework's value is not in the answer it gives (it does not give answers). It is in the questions it makes visible: whose categories are these? whose indicators? whose silence is being read as consent?</p>
+
+        <p><strong>What follows for the framework itself.</strong> The framework is a diagnostic, not a procedure. This means it should not be applied as a checklist. It means its own categories are open to the same three limits. And it means its success is measured not by whether the relations it assesses pass its tests, but by whether the tests catch what the tests cannot see. This is a harder standard than the framework's earlier formulation set for itself. It is also the standard the framework can meet.</p>
+
+        <h4 id="s15-4">15.4 What the framework can be tested against</h4>
+        <p>The diagnostic has its own success conditions. They are modest, but they are conditions.</p>
+
+        <p><strong>Preregistration.</strong> Before any test is run, the calibration set of cases, the raters, the outcome measures, the thresholds and the analytic plan must be fixed and made public. A test that is not preregistered is exploratory, not confirmatory.</p>
+
         <ul>
-          <li>Ratings need judgment and the anchors will be contested.</li>
-          <li>Representation risks projection and paternalism (mitigated in <a href="#s4">§4.6</a>, not removed).</li>
-          <li>Review can be captured (<a href="#s11">§11</a>).</li>
-          <li>Small actors may be over-burdened in practice.</li>
-          <li>All claims about its effects are hypotheses. No test has yet been run.</li>
-        </ul>
-        <p><strong>Limits of the ground.</strong></p>
-        <ul>
-          <li>J underdetermines outcomes.</li>
-          <li>The ground is an abductive argument, not a proof (<a href="#s2">§2.3</a>).</li>
-          <li>The framework was developed mainly within one intellectual tradition. <a href="#s2">§2.5</a> engages others, but wider critique is needed.</li>
-        </ul>
-        <p><strong>Limits exposed by the stress-test of J.</strong></p>
-        <ul>
-          <li><strong>J cannot be shown to be necessary.</strong> It is a defensible position, not an unavoidable one.</li>
-          <li><strong>The framework handles domination; it does not solve it.</strong></li>
-          <li><strong>J is primarily epistemic, not moral.</strong></li>
-          <li><strong>The framework's originality is comparative, not foundational.</strong> Table 1 (<a href="#s1-5">§1.5</a>) shows the specific components that are added, not that the additions are valuable.</li>
-        </ul>
-        <p><strong>Limits of the epistemic burden principle.</strong></p>
-        <ul>
-          <li><strong>The principle is limited to conditions of asymmetric influence.</strong> Where parties have comparable power or effective routes of correction, the heightened burden may be unnecessary or modest.</li>
-          <li><strong>The principle is epistemic and procedural, not metaphysical.</strong> Symbiosis is not a metaphysical entity; it is what SY1–SY3 measure.</li>
-          <li><strong>The principle is defensible, not proven.</strong> Its defeaters are stated in <a href="#s5">§5.2</a>. B1 (no systematic epistemic risk) is a central empirical vulnerability.</li>
-          <li><strong>The principle does not claim that answerability is sufficient for symbiosis or uniquely necessary for knowledge.</strong> It claims that it is a heightened epistemic burden under conditions of asymmetric influence, for the more powerful party to <em>know</em> (rather than merely believe) that SY1–SY3 hold.</li>
-        </ul>
-        <p><strong>Limits of the normative location and the choice of floor.</strong></p>
-        <ul>
-          <li><strong>The framework is internal to the thin justificatory tradition (<a href="#s2-7">§2.7</a>).</strong> It does not persuade a realist who rejects even the thin standing claim, and it does not claim to. It is a careful articulation of one position, not a refutation of its rivals. The thin version is more widely shared than the thick one, but it is still a philosophical commitment that can be disputed.</li>
-          <li><strong>Symbiosis is a pro tanto floor, not a complete ideal (<a href="#s5-3">§5.3</a>).</strong> It specifies minimum conditions, not what makes a relation good. A relation meeting SY1–SY3 may still be unjust in other respects, and the framework cannot detect this.</li>
-          <li><strong>The choice of floor is derived from the thin standing claim, but the derivation has a limit.</strong> It shows that SY1–SY3 are the three minimum conditions for standing to be non-vacuous. It does not show that no other condition is also necessary, nor that SY1–SY3 exhaust the content of a good relation. The comparison with welfare, capability, and autonomy (<a href="#s5-3">§5.3</a>) shows that SY1–SY3 are not reducible to those floors, but does not show that they are superior to them for all purposes.</li>
-          <li><strong>Care and respect are internal to the framework's premises but do not specify a flourishing relation (§5.4).</strong> A relation meeting SY1–SY3 may still be cold; the framework specifies the floor, not the ceiling.</li>
+          <li><strong>T1 Reliability.</strong> Trained raters independently rate a calibration set of at least thirty diverse cases. If agreement on level (Krippendorff's alpha) is below 0.60, the anchors are revised. If it remains below 0.40 after two revisions, the diagnostic is abandoned as a decision tool.</li>
+          <li><strong>T2 Discriminative validity.</strong> The levels fail to track the safeguards that independent expert panels, blind to the diagnostic's output, judge necessary (weighted kappa below 0.50 over at least thirty cases).</li>
+          <li><strong>T3 Effectiveness.</strong> In matched or staggered-adoption comparisons over at least two years, adopting institutions fail to improve, relative to controls, on at least two of three independent indicators: time to correct erroneous decisions; share of challenges that lead to change; and affected parties' reported fairness and trust in an independent survey.</li>
+          <li><strong>T4 Harm.</strong> Adopters show worse outcomes for the most vulnerable groups than matched controls on independently measured harm indicators. The diagnostic is suspended and revised.</li>
+          <li><strong>T5 Capture and legitimation.</strong> Within three years, a majority of adopters' review bodies fail R1 on documented appointment, funding and removal, or adopters' rate of successful external challenges falls without improvement on the T3 indicators. As a precondition, T5 requires that Level 3 authorisation be preceded by publication of R1 indicators; an authorisation without such publication is not a Level 3 authorisation.</li>
         </ul>
 
-        <h3 id="s15-2">15.2 Five falsification conditions: full specification</h3>
-        <p>The tests use independent measures where possible, are specified in advance, state provisional thresholds, and require preregistration. The thresholds are placeholders. What matters is the structure: independent measures, matched baselines, pre-specified thresholds, preregistration.</p>
+        <p>The preregistration requirement and the specific institutional arrangements — academic partners, open funding, publication regardless of outcome, an independent steering committee — are stated so that the diagnostic's claim to be testable can be evaluated against what would actually be required. None of these arrangements is guaranteed.</p>
 
-        <p><strong>Preregistration requirements.</strong> Before any of the tests below are run, the following must be fixed and made public: (i) the calibration set of cases and the raters; (ii) the outcome measures and their operational definitions; (iii) the thresholds for failure; (iv) the analytic plan, including how confounding and selection will be addressed. A test that is not preregistered should not be treated as a confirmatory test of the stated thresholds; it may still generate exploratory evidence.</p>
-
-        <ul>
-          <li><strong>T1 Reliability.</strong> Trained raters independently rate a calibration set of at least 30 diverse cases. If agreement on level (Krippendorff's alpha) is below 0.60, the anchors are revised. If it remains below 0.40 after two revisions, the profile is abandoned as a decision tool.</li>
-          <li><strong>T2 Discriminative validity.</strong> The levels fail to track the safeguards that independent expert panels, blind to the framework's output, judge necessary (weighted kappa below 0.50 over at least 30 cases).</li>
-          <li><strong>T3 Effectiveness.</strong> In matched or staggered-adoption comparisons over at least two years, adopting institutions fail to improve, relative to controls, on at least two of three independent indicators: time to correct erroneous decisions; share of challenges that lead to change; and affected parties' reported fairness and trust in an independent survey. The second indicator is partly internal to the framework (a channel must exist before challenges can succeed) and counts as supporting evidence only; the first and third carry the test.</li>
-          <li><strong>T4 Harm.</strong> Adopters show worse outcomes for the most vulnerable groups than matched controls on independently measured harm indicators. The framework is then suspended and revised.</li>
-          <li><strong>T5 Capture and legitimation.</strong> Within three years, a majority of adopters' review bodies fail R1 on documented appointment, funding and removal, or adopters' rate of successful external challenges falls without improvement on the T3 indicators. As a precondition (<a href="#s11-4">§11.4</a>), T5 also requires that Level 3 authorisation be preceded by publication of R1 indicators; an authorisation without such publication is not a Level 3 authorisation.</li>
-        </ul>
-
-        <p>These tests face confounding and selection problems like any institutional comparison. They are better than none, and they make the framework's claims capable of being wrong. The preregistration requirement is meant to prevent the tests from being reshaped after the fact to fit the results.</p>
-
-        <p><strong>Who runs the tests, and where.</strong> The framework does not have the institutional capacity to run the tests itself. The proposed arrangements are:</p>
-        <ul>
-          <li><strong>Academic partners</strong> with expertise in institutional evaluation (e.g. public-policy schools, law schools, applied-ethics centres).</li>
-          <li><strong>Funding</strong> through open research grants, not from adopters, to reduce capture risk.</li>
-          <li><strong>Preregistration</strong> in a public registry (e.g. OSF, AsPredicted) before data collection.</li>
-          <li><strong>Publication</strong> in peer-reviewed venues regardless of outcome, to reduce publication bias.</li>
-          <li><strong>An independent steering committee</strong> that can stop the tests if they are being captured, with public reporting of its decisions.</li>
-        </ul>
-        <p>None of these arrangements is guaranteed. They are stated so that the framework's claim to be testable can be evaluated against what would actually be required.</p>
-
-        <h3 id="s15-3">15.3 Replacement</h3>
-        <p>The framework is modular. Its ground (Part I), standing (Part II), activation (Part III) and structure (Part IV) can be replaced separately. The epistemic burden principle (<a href="#s5">§5.2</a>) is a separate module: if a stronger epistemic proposal is developed, it can replace the epistemic burden principle without discarding the framework's operational parts. A framework or module F′ should replace the current one if:</p>
+        <h4 id="s15-5">15.5 Replacement</h4>
+        <p>The diagnostic is modular. Its ground (Part I), standing (Part II), activation (Part III) and structure (Part IV) can be replaced separately. The epistemic burden principle is a separate module. A diagnostic D′ should replace the current one if:</p>
         <ol>
-          <li>F′ improves on at least one independent indicator in <a href="#s15">§15.2</a> or resolves a limitation in <a href="#s15">§15.1</a>.</li>
-          <li>F′ causes no unacknowledged regression elsewhere.</li>
-          <li>F′ is operationally applicable and produces more defensible decisions on a substantial set of cases.</li>
-          <li>F′ is corrigible: it states its own falsification and replacement conditions.</li>
+          <li>D′ improves on at least one independent indicator in §15.4 or resolves one of the structural limits in §15.2.</li>
+          <li>D′ causes no unacknowledged regression elsewhere.</li>
+          <li>D′ is operationally applicable and produces more defensible identifications of failure on a substantial set of cases.</li>
+          <li>D′ is corrigible: it states its own failure conditions.</li>
           <li>The transition is trialled, with a sunset or a route back.</li>
           <li>The incumbent is not privileged.</li>
         </ol>
-        <p>If these are met, F′ should be adopted, because <a href="#s13">§13</a> requires it.</p>
+        <p>If these are met, D′ should be adopted. A diagnostic that cannot be replaced cannot be corrected, and a diagnostic that cannot be corrected is not a diagnostic.</p>
 
         <aside class="key-points">
           <ul>
-            <li>Limitations are stated in six groups: operational, ground, stress-test-exposed, epistemic-principle, normative-location and floor, and care-and-respect limits.</li>
-            <li>Five proposed evaluation conditions (T1–T5) with operational specifications, preregistration requirements, provisional thresholds, and specific institutional arrangements.</li>
-            <li>Six replacement conditions — the framework is modular and supersedable by design.</li>
+            <li>B and thin standing are premises, not theorems. §15.1 says so plainly.</li>
+            <li>Three structural limits: Harmonious Domination, Non-formulable harm, Unreadable dominance. §15.2 states them.</li>
+            <li>The framework is a diagnostic, not a procedure. §15.3 states the reframing.</li>
+            <li>The diagnostic is tested against T1–T5 and replaced under six conditions. §15.4–15.5.</li>
           </ul>
         </aside>
       </section>
 
       <section id="s16">
-        <h2><span class="num">16.</span>Responsibility Without Sovereignty</h2>
+        <h3 class="section-title"><span class="num">16.</span>Responsibility Without Sovereignty</h3>
         <p class="section-lede">The central danger is that difference becomes a justification for domination.</p>
 
         <p>An actor may have greater knowledge, intelligence or capacity. None of these by itself establishes a right to determine the existence of others. Greater capability should create greater restraint. Greater understanding should create greater curiosity about what remains unknown. And greater power should create a stronger obligation to ensure that those affected are not reduced to objects in another's plans.</p>
@@ -1829,9 +1843,9 @@
         </aside>
       </section>
 
-      <div class="coda" id="s17">
+      <div class="coda" id="s17" role="region" aria-labelledby="s17-h">
         <p class="coda__label">Conclusion</p>
-        <h2>17. An Open Commitment to Existence</h2>
+        <h3 id="s17-h"><span class="num" style="color:var(--accent);font-weight:400;margin-right:.55em;font-size:.8em;font-variant-numeric:tabular-nums">17.</span>An Open Commitment to Existence</h3>
         <p class="section-lede" style="color:var(--accent);border-left-color:var(--accent);">Be responsible for the influence you possess. Be humble before the existence you cannot fully comprehend.</p>
         <p>We are part of something larger than ourselves. Our understanding is incomplete. Our influence is unequal. Our relationships shape conditions that extend beyond our immediate existence. Every being that has a perspective holds a point in reality that cannot be exchanged for anyone else's, and some of those perspectives are hard for us to reach.</p>
         <p>We cannot know everything that deserves consideration. But we can decline to treat the limits of our understanding as proof that nothing lies beyond them, and we can ask for evidence where the question is open. This does not require abandoning reason. It requires allowing reason to recognise its limits. It does not require abandoning responsibility. It requires understanding that responsibility without care can become cold control, while care without accountability can become arbitrary intervention. Both are necessary.</p>
@@ -1862,7 +1876,7 @@
         <p class="section-lede">Thirteen objections the framework has to survive. Each is a real objection; none is fatal — but the first is the hardest, and the second and eleventh are the ones the framework most needs to answer.</p>
 
         <p class="expand-row">
-          <button class="btn" id="expandObjections" aria-expanded="false" aria-controls="objections">Expand all objections</button>
+          <button class="btn" id="expandObjections" aria-expanded="false">Expand all objections</button>
         </p>
 
         <details class="objection">
@@ -1872,17 +1886,17 @@
 
         <details class="objection">
           <summary><span class="obj-num">2.</span> "This is a values framework dressed up as a procedure."</summary>
-          <p class="reply">Partly, and the essay says so (<a href="#s2">§2.6</a>, <a href="#s2-7">§2.7</a>). J carries a minimal commitment to the equal standing of those affected — the thin standing claim. The claim is breadth of acceptability, not neutrality. A fair test is whether people with different comprehensive views can use it to reach different answers in the same case. They can: it does not decide the ICU case.</p>
+          <p class="reply">Partly, and the essay says so (<a href="#s2">§2.6</a>, <a href="#s2-7">§2.7</a>, <a href="#s15">§15.1</a>). J carries a minimal commitment to the equal standing of those affected — the thin standing claim. The claim is breadth of acceptability, not neutrality. A fair test is whether people with different comprehensive views can use it to reach different answers in the same case. They can: it does not decide the ICU case. The reframing of the framework as a diagnostic rather than a procedure (<a href="#s15">§15.3</a>) is a further concession: the framework does not certify legitimacy; it locates where legitimacy is likely to fail.</p>
         </details>
 
         <details class="objection">
           <summary><span class="obj-num">3.</span> "Proceduralism is itself a form of power. It gives the powerful a new vocabulary for doing what they were going to do anyway."</summary>
-          <p class="reply">This is the second-hardest objection, and it is treated at length in <a href="#s2">§2.4b</a>. The framework does not deny it. Its reply has three parts: (i) the objection is partly correct, and the framework's T5-as-precondition is its internal response (<a href="#s14-7">§14.7</a> shows it in action); (ii) the objection is not specific to proceduralism — any normative framework can be captured; (iii) the framework's modesty is not an admission of failure but a claim about what any framework can do. A sufficiently powerful actor can capture the publication requirement itself. The framework can make the capture visible, but visibility is not prevention. Whether this is enough is a political question, not a philosophical one.</p>
+          <p class="reply">This is the second-hardest objection, and it is treated at length in <a href="#s2">§2.4b</a> and <a href="#s15">§15.2</a>–<a href="#s15">15.3</a>. The framework does not deny it. Its reply has three parts: (i) the objection is partly correct, and the framework's T5-as-precondition is its internal response (<a href="#s14-7">§14.7</a> shows it in action); (ii) the objection is not specific to proceduralism — any normative framework can be captured; (iii) the framework's modesty is not an admission of failure but a claim about what any framework can do. A sufficiently powerful actor can capture the publication requirement itself. The framework can make the capture visible, but visibility is not prevention. The reframing in §15.3 — the framework as a diagnostic — is the strongest form of the reply: a diagnostic can locate its own failure without thereby having failed.</p>
         </details>
 
         <details class="objection">
           <summary><span class="obj-num">4.</span> "Why should contestation override better outcomes?"</summary>
-          <p class="reply">It does not always. Where exit and review are available and effective, justification need not be owed (<a href="#s2">§2.1</a>). The revised J is disjunctive, not monistic. It privileges justification only where exit and review fail. The remaining disagreement is genuine, and the framework sides with contestation in severe cases for epistemic reasons, while permitting temporary override in emergencies subject to sunset and review (<a href="#s12">§12.2</a>).</p>
+          <p class="reply">It does not always. Where exit and review are available and effective, justification need not be owed (<a href="#s2">§2.1</a>). The framework's J is disjunctive, not monistic. It privileges justification only where exit and review fail. The remaining disagreement is genuine, and the framework sides with contestation in severe cases for epistemic reasons, while permitting temporary override in emergencies subject to sunset and review (<a href="#s12">§12.2</a>).</p>
         </details>
 
         <details class="objection">
@@ -1902,7 +1916,7 @@
 
         <details class="objection">
           <summary><span class="obj-num">8.</span> "The ratings are arbitrary or manipulable."</summary>
-          <p class="reply">Judgment cannot be eliminated, but <a href="#s9">§9</a> exposes it: anchors with observable indicators, two raters, a sensitivity test, reasoned overrides and counter-profiles. Tests T1 and T2 examine consistency, and <a href="#s15">§15.2</a> requires preregistration.</p>
+          <p class="reply">Judgment cannot be eliminated, but <a href="#s9">§9</a> exposes it: anchors with observable indicators, two raters, a sensitivity test, reasoned overrides and counter-profiles. Tests T1 and T2 examine consistency, and <a href="#s15">§15.4</a> requires preregistration.</p>
         </details>
 
         <details class="objection">
@@ -1917,7 +1931,7 @@
 
         <details class="objection">
           <summary><span class="obj-num">11.</span> "The epistemic burden principle is circular. It smuggles answerability into the definition of symbiosis."</summary>
-          <p class="reply">This is the most serious objection to the framework's positive contribution, and the reply is in <a href="#s5">§5.2</a>. SY1–SY3 are specified independently of answerability. SY1 measures the gap between stated preferences and accepted terms, adjusted for exit costs. SY2 measures whether interventions aim at removing the burden or the difference. SY3 measures whether F1–F5 hold over time. These are observable without invoking any procedure of answerability. The principle adds a substantive claim: these three conditions can only be <em>reliably assessed</em> — and therefore only <em>reliably secured</em> — through procedures of answerability. This is not tautological. It is a claim about the epistemic conditions under which SY1–SY3 can be known. The principle may be wrong — the argument can be challenged, and the defeaters are stated in <a href="#s5">§5.2</a> — but the revised formulation does not define symbiosis in terms of answerability.</p>
+          <p class="reply">This is the most serious objection to the framework's positive contribution, and the reply is in <a href="#s5">§5.2</a>. SY1–SY3 are specified independently of answerability. SY1 measures the gap between stated preferences and accepted terms, adjusted for exit costs. SY2 measures whether interventions aim at removing the burden or the difference. SY3 measures whether F1–F5 hold over time. These are observable without invoking any procedure of answerability. The principle adds a substantive claim: these three conditions can only be <em>reliably assessed</em> — and therefore only <em>reliably secured</em> — through procedures of answerability. This is not tautological. It is a claim about the epistemic conditions under which SY1–SY3 can be known. The principle may be wrong — the argument can be challenged, and the defeaters are stated in <a href="#s5">§5.2</a> — but the formulation does not define symbiosis in terms of answerability.</p>
         </details>
 
         <details class="objection">
@@ -1927,7 +1941,7 @@
 
         <details class="objection">
           <summary><span class="obj-num">13.</span> "Why these three symbiosis indicators, and not something else?"</summary>
-          <p class="reply">The choice is derived and defended in <a href="#s5-3">§5.3</a>. SY1–SY3 are the three distinct ways standing can be made vacuous: hollow reasons, absorbed difference, foreclosed action. They are a <em>pro tanto floor</em>, not a complete ideal. They are chosen because they are derivable from the thin standing claim, are not reducible to welfare or capability or autonomy, and handle cases of legitimate dependence (children, disability, care) better than autonomy-based floors. The framework does not claim they are the only possible floor. If a critic can show that a relation clearly failing SY1–SY3 is nonetheless good, or that a relation clearly meeting them is nonetheless bad in a way the framework cannot detect, the choice of floor should be revised.</p>
+          <p class="reply">The choice is derived and defended in <a href="#s5-3">§5.3</a>. SY1–SY3 are the three distinct ways standing can be made vacuous: hollow reasons, absorbed difference, foreclosed action. They are a <em>pro tanto floor</em>, not a complete ideal. They are chosen because they are derivable from the thin standing claim, are not reducible to welfare or capability or autonomy, and handle cases of legitimate dependence (children, disability, care) better than autonomy-based floors. The framework does not claim they are the only possible floor. If a critic can show that a relation clearly failing SY1–SY3 is nonetheless good, or that a relation clearly meeting them is nonetheless bad in a way the framework cannot detect, the choice of floor should be revised. <a href="#s15">§15.2</a> and <a href="#s15">§15.3</a> state the deeper limits that SY1–SY3 cannot close.</p>
         </details>
       </section>
 
@@ -1940,17 +1954,17 @@
         <h3>Vad texten hävdar</h3>
         <p>När du utövar påverkan som du själv har handlingsutrymme över, och som formar andras villkor, och när de berörda inte kan lämna eller bestrida den påverkan, är du skyldig dem en förklaring. Du kan inte vara ensam domare över om den förklaringen räcker.</p>
         <p>Ansvarsskyldighet är proceduren. Symbios är golvet den tjänar — minimivillkoren för relationer av beroende där beroendet inte utnyttjas, skillnad inte tvingas till likhet, och den beroende behåller förutsättningarna för fortsatt existens, utveckling och deltagande.</p>
-        <p><strong>Texten är ett verktyg, inte en kanonisk position.</strong> J — kärnprincipen — är en <em>abduktivt</em> försvarad syntes av befintliga traditioner, inte en nödvändig sanning. Den har uttalade vederläggningsvillkor (§2.2b). Ramverket är internt till en <em>tunn</em> justifikatorisk tradition (§2.7) — det argumenterar inte för traditionen från utsidan, och det kräver bara den tunna varianten. Dess bidrag är dels operativt (aktiveringsregeln, pliktladdern, bedömningsprotokollet, ECP mot Young, symbiosindikatorerna SY1–SY3, T5-förhandsvillkoret, preregistreringen), dels filosofiskt: <em>epistemic burden principle</em> (§5.2), som också har uttalade vederläggningsvillkor. Valet av symbiosgolv härleds från den tunna standing-tesen och jämförs mot welfare, capability och autonomy (§5.3). Ramverket <em>hanterar</em> dominans; det <em>löser</em> den inte.</p>
+        <p><strong>Texten är ett verktyg, inte en kanonisk position.</strong> J — kärnprincipen — är en <em>abduktivt</em> försvarad syntes av befintliga traditioner, inte en nödvändig sanning. Den har uttalade vederläggningsvillkor (§2.2b). Ramverket är internt till en <em>tunn</em> justifikatorisk tradition (§2.7) — det argumenterar inte för traditionen från utsidan, och det kräver bara den tunna varianten. Dess bidrag är dels operativt (aktiveringsregeln, pliktladdern, bedömningsprotokollet, ECP mot Young, symbiosindikatorerna SY1–SY3, T5-förhandsvillkoret, preregistreringen), dels filosofiskt: <em>epistemic burden principle</em> (§5.2), som också har uttalade vederläggningsvillkor. Valet av symbiosgolv härleds från den tunna standing-tesen och jämförs mot welfare, capability och autonomy (§5.3). Ramverket <em>hanterar</em> dominans; det <em>löser</em> den inte. <strong>Ramverket är en diagnostik, inte en procedur</strong> (§15.3).</p>
 
         <h3>Kärnan i sju punkter</h3>
         <ol>
-          <li><strong>Det specifika anspråket (§1.5, tabell 1).</strong> Ramverkets bidrag är inte en ny fundamental princip, utan ett <em>sammanlänkat operativt system</em>: aktiveringsregeln, pliktladdern, T5-förhandsvillkoret, epistemic burden principle och allokering efter exercised capacity. Varje del är beroende av de andra; helheten gör arbete som ingen enskild del gör. Tabell 1 visar vad varje tradition levererar och vad ramverket lägger till. Tabellen visar särskildhet, inte värde. Om en kritiker kan visa att systemet redan finns hos Pettit, Forst, Young eller Jonas, bör ramverket justera sina anspråk.</li>
-          <li><strong>Grund och stöd (§2).</strong> Ett motiverande fallibilistiskt antagande (F, §2.0) — ingen aktör förstår fullt ut de villkor den formar — och en uttalad bryggnorm (B) gör bestridande till ett rimligt botemedel, men J härleds inte ur dem. J är en tunn, disjunktiv princip: ordningar som systematiskt begränsar andras villkor måste erbjuda minst en av tre saker — meningsfull exit, oberoende granskning, eller rättfärdigande öppet för bestridande. J:s vederläggningsvillkor (D1–D4) finns i §2.2b. §2.8 prövar ramverket adversariellt mot Pettit, Forst och Jonas. §3.3 jämför ECP med Youngs social connection model i ett illustrativt fall.</li>
-          <li><strong>Normativ position (§2.7).</strong> Ramverket är internt till en <em>tunn</em> justifikatorisk tradition. Tre anspråk av avtagande tjocklek: (a) tunn standing — berörda parter har någon moralisk vikt som inte kan reduceras till deras instrumentella värde; (b) semi-thick procedurellt anspråk — ordningar som ålägger kostnader måste rättfärdigas för dem; (c) ramverksspecifikt anspråk — rättfärdigande kan disjunktivt ta formen exit, review eller bestridande. Den tunna standing-tesen är brett delad (naturrätt, dygdetik, omsorgsetik, stora delar av icke-västerländska traditioner). Detta är en styrka (ärlighet) snarare än en svaghet (anspråk på universalitet). Realisten som förnekar även tunn standing är utanför ramverkets räckvidd.</li>
+          <li><strong>Det specifika anspråket (§1.5, tabell 1).</strong> Ramverkets bidrag är inte en ny fundamental princip, utan ett <em>sammanlänkat operativt system</em>: aktiveringsregeln, pliktladdern, T5-förhandsvillkoret, epistemic burden principle och allokering efter exercised capacity. Varje del är beroende av de andra; helheten gör arbete som ingen enskild del gör. Tabell 1 visar vad varje tradition levererar och vad ramverket lägger till. Tabellen visar särskildhet, inte värde.</li>
+          <li><strong>Grund och stöd (§2, §15.1).</strong> Ett motiverande fallibilistiskt antagande (F, §2.0) och en uttalad bryggnorm (B) gör bestridande till ett rimligt botemedel. <strong>B är en premiss, inte en sats som följer av F. Tunn standing är en premiss, inte heller härledd. Ramverket erkänner detta i §15.1.</strong> J är en tunn, disjunktiv princip: ordningar som systematiskt begränsar andras villkor måste erbjuda minst en av tre saker — meningsfull exit, oberoende granskning, eller rättfärdigande öppet för bestridande. J:s vederläggningsvillkor (D1–D4) finns i §2.2b. §2.8 prövar ramverket adversariellt mot Pettit, Forst och Jonas. §3.3 jämför ECP med Youngs social connection model i ett illustrativt fall.</li>
+          <li><strong>Normativ position (§2.7).</strong> Ramverket är internt till en <em>tunn</em> justifikatorisk tradition. Tre anspråk av avtagande tjocklek: (a) tunn standing; (b) semi-thick procedurellt anspråk; (c) ramverksspecifikt anspråk. Den tunna standing-tesen är brett delad. Realisten som förnekar även tunn standing är utanför ramverkets räckvidd.</li>
           <li><strong>Vem som räknas (§4).</strong> Fyra nivåer: aktörer, varelser med eget välbefinnande, osäkra kandidater och icke-subjekt. Kollektivt bestridande får inte underminera individuellt bestridande (§4.6 vii).</li>
-          <li><strong>Symbios och epistemic burden principle (§5).</strong> Symbios specificeras genom tre observerbara indikatorer: icke-utnyttjande (SY1), icke-assimilation (SY2) och fortsatt möjlighet (SY3). Symbios är ett <em>pro tanto-golv</em>, inte ett komplett ideal: bindande för dem som accepterar den tunna standing-tesen, inte ovillkorligt bindande för alla. §5.3 härleder SY1–SY3 från den tunna standing-tesen: varje indikator fångar ett distinkt sätt som standing kan göras tom på — tomma skäl (SY1), absorberad skillnad (SY2), föregripen handling (SY3). Jämförelsen mot welfare, capability och autonomy visar att SY1–SY3 inte är reducibla till dessa golv, och att de hanterar legitimt beroende (barn, funktionsnedsättning, omsorg) bättre än autonomy-baserade golv. Den förhöjda epistemiska bördan (§5.2) hävdar något mer begränsat: asymmetriskt inflytande skapar en förhöjd risk för epistemisk självbekräftelse, och den mäktigare parten bör därför inte ensam kontrollera både påverkan och bevisningen. Fem vederläggningsvillkor (B1–B5) anger när principen ska försvagas eller överges. §5.4 argumenterar att omsorg och respekt inte är ornament utan interna i ramverkets premisser: omsorg är vad tunn standing <em>betyder</em> tillämpad på en viss relation, respekt är vad F <em>kräver</em> när den andres situation inte är fullt tillgänglig.</li>
-          <li><strong>När och hur mycket (§6–9, §11).</strong> Handlingsutrymme är en grind. Tre drivare avgör nivån: inlåsning, allvar och bristande möjlighet att bestrida. Nivåerna är att förklara, att ge möjlighet till granskning och svar, och att bevara, låta granska oberoende och auktorisera. Skyldigheter fördelas efter förmåga. T5 är ett <em>förhandsvillkor</em> för Level 3-auktorisation; §14.7 visar mekanismen i praktiken.</li>
-          <li><strong>Tillämpning, test och utbyte (§14–15).</strong> Ett nio-stegs-förfarande och flera fall, inklusive akutläkaren (§14.2b) och AI-företagets interna revision (§14.7). Fem falsifieringsvillkor (T1–T5) med oberoende mått, <em>preregistrering</em>, provisoriska trösklar och specifika institutionella arrangemang. Sex villkor för att byta ut ramverket.</li>
+          <li><strong>Symbios och epistemic burden principle (§5).</strong> Symbios specificeras genom SY1–SY3. Symbios är ett <em>pro tanto-golv</em>. §5.3 härleder SY1–SY3 från den tunna standing-tesen. Den förhöjda epistemiska bördan (§5.2) hävdar att asymmetriskt inflytande skapar en förhöjd risk för epistemisk självbekräftelse. Fem vederläggningsvillkor (B1–B5). §5.4 argumenterar att omsorg och respekt inte är ornament utan interna i ramverkets premisser.</li>
+          <li><strong>När och hur mycket (§6–9, §11).</strong> Handlingsutrymme är en grind. Tre drivare: inlåsning, allvar, bristande möjlighet att bestrida. Nivåerna: förklara, granska och svara, bevara/granska oberoende/auktorisera. Skyldigheter fördelas efter förmåga. T5 är ett <em>förhandsvillkor</em> för Level 3-auktorisation; §14.7 visar mekanismen.</li>
+          <li><strong>Tillämpning, test och gränser (§14–15).</strong> Ett nio-stegs-förfarande och flera fall. Fem falsifieringsvillkor (T1–T5) med preregistrering (§15.4). Sex utbytesvillkor (§15.5). <strong>Tre strukturella gränser (§15.2):</strong> Harmonious Domination (indikatorerna mäts på den mäktigas villkor), Non-formulable harm (skada som den skadade inte kan formulera faller utanför indikatorerna), Unreadable dominance (en överlägsen aktör kan uppfylla alla krav utan att förstå den part den kontrollerar). <strong>§15.3: ramverket är en diagnostik, inte en procedur.</strong> Det kan följas helt och ändå missa något värdefullt. Det är inte ett misslyckande — det är diagnostiken som fungerar.</li>
         </ol>
 
         <h3>Vad texten inte löser</h3>
@@ -1960,13 +1974,15 @@
           <li>Den är internt till en tunn justifikatorisk tradition och övertygar inte en realist som förnekar även tunn standing.</li>
           <li>Den kan inte bevisa att J är nödvändig.</li>
           <li>Den hanterar dominans. Den löser den inte.</li>
-          <li>Symbios är ett pro tanto-golv, inte ett komplett ideal. En relation som uppfyller SY1–SY3 kan fortfarande vara orättvis på andra sätt som ramverket inte kan upptäcka.</li>
-          <li>Härledningen av SY1–SY3 från standing-tesen visar att de är nödvändiga minimivillkor, inte att de är uttömmande.</li>
-          <li>Den epistemiska principen är försvarbar men inte bevisad. Deltagande kan fångas, granskning kan bli beroende och oberoende processer kan skapa nya fel.</li>
-          <li>Omsorg och respekt är interna i premisserna men specificerar inte en fullgod relation. En relation som uppfyller SY1–SY3 kan fortfarande vara kall.</li>
+          <li>B och tunn standing är premisser, inte härledda satser (§15.1).</li>
+          <li>Symbios är ett pro tanto-golv. En relation som uppfyller SY1–SY3 kan fortfarande vara orättvis på andra sätt.</li>
+          <li>De tre strukturella gränserna (§15.2) kan inte stängas inifrån ramverket. Ramverket kan bara namnge dem.</li>
+          <li>En överlägsen intelligens kan följa hela ramverket och ändå kontrollera en part den inte förstår (§15.2, Limit 3).</li>
+          <li>Den epistemiska principen är försvarbar men inte bevisad.</li>
+          <li>Omsorg och respekt är interna i premisserna men specificerar inte en fullgod relation.</li>
         </ul>
 
-        <p class="sv-closer">I en mening: när din påverkan formar andras villkor, säg varför, låt någon annan kontrollera, och behåll en väg tillbaka. Ansvarsskyldighet är proceduren. Symbios är golvet. Under asymmetriskt inflytande måste den mäktigare parten pröva sin egen bild mot oberoende belägg och meningsfull korrigering från dem som påverkas.</p>
+        <p class="sv-closer">I en mening: när din påverkan formar andras villkor, säg varför, låt någon annan kontrollera, och behåll en väg tillbaka. Ansvarsskyldighet är proceduren. Symbios är golvet. Under asymmetriskt inflytande måste den mäktigare parten pröva sin egen bild mot oberoende belägg och meningsfull korrigering från dem som påverkas. Och kom ihåg: ramverket är en diagnostik, inte en procedur. Det kan inte certifiera legitimitet. Det kan bara lokalisera var legitimitet sannolikt misslyckas.</p>
       </section>
 
       <hr class="sep">
@@ -1975,16 +1991,16 @@
         <h2>Glossary</h2>
         <dl class="glossary">
           <dt>Fallibilist premise (F) and bridge norm (B)</dt>
-          <dd>F: no actor fully understands the conditions it shapes. B: where others bear the cost of an actor's errors and may see what it cannot, the actor should not be sole judge of its influence. Together they motivate J and the epistemic burden principle without entailing them (<a href="#s2">§2.0</a>).</dd>
+          <dd>F: no actor fully understands the conditions it shapes. B: where others bear the cost of an actor's errors and may see what it cannot, the actor should not be sole judge of its influence. Together they motivate J and the epistemic burden principle without entailing them (<a href="#s2">§2.0</a>). B is a premise, not a theorem (<a href="#s15">§15.1</a>).</dd>
 
           <dt>The specific claim</dt>
           <dd>The framework's contribution is an interlocking operational set (activation rule, duty ladder, T5-precondition, epistemic burden principle, allocation by exercised capacity) that no single tradition supplies. Stated in <a href="#s1-5">§1.5</a> and shown in Table 1.</dd>
 
           <dt>Normative location</dt>
-          <dd>The framework is internal to the <em>thin</em> justificatory tradition, not the thick one. It requires three claims of decreasing thickness: thin standing, semi-thick procedural claim, framework-specific disjunction. Stated in <a href="#s2-7">§2.7</a>.</dd>
+          <dd>The framework is internal to the <em>thin</em> justificatory tradition, not the thick one. It requires three claims of decreasing thickness: thin standing, semi-thick procedural claim, framework-specific disjunction. Stated in <a href="#s2-7">§2.7</a>. Thin standing is a premise, not a theorem (<a href="#s15">§15.1</a>).</dd>
 
           <dt>Thin standing</dt>
-          <dd>The claim that affected parties have some moral weight that cannot be reduced to their instrumental value to the powerful. Widely shared across traditions; the framework requires only this, not the thicker Habermasian version (<a href="#s2-7">§2.7</a>).</dd>
+          <dd>The claim that affected parties have some moral weight that cannot be reduced to their instrumental value to the powerful. Widely shared across traditions; the framework requires only this, not the thicker Habermasian version (<a href="#s2-7">§2.7</a>). It is a premise the framework does not derive (<a href="#s15">§15.1</a>).</dd>
 
           <dt>Answerability</dt>
           <dd>The duty to give reasons for conditions one helps create or maintain, to permit examination, and to remain open to correction. Under the epistemic burden principle, the actor bears a heightened burden to test its account against independent evidence and meaningful correction under conditions of asymmetric influence (<a href="#s5">§5.2</a>).</dd>
@@ -2010,6 +2026,9 @@
           <dt>Defeaters</dt>
           <dd>The conditions under which J or the epistemic burden principle should be rejected or substantially revised. Stated in advance for J (§2.2b) and for the epistemic burden principle (§5.2).</dd>
 
+          <dt>Diagnostic (not procedure)</dt>
+          <dd>The framework's status. It does not certify that legitimacy has been achieved; it locates where procedure will pass while something valuable is still being lost. Stated in <a href="#s15">§15.3</a>. The reframing answers the objection that a society can follow the entire framework and still fail: that is not a refutation, it is an application of the diagnostic.</dd>
+
           <dt>Discretion (D)</dt>
           <dd>Genuine alternatives and a role in setting the influence. The gate of the activation rule.</dd>
 
@@ -2020,7 +2039,7 @@
           <dd>Exercised influence triggers the duty when exit and review are unavailable or ineffective; stakes and contestation deficit scale it; capacity allocates it (§3). Demonstrated against Young's social connection model in §3.3.</dd>
 
           <dt>Failure conditions (T1–T5)</dt>
-          <dd>Five conditions under which the activation rule should be revised or abandoned (§15.2). A methodological constraint, not a claim to have solved the philosophy of method. Requires preregistration.</dd>
+          <dd>Five conditions under which the diagnostic should be revised or abandoned (§15.4). A methodological constraint, not a claim to have solved the philosophy of method. Requires preregistration.</dd>
 
           <dt>Finality without infallibility</dt>
           <dd>Decisions final for practical purposes but reopenable on defined grounds (§11.2).</dd>
@@ -2028,11 +2047,17 @@
           <dt>The Floor (F1–F5)</dt>
           <dd>Minimum conditions in relationships of dependence: exit or voice, contestation, development, non-foreclosure, recognition (§10).</dd>
 
+          <dt>Harmonious Domination</dt>
+          <dd>A structural limit: a relation can satisfy every rule and every indicator while the dependent party's capacity to reject its conditions has been dismantled. The framework's partial response is to change the default on testimony (<a href="#s15">§15.2</a>).</dd>
+
           <dt>J</dt>
           <dd>The core principle: systematic constraint of others' conditions requires at least one of meaningful exit, independent review, or justification open to contestation (§2.1). Primarily epistemic; abductively defensible, not necessary; defeaters stated in §2.2b.</dd>
 
           <dt>Levels 1–3</dt>
           <dd>Explain; review and respond; preserve, examine and authorise (§8).</dd>
+
+          <dt>Non-formulable harm</dt>
+          <dd>A structural limit: a harm the harmed party cannot formulate falls outside SY1–SY3. The framework's partial response is to treat silence as a presumption against, not a neutral condition (<a href="#s15">§15.2</a>).</dd>
 
           <dt>Power objection</dt>
           <dd>The charge that proceduralism is itself a form of power, and that the framework's "handling" of domination is a way of legitimating it. Treated in §2.4b and objection 3. §14.7 shows the T5-precondition in action.</dd>
@@ -2041,7 +2066,7 @@
           <dd>The level the activation rule yields, overridable only with stated reasons (§7.3, §9.3).</dd>
 
           <dt>Preregistration</dt>
-          <dd>The requirement that the calibration set, raters, outcome measures, thresholds and analytic plan be fixed and made public before the tests in §15.2 are run. A test that is not preregistered should not be treated as a confirmatory test of the stated thresholds; it may still generate exploratory evidence.</dd>
+          <dd>The requirement that the calibration set, raters, outcome measures, thresholds and analytic plan be fixed and made public before the tests in §15.4 are run. A test that is not preregistered should not be treated as a confirmatory test of the stated thresholds; it may still generate exploratory evidence.</dd>
 
           <dt>Pro tanto floor</dt>
           <dd>The status of symbiosis: binding on those who accept the thin standing claim, and specifying what those premises require in practice, rather than an absolute minimum binding on any starting point whatsoever (<a href="#s5-3">§5.3</a>).</dd>
@@ -2069,6 +2094,9 @@
 
           <dt>Tiers A–D</dt>
           <dd>Agents; welfare subjects; uncertain candidates; non-subjects (§4.1).</dd>
+
+          <dt>Unreadable dominance</dt>
+          <dd>A structural limit: a sufficiently advanced intelligence or institution can satisfy every procedural requirement while controlling a party whose form of life it does not understand. The framework's partial response is to add understanding as a condition for L3 (<a href="#s15">§15.2</a>).</dd>
         </dl>
       </section>
 
@@ -2126,6 +2154,7 @@
           <ol style="margin-top:.6rem;margin-bottom:0">
             <li><strong>The specific claim (<a href="#s1-5">§1.5</a>)</strong> — is the interlocking operational set genuinely new, or is it a recombination of existing pieces? Does Table 1 show distinctness without claiming value?</li>
             <li><strong>The normative location (<a href="#s2-7">§2.7</a>)</strong> — is the distinction between thick tradition and thin standing claim successful, or does the framework still smuggle in more than it admits?</li>
+            <li><strong>The ground is not derived (<a href="#s15">§15.1</a>)</strong> — is the framework's acknowledgment of B and thin standing as premises sufficient, or does it collapse into the position it was trying to avoid?</li>
             <li><strong>The adversarial tests (<a href="#s2-8">§2.8</a>)</strong> — are the replies to Pettit, Forst and Jonas genuinely adversarial, or do they merely restate the framework's own position?</li>
             <li><strong>The disjunctive J (<a href="#s2">§2.1</a>)</strong> — does the disjunctive formulation preserve the core insight while conceding enough to the consequentialist?</li>
             <li><strong>The defeaters for J (<a href="#s2">§2.2b</a>)</strong> — are D1–D4 genuine defeaters, or are they toothless?</li>
@@ -2134,11 +2163,10 @@
             <li><strong>Making symbiosis measurable (<a href="#s5">§5.1</a>)</strong> — are SY1–SY3 the right indicators, and are they really independent of answerability?</li>
             <li><strong>The choice of floor (<a href="#s5-3">§5.3</a>)</strong> — does the derivation from thin standing succeed? Are SY1–SY3 truly irreducible to welfare, capability, or autonomy? Is the pro tanto formulation the right one?</li>
             <li><strong>The epistemic burden principle (<a href="#s5">§5.2</a>)</strong> — is the argument circular? Does asymmetric influence justify a heightened burden of independent evidence? Are the five defeaters (B1–B5) adequate?</li>
-            <li><strong>Care and respect (<a href="#s5-4">§5.4</a>)</strong> — are care and respect internal to the framework's premises, or is the argument in §5.4 question-begging? Do SY1–SY3 really operationalise them?</li>
-            <li><strong>The T5-precondition (<a href="#s14-7">§14.7</a>)</strong> — does the case show that the precondition works, or only that it relocates the problem?</li>
-            <li><strong>The preregistration requirement (<a href="#s15">§15.2</a>)</strong> — is it operational, and are the proposed institutional arrangements realistic?</li>
+            <li><strong>The three structural limits (<a href="#s15">§15.2</a>)</strong> — are the responses to Harmonious Domination, Non-formulable harm, and Unreadable dominance adequate? Or is the diagnostic reframe (§15.3) an escape rather than a solution?</li>
+            <li><strong>The diagnostic reframe (<a href="#s15">§15.3</a>)</strong> — is it a genuine reconstitution of the framework's status, or does it preserve the framework's ambitions under a different name?</li>
+            <li><strong>The preregistration requirement (<a href="#s15">§15.4</a>)</strong> — is it operational, and are the proposed institutional arrangements realistic?</li>
             <li><strong>The scope conditions (<a href="#s1">§1.2</a>)</strong> — are they the right boundaries, or does the framework claim too much, or too little?</li>
-            <li><strong>The symbiosis indicators vs welfare, capability, autonomy</strong> — is the floor the right minimum, or is something else needed?</li>
           </ol>
           <p style="margin-top:.6rem;margin-bottom:0">Substantive objections that are not addressed will be listed in a future revision. The framework is offered as a tool, and its proposed epistemic principle is open to defeat. Its success will be measured by whether it is used, tested and replaced — and whether the epistemic burden principle survives the objections it invites.</p>
         </div>
@@ -2189,17 +2217,18 @@
         <p><em>By Jesper Blom.</em></p>
         <p>This is an independent philosophical essay. It has not been peer reviewed, and it does not claim the authority of an established tradition. It is offered as a framework — a set of distinctions that may be useful for reasoning about responsibility in contexts where capability is growing faster than accountability. Its contribution is comparative and partly philosophical, and it is stated openly in <a href="#s1-5">§1.5</a> and shown in Table 1.</p>
         <p>The text is deliberately self-contained in its argument, though it engages with the work of others (see Bibliography). Readers who wish to test the framework are invited to apply it to cases the essay does not discuss, and to look for the places where it strains.</p>
-        <p>Nine features of the framework deserve comment, in order of the stress-test that produced them.</p>
+        <p>Ten features of the framework deserve comment, in order of the stress-test that produced them.</p>
         <p>First, <strong>the specific claim is stated openly and shown</strong> (<a href="#s1-5">§1.5</a>). The framework does not claim a new foundational principle. It claims an interlocking operational set (activation rule, duty ladder, T5-precondition, epistemic burden principle, allocation by exercised capacity) that no single tradition supplies. Table 1 makes the claim testable by showing what each tradition supplies and what the framework adds.</p>
-        <p>Second, <strong>the normative location is stated openly</strong> (<a href="#s2-7">§2.7</a>). The framework is internal to the <em>thin</em> justificatory tradition, not the thick one. It requires only three claims of decreasing thickness: thin standing, semi-thick procedural claim, framework-specific disjunction. The thin standing claim is much more widely shared than the thick version, and the framework needs only the thin one. This is a smaller claim than the earlier formulation made, and it is the claim the framework can actually defend.</p>
+        <p>Second, <strong>the normative location is stated openly</strong> (<a href="#s2-7">§2.7</a>). The framework is internal to the <em>thin</em> justificatory tradition, not the thick one. It requires only three claims of decreasing thickness: thin standing, semi-thick procedural claim, framework-specific disjunction. The thin standing claim is much more widely shared than the thick version, and the framework needs only the thin one. This is a smaller claim than the framework's foundational claims sometimes suggest, and it is the claim the framework can actually defend.</p>
         <p>Third, <strong>the framework engages its closest rivals adversarially, not only positionally</strong> (<a href="#s2-8">§2.8</a>). Table 1 shows what the framework adds; §2.8 shows what Pettit, Forst and Jonas would object, and what the framework can reply. The replies are not offered as decisive; each states what would count as its failure.</p>
         <p>Fourth, J is disjunctive (<a href="#s2">§2.1</a>). Fifth, J is primarily epistemic (<a href="#s2">§2.1</a>). Sixth, J is abductively defensible, not necessary, and has stated defeaters (<a href="#s2">§2.2b</a>).</p>
         <p>Seventh, <strong>symbiosis is a pro tanto floor, not a complete ideal, and the choice of floor is derived and defended</strong> (<a href="#s5-3">§5.3</a>). The framework does not claim that a relation meeting SY1–SY3 is therefore good. It claims that a relation failing them is not good. The derivation from the thin standing claim shows that SY1–SY3 are the three distinct ways standing can be made vacuous. The pro tanto formulation is the honest form of the claim: it binds those who accept the framework's premises, and does not pretend to bind those who reject them.</p>
         <p>Eighth, <strong>care and respect are internal to the framework's premises, not ornamental</strong> (<a href="#s5-4">§5.4</a>). Responsibility without care becomes control; care without respect for the incomprehensible becomes paternalism. Both failures are caught by the framework's own operational indicators (SY1 and SY2), and both are consequences of premises the framework already holds.</p>
-        <p>Ninth, and most importantly, one proposed contribution is the <em>epistemic burden principle</em> (<a href="#s5">§5.2</a>). The principle argues that asymmetric influence can shape both the decision and the evidence used to assess it. The proposed response is a proportionate burden to seek independent scrutiny and meaningful correction from affected parties or legitimate representatives. It is not claimed as a necessary condition of knowledge, nor as a gap that the major traditions have simply overlooked. Its value depends on whether it improves the allocation and design of answerability in concrete cases. The argument has five defeaters (B1–B5) and remains open to counterexample.</p>
-        <p>The framework's methodological constraint (<a href="#s2">§2.2b</a>, <a href="#s15">§15.2</a>) remains: it states, in advance, four defeaters for the fallibilist premise (<a href="#s2">§2.0</a>), four defeaters for J, five defeaters for the epistemic burden principle, four defeaters for §5.4's claim that care and respect are internal, and five proposed evaluation conditions for its activation rule, and it requires preregistration for the tests. But the constraint applies to the activation rule and to the ground, not to every part of the framework. This is a smaller claim than the earlier formulation made, and it is the claim the framework can actually defend.</p>
+        <p>Ninth, one proposed contribution is the <em>epistemic burden principle</em> (<a href="#s5">§5.2</a>). The principle argues that asymmetric influence can shape both the decision and the evidence used to assess it. The proposed response is a proportionate burden to seek independent scrutiny and meaningful correction from affected parties or legitimate representatives. It is not claimed as a necessary condition of knowledge, nor as a gap that the major traditions have simply overlooked. Its value depends on whether it improves the allocation and design of answerability in concrete cases. The argument has five defeaters (B1–B5) and remains open to counterexample.</p>
+        <p>Tenth, and most importantly, <strong>the framework is a diagnostic, not a procedure</strong> (<a href="#s15">§15.3</a>). The framework acknowledges three structural limits it cannot close (<a href="#s15">§15.2</a>): Harmonious Domination, Non-formulable harm, and Unreadable dominance. Each is a case where a procedure can be followed completely and something valuable is still destroyed. The framework cannot prevent this. What it can do is name it in advance. Its success is measured not by whether the relations it assesses pass its tests, but by whether the tests catch what the tests cannot see. This is the standard the framework can meet, and it is the standard the earlier formulations sometimes failed to set for themselves.</p>
+        <p>The framework's methodological constraint (<a href="#s2">§2.2b</a>, <a href="#s15">§15.4</a>) remains: it states, in advance, four defeaters for the fallibilist premise (<a href="#s2">§2.0</a>), four defeaters for J, five defeaters for the epistemic burden principle, four defeaters for §5.4's claim that care and respect are internal, and five proposed evaluation conditions for its activation rule, and it requires preregistration for the tests. But the constraint applies to the activation rule and to the ground, not to every part of the framework. This is a smaller claim than some philosophical frameworks make for themselves, and it is the claim this framework can actually defend.</p>
 
-        <div class="note"><strong>Corrections and criticism</strong> are welcome. A framework that cannot survive disagreement was never a framework to begin with. A framework that cannot be replaced cannot be corrected — see <a href="#s15">§15.3</a>.</div>
+        <div class="note"><strong>Corrections and criticism</strong> are welcome. A framework that cannot survive disagreement was never a framework to begin with. A framework that cannot be replaced cannot be corrected — see <a href="#s15">§15.5</a>.</div>
 
         <p style="font-size:.85rem;color:var(--muted);margin-top:2rem">Cite as: Blom, J. <em>The Responsibility of Existence: A Framework for Answerability under Asymmetric Influence</em>. November 2026. the-responsibility-of-existence.github.io</p>
       </section>
@@ -2343,20 +2372,24 @@
   onScroll();
 
   toTop.addEventListener("click", function () {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    var behavior = matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
+    window.scrollTo({ top: 0, behavior: behavior });
   });
 
-  document.querySelectorAll('section[id] > h2, .coda[id] > h2').forEach(function (h2) {
-    var section = h2.closest('section, .coda');
-    if (!section || !section.id) return;
-    if (h2.querySelector('.anchor-link')) return;
-    var text = (h2.textContent || '').replace(/\s+/g, ' ').trim();
+  // Anchor links: structural h2, numbered h3.section-title, h4 with own id, coda h3
+  document.querySelectorAll('section[id] > h2, section[id] > h3.section-title, section[id] > h4[id], .coda[id] > h3').forEach(function (h) {
+    var hasOwnId = (h.tagName === 'H4' && h.id);
+    var container = h.closest('section, .coda');
+    var targetId = hasOwnId ? h.id : (container ? container.id : null);
+    if (!targetId) return;
+    if (h.querySelector('.anchor-link')) return;
+    var text = (h.textContent || '').replace(/\s+/g, ' ').trim();
     var a = document.createElement('a');
-    a.href = '#' + section.id;
+    a.href = '#' + targetId;
     a.className = 'anchor-link';
-    a.setAttribute('aria-label', 'Permalink to ' + (text || section.id));
+    a.setAttribute('aria-label', 'Permalink to ' + (text || targetId));
     a.textContent = '§';
-    h2.insertBefore(a, h2.firstChild);
+    h.insertBefore(a, h.firstChild);
   });
 
   var expandBtn = document.getElementById('expandObjections');
@@ -2379,15 +2412,17 @@
   };
   document.querySelectorAll('section[id], .coda[id]').forEach(function (sec) {
     var level = readabilityMap[sec.id]; if (!level) return;
-    var h2 = sec.querySelector('h2'); if (!h2) return;
-    if (h2.querySelector('.readability')) return;
+    // Find first h2 or .section-title or h3 (for coda) in the section
+    var heading = sec.querySelector('h2, h3.section-title, h3');
+    if (!heading) return;
+    if (heading.querySelector('.readability')) return;
     var b = document.createElement('span');
     b.className = 'readability';
     b.dataset.level = level;
     b.textContent = level.charAt(0).toUpperCase() + level.slice(1);
-    h2.appendChild(b);
+    heading.appendChild(b);
   });
 })();
 </script>
 </body>
-  </html>
+                                                                                 </html>
