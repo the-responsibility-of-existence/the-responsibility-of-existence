@@ -216,14 +216,26 @@
 
   .objection{margin:1.3rem 0;padding:1rem 1.2rem;background:var(--bg-alt);
     border-left:3px solid var(--rule-strong);border-radius:0 8px 8px 0}
-  .objection h3{margin:0 0 .5rem;font-size:1rem;color:var(--text);font-weight:600;
-    font-style:italic}
-  .objection h3 .obj-num{color:var(--accent);margin-right:.45em;
-    font-variant-numeric:tabular-nums;font-style:normal;font-weight:700}
   .objection p{margin:0;font-size:.93rem;line-height:1.6}
   .objection p + p{margin-top:.5rem}
   .objection .reply::before{content:"Reply. ";color:var(--accent);font-weight:700;
     font-size:.82em;letter-spacing:.06em;text-transform:uppercase}
+
+  details.objection{margin:1.3rem 0;padding:1rem 1.2rem;background:var(--bg-alt);
+    border-left:3px solid var(--rule-strong);border-radius:0 8px 8px 0}
+  details.objection summary{cursor:pointer;list-style:none;font-style:italic;font-weight:600;
+    font-size:1rem;color:var(--text);padding:.2rem 0;display:flex;gap:.45em;align-items:baseline}
+  details.objection summary::-webkit-details-marker{display:none}
+  details.objection summary::before{content:"▸";color:var(--accent);font-style:normal;
+    display:inline-block;transition:transform .15s}
+  details.objection[open] summary::before{transform:rotate(90deg)}
+  details.objection summary:focus-visible{outline:2px solid var(--accent);
+    outline-offset:2px;border-radius:4px}
+  details.objection .reply{margin-top:.6rem;margin-bottom:0}
+  details.objection .obj-num{color:var(--accent);margin-right:.45em;
+    font-variant-numeric:tabular-nums;font-style:normal;font-weight:700}
+  details.objection p{margin:0 0 .6rem;font-size:.93rem;line-height:1.6}
+  details.objection p:last-child{margin-bottom:0}
 
   #svensk-sammanfattning{background:var(--accent-soft);border-left:4px solid var(--accent);
     border-radius:0 10px 10px 0;padding:1.6rem 1.8rem;margin:2.5rem 0}
@@ -351,6 +363,38 @@
   #about .note strong{font-style:normal}
   #about h3{font-style:normal;color:var(--text)}
 
+  /* === NEW: TL;DR box === */
+  .tldr{background:var(--bg-elev);border:1px solid var(--rule);border-left:4px solid var(--accent);
+    border-radius:0 10px 10px 0;padding:1.4rem 1.6rem;margin:0 0 2rem}
+  .tldr__label{font-family:ui-sans-serif,system-ui,sans-serif;font-size:.72rem;
+    letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:700;margin:0 0 .7rem}
+  .tldr ol{margin:0;padding-left:1.3rem;font-size:.97rem;line-height:1.6}
+  .tldr li{margin:0 0 .5rem}
+  .tldr li:last-child{margin-bottom:0}
+
+  /* === NEW: Cheat sheet === */
+  .cheatsheet{background:var(--bg-alt);border:1px solid var(--rule);border-radius:10px;
+    padding:1rem 1.3rem;margin:1.4rem 0 2rem}
+  .cheatsheet summary{cursor:pointer;font-weight:600;color:var(--accent)}
+  .cheatsheet summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+  .cheatsheet__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:1rem;margin-top:1rem}
+  .cheatsheet__grid h4{margin:0 0 .3rem;font-size:.9rem;color:var(--accent)}
+  .cheatsheet__grid p{margin:0;font-size:.9rem;line-height:1.5}
+
+  /* === NEW: Readability labels === */
+  .readability{display:inline-block;margin-left:.6em;font-family:ui-sans-serif,system-ui,sans-serif;
+    font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;
+    padding:.18em .5em;border-radius:999px;vertical-align:middle;border:1px solid var(--rule)}
+  .readability[data-level="overview"]{color:var(--accent);border-color:var(--accent);background:var(--accent-soft)}
+  .readability[data-level="deep"]{color:var(--muted);border-color:var(--rule)}
+
+  /* === NEW: Glossary abbr tooltips === */
+  abbr[title]{text-decoration:underline dotted;cursor:help;text-underline-offset:.15em}
+
+  /* === NEW: Expand-all button row === */
+  .expand-row{margin:0 0 1rem}
+
   @media (max-width:900px){
     .layout{grid-template-columns:1fr;gap:1.5rem;padding-top:1.5rem}
     .toc{position:static;max-height:none;display:none;border:1px solid var(--rule);
@@ -389,7 +433,7 @@
       padding:.4rem 0 .4rem 1rem;font-style:italic}
     .hero-ornament,.hero-ornament::after{background:#000}
     hr.sep::before{color:#000}
-    .abstract,.key-prop,.coda,.key-points,.reader-guide,.objection,#svensk-sammanfattning,.preface{
+    .abstract,.key-prop,.coda,.key-points,.reader-guide,.objection,#svensk-sammanfattning,.preface,.tldr,.cheatsheet{
       background:none !important;border-left:2px solid #000}
     .part-divider{border-color:#000}
     .anchor-link{display:none !important}
@@ -397,6 +441,10 @@
     .roadmap-grid{grid-template-columns:repeat(5,1fr);gap:.4rem}
     .roadmap-card{border:1px solid #999;box-shadow:none}
     .contact-grid{display:none}
+    details.objection{border-left:2px solid #000}
+    details.objection summary::before{content:"—";color:#000}
+    details.objection[open] summary::before{content:"—"}
+    .readability{display:none}
   }
 
   :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
@@ -429,7 +477,7 @@
     <div class="hero__meta">
       <span>November 2026 · revised critical edition, third pass</span>
       <span class="sep">·</span>
-      <span>5 parts · 17 sections · 4 tables · 13 objections · Swedish summary</span>
+      <span>5 parts · 17 sections · 6 tables · 13 objections · Swedish summary</span>
       <span class="sep">·</span>
       <span>≈ 75 min read</span>
     </div>
@@ -481,13 +529,36 @@
     <main id="main" tabindex="-1">
     <article>
 
+      <!-- === NEW: TL;DR === -->
+      <div class="tldr" role="note" aria-label="Summary in three sentences">
+        <p class="tldr__label">In three sentences</p>
+        <ol>
+          <li>When you exercise discretionary influence over others' conditions and they cannot exit or contest it, you owe them an account.</li>
+          <li>The account must take at least one of three forms: meaningful exit, independent review, or justification open to contestation.</li>
+          <li>You cannot be the sole judge of whether the account is good enough — the more powerful party bears a heightened burden to seek independent evidence and correction.</li>
+        </ol>
+      </div>
+
+      <!-- === NEW: Cheat sheet === -->
+      <details class="cheatsheet">
+        <summary>Quick reference (one screen)</summary>
+        <div class="cheatsheet__grid">
+          <div><h4>Principle J</h4><p>Systematic constraint → at least one of: meaningful exit, independent review, justification open to contestation.</p></div>
+          <div><h4>Activation rule</h4><p>Gate: discretion. Drivers: E, S, C. L1 always; L2 if one High or two Moderate; L3 if S High + (E or C) High.</p></div>
+          <div><h4>Duty ladder</h4><p>L1 explain · L2 review &amp; respond · L3 preserve, examine, authorise.</p></div>
+          <div><h4>Floor (F1–F5)</h4><p>Exit or voice · contestation · development · non-foreclosure · recognition.</p></div>
+          <div><h4>Symbiosis (SY1–SY3)</h4><p>Non-exploitation · non-assimilation · continued possibility.</p></div>
+          <div><h4>Epistemic burden</h4><p>Asymmetric influence → actor must not close inquiry using only evidence it controls.</p></div>
+        </div>
+      </details>
+
       <section id="abstract">
         <div class="abstract">
           <p class="abstract__title">Abstract</p>
-          <p class="abstract__lede"><strong>In one sentence:</strong> when you exercise discretionary influence over the conditions under which others live, choose and develop, and when they cannot exit or contest that influence effectively, you owe them an account of it — and you cannot be the sole judge of whether that account is good enough.</p>
-          <p><strong>What this essay is, and what it is not.</strong> It is a framework for deciding when influence creates a duty to answer, how demanding that duty is, who must discharge it, and how it can be discharged without turning into new domination. It is not a new foundational principle in the tradition of Pettit, Forst or Jonas. Its core principle (J) is a <em>thin, disjunctive, abductively supported</em> synthesis of existing traditions, not a demonstration of necessity. Its contribution is stated openly in <a href="#s1-5">§1.5</a> and shown in Table 1: an interlocking operational set (activation rule, duty ladder, T5-precondition, epistemic burden principle, allocation by exercised capacity) that no single tradition supplies. Its normative location is stated openly in <a href="#s2-7">§2.7</a>: internal to the justificatory tradition, but only to its <em>thin</em> version. Its choice of symbiosis floor is derived and defended in <a href="#s5-3">§5.3</a>.</p>
+          <p class="abstract__lede"><strong>In one sentence:</strong> when you exercise discretionary influence over the conditions under which others live, choose and develop, and when they cannot exit or contest that influence effectively, you owe them an <abbr title="The duty to give reasons, permit examination, and remain open to correction.">account</abbr> of it — and you cannot be the sole judge of whether that account is good enough.</p>
+          <p><strong>What this essay is, and what it is not.</strong> It is a framework for deciding when influence creates a duty to answer, how demanding that duty is, who must discharge it, and how it can be discharged without turning into new <abbr title="The standing capacity to interfere arbitrarily, without being forced to track the interests of those affected.">domination</abbr>. It is not a new foundational principle in the tradition of Pettit, Forst or Jonas. Its core principle (J) is a <em>thin, disjunctive, abductively supported</em> synthesis of existing traditions, not a demonstration of necessity. Its contribution is stated openly in <a href="#s1-5">§1.5</a> and shown in Table 1: an interlocking operational set (activation rule, duty ladder, T5-precondition, epistemic burden principle, allocation by exercised capacity) that no single tradition supplies. Its normative location is stated openly in <a href="#s2-7">§2.7</a>: internal to the justificatory tradition, but only to its <em>thin</em> version. Its choice of symbiosis floor is derived and defended in <a href="#s5-3">§5.3</a>.</p>
           <p><strong>1. Ground.</strong> J is a thin, disjunctive principle: arrangements that systematically constrain others' conditions must provide at least one of meaningful exit, independent review, or justification open to contestation. Which is required depends on the structure of the constraint — where exit and review work, justification need not be owed; where they fail, it is. J is primarily an epistemic principle: it protects against the actor confusing their own view with the truth. J is <em>abductively</em> supported — it offers a plausible explanation of why unchecked discretionary power can produce domination and systematic error — and it has stated defeaters (<a href="#s2">§2.2b</a>). J is motivated by a fallibilist premise and a stated bridge norm (<a href="#s2">§2.0</a>), not derived from them. It is not necessary. It is defensible. The framework handles domination; it does not solve it.</p>
-          <p><strong>2. Standing and symbiosis.</strong> Who is owed an account, including beings that cannot speak for themselves, handled through four tiers of standing under uncertainty with an explicit plausibility threshold (<a href="#s4">§4</a>). Symbiosis is specified with observable indicators (SY1–SY3), so that the framework's floor is as contestable as its procedure (<a href="#s5">§5.1</a>). Symbiosis is a <em>floor</em>, not a complete theory of the good relation, and the choice of floor is derived from the thin standing claim and compared against rival floors (<a href="#s5-3">§5.3</a>). Collective contestation may represent silent parties, but it must not undermine individual contestation (§4.6 vii). Section <a href="#s5">§5.2</a> develops a more limited claim: asymmetric influence creates a heightened burden to seek correction from sources not controlled by the decision-maker.</p>
+          <p><strong>2. Standing and symbiosis.</strong> Who is owed an account, including beings that cannot speak for themselves, handled through four tiers of standing under uncertainty with an explicit plausibility threshold (<a href="#s4">§4</a>). <abbr title="Minimum conditions under which dependence is not exploited and difference is not forced into sameness.">Symbiosis</abbr> is specified with observable indicators (SY1–SY3), so that the framework's floor is as contestable as its procedure (<a href="#s5">§5.1</a>). Symbiosis is a <em>floor</em>, not a complete theory of the good relation, and the choice of floor is derived from the thin standing claim and compared against rival floors (<a href="#s5-3">§5.3</a>). Collective contestation may represent silent parties, but it must not undermine individual contestation (§4.6 vii). Section <a href="#s5">§5.2</a> develops a more limited claim: asymmetric influence creates a heightened burden to seek correction from sources not controlled by the decision-maker.</p>
           <p><strong>3. Activation.</strong> One rule: a discretion gate plus three drivers (entrenchment, severity, contestation deficit) that determine one of three levels of duty, with anchors and a rating protocol that make the judgments visible and contestable (<a href="#s6">§6</a>–<a href="#s9">9</a>).</p>
           <p><strong>4. Structure.</strong> A floor of minimum conditions, the prohibition on being sole judge of one's own influence, the reviewer regress treated as a design problem, and accounts of conflict, future generations and learning (<a href="#s10">§10</a>–<a href="#s13">13</a>).</p>
           <p><strong>5. Application and testing.</strong> Worked cases including one that appears to refute the framework (<a href="#s14">§14.2b</a>) and one that shows the T5-precondition failing (<a href="#s14-7">§14.7</a>), five proposed evaluation conditions for the activation rule with independent measures, provisional thresholds, preregistration requirements and specific institutional arrangements (<a href="#s15">§15.2</a>), and modular conditions for replacement (<a href="#s15">§15.3</a>).</p>
@@ -668,78 +739,15 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Non-domination as freedom</td>
-                <td>Yes (core)</td>
-                <td>—</td>
-                <td>—</td>
-                <td>—</td>
-                <td>Inherited</td>
-              </tr>
-              <tr>
-                <td>Right to justification</td>
-                <td>—</td>
-                <td>Yes (core)</td>
-                <td>—</td>
-                <td>—</td>
-                <td>Inherited</td>
-              </tr>
-              <tr>
-                <td>Structural responsibility without fault</td>
-                <td>—</td>
-                <td>—</td>
-                <td>Yes (core)</td>
-                <td>—</td>
-                <td>Inherited</td>
-              </tr>
-              <tr>
-                <td>Responsibility to future / precaution</td>
-                <td>—</td>
-                <td>—</td>
-                <td>—</td>
-                <td>Yes (core)</td>
-                <td>Inherited</td>
-              </tr>
-              <tr>
-                <td>Activation rule (D + E + S + C)</td>
-                <td>No</td>
-                <td>No</td>
-                <td>No</td>
-                <td>No</td>
-                <td><strong>Added</strong></td>
-              </tr>
-              <tr>
-                <td>Duty ladder (L1–L3)</td>
-                <td>No</td>
-                <td>No</td>
-                <td>Partial (forward-looking responsibility)</td>
-                <td>Partial (precaution, not graduated)</td>
-                <td><strong>Added</strong></td>
-              </tr>
-              <tr>
-                <td>T5-precondition (publication of R1 before Level 3)</td>
-                <td>No</td>
-                <td>No</td>
-                <td>No</td>
-                <td>No</td>
-                <td><strong>Added</strong></td>
-              </tr>
-              <tr>
-                <td>Epistemic burden principle</td>
-                <td>Partial (contestation as remedy)</td>
-                <td>Partial (reasons must be acceptable)</td>
-                <td>No</td>
-                <td>No</td>
-                <td><strong>Added</strong> (as a graduated claim)</td>
-              </tr>
-              <tr>
-                <td>Allocation by exercised capacity</td>
-                <td>No</td>
-                <td>No</td>
-                <td>Partial (shared responsibility, not allocated)</td>
-                <td>No</td>
-                <td><strong>Added</strong></td>
-              </tr>
+              <tr><td>Non-domination as freedom</td><td>Yes (core)</td><td>—</td><td>—</td><td>—</td><td>Inherited</td></tr>
+              <tr><td>Right to justification</td><td>—</td><td>Yes (core)</td><td>—</td><td>—</td><td>Inherited</td></tr>
+              <tr><td>Structural responsibility without fault</td><td>—</td><td>—</td><td>Yes (core)</td><td>—</td><td>Inherited</td></tr>
+              <tr><td>Responsibility to future / precaution</td><td>—</td><td>—</td><td>—</td><td>Yes (core)</td><td>Inherited</td></tr>
+              <tr><td>Activation rule (D + E + S + C)</td><td>No</td><td>No</td><td>No</td><td>No</td><td><strong>Added</strong></td></tr>
+              <tr><td>Duty ladder (L1–L3)</td><td>No</td><td>No</td><td>Partial (forward-looking responsibility)</td><td>Partial (precaution, not graduated)</td><td><strong>Added</strong></td></tr>
+              <tr><td>T5-precondition (publication of R1 before Level 3)</td><td>No</td><td>No</td><td>No</td><td>No</td><td><strong>Added</strong></td></tr>
+              <tr><td>Epistemic burden principle</td><td>Partial (contestation as remedy)</td><td>Partial (reasons must be acceptable)</td><td>No</td><td>No</td><td><strong>Added</strong> (as a graduated claim)</td></tr>
+              <tr><td>Allocation by exercised capacity</td><td>No</td><td>No</td><td>Partial (shared responsibility, not allocated)</td><td>No</td><td><strong>Added</strong></td></tr>
             </tbody>
           </table>
         </div>
@@ -1085,6 +1093,26 @@
 
         <p>These defeaters do not make the claim immune to criticism. They identify the evidence and counterexamples that should change it. The proposal is not that every relation needs a tribunal, nor that every affected person must participate in every decision. The proposal is that the evidential burden should rise with the power to shape another's conditions and with the weakness of that person's means of correction.</p>
 
+        <!-- === NEW: Table 6 — epistemic safeguards by duty level === -->
+        <div class="table-wrap">
+          <table>
+            <caption>Table 6. Epistemic safeguards by duty level</caption>
+            <thead>
+              <tr>
+                <th scope="col">Level</th>
+                <th scope="col">Minimum epistemic safeguard</th>
+                <th scope="col">Independent evidence required?</th>
+                <th scope="col">Affected-party correction channel?</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>L1</td><td>Stated reasons</td><td>No</td><td>No</td></tr>
+              <tr><td>L2</td><td>Reasons + objection channel + reviewer</td><td>Partial (reviewer ≠ decider)</td><td>Yes</td></tr>
+              <tr><td>L3</td><td>Reasons + independent examination (R1–R6) + preserved records</td><td>Yes</td><td>Yes + representation</td></tr>
+            </tbody>
+          </table>
+        </div>
+
         <aside class="key-points">
           <ul>
             <li>Asymmetric influence creates a heightened risk of epistemic self-confirmation, not an impossibility of knowledge.</li>
@@ -1161,31 +1189,11 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td><strong>Discretion (D)</strong></td>
-                <td>Gate</td>
-                <td>Does the actor have genuine alternatives and a role in setting this influence?</td>
-              </tr>
-              <tr>
-                <td><strong>Entrenchment (E)</strong></td>
-                <td>Driver</td>
-                <td>How long do the consequences last, and how hard are they to undo?</td>
-              </tr>
-              <tr>
-                <td><strong>Severity (S)</strong></td>
-                <td>Driver</td>
-                <td>How much is at stake for the affected?</td>
-              </tr>
-              <tr>
-                <td><strong>Contestation deficit (C)</strong></td>
-                <td>Driver</td>
-                <td>How hard is it for the affected to exit, object, or even find out what is done to them? This is where the disjunctive J (<a href="#s2">§2.1</a>) enters the operationalisation.</td>
-              </tr>
-              <tr>
-                <td><strong>Foreseeability (F)</strong></td>
-                <td>Attribution</td>
-                <td>What could the actor reasonably have known?</td>
-              </tr>
+              <tr><td><strong>Discretion (D)</strong></td><td>Gate</td><td>Does the actor have genuine alternatives and a role in setting this influence?</td></tr>
+              <tr><td><strong>Entrenchment (E)</strong></td><td>Driver</td><td>How long do the consequences last, and how hard are they to undo?</td></tr>
+              <tr><td><strong>Severity (S)</strong></td><td>Driver</td><td>How much is at stake for the affected?</td></tr>
+              <tr><td><strong>Contestation deficit (C)</strong></td><td>Driver</td><td>How hard is it for the affected to exit, object, or even find out what is done to them? This is where the disjunctive J (<a href="#s2">§2.1</a>) enters the operationalisation.</td></tr>
+              <tr><td><strong>Foreseeability (F)</strong></td><td>Attribution</td><td>What could the actor reasonably have known?</td></tr>
             </tbody>
           </table>
         </div>
@@ -1245,6 +1253,41 @@
         <p><strong>Level 1: Explain.</strong> The actor can state, on request and in proportion to the matter, the purpose of the action, the interests considered, the alternatives considered and the known uncertainties.</p>
         <p><strong>Level 2: Review and respond.</strong> Level 1, plus: an accessible channel for objection; access to the relevant information; a reasoned response within a reasonable time; revision where warranted; a record of decisions and reasons; a reviewer other than the original decider where feasible; and evidence that review is not symbolic.</p>
         <p><strong>Level 3: Preserve, examine, authorise.</strong> Level 2, plus: preserved records and version history; independent examination meeting the conditions of <a href="#s11">§11</a>; a written assessment of less harmful alternatives; authorisation by a body outside the actor for severe or irreversible influence; staged implementation, reversibility by design or a sunset clause; remedy for those harmed; and post-implementation review. Level 3 authorisation requires publication of the authorising body's R1 indicators before authorisation (<a href="#s11">§11.4</a>).</p>
+
+        <!-- === NEW: Table 5 — operationalisation of the duty ladder === -->
+        <div class="table-wrap">
+          <table>
+            <caption>Table 5. Operationalisation of the duty ladder</caption>
+            <thead>
+              <tr>
+                <th scope="col">Level</th>
+                <th scope="col">What the actor must provide</th>
+                <th scope="col">When it applies</th>
+                <th scope="col">Minimum evidence</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>L1 Explain</strong></td>
+                <td>Purpose, interests considered, alternatives, known uncertainties</td>
+                <td>Always when discretion is present</td>
+                <td>Written or oral statement on request</td>
+              </tr>
+              <tr>
+                <td><strong>L2 Review &amp; respond</strong></td>
+                <td>L1 + objection channel, access to information, reasoned response, record, reviewer other than original decider</td>
+                <td>Any driver High, or two Moderate</td>
+                <td>Documented channel, response log, reviewer identity</td>
+              </tr>
+              <tr>
+                <td><strong>L3 Preserve, examine, authorise</strong></td>
+                <td>L2 + preserved records, independent examination (R1–R6), alternatives assessment, external authorisation, staged implementation, remedy, post-review</td>
+                <td>S High + (E or C) High</td>
+                <td>Published R1 indicators <em>before</em> authorisation</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
         <h3 id="s8-2">8.2 Allocation by capacity</h3>
         <p>The level attaches to the influence, that is, to the arrangement. Duties are then allocated.</p>
@@ -1727,70 +1770,75 @@
         <h2>Common objections</h2>
         <p class="section-lede">Thirteen objections the framework has to survive. Each is a real objection; none is fatal — but the first is the hardest, and the second and eleventh are the ones the framework most needs to answer.</p>
 
-        <div class="objection">
-          <h3><span class="obj-num">1.</span>"Why must the powerful justify themselves to the affected? What if they simply refuse?"</h3>
+        <!-- === NEW: Expand all button === -->
+        <p class="expand-row">
+          <button class="btn" id="expandObjections" aria-expanded="false" aria-controls="objections">Expand all objections</button>
+        </p>
+
+        <details class="objection">
+          <summary><span class="obj-num">1.</span> "Why must the powerful justify themselves to the affected? What if they simply refuse?"</summary>
           <p class="reply">This is the hardest objection, and the framework does not pretend to refute it. The reply has four parts. First, the framework is <em>internal to the thin justificatory tradition</em> (<a href="#s2-7">§2.7</a>), and a reader who rejects even the thin standing claim is outside the framework's scope. Second, the realist who <em>argues</em> against J is already engaged in the practice J describes. This is a performative presupposition, not a refutation. Third, the framework makes realist capture visible and costly. Fourth, and most importantly, the epistemic burden principle (<a href="#s5">§5.2</a>) makes the point sharper: the powerful party cannot <em>know</em> whether the relation is symbiotic without the affected party's contestation. The refusal to justify is not just a moral failing; it is an epistemic one. The realist who refuses answerability does not gain knowledge of the relation. He loses it.</p>
-        </div>
+        </details>
 
-        <div class="objection">
-          <h3><span class="obj-num">2.</span>"This is a values framework dressed up as a procedure."</h3>
+        <details class="objection">
+          <summary><span class="obj-num">2.</span> "This is a values framework dressed up as a procedure."</summary>
           <p class="reply">Partly, and the essay says so (<a href="#s2">§2.6</a>, <a href="#s2-7">§2.7</a>). J carries a minimal commitment to the equal standing of those affected — the thin standing claim. The claim is breadth of acceptability, not neutrality. A fair test is whether people with different comprehensive views can use it to reach different answers in the same case. They can: it does not decide the ICU case.</p>
-        </div>
+        </details>
 
-        <div class="objection">
-          <h3><span class="obj-num">3.</span>"Proceduralism is itself a form of power. It gives the powerful a new vocabulary for doing what they were going to do anyway."</h3>
+        <details class="objection">
+          <summary><span class="obj-num">3.</span> "Proceduralism is itself a form of power. It gives the powerful a new vocabulary for doing what they were going to do anyway."</summary>
           <p class="reply">This is the second-hardest objection, and it is treated at length in <a href="#s2">§2.4b</a>. The framework does not deny it. Its reply has three parts: (i) the objection is partly correct, and the framework's T5-as-precondition is its internal response (<a href="#s14-7">§14.7</a> shows it in action); (ii) the objection is not specific to proceduralism — any normative framework can be captured; (iii) the framework's modesty is not an admission of failure but a claim about what any framework can do. A sufficiently powerful actor can capture the publication requirement itself. The framework can make the capture visible, but visibility is not prevention. Whether this is enough is a political question, not a philosophical one.</p>
-        </div>
+        </details>
 
-        <div class="objection">
-          <h3><span class="obj-num">4.</span>"Why should contestation override better outcomes?"</h3>
+        <details class="objection">
+          <summary><span class="obj-num">4.</span> "Why should contestation override better outcomes?"</summary>
           <p class="reply">It does not always. Where exit and review are available and effective, justification need not be owed (<a href="#s2">§2.1</a>). The revised J is disjunctive, not monistic. It privileges justification only where exit and review fail. The remaining disagreement is genuine, and the framework sides with contestation in severe cases for epistemic reasons, while permitting temporary override in emergencies subject to sunset and review (<a href="#s12">§12.2</a>).</p>
-        </div>
+        </details>
 
-        <div class="objection">
-          <h3><span class="obj-num">5.</span>"The capacity principle legitimises power."</h3>
+        <details class="objection">
+          <summary><span class="obj-num">5.</span> "The capacity principle legitimises power."</summary>
           <p class="reply">Answerability is not authority (<a href="#s3">§3.2</a>, <a href="#s8">§8.3</a>). Higher levels mean stronger constraints. T5 looks for exactly this misuse. The risk remains and is not argued away; <a href="#s11">§11.4</a> converts it from a concession into a design constraint. The framework handles this risk; it does not eliminate it. See also objection 3 and <a href="#s2">§2.4b</a>.</p>
-        </div>
+        </details>
 
-        <div class="objection">
-          <h3><span class="obj-num">6.</span>"Who reviews the reviewers?"</h3>
+        <details class="objection">
+          <summary><span class="obj-num">6.</span> "Who reviews the reviewers?"</summary>
           <p class="reply">The regress is bounded, not eliminated (<a href="#s11">§11</a>): finality without infallibility, review conditions R1–R6, plural and public reasoning, and counter-profiles. It also needs a political precondition, a balance of power, that no framework can supply by itself.</p>
-        </div>
+        </details>
 
-        <div class="objection">
-          <h3><span class="obj-num">7.</span>"Precaution under uncertainty is either paralysing or too weak to matter."</h3>
+        <details class="objection">
+          <summary><span class="obj-num">7.</span> "Precaution under uncertainty is either paralysing or too weak to matter."</summary>
           <p class="reply">The credibility threshold in <a href="#s4">§4.2</a> answers the first: reasons arise only where there is evidence or a plausible mechanism. Against the second: in Tier C the principle does real work, requiring investigation and proportionate safeguards. The stone does not meet the threshold and is not claimed to.</p>
-        </div>
+        </details>
 
-        <div class="objection">
-          <h3><span class="obj-num">8.</span>"The ratings are arbitrary or manipulable."</h3>
+        <details class="objection">
+          <summary><span class="obj-num">8.</span> "The ratings are arbitrary or manipulable."</summary>
           <p class="reply">Judgment cannot be eliminated, but <a href="#s9">§9</a> exposes it: anchors with observable indicators, two raters, a sensitivity test, reasoned overrides and counter-profiles. Tests T1 and T2 examine consistency, and <a href="#s15">§15.2</a> requires preregistration.</p>
-        </div>
+        </details>
 
-        <div class="objection">
-          <h3><span class="obj-num">9.</span>"This is Western liberal philosophy in disguise."</h3>
+        <details class="objection">
+          <summary><span class="obj-num">9.</span> "This is Western liberal philosophy in disguise."</summary>
           <p class="reply">Its development lies mostly in that tradition, and <a href="#s15">§15.1</a> says so. <a href="#s2-7">§2.7</a> distinguishes thin from thick justificatory claims: the framework requires only the thin one, which is much more widely shared than the thick version. It claims that four families of consideration point toward J (<a href="#s2">§2.3</a>) and engages other traditions (<a href="#s2">§2.5</a>). That engagement shaped the text: contestation and representation may be collective, ecosystem standing is left open, and the boundary of who counts is not treated as settled.</p>
-        </div>
+        </details>
 
-        <div class="objection">
-          <h3><span class="obj-num">10.</span>"It will burden the already overburdened."</h3>
+        <details class="objection">
+          <summary><span class="obj-num">10.</span> "It will burden the already overburdened."</summary>
           <p class="reply">The level attaches to the arrangement and duties are allocated by capacity (<a href="#s8">§8.2</a>). The health worker case (<a href="#s14">§14.4</a>) and the emergency physician case (<a href="#s14">§14.2b</a>) show the mechanism. Whether burdens migrate to front-line staff is part of what tests T3 and T4 would reveal.</p>
-        </div>
+        </details>
 
-        <div class="objection">
-          <h3><span class="obj-num">11.</span>"The epistemic burden principle is circular. It smuggles answerability into the definition of symbiosis."</h3>
+        <details class="objection">
+          <summary><span class="obj-num">11.</span> "The epistemic burden principle is circular. It smuggles answerability into the definition of symbiosis."</summary>
           <p class="reply">This is the most serious objection to the framework's positive contribution, and the reply is in <a href="#s5">§5.2</a>. SY1–SY3 are specified independently of answerability. SY1 measures the gap between stated preferences and accepted terms, adjusted for exit costs. SY2 measures whether interventions aim at removing the burden or the difference. SY3 measures whether F1–F5 hold over time. These are observable without invoking any procedure of answerability. The principle adds a substantive claim: these three conditions can only be <em>reliably assessed</em> — and therefore only <em>reliably secured</em> — through procedures of answerability. This is not tautological. It is a claim about the epistemic conditions under which SY1–SY3 can be known. The principle may be wrong — the argument can be challenged, and the defeaters are stated in <a href="#s5">§5.2</a> — but the revised formulation does not define symbiosis in terms of answerability.</p>
-        </div>
+        </details>
 
-        <div class="objection">
-          <h3><span class="obj-num">12.</span>"Why not just rely on rights and regulation?"</h3>
+        <details class="objection">
+          <summary><span class="obj-num">12.</span> "Why not just rely on rights and regulation?"</summary>
           <p class="reply">Rights and regulation are necessary and are not replaced. They leave gaps: influence by actors the law does not reach, structural harms not yet recognised as rights violations, and cases where the law lags. The framework helps decide what to demand of actors where law is silent.</p>
-        </div>
+        </details>
 
-        <div class="objection">
-          <h3><span class="obj-num">13.</span>"Why these three symbiosis indicators, and not something else?"</h3>
+        <details class="objection">
+          <summary><span class="obj-num">13.</span> "Why these three symbiosis indicators, and not something else?"</summary>
           <p class="reply">The choice is derived and defended in <a href="#s5-3">§5.3</a>. SY1–SY3 are the three distinct ways standing can be made vacuous: hollow reasons, absorbed difference, foreclosed action. They are a <em>floor</em>, not a complete ideal. They are chosen because they are derivable from the thin standing claim, are not reducible to welfare or capability or autonomy, and handle cases of legitimate dependence (children, disability, care) better than autonomy-based floors. The framework does not claim they are the only possible floor. If a critic can show that a relation clearly failing SY1–SY3 is nonetheless good, or that a relation clearly meeting them is nonetheless bad in a way the framework cannot detect, the choice of floor should be revised.</p>
-        </div>
+        </details>
       </section>
 
       <hr class="sep">
@@ -2159,7 +2207,7 @@
 
   function updateActiveToc() {
     if (!targets.length) return;
-    var threshold = 120; // px from viewport top
+    var threshold = 120;
     var activeId = targets[0].id;
     for (var i = 0; i < targets.length; i++) {
       if (targets[i].getBoundingClientRect().top <= threshold) activeId = targets[i].id;
@@ -2213,7 +2261,38 @@
     a.textContent = '§';
     h2.insertBefore(a, h2.firstChild);
   });
+
+  /* ---------- NEW: Expand all objections ---------- */
+  var expandBtn = document.getElementById('expandObjections');
+  if (expandBtn) {
+    expandBtn.addEventListener('click', function () {
+      var open = expandBtn.getAttribute('aria-expanded') === 'true';
+      document.querySelectorAll('details.objection').forEach(function (d) { d.open = !open; });
+      expandBtn.setAttribute('aria-expanded', String(!open));
+      expandBtn.textContent = open ? 'Expand all objections' : 'Collapse all objections';
+    });
+  }
+
+  /* ---------- NEW: Readability labels per section ---------- */
+  var readabilityMap = {
+    'abstract':'overview','preface':'overview','reader-guide':'overview',
+    's1':'deep','s2':'deep','s3':'deep','s4':'deep','s5':'deep','s6':'deep',
+    's7':'deep','s8':'deep','s9':'deep','s10':'deep','s11':'deep','s12':'deep',
+    's13':'deep','s14':'deep','s15':'deep','s16':'deep','s17':'overview',
+    'objections':'overview','svensk-sammanfattning':'overview','glossary':'overview',
+    'references':'overview','discussion':'overview','about':'overview'
+  };
+  document.querySelectorAll('section[id], .coda[id]').forEach(function (sec) {
+    var level = readabilityMap[sec.id]; if (!level) return;
+    var h2 = sec.querySelector('h2'); if (!h2) return;
+    if (h2.querySelector('.readability')) return;
+    var b = document.createElement('span');
+    b.className = 'readability';
+    b.dataset.level = level;
+    b.textContent = level.charAt(0).toUpperCase() + level.slice(1);
+    h2.appendChild(b);
+  });
 })();
 </script>
 </body>
-              </html>
+  </html>
